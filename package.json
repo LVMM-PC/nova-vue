@@ -6,15 +6,17 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name nova src/index.js",
-    "build-doc": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "build-demo": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
     "core-js": "^2.6.5",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "portal-vue": "^2.1.6",
-    "vue": "^2.6.10",
+    "vue": "^2.6.11",
     "vue-client-only": "^2.0.0",
     "vue-router": "^3.0.3"
   },
@@ -33,6 +35,7 @@
     "less": "^3.0.4",
     "less-loader": "^5.0.0",
     "prettier": "^1.18.2",
-    "vue-template-compiler": "^2.6.10"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.3.1"
   }
 }
