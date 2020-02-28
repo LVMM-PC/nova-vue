@@ -10,3 +10,4 @@ export NovaRadio from './components/radio/NovaRadio';
 export NovaRadioGroup from './components/radio/NovaRadioGroup';
 export NovaCheckbox from './components/checkbox/NovaCheckbox';
 export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup';
+export const version = '0.1.0';

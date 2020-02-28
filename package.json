@@ -1,7 +1,6 @@
 {
   "name": "nova-vue",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/nova.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -9,7 +8,9 @@
     "build-demo": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "prepublish": "npm run lint && npm run build",
+    "publish": "npm run docs:build"
   },
   "dependencies": {
     "core-js": "^2.6.5",
