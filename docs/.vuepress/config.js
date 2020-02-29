@@ -14,6 +14,7 @@ module.exports = {
     sidebar: [
       '/',
       '/getting-started/',
+      '/i18n/',
       '/alert/',
       '/select/',
       '/radio/',

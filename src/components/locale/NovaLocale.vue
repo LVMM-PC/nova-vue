@@ -1,5 +1,5 @@
 <template>
-  <div class="nova-ui-local" v-bind="$attrs" v-on="$listeners">
+  <div class="nova-ui-locale" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </div>
 </template>
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.nova-ui-local {
+.nova-ui-locale {
   vertical-align: top;
   display: inline-block;
 }
