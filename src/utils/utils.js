@@ -39,7 +39,7 @@ export default class Utils {
 
   static mergeOptions(to, from) {
     for (const key in from) {
-      if (!from.hasOwnProperty(key)) {
+      if (!Object.prototype.hasOwnProperty.call(from, key)) {
         continue;
       }
       if (typeof from[key] === 'object') {

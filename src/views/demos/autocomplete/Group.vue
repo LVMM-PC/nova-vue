@@ -5,9 +5,7 @@
       :fetch-suggestions="querySearch"
       focusSearch
     >
-      <template slot="start"
-        >Hot
-      </template>
+      <template slot="start">Hot</template>
       <template slot-scope="scope">
         {{ scope.item.trueDistrictAlias }}
       </template>
@@ -49,14 +47,14 @@ export default {
 
       let matchGroups = [];
       for (let type in listGroups) {
-        if (listGroups.hasOwnProperty(type)) {
-          let group = listGroups[type];
-
-          matchGroups.push({
-            type: type,
-            children: group
-          });
+        if (!Object.prototype.hasOwnProperty.call(listGroups, type)) {
+          continue;
         }
+        let group = listGroups[type];
+        matchGroups.push({
+          type: type,
+          children: group
+        });
       }
 
       console.log(matchGroups);

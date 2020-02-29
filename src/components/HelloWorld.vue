@@ -20,10 +20,26 @@
       </li>
       <li>
         <a
+          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-router"
+          target="_blank"
+          rel="noopener"
+          >router</a
+        >
+      </li>
+      <li>
+        <a
           href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint"
           target="_blank"
           rel="noopener"
           >eslint</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-unit-jest"
+          target="_blank"
+          rel="noopener"
+          >unit-jest</a
         >
       </li>
     </ul>
@@ -106,7 +122,6 @@ ul {
 }
 li {
   display: inline-block;
-  vertical-align: top;
   margin: 0 10px;
 }
 a {

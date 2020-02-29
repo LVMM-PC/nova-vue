@@ -7,22 +7,22 @@ yarn install
 
 ### 编译并热加载为了开发
 ```
-yarn run serve
+yarn serve
 ```
 
 ### 编译并压缩为了生成
 ```
-yarn run build
+yarn build
 ```
 
-### 运行测试
+### 运行单元测试
 ```
-yarn run test
+yarn test:unit
 ```
 
 ### 检查格式错误并自动修复
 ```
-yarn run lint
+yarn lint
 ```
 
 ### 自定义选项
