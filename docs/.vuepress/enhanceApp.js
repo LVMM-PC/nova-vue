@@ -1,8 +1,5 @@
 import PortalVue from 'portal-vue';
-import {
-  version,
-  locale,
-  holiday,
+import nova, {
   NovaLocale,
   NovaSelect,
   NovaOption,
@@ -21,11 +18,11 @@ import '../../dist/nova.css';
 export default ({ Vue }) => {
   Vue.use(PortalVue);
 
-  window.nova = {
-    version,
-    locale,
-    holiday
-  };
+  if (typeof window !== 'undefined') {
+    window.nova = nova;
+  } else if (typeof global !== 'undefined') {
+    global.nova = nova;
+  }
 
   Vue.component('NovaLocale', NovaLocale);
   Vue.component('NovaSelect', NovaSelect);

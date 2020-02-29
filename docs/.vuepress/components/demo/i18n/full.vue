@@ -10,9 +10,9 @@
 </template>
 
 <script>
-const en = nova.locale.en; // import en from 'nova-vue/src/locale/lang/en'
-const zhCN = nova.locale.zhCN; // import zhCN from 'nova-vue/src/locale/lang/zh-CN'
-const china = nova.holiday.china; // import china from 'nova-vue/src/locale/holiday/china'
+const en = nova.locale.en;
+const zhCN = nova.locale.zhCN;
+const china = nova.holiday.china;
 
 export default {
   data() {

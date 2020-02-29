@@ -59,6 +59,7 @@ $ npm install nova-vue --save
 
 <script>
 import { NovaDatePicker } from 'nova-vue';
+
 export default {
   components: {
     NovaDatePicker

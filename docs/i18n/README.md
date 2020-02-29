@@ -8,6 +8,10 @@ NovaLocale 使用 Vue 的[依赖注入](https://cn.vuejs.org/v2/guide/components
 
 <<< @/docs/.vuepress/components/demo/i18n/basic.vue
 
+### 语言包引入
+
+<<< @/docs/.vuepress/components/demo/i18n/utils.js
+
 ## 代码演示
 
 此处列出 Nova Vue 中需要国际化支持的组件。

@@ -26,3 +26,9 @@ import china from './locales/holiday/china';
 export const holiday = {
   china
 };
+
+export default {
+  version,
+  locale,
+  holiday
+};
