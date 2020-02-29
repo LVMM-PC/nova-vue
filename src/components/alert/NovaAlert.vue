@@ -129,7 +129,7 @@ export default {
 @info-background-color: #f0f5fc;
 
 .nova-ui-alert {
-  padding: 8px 0 8px 0;
+  padding: 6px 0 6px 0;
   font-family: @font-family;
   vertical-align: top;
   display: inline-block;
@@ -142,7 +142,7 @@ export default {
   &.nova-ui-alert-warning,
   &.nova-ui-alert-info,
   &.nova-ui-alert-help {
-    padding: 8px 0 8px 20px;
+    padding: 6px 0 6px 20px;
 
     .nova-ui-alert-icon {
       margin: 2px 5px 0 -19px;
@@ -196,8 +196,8 @@ export default {
     }
 
     &:after {
-      top: -5.4142px;
-      border-width: 0 5.4142px 5.4142px 5.4142px;
+      top: -5.5px;
+      border-width: 0 5.5px 5.5px 5.5px;
       border-color: transparent transparent @default-background-color
         transparent;
     }
@@ -281,7 +281,7 @@ export default {
 
     &:after {
       top: 0;
-      border-width: 5.4142px 5.4142px 0 5.4142px;
+      border-width: 5.5px 5.5px 0 5.5px;
       border-color: @default-background-color transparent transparent
         transparent;
     }
@@ -364,8 +364,8 @@ export default {
     }
 
     &:after {
-      left: -5.4142px;
-      border-width: 5.4142px 5.4142px 5.4142px 0;
+      left: -5.5px;
+      border-width: 5.5px 5.5px 5.5px 0;
       border-color: transparent @default-background-color transparent
         transparent;
     }
@@ -449,7 +449,7 @@ export default {
 
     &:after {
       left: 0;
-      border-width: 5.4142px 0 5.4142px 5.4142px;
+      border-width: 5.5px 0 5.5px 5.5px;
       border-color: transparent transparent transparent
         @default-background-color;
     }
@@ -565,17 +565,17 @@ export default {
 .nova-ui-alert-border {
   background-color: @default-background-color;
   border: 1px solid @default-border-color;
-  padding: 8px 11px 8px 11px;
+  padding: 5px 11px 5px 11px;
 
   &.nova-ui-alert-success,
   &.nova-ui-alert-error,
   &.nova-ui-alert-warning,
   &.nova-ui-alert-info,
   &.nova-ui-alert-help {
-    padding: 8px 11px 8px 29px;
+    padding: 5px 6px 5px 26px;
 
     &.nova-ui-alert-closable {
-      padding: 8px 31px 8px 29px;
+      padding: 5px 28px 5px 26px;
     }
 
     .nova-ui-alert-icon {

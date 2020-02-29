@@ -820,7 +820,7 @@ export default {
   }
 
   &:after {
-    top: -5.4142px;
+    top: -5.5px;
     border-width: 0 6px 6px 6px;
     border-color: transparent transparent #ffffff transparent;
   }
