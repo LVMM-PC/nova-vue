@@ -17,12 +17,65 @@
 
 <<< @/docs/.vuepress/components/demo/alert/basic.vue
 
-### 四种样式
+### 样式
 
-共有四种样式 `success`、`info`、`warning`、`error`。
+具有不同样式 `success`、`info`、`help`、`warning`、`error`。
 
 <demo-alert-style/>
 
 <<< @/docs/.vuepress/components/demo/alert/style.vue
 
+### 边框
+
+可以控制边框的显示隐藏。
+
+<demo-alert-border/>
+
+<<< @/docs/.vuepress/components/demo/alert/border.vue
+
+### 布局
+
+即可占用一整行，也可行内显示以便在表单中使用。
+
+<demo-alert-block/>
+
+<<< @/docs/.vuepress/components/demo/alert/block.vue
+
+### 可关闭的警告提示
+
+显示关闭按钮，点击可关闭警告提示。
+
+<demo-alert-closable/>
+
+<<< @/docs/.vuepress/components/demo/alert/closable.vue
+
+### 箭头
+
+位置有 12 个方向。
+
+<demo-alert-arrow/>
+
+<<< @/docs/.vuepress/components/demo/alert/arrow.vue
+
 ## API
+
+| 参数          | 说明                                                                                                                                             | 类型    | 默认值 |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------ |
+| type          | 指定警告提示的样式，可选 `success` `info` `help` `warning` `error`                                                                               | string  | —      |
+| border        | 是否显示边框                                                                                                                                     | boolean | false  |
+| block         | 是否占用一整行                                                                                                                                   | boolean | false  |
+| closable      | 是否显示关闭按钮                                                                                                                                 | boolean | false  |
+| visible-arrow | 是否显示箭头                                                                                                                                     | boolean | false  |
+| placement     | 箭头位置，可选 `top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end` | string  | —      |
+
+### Slot
+
+| 参数 | 说明     | 类型   | 默认值 |
+| ---- | -------- | ------ | ------ |
+| —    | 提示文字 | string | —      |
+
+### Events
+
+| 事件名称 | 说明                    | 回调参数 |
+| -------- | ----------------------- | -------- |
+| close    | 关闭 alert 时触发的事件 | —        |
