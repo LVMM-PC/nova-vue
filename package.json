@@ -1,6 +1,23 @@
 {
   "name": "nova-vue",
-  "version": "0.1.1",
+  "description": "An enterprise-class UI design language and Vue components implementation",
+  "version": "0.1.2",
+  "author": {
+    "name": "em2046",
+    "email": "em2046@qq.com"
+  },
+  "keywords": [
+    "nova",
+    "component",
+    "components",
+    "design",
+    "framework",
+    "frontend",
+    "vue",
+    "vue-component",
+    "ui"
+  ],
+  "license": "MIT",
   "main": "dist/nova.umd.js",
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -13,8 +30,17 @@
     "prepublish": "npm run lint && npm run build",
     "publish": "npm run docs:build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LVMM-PC/nova-vue"
+  },
+  "bugs": {
+    "url": "https://github.com/LVMM-PC/nova-vue/issues"
+  },
+  "homepage": "http://nova-vue.em2046.com/",
   "dependencies": {
     "core-js": "^3.6.4",
+    "dayjs": "^1.8.21",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
     "portal-vue": "^2.1.7",
