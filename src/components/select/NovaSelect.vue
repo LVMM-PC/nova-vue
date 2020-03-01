@@ -40,16 +40,14 @@
       </template>
     </div>
 
-    <div>
-      <NovaDropdown
-        ref="dropdown"
-        :opened="opened"
-        :append-to-body="appendToBody"
-        :popover-class="['nova-ui-select-dropdown', popoverClass]"
-      >
-        <slot></slot>
-      </NovaDropdown>
-    </div>
+    <NovaDropdown
+      ref="dropdown"
+      :opened="opened"
+      :append-to-body="appendToBody"
+      :popover-class="['nova-ui-select-dropdown', popoverClass]"
+    >
+      <slot></slot>
+    </NovaDropdown>
   </div>
 </template>
 

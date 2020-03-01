@@ -1,0 +1,82 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`] = `
+<section>
+  <div tabindex="0" class="nova-ui-select">
+    <div class="nova-ui-select-toggle"><span class="nova-ui-select-arrow"></span>
+      <!----><span class="nova-ui-select-text"> shanghai </span>
+      <!---->
+    </div>
+    <div data-mock="client-only">
+      <div data-mock="mounting-portal" mountto="#portal-target" append="">
+        <div class="nova-ui-dropdown nova-ui-select-dropdown" style="left: 0px; top: 0px; display: none;">
+          <div class="nova-ui-select-option"> Beijing </div>
+          <div class="nova-ui-select-option is-selected"> Shanghai </div>
+          <div class="nova-ui-select-option is-disabled"> Disabled </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div tabindex="-1" class="nova-ui-select is-disabled">
+    <div class="nova-ui-select-toggle"><span class="nova-ui-select-arrow"></span>
+      <!----><span class="nova-ui-select-text"> shanghai </span>
+      <!---->
+    </div>
+    <div data-mock="client-only">
+      <div data-mock="mounting-portal" mountto="#portal-target" append="">
+        <div class="nova-ui-dropdown nova-ui-select-dropdown" style="left: 0px; top: 0px; display: none;">
+          <div class="nova-ui-select-option is-selected"> Shanghai </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 1`] = `
+<div tabindex="0" class="nova-ui-select">
+  <div class="nova-ui-select-toggle"><span class="nova-ui-select-arrow"></span>
+    <!---->
+    <!---->
+    <div class="nova-ui-select-labels"><span class="nova-ui-select-label"><span>beijing</span><span class="nova-ui-select-label-delete"></span></span><span class="nova-ui-select-label"><span>shanghai</span><span class="nova-ui-select-label-delete"></span></span></div>
+  </div>
+  <div data-mock="client-only">
+    <div data-mock="mounting-portal" mountto="#portal-target" append="">
+      <div class="nova-ui-dropdown nova-ui-select-dropdown" style="left: 0px; top: 0px; display: none;">
+        <div class="nova-ui-select-option is-selected"> Beijing </div>
+        <div class="nova-ui-select-option is-selected"> Shanghai </div>
+        <div class="nova-ui-select-option"> Shenzhen </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/select/opt-group.vue correctly 1`] = `
+<div tabindex="0" class="nova-ui-select">
+  <div class="nova-ui-select-toggle"><span class="nova-ui-select-arrow"></span>
+    <!----><span class="nova-ui-select-text"> shanghai </span>
+    <!---->
+  </div>
+  <div data-mock="client-only">
+    <div data-mock="mounting-portal" mountto="#portal-target" append="">
+      <div class="nova-ui-dropdown nova-ui-select-dropdown" style="left: 0px; top: 0px; display: none;">
+        <div class="nova-ui-select-option-group">
+          <div class="nova-ui-select-option-group-label"> Municipality directly under the Central Government </div>
+          <div class="nova-ui-select-option-group-content">
+            <div class="nova-ui-select-option"> Beijing </div>
+            <div class="nova-ui-select-option is-selected"> Shanghai </div>
+          </div>
+        </div>
+        <div class="nova-ui-select-option-group">
+          <div class="nova-ui-select-option-group-label"> Special Administrative Region </div>
+          <div class="nova-ui-select-option-group-content">
+            <div class="nova-ui-select-option"> Hong Kong </div>
+            <div class="nova-ui-select-option"> Macao </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

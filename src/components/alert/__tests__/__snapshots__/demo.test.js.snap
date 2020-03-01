@@ -22,7 +22,7 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
   <div class="left">
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-left-start nova-ui-alert-border nova-ui-alert-has-arrow">
       <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
-      <!----><span>左上</span>
+      <!----><span>左<br>上</span>
       <div class="nova-ui-alert-arrow"></div>
     </div>
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-left nova-ui-alert-border nova-ui-alert-has-arrow">
@@ -32,14 +32,14 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
     </div>
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-left-end nova-ui-alert-border nova-ui-alert-has-arrow">
       <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
-      <!----><span>左下</span>
+      <!----><span>左<br>下</span>
       <div class="nova-ui-alert-arrow"></div>
     </div>
   </div>
   <div class="right">
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-right-start nova-ui-alert-border nova-ui-alert-has-arrow">
       <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
-      <!----><span>右上</span>
+      <!----><span>右<br>上</span>
       <div class="nova-ui-alert-arrow"></div>
     </div>
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-right nova-ui-alert-border nova-ui-alert-has-arrow">
@@ -49,7 +49,7 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
     </div>
     <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-right-end nova-ui-alert-border nova-ui-alert-has-arrow">
       <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
-      <!----><span>右下</span>
+      <!----><span>右<br>下</span>
       <div class="nova-ui-alert-arrow"></div>
     </div>
   </div>
@@ -74,12 +74,10 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
 `;
 
 exports[`renders ./docs/.vuepress/components/demo/alert/basic.vue correctly 1`] = `
-<section>
-  <div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-bottom nova-ui-alert-border nova-ui-alert-block">
-    <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
-    <!---->Success Text<div class="nova-ui-alert-arrow"></div>
-  </div>
-</section>
+<div class="nova-ui-alert nova-ui-alert-success nova-ui-alert-placement-bottom nova-ui-alert-border nova-ui-alert-block">
+  <div class="nova-ui-alert-icon nova-ui-alert-icon-success"></div>
+  <!---->Success Text<div class="nova-ui-alert-arrow"></div>
+</div>
 `;
 
 exports[`renders ./docs/.vuepress/components/demo/alert/block.vue correctly 1`] = `
