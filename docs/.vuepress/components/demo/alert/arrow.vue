@@ -13,24 +13,24 @@
     </div>
     <div class="left">
       <NovaAlert visible-arrow placement="left-start" border type="success">
-        <span>左上</span>
+        <span>左<br />上</span>
       </NovaAlert>
       <NovaAlert visible-arrow placement="left" border type="success">
         <span>左</span>
       </NovaAlert>
       <NovaAlert visible-arrow placement="left-end" border type="success">
-        <span>左下</span>
+        <span>左<br />下</span>
       </NovaAlert>
     </div>
     <div class="right">
       <NovaAlert visible-arrow placement="right-start" border type="success">
-        <span>右上</span>
+        <span>右<br />上</span>
       </NovaAlert>
       <NovaAlert visible-arrow placement="right" border type="success">
         <span>右</span>
       </NovaAlert>
       <NovaAlert visible-arrow placement="right-end" border type="success">
-        <span>右下</span>
+        <span>右<br />下</span>
       </NovaAlert>
     </div>
     <div class="bottom">

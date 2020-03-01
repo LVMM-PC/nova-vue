@@ -4,6 +4,7 @@ import china from './locales/holiday/china';
 
 export NovaLocale from './components/locale/NovaLocale';
 export NovaSelect from './components/select/NovaSelect';
+export NovaOptGroup from './components/select/NovaOptGroup';
 export NovaOption from './components/select/NovaOption';
 export NovaDropdown from './components/dropdown/NovaDropdown';
 export NovaDatePicker from './components/date-picker/NovaDatePicker';

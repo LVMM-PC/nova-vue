@@ -22,11 +22,11 @@ export default {
       default: false
     },
     label: {
-      type: [String, Number],
+      type: String,
       default: null
     },
     value: {
-      type: [String, Number],
+      type: [String, Number, Boolean],
       default: null
     }
   },

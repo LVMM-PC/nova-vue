@@ -40,7 +40,7 @@ export default {
     },
     popoverClass: {
       type: [String, Array, Object],
-      default: undefined
+      default: null
     }
   },
   methods: {

@@ -144,7 +144,7 @@ export default {
     },
     popoverClass: {
       type: String,
-      default: undefined
+      default: null
     },
     fetchSuggestions: {
       type: Function,

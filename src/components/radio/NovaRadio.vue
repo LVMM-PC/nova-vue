@@ -104,8 +104,11 @@ export default {
 
   &:focus {
     outline: none;
-    .nova-ui-radio-input {
-      border: 1px solid #ee3388;
+
+    &:not(.is-disabled) {
+      .nova-ui-radio-input {
+        border: 1px solid #ee3388;
+      }
     }
   }
 

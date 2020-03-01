@@ -32,7 +32,7 @@ export default {
 }
 
 .nova-ui-select-option-group-content {
-  /deep/ .nova-ui-select-option {
+  .nova-ui-select-option {
     padding-left: 20px;
   }
 }

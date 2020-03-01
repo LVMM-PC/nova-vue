@@ -20,7 +20,7 @@
           {{ displayedLabel() || value }}
         </span>
       </template>
-      <template v-if="multiple === true">
+      <template v-if="multiple === true && value">
         <span
           class="nova-ui-select-text nova-ui-select-placeholder"
           v-if="!value.length"
@@ -89,7 +89,7 @@ export default {
     value: {},
     popoverClass: {
       type: String,
-      default: undefined
+      default: null
     }
   },
   data() {
@@ -122,6 +122,8 @@ export default {
       let value = this.value;
 
       switch (typeof value) {
+        case 'boolean':
+          return true;
         case 'number':
           return true;
         case 'undefined':
@@ -149,7 +151,7 @@ export default {
     },
     valueToLabel(value) {
       let found = this.valueHash[value];
-      if (found) {
+      if (found !== null && found !== undefined) {
         return found.label;
       }
       return '';
@@ -247,12 +249,14 @@ export default {
   &:focus {
     outline: none;
 
-    .nova-ui-select-toggle {
-      border: 1px solid #aaaaaa;
-    }
+    &:not(.is-disabled) {
+      .nova-ui-select-toggle {
+        border: 1px solid #aaaaaa;
+      }
 
-    .nova-ui-select-arrow {
-      border-left: 1px solid #cccccc;
+      .nova-ui-select-arrow {
+        border-left: 1px solid #cccccc;
+      }
     }
   }
 
@@ -284,6 +288,7 @@ export default {
   cursor: pointer;
   display: block;
   border: 1px solid #cccccc;
+  min-height: 28px;
 }
 
 .nova-ui-select-text {

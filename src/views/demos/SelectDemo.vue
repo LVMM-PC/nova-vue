@@ -153,6 +153,12 @@
         </NovaOption>
       </NovaSelect>
     </div>
+    <div class="box">
+      <NovaSelect v-model="boolValue">
+        <NovaOption :value="true"></NovaOption>
+        <NovaOption :value="false"></NovaOption>
+      </NovaSelect>
+    </div>
   </div>
 </template>
 
@@ -221,7 +227,8 @@ export default {
           '青海省'
         ]
       },
-      numberOfSelect: 0
+      numberOfSelect: 0,
+      boolValue: false
     };
   },
   components: { NovaOptGroup, NovaLocale, NovaOption, NovaSelect },

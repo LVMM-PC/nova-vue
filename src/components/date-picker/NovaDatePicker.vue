@@ -61,7 +61,7 @@
         />
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input "
+          class="nova-ui-date-picker-input"
           readonly
           @focus="handleStartFocus"
           @blur="handleStartBlur"
@@ -264,7 +264,7 @@ export default {
     },
     popoverClass: {
       type: String,
-      default: undefined
+      default: null
     }
   },
   data() {
@@ -732,6 +732,7 @@ export default {
   height: 100%;
   padding: 5px;
   outline: none;
+  cursor: default;
 
   &[disabled] {
     background-color: #eeeeee;

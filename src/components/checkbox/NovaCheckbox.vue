@@ -107,8 +107,10 @@ export default {
   &:focus {
     outline: none;
 
-    .nova-ui-checkbox-input {
-      border: 1px solid #ee3388;
+    &:not(.is-disabled) {
+      .nova-ui-checkbox-input {
+        border: 1px solid #ee3388;
+      }
     }
   }
 

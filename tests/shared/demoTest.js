@@ -5,6 +5,7 @@ import { mount } from '@vue/test-utils';
 import nova, {
   NovaLocale,
   NovaSelect,
+  NovaOptGroup,
   NovaOption,
   NovaDropdown,
   NovaDatePicker,
@@ -21,6 +22,7 @@ global.nova = nova;
 
 Vue.component('NovaLocale', NovaLocale);
 Vue.component('NovaSelect', NovaSelect);
+Vue.component('NovaOptGroup', NovaOptGroup);
 Vue.component('NovaOption', NovaOption);
 Vue.component('NovaDropdown', NovaDropdown);
 Vue.component('NovaDatePicker', NovaDatePicker);

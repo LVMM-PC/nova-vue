@@ -7,6 +7,7 @@ module.exports = {
     }
   },
   themeConfig: {
+    activeHeaderLinks: false,
     nav: [
       { text: 'Home', link: '/' },
       { text: 'GitHub', link: 'https://github.com/LVMM-PC/nova-vue' }

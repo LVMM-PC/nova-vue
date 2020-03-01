@@ -2,6 +2,7 @@ import PortalVue from 'portal-vue';
 import nova, {
   NovaLocale,
   NovaSelect,
+  NovaOptGroup,
   NovaOption,
   NovaDropdown,
   NovaDatePicker,
@@ -26,6 +27,7 @@ export default ({ Vue }) => {
 
   Vue.component('NovaLocale', NovaLocale);
   Vue.component('NovaSelect', NovaSelect);
+  Vue.component('NovaOptGroup', NovaOptGroup);
   Vue.component('NovaOption', NovaOption);
   Vue.component('NovaDropdown', NovaDropdown);
   Vue.component('NovaDatePicker', NovaDatePicker);

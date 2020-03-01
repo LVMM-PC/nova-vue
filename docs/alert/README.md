@@ -61,21 +61,21 @@
 
 | 参数          | 说明                                                                                                                                             | 类型    | 默认值 |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ------ |
-| type          | 指定警告提示的样式，可选 `success` `info` `help` `warning` `error`                                                                               | string  | -      |
-| border        | 是否显示边框                                                                                                                                     | boolean | false  |
 | block         | 是否占用一整行                                                                                                                                   | boolean | false  |
+| border        | 是否显示边框                                                                                                                                     | boolean | false  |
 | closable      | 是否显示关闭按钮                                                                                                                                 | boolean | false  |
-| visible-arrow | 是否显示箭头                                                                                                                                     | boolean | false  |
 | placement     | 箭头位置，可选 `top` `top-start` `top-end` `bottom` `bottom-start` `bottom-end` `left` `left-start` `left-end` `right` `right-start` `right-end` | string  | -      |
+| type          | 指定警告提示的样式，可选 `success` `info` `help` `warning` `error`                                                                               | string  | -      |
+| visible-arrow | 是否显示箭头                                                                                                                                     | boolean | false  |
 
 ### Slot
 
-| 参数 | 说明     | 类型   | 默认值 |
-| ---- | -------- | ------ | ------ |
-| -    | 提示文字 | string | -      |
+| 参数 | 说明     |
+| ---- | -------- |
+| -    | 提示文字 |
 
 ### Events
 
-| 事件名称 | 说明                    | 回调参数 |
-| -------- | ----------------------- | -------- |
-| close    | 关闭 alert 时触发的事件 | -        |
+| 事件名称 | 说明                    | 类型 |
+| -------- | ----------------------- | ---- |
+| close    | 关闭 alert 时触发的事件 | -    |
