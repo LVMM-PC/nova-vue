@@ -119,15 +119,19 @@ export default {
 @default-background-color: #f6f6f6;
 
 @success-border-color: #66cc33;
+@success-close-color: #ade392;
 @success-background-color: #f8fff2;
 
 @error-border-color: #ff8888;
+@error-close-color: #feac97;
 @error-background-color: #fff2f2;
 
 @warning-border-color: #ffaa00;
+@warning-close-color: #ffda8f;
 @warning-background-color: #fffaee;
 
 @info-border-color: #88bbee;
+@info-close-color: #96cff5;
 @info-background-color: #f0f5fc;
 
 .@{alert} {
@@ -205,57 +209,25 @@ export default {
     }
   }
 
-  &.@{alert}-success {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent @success-border-color transparent;
-      }
+  .arrow(@type; @border-color; @background-color) {
+    &.@{alert}-@{type} {
+      .@{alert}-arrow {
+        &:before {
+          border-color: transparent transparent @border-color transparent;
+        }
 
-      &:after {
-        border-color: transparent transparent @success-background-color
-          transparent;
+        &:after {
+          border-color: transparent transparent @background-color transparent;
+        }
       }
     }
   }
 
-  &.@{alert}-error {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent @error-border-color transparent;
-      }
-
-      &:after {
-        border-color: transparent transparent @error-background-color
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-warning {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent @warning-border-color transparent;
-      }
-
-      &:after {
-        border-color: transparent transparent @warning-background-color
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-info,
-  &.@{alert}-help {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent @info-border-color transparent;
-      }
-
-      &:after {
-        border-color: transparent transparent @info-background-color transparent;
-      }
-    }
-  }
+  .arrow(success; @success-border-color; @success-background-color);
+  .arrow(error; @error-border-color; @error-background-color);
+  .arrow(warning; @warning-border-color; @warning-background-color);
+  .arrow(info; @info-border-color; @info-background-color);
+  .arrow(help; @info-border-color; @info-background-color);
 
   .@{alert}-arrow {
     top: 0;
@@ -289,57 +261,25 @@ export default {
     }
   }
 
-  &.@{alert}-success {
-    .@{alert}-arrow {
-      &:before {
-        border-color: @success-border-color transparent transparent transparent;
-      }
+  .arrow(@type; @border-color; @background-color) {
+    &.@{alert}-@{type} {
+      .@{alert}-arrow {
+        &:before {
+          border-color: @border-color transparent transparent transparent;
+        }
 
-      &:after {
-        border-color: @success-background-color transparent transparent
-          transparent;
+        &:after {
+          border-color: @background-color transparent transparent transparent;
+        }
       }
     }
   }
 
-  &.@{alert}-error {
-    .@{alert}-arrow {
-      &:before {
-        border-color: @error-border-color transparent transparent transparent;
-      }
-
-      &:after {
-        border-color: @error-background-color transparent transparent
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-warning {
-    .@{alert}-arrow {
-      &:before {
-        border-color: @warning-border-color transparent transparent transparent;
-      }
-
-      &:after {
-        border-color: @warning-background-color transparent transparent
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-info,
-  &.@{alert}-help {
-    .@{alert}-arrow {
-      &:before {
-        border-color: @info-border-color transparent transparent transparent;
-      }
-
-      &:after {
-        border-color: @info-background-color transparent transparent transparent;
-      }
-    }
-  }
+  .arrow(success; @success-border-color; @success-background-color);
+  .arrow(error; @error-border-color; @error-background-color);
+  .arrow(warning; @warning-border-color; @warning-background-color);
+  .arrow(info; @info-border-color; @info-background-color);
+  .arrow(help; @info-border-color; @info-background-color);
 
   .@{alert}-arrow {
     bottom: 0;
@@ -373,57 +313,25 @@ export default {
     }
   }
 
-  &.@{alert}-success {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent @success-border-color transparent transparent;
-      }
+  .arrow(@type; @border-color; @background-color) {
+    &.@{alert}-@{type} {
+      .@{alert}-arrow {
+        &:before {
+          border-color: transparent @border-color transparent transparent;
+        }
 
-      &:after {
-        border-color: transparent @success-background-color transparent
-          transparent;
+        &:after {
+          border-color: transparent @background-color transparent transparent;
+        }
       }
     }
   }
 
-  &.@{alert}-error {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent @error-border-color transparent transparent;
-      }
-
-      &:after {
-        border-color: transparent @error-background-color transparent
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-warning {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent @warning-border-color transparent transparent;
-      }
-
-      &:after {
-        border-color: transparent @warning-background-color transparent
-          transparent;
-      }
-    }
-  }
-
-  &.@{alert}-info,
-  &.@{alert}-help {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent @info-border-color transparent transparent;
-      }
-
-      &:after {
-        border-color: transparent @info-background-color transparent transparent;
-      }
-    }
-  }
+  .arrow(success; @success-border-color; @success-background-color);
+  .arrow(error; @error-border-color; @error-background-color);
+  .arrow(warning; @warning-border-color; @warning-background-color);
+  .arrow(info; @info-border-color; @info-background-color);
+  .arrow(help; @info-border-color; @info-background-color);
 
   .@{alert}-arrow {
     left: 0;
@@ -457,57 +365,25 @@ export default {
     }
   }
 
-  &.@{alert}-success {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent transparent @success-border-color;
-      }
+  .arrow(@type; @border-color; @background-color) {
+    &.@{alert}-@{type} {
+      .@{alert}-arrow {
+        &:before {
+          border-color: transparent transparent transparent @border-color;
+        }
 
-      &:after {
-        border-color: transparent transparent transparent
-          @success-background-color;
+        &:after {
+          border-color: transparent transparent transparent @background-color;
+        }
       }
     }
   }
 
-  &.@{alert}-error {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent transparent @error-border-color;
-      }
-
-      &:after {
-        border-color: transparent transparent transparent
-          @error-background-color;
-      }
-    }
-  }
-
-  &.@{alert}-warning {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent transparent @warning-border-color;
-      }
-
-      &:after {
-        border-color: transparent transparent transparent
-          @warning-background-color;
-      }
-    }
-  }
-
-  &.@{alert}-info,
-  &.@{alert}-help {
-    .@{alert}-arrow {
-      &:before {
-        border-color: transparent transparent transparent @info-border-color;
-      }
-
-      &:after {
-        border-color: transparent transparent transparent @info-background-color;
-      }
-    }
-  }
+  .arrow(success; @success-border-color; @success-background-color);
+  .arrow(error; @error-border-color; @error-background-color);
+  .arrow(warning; @warning-border-color; @warning-background-color);
+  .arrow(info; @info-border-color; @info-background-color);
+  .arrow(help; @info-border-color; @info-background-color);
 
   .@{alert}-arrow {
     left: 100%;
@@ -585,82 +461,43 @@ export default {
     }
   }
 
-  &.@{alert}-success {
-    background-color: @success-background-color;
-    border: 1px solid @success-border-color;
+  .border-and-close (@type; @background-color; @border-color; @close-color) {
+    &.@{alert}-@{type} {
+      background-color: @background-color;
+      border: 1px solid @border-color;
 
-    .@{alert}-close-icon {
-      &:before,
-      &:after {
-        background-color: #ade392;
-      }
-
-      &:hover {
+      .@{alert}-close-icon {
         &:before,
         &:after {
-          background-color: @success-border-color;
+          background-color: @close-color;
+        }
+
+        &:hover {
+          &:before,
+          &:after {
+            background-color: @border-color;
+          }
         }
       }
     }
   }
 
-  &.@{alert}-error {
-    background-color: @error-background-color;
-    border: 1px solid @error-border-color;
-
-    .@{alert}-close-icon {
-      &:before,
-      &:after {
-        background-color: #feac97;
-      }
-
-      &:hover {
-        &:before,
-        &:after {
-          background-color: @error-border-color;
-        }
-      }
-    }
-  }
-
-  &.@{alert}-warning {
-    background-color: @warning-background-color;
-    border: 1px solid @warning-border-color;
-
-    .@{alert}-close-icon {
-      &:before,
-      &:after {
-        background-color: #ffda8f;
-      }
-
-      &:hover {
-        &:before,
-        &:after {
-          background-color: @warning-border-color;
-        }
-      }
-    }
-  }
-
-  &.@{alert}-info,
-  &.@{alert}-help {
-    background-color: @info-background-color;
-    border: 1px solid @info-border-color;
-
-    .@{alert}-close-icon {
-      &:before,
-      &:after {
-        background-color: #96cff5;
-      }
-
-      &:hover {
-        &:before,
-        &:after {
-          background-color: @info-border-color;
-        }
-      }
-    }
-  }
+  .border-and-close
+    (
+      success; @success-background-color; @success-border-color;
+        @success-close-color
+    );
+  .border-and-close
+    (error; @error-background-color; @error-border-color; @error-close-color);
+  .border-and-close
+    (
+      warning; @warning-background-color; @warning-border-color;
+        @warning-close-color
+    );
+  .border-and-close
+    (info; @info-background-color; @info-border-color; @info-close-color);
+  .border-and-close
+    (help; @info-background-color; @info-border-color; @info-close-color);
 }
 
 .@{alert}-close {
