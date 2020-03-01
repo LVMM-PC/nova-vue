@@ -68,7 +68,7 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-dropdown {
+.@{prefixed}-dropdown {
   box-sizing: border-box;
   margin-top: -1px;
   font-size: 14px;
@@ -80,17 +80,17 @@ export default {
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
 }
 
-.nova-ui-select-dropdown {
+.@{prefixed}-select-dropdown {
   width: 200px;
   max-height: 302px;
   overflow: auto;
 }
 
-.nova-ui-autocomplete-dropdown {
+.@{prefixed}-autocomplete-dropdown {
   margin-top: 1px;
 }
 
-.nova-ui-date-picker-dropdown {
+.@{prefixed}-date-picker-dropdown {
   position: absolute;
   background-color: #fff;
   border: 1px solid #cccccc;

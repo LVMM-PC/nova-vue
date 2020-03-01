@@ -113,6 +113,8 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
+@alert: @{prefixed}-alert;
+
 @default-border-color: #dddddd;
 @default-background-color: #f6f6f6;
 
@@ -128,7 +130,7 @@ export default {
 @info-border-color: #88bbee;
 @info-background-color: #f0f5fc;
 
-.nova-ui-alert {
+.@{alert} {
   padding: 6px 0 6px 0;
   font-family: @font-family;
   vertical-align: top;
@@ -137,32 +139,32 @@ export default {
   color: #333333;
   line-height: 18px;
 
-  &.nova-ui-alert-success,
-  &.nova-ui-alert-error,
-  &.nova-ui-alert-warning,
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
+  &.@{alert}-success,
+  &.@{alert}-error,
+  &.@{alert}-warning,
+  &.@{alert}-info,
+  &.@{alert}-help {
     padding: 6px 0 6px 20px;
 
-    .nova-ui-alert-icon {
+    .@{alert}-icon {
       margin: 2px 5px 0 -19px;
     }
   }
 
-  &.nova-ui-alert-weak {
+  &.@{alert}-weak {
     color: #999;
   }
 }
 
-.nova-ui-alert-has-arrow {
+.@{alert}-has-arrow {
   position: relative;
 
-  .nova-ui-alert-arrow {
+  .@{alert}-arrow {
     display: block;
   }
 }
 
-.nova-ui-alert-arrow {
+.@{alert}-arrow {
   display: none;
 
   &:before,
@@ -176,10 +178,10 @@ export default {
   }
 }
 
-.nova-ui-alert-placement-top-start,
-.nova-ui-alert-placement-top,
-.nova-ui-alert-placement-top-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-top-start,
+.@{alert}-placement-top,
+.@{alert}-placement-top-end {
+  .@{alert}-arrow {
     position: absolute;
     transform: translate(-50%, 0);
 
@@ -203,8 +205,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-success {
-    .nova-ui-alert-arrow {
+  &.@{alert}-success {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent @success-border-color transparent;
       }
@@ -216,8 +218,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-error {
-    .nova-ui-alert-arrow {
+  &.@{alert}-error {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent @error-border-color transparent;
       }
@@ -229,8 +231,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-warning {
-    .nova-ui-alert-arrow {
+  &.@{alert}-warning {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent @warning-border-color transparent;
       }
@@ -242,9 +244,9 @@ export default {
     }
   }
 
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
-    .nova-ui-alert-arrow {
+  &.@{alert}-info,
+  &.@{alert}-help {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent @info-border-color transparent;
       }
@@ -255,15 +257,15 @@ export default {
     }
   }
 
-  .nova-ui-alert-arrow {
+  .@{alert}-arrow {
     top: 0;
   }
 }
 
-.nova-ui-alert-placement-bottom-start,
-.nova-ui-alert-placement-bottom,
-.nova-ui-alert-placement-bottom-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-bottom-start,
+.@{alert}-placement-bottom,
+.@{alert}-placement-bottom-end {
+  .@{alert}-arrow {
     position: absolute;
     transform: translate(-50%, 0);
 
@@ -287,8 +289,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-success {
-    .nova-ui-alert-arrow {
+  &.@{alert}-success {
+    .@{alert}-arrow {
       &:before {
         border-color: @success-border-color transparent transparent transparent;
       }
@@ -300,8 +302,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-error {
-    .nova-ui-alert-arrow {
+  &.@{alert}-error {
+    .@{alert}-arrow {
       &:before {
         border-color: @error-border-color transparent transparent transparent;
       }
@@ -313,8 +315,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-warning {
-    .nova-ui-alert-arrow {
+  &.@{alert}-warning {
+    .@{alert}-arrow {
       &:before {
         border-color: @warning-border-color transparent transparent transparent;
       }
@@ -326,9 +328,9 @@ export default {
     }
   }
 
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
-    .nova-ui-alert-arrow {
+  &.@{alert}-info,
+  &.@{alert}-help {
+    .@{alert}-arrow {
       &:before {
         border-color: @info-border-color transparent transparent transparent;
       }
@@ -339,15 +341,15 @@ export default {
     }
   }
 
-  .nova-ui-alert-arrow {
+  .@{alert}-arrow {
     bottom: 0;
   }
 }
 
-.nova-ui-alert-placement-left-start,
-.nova-ui-alert-placement-left,
-.nova-ui-alert-placement-left-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-left-start,
+.@{alert}-placement-left,
+.@{alert}-placement-left-end {
+  .@{alert}-arrow {
     position: absolute;
     transform: translate(0, -50%);
 
@@ -371,8 +373,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-success {
-    .nova-ui-alert-arrow {
+  &.@{alert}-success {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent @success-border-color transparent transparent;
       }
@@ -384,8 +386,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-error {
-    .nova-ui-alert-arrow {
+  &.@{alert}-error {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent @error-border-color transparent transparent;
       }
@@ -397,8 +399,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-warning {
-    .nova-ui-alert-arrow {
+  &.@{alert}-warning {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent @warning-border-color transparent transparent;
       }
@@ -410,9 +412,9 @@ export default {
     }
   }
 
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
-    .nova-ui-alert-arrow {
+  &.@{alert}-info,
+  &.@{alert}-help {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent @info-border-color transparent transparent;
       }
@@ -423,15 +425,15 @@ export default {
     }
   }
 
-  .nova-ui-alert-arrow {
+  .@{alert}-arrow {
     left: 0;
   }
 }
 
-.nova-ui-alert-placement-right-start,
-.nova-ui-alert-placement-right,
-.nova-ui-alert-placement-right-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-right-start,
+.@{alert}-placement-right,
+.@{alert}-placement-right-end {
+  .@{alert}-arrow {
     position: absolute;
     transform: translate(0, -50%);
 
@@ -455,8 +457,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-success {
-    .nova-ui-alert-arrow {
+  &.@{alert}-success {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent transparent @success-border-color;
       }
@@ -468,8 +470,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-error {
-    .nova-ui-alert-arrow {
+  &.@{alert}-error {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent transparent @error-border-color;
       }
@@ -481,8 +483,8 @@ export default {
     }
   }
 
-  &.nova-ui-alert-warning {
-    .nova-ui-alert-arrow {
+  &.@{alert}-warning {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent transparent @warning-border-color;
       }
@@ -494,9 +496,9 @@ export default {
     }
   }
 
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
-    .nova-ui-alert-arrow {
+  &.@{alert}-info,
+  &.@{alert}-help {
+    .@{alert}-arrow {
       &:before {
         border-color: transparent transparent transparent @info-border-color;
       }
@@ -507,87 +509,87 @@ export default {
     }
   }
 
-  .nova-ui-alert-arrow {
+  .@{alert}-arrow {
     left: 100%;
   }
 }
 
-.nova-ui-alert-placement-top-start,
-.nova-ui-alert-placement-bottom-start {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-top-start,
+.@{alert}-placement-bottom-start {
+  .@{alert}-arrow {
     margin-left: 14px;
     left: 0;
   }
 }
 
-.nova-ui-alert-placement-top,
-.nova-ui-alert-placement-bottom {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-top,
+.@{alert}-placement-bottom {
+  .@{alert}-arrow {
     left: 50%;
   }
 }
 
-.nova-ui-alert-placement-top-end,
-.nova-ui-alert-placement-bottom-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-top-end,
+.@{alert}-placement-bottom-end {
+  .@{alert}-arrow {
     margin-left: -14px;
     left: 100%;
   }
 }
 
-.nova-ui-alert-placement-left-start,
-.nova-ui-alert-placement-right-start {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-left-start,
+.@{alert}-placement-right-start {
+  .@{alert}-arrow {
     margin-top: 14px;
     top: 0;
   }
 }
 
-.nova-ui-alert-placement-left,
-.nova-ui-alert-placement-right {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-left,
+.@{alert}-placement-right {
+  .@{alert}-arrow {
     top: 50%;
   }
 }
 
-.nova-ui-alert-placement-left-end,
-.nova-ui-alert-placement-right-end {
-  .nova-ui-alert-arrow {
+.@{alert}-placement-left-end,
+.@{alert}-placement-right-end {
+  .@{alert}-arrow {
     margin-top: -14px;
     top: 100%;
   }
 }
 
-.nova-ui-alert-block {
+.@{alert}-block {
   display: block;
 }
 
-.nova-ui-alert-border {
+.@{alert}-border {
   background-color: @default-background-color;
   border: 1px solid @default-border-color;
   padding: 5px 11px 5px 11px;
 
-  &.nova-ui-alert-success,
-  &.nova-ui-alert-error,
-  &.nova-ui-alert-warning,
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
+  &.@{alert}-success,
+  &.@{alert}-error,
+  &.@{alert}-warning,
+  &.@{alert}-info,
+  &.@{alert}-help {
     padding: 5px 6px 5px 26px;
 
-    &.nova-ui-alert-closable {
+    &.@{alert}-closable {
       padding: 5px 28px 5px 26px;
     }
 
-    .nova-ui-alert-icon {
+    .@{alert}-icon {
       margin: 2px 5px 0 -19px;
     }
   }
 
-  &.nova-ui-alert-success {
+  &.@{alert}-success {
     background-color: @success-background-color;
     border: 1px solid @success-border-color;
 
-    .nova-ui-alert-close-icon {
+    .@{alert}-close-icon {
       &:before,
       &:after {
         background-color: #ade392;
@@ -602,11 +604,11 @@ export default {
     }
   }
 
-  &.nova-ui-alert-error {
+  &.@{alert}-error {
     background-color: @error-background-color;
     border: 1px solid @error-border-color;
 
-    .nova-ui-alert-close-icon {
+    .@{alert}-close-icon {
       &:before,
       &:after {
         background-color: #feac97;
@@ -621,11 +623,11 @@ export default {
     }
   }
 
-  &.nova-ui-alert-warning {
+  &.@{alert}-warning {
     background-color: @warning-background-color;
     border: 1px solid @warning-border-color;
 
-    .nova-ui-alert-close-icon {
+    .@{alert}-close-icon {
       &:before,
       &:after {
         background-color: #ffda8f;
@@ -640,12 +642,12 @@ export default {
     }
   }
 
-  &.nova-ui-alert-info,
-  &.nova-ui-alert-help {
+  &.@{alert}-info,
+  &.@{alert}-help {
     background-color: @info-background-color;
     border: 1px solid @info-border-color;
 
-    .nova-ui-alert-close-icon {
+    .@{alert}-close-icon {
       &:before,
       &:after {
         background-color: #96cff5;
@@ -661,7 +663,7 @@ export default {
   }
 }
 
-.nova-ui-alert-close {
+.@{alert}-close {
   width: 14px;
   height: 14px;
   float: right;
@@ -682,7 +684,7 @@ export default {
   }
 }
 
-.nova-ui-alert-close-icon {
+.@{alert}-close-icon {
   transform: rotate(45deg);
   width: 14px;
   height: 14px;

@@ -114,7 +114,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-calendar {
+@calendar: @{prefixed}-calendar;
+
+.@{calendar} {
   width: 1196px;
   font-family: @font-family;
   font-size: 12px;

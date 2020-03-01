@@ -78,7 +78,11 @@ export default {
 </script>
 
 <style lang="less">
-.nova-ui-select-option {
+@import '../../styles/var';
+
+@select: @{prefixed}-select;
+
+.@{select}-option {
   cursor: pointer;
   padding: 5px 10px;
 

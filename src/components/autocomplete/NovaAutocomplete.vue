@@ -544,7 +544,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-autocomplete {
+@autocomplete: @{prefixed}-autocomplete;
+
+.@{autocomplete} {
   vertical-align: top;
   display: inline-block;
   font-size: 14px;
@@ -556,19 +558,19 @@ export default {
   }
 }
 
-.nova-ui-autocomplete-toggle {
+.@{autocomplete}-toggle {
   box-sizing: border-box;
   width: 200px;
   height: 30px;
 }
 
-.nova-ui-autocomplete-inner {
+.@{autocomplete}-inner {
   ::placeholder {
     color: @placeholder-color;
   }
 }
 
-.nova-ui-autocomplete-input {
+.@{autocomplete}-input {
   line-height: 18px;
   height: 30px;
   box-sizing: border-box;
@@ -582,7 +584,7 @@ export default {
   }
 }
 
-.nova-ui-autocomplete-overlay {
+.@{autocomplete}-overlay {
   color: #999;
   display: block;
   margin-top: -30px;
@@ -590,22 +592,22 @@ export default {
   pointer-events: none;
 }
 
-.nova-ui-autocomplete-prefix,
-.nova-ui-autocomplete-suffix {
+.@{autocomplete}-prefix,
+.@{autocomplete}-suffix {
   padding: 5px;
   vertical-align: top;
   display: inline-block;
 }
 
-.nova-ui-autocomplete-prefix {
+.@{autocomplete}-prefix {
   float: left;
 }
 
-.nova-ui-autocomplete-suffix {
+.@{autocomplete}-suffix {
   float: right;
 }
 
-.nova-ui-autocomplete-item {
+.@{autocomplete}-item {
   cursor: pointer;
   padding: 5px 10px;
 
@@ -624,18 +626,18 @@ export default {
   }
 }
 
-.nova-ui-autocomplete-empty {
+.@{autocomplete}-empty {
   .nova-ui-alert {
     padding-left: 30px;
     padding-right: 10px;
   }
 }
 
-.nova-ui-autocomplete-start {
+.@{autocomplete}-start {
   width: 198px;
 }
 
-.nova-ui-autocomplete-groups {
+.@{autocomplete}-groups {
   width: 198px;
   max-height: 300px;
   overflow: auto;

@@ -93,7 +93,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-radio {
+@radio: @{prefixed}-radio;
+
+.@{radio} {
   cursor: pointer;
   line-height: 20px;
   color: #333333;
@@ -106,7 +108,7 @@ export default {
     outline: none;
 
     &:not(.is-disabled) {
-      .nova-ui-radio-input {
+      .@{radio}-input {
         border: 1px solid #ee3388;
       }
     }
@@ -118,23 +120,23 @@ export default {
   }
 
   &:hover:not(.is-disabled) {
-    .nova-ui-radio-input {
+    .@{radio}-input {
       border: 1px solid #ee3388;
     }
   }
 
   &.is-checked {
-    .nova-ui-radio-input {
+    .@{radio}-input {
       border: 1px solid #ee3388;
     }
 
-    .nova-ui-radio-inner {
+    .@{radio}-inner {
       display: block;
     }
   }
 }
 
-.nova-ui-radio-input {
+.@{radio}-input {
   display: inline-block;
   vertical-align: top;
   width: 14px;
@@ -146,7 +148,7 @@ export default {
   border-radius: 50%;
 }
 
-.nova-ui-radio-inner {
+.@{radio}-inner {
   display: none;
   width: 8px;
   height: 8px;
@@ -155,7 +157,7 @@ export default {
   margin: 2px;
 }
 
-.nova-ui-radio-label {
+.@{radio}-label {
   display: inline-block;
   vertical-align: top;
 }

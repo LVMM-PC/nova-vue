@@ -238,7 +238,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-select {
+@select: @{prefixed}-select;
+
+.@{select} {
   width: 200px;
   vertical-align: top;
   display: inline-block;
@@ -250,11 +252,11 @@ export default {
     outline: none;
 
     &:not(.is-disabled) {
-      .nova-ui-select-toggle {
+      .@{select}-toggle {
         border: 1px solid #aaaaaa;
       }
 
-      .nova-ui-select-arrow {
+      .@{select}-arrow {
         border-left: 1px solid #cccccc;
       }
     }
@@ -264,19 +266,19 @@ export default {
     opacity: 0.5;
     background-color: #eee;
 
-    .nova-ui-select-toggle {
+    .@{select}-toggle {
       cursor: default;
     }
   }
 
   &.is-open {
-    .nova-ui-select-toggle {
+    .@{select}-toggle {
       background-color: #fff;
       position: relative;
       z-index: 1;
     }
 
-    .nova-ui-select-arrow {
+    .@{select}-arrow {
       &:before {
         transform: rotate(180deg);
       }
@@ -284,28 +286,28 @@ export default {
   }
 }
 
-.nova-ui-select-toggle {
+.@{select}-toggle {
   cursor: pointer;
   display: block;
   border: 1px solid #cccccc;
   min-height: 28px;
 }
 
-.nova-ui-select-text {
+.@{select}-text {
   display: inline-block;
   vertical-align: top;
   padding: 4px 10px;
 }
 
-.nova-ui-select-placeholder {
+.@{select}-placeholder {
   opacity: 0.5;
 }
 
-.nova-ui-select-labels {
+.@{select}-labels {
   padding: 2px;
 }
 
-.nova-ui-select-label {
+.@{select}-label {
   display: inline-block;
   vertical-align: top;
   margin: 2px;
@@ -314,7 +316,7 @@ export default {
   border: 1px solid #ccc;
 }
 
-.nova-ui-select-label-delete {
+.@{select}-label-delete {
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -351,7 +353,7 @@ export default {
   }
 }
 
-.nova-ui-select-arrow {
+.@{select}-arrow {
   float: right;
   vertical-align: top;
   width: 24px;
@@ -375,15 +377,15 @@ export default {
 }
 
 @supports (transform-style: preserve-3d) {
-  .nova-ui-select-arrow {
+  .@{select}-arrow {
     &:before {
       transition: transform 200ms;
     }
   }
 
-  .nova-ui-select {
+  .@{select} {
     &.is-open {
-      .nova-ui-select-arrow {
+      .@{select}-arrow {
         &:before {
           transform: rotate3d(1, 0, 0, 180deg);
         }

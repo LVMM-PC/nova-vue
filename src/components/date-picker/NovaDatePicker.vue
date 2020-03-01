@@ -685,7 +685,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-date-picker {
+@date-picket: @{prefixed}-date-picker;
+
+.@{date-picket} {
   vertical-align: top;
   display: inline-block;
   font-size: 14px;
@@ -697,13 +699,13 @@ export default {
   }
 }
 
-.nova-ui-date-picker-toggle {
+.@{date-picket}-toggle {
   box-sizing: border-box;
   width: 200px;
   height: 30px;
 }
 
-.nova-ui-date-picker-inner {
+.@{date-picket}-inner {
   display: block;
   box-sizing: border-box;
   height: 100%;
@@ -712,19 +714,19 @@ export default {
     color: @placeholder-color;
   }
 
-  &.nova-ui-date-picker-inner-fake-disabled {
-    .nova-ui-date-picker-input {
+  &.@{date-picket}-inner-fake-disabled {
+    .@{date-picket}-input {
       background-color: #eeeeee;
       color: @placeholder-color;
     }
 
-    .nova-ui-date-picker-suffix {
+    .@{date-picket}-suffix {
       display: none;
     }
   }
 }
 
-.nova-ui-date-picker-input {
+.@{date-picket}-input {
   line-height: 18px;
   box-sizing: border-box;
   border: 1px solid #ccc;
@@ -739,7 +741,7 @@ export default {
   }
 }
 
-.nova-ui-date-picker-overlay {
+.@{date-picket}-overlay {
   color: #999;
   margin-right: 30px;
   display: block;
@@ -748,22 +750,22 @@ export default {
   pointer-events: none;
 }
 
-.nova-ui-date-picker-prefix,
-.nova-ui-date-picker-suffix {
+.@{date-picket}-prefix,
+.@{date-picket}-suffix {
   padding: 5px;
   vertical-align: top;
   display: inline-block;
 }
 
-.nova-ui-date-picker-prefix {
+.@{date-picket}-prefix {
   float: left;
 }
 
-.nova-ui-date-picker-suffix {
+.@{date-picket}-suffix {
   float: right;
 }
 
-.nova-ui-date-picker-icon {
+.@{date-picket}-icon {
   float: right;
   margin-top: -30px;
   position: relative;
@@ -783,11 +785,11 @@ export default {
   }
 }
 
-.nova-ui-date-picker-months {
+.@{date-picket}-months {
   white-space: nowrap;
 }
 
-.nova-ui-date-picker-tooltip {
+.@{date-picket}-tooltip {
   position: absolute;
   color: #666666;
   border: 1px solid #cccccc;

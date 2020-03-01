@@ -95,7 +95,9 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-.nova-ui-checkbox {
+@checkbox: @{prefixed}-checkbox;
+
+.@{checkbox} {
   cursor: pointer;
   line-height: 20px;
   color: #333333;
@@ -108,7 +110,7 @@ export default {
     outline: none;
 
     &:not(.is-disabled) {
-      .nova-ui-checkbox-input {
+      .@{checkbox}-input {
         border: 1px solid #ee3388;
       }
     }
@@ -120,23 +122,23 @@ export default {
   }
 
   &:hover:not(.is-disabled) {
-    .nova-ui-checkbox-input {
+    .@{checkbox}-input {
       border: 1px solid #ee3388;
     }
   }
 
   &.is-checked {
-    .nova-ui-checkbox-input {
+    .@{checkbox}-input {
       border: 1px solid #ee3388;
     }
 
-    .nova-ui-checkbox-inner {
+    .@{checkbox}-inner {
       display: block;
     }
   }
 }
 
-.nova-ui-checkbox-input {
+.@{checkbox}-input {
   display: inline-block;
   vertical-align: top;
   width: 14px;
@@ -148,7 +150,7 @@ export default {
   position: relative;
 }
 
-.nova-ui-checkbox-inner {
+.@{checkbox}-inner {
   display: none;
   width: 4.94974747px;
   height: 8.4852814px;
@@ -172,7 +174,7 @@ export default {
   }
 }
 
-.nova-ui-checkbox-label {
+.@{checkbox}-label {
   display: inline-block;
   vertical-align: top;
 }

@@ -185,19 +185,23 @@ export default {
 </script>
 
 <style lang="less">
-.nova-ui-calendar-month {
+@import '../../styles/var';
+
+@calendar: @{prefixed}-calendar;
+
+.@{calendar}-month {
   border: 1px solid #eee;
 }
 
-.nova-ui-calendar-content {
+.@{calendar}-content {
   position: relative;
 }
 
-.nova-ui-calendar-month + .nova-ui-calendar-month {
+.@{calendar}-month + .@{calendar}-month {
   margin-top: -1px;
 }
 
-.nova-ui-calendar-month {
+.@{calendar}-month {
   &:before {
     content: '';
     display: block;
@@ -216,15 +220,15 @@ export default {
   }
 }
 
-.nova-ui-calendar-header {
+.@{calendar}-header {
   width: 75px;
   position: absolute;
   height: 100%;
   right: 0;
 }
 
-.nova-ui-calendar-prev,
-.nova-ui-calendar-next {
+.@{calendar}-prev,
+.@{calendar}-next {
   font-size: 0;
   visibility: hidden;
   width: 75px;
@@ -249,7 +253,7 @@ export default {
   }
 }
 
-.nova-ui-calendar-prev {
+.@{calendar}-prev {
   &:before {
     background-image: url(../../assets/icons/calendar-prev.svg);
   }
@@ -267,7 +271,7 @@ export default {
   }
 }
 
-.nova-ui-calendar-next {
+.@{calendar}-next {
   bottom: 0;
 
   &:before {
@@ -287,19 +291,19 @@ export default {
   }
 }
 
-.nova-ui-calendar-month:first-child {
-  .nova-ui-calendar-prev {
+.@{calendar}-month:first-child {
+  .@{calendar}-prev {
     visibility: visible;
   }
 }
 
-.nova-ui-calendar-month:last-child {
-  .nova-ui-calendar-next {
+.@{calendar}-month:last-child {
+  .@{calendar}-next {
     visibility: visible;
   }
 }
 
-.nova-ui-calendar-title {
+.@{calendar}-title {
   hyphens: auto;
   word-break: break-all;
   text-align: center;
@@ -312,7 +316,7 @@ export default {
   user-select: none;
 }
 
-.nova-ui-calendar-title-support {
+.@{calendar}-title-support {
   display: inline-block;
   width: 0;
   font-size: 0;
@@ -320,17 +324,17 @@ export default {
   vertical-align: middle;
 }
 
-.nova-ui-calendar-title-text {
+.@{calendar}-title-text {
   display: inline-block;
   vertical-align: middle;
   width: 100%;
 }
-.nova-ui-calendar-weeks {
+.@{calendar}-weeks {
   border-bottom: 1px solid #eee;
   height: 40px;
 }
 
-.nova-ui-calendar-week {
+.@{calendar}-week {
   color: #666;
   box-sizing: border-box;
   width: 160px;
@@ -342,13 +346,13 @@ export default {
   line-height: 20px;
   padding: 10px;
 
-  &.nova-ui-calendar-sun,
-  &.nova-ui-calendar-sat {
+  &.@{calendar}-sun,
+  &.@{calendar}-sat {
     color: #f60;
   }
 }
 
-.nova-ui-calendar-dates {
+.@{calendar}-dates {
   user-select: none;
   display: inline-block;
   vertical-align: top;
@@ -357,7 +361,7 @@ export default {
   margin: -1px;
 }
 
-.nova-ui-calendar-date {
+.@{calendar}-date {
   position: relative;
   display: inline-block;
   vertical-align: top;
@@ -378,7 +382,7 @@ export default {
   }
 }
 
-.nova-ui-calendar-date-number {
+.@{calendar}-date-number {
   position: absolute;
   top: 10px;
   left: 10px;

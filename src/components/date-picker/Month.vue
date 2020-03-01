@@ -359,7 +359,11 @@ export default {
 </script>
 
 <style lang="less">
-.nova-ui-date-picker-month {
+@import '../../styles/var';
+
+@date-picket: @{prefixed}-date-picker;
+
+.@{date-picket}-month {
   white-space: normal;
   vertical-align: top;
   display: inline-block;
@@ -372,7 +376,7 @@ export default {
   }
 
   &[data-range-active='1'] {
-    .nova-ui-date-picker-date.is-in-range:not(.is-disabled):not(.is-selected) {
+    .@{date-picket}-date.is-in-range:not(.is-disabled):not(.is-selected) {
       background-color: #fcdaed;
 
       &:hover:not(.is-disabled):not(.is-selected) {
@@ -381,17 +385,17 @@ export default {
       }
     }
 
-    .nova-ui-date-picker-date.is-in-hover-range:not(.is-disabled):not(.is-selected) {
+    .@{date-picket}-date.is-in-hover-range:not(.is-disabled):not(.is-selected) {
       background-color: #fcdaed;
     }
   }
 }
 
-.nova-ui-date-picker-body {
+.@{date-picket}-body {
   padding: 4px;
 }
 
-.nova-ui-date-picker-header {
+.@{date-picket}-header {
   text-align: center;
   height: 28px;
   margin: -1px -1px 0 -1px;
@@ -399,8 +403,8 @@ export default {
   background-color: #ee3388;
 }
 
-.nova-ui-date-picker-prev,
-.nova-ui-date-picker-next {
+.@{date-picket}-prev,
+.@{date-picket}-next {
   display: inline-block;
   vertical-align: top;
   width: 28px;
@@ -429,7 +433,7 @@ export default {
   }
 }
 
-.nova-ui-date-picker-prev {
+.@{date-picket}-prev {
   float: left;
 
   &:before {
@@ -437,7 +441,7 @@ export default {
   }
 }
 
-.nova-ui-date-picker-next {
+.@{date-picket}-next {
   float: right;
 
   &:before {
@@ -445,7 +449,7 @@ export default {
   }
 }
 
-.nova-ui-date-picker-title {
+.@{date-picket}-title {
   font-size: 14px;
   padding: 4px;
   box-sizing: border-box;
@@ -454,13 +458,13 @@ export default {
   vertical-align: top;
 }
 
-.nova-ui-date-picker-weeks,
-.nova-ui-date-picker-dates {
+.@{date-picket}-weeks,
+.@{date-picket}-dates {
   width: 30 * 7px;
 }
 
-.nova-ui-date-picker-week,
-.nova-ui-date-picker-date {
+.@{date-picket}-week,
+.@{date-picket}-date {
   width: 30px;
   height: 20px;
   padding: 5px 0;
@@ -468,14 +472,14 @@ export default {
   vertical-align: top;
 }
 
-.nova-ui-date-picker-week {
-  &.nova-ui-date-picker-sun,
-  &.nova-ui-date-picker-sat {
+.@{date-picket}-week {
+  &.@{date-picket}-sun,
+  &.@{date-picket}-sat {
     color: #ee3388;
   }
 }
 
-.nova-ui-date-picker-date {
+.@{date-picket}-date {
   cursor: pointer;
 
   &.is-special {
@@ -508,10 +512,10 @@ export default {
   }
 }
 
-.nova-ui-date-picker-weeks {
+.@{date-picket}-weeks {
   background-color: #eee;
 }
 
-.nova-ui-date-picker-dates {
+.@{date-picket}-dates {
 }
 </style>

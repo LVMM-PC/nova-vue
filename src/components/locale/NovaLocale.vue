@@ -33,7 +33,9 @@ export default {
 </script>
 
 <style lang="less">
-.nova-ui-locale {
+@import '../../styles/var';
+
+.@{prefixed}-locale {
   vertical-align: top;
   display: inline-block;
 }
