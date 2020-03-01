@@ -1,3 +1,5 @@
+import { version } from '../package.json';
+
 import en from './locales/lang/en';
 import zhCN from './locales/lang/zh-CN';
 import china from './locales/holiday/china';
@@ -17,7 +19,7 @@ export NovaCheckbox from './components/checkbox/NovaCheckbox';
 export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup';
 
 export default {
-  version: '0.1.0',
+  version,
   locale: {
     en,
     zhCN
