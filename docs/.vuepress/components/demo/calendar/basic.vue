@@ -1,5 +1,3 @@
 <template>
-  <section>
-    <NovaCalendar></NovaCalendar>
-  </section>
+  <NovaCalendar></NovaCalendar>
 </template>

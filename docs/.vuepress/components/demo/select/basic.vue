@@ -1,5 +1,3 @@
 <template>
-  <section>
-    <NovaSelect></NovaSelect>
-  </section>
+  <NovaSelect></NovaSelect>
 </template>

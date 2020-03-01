@@ -1,5 +1,3 @@
 <template>
-  <section>
-    <NovaDatePicker />
-  </section>
+  <NovaDatePicker />
 </template>

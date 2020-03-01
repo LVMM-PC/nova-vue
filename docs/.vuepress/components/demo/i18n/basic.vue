@@ -1,7 +1,5 @@
 <template>
-  <section>
-    <NovaLocale>
-      <NovaDatePicker />
-    </NovaLocale>
-  </section>
+  <NovaLocale>
+    <NovaDatePicker />
+  </NovaLocale>
 </template>

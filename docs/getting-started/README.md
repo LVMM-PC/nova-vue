@@ -18,7 +18,7 @@ Nova Vue 致力于提供给程序员**愉悦**的开发体验。
 
 将下面的代码添加到 main.js 中，用 Vue 的方式直接使用 Nova 组件。
 
-<<< @/docs/.vuepress/components/demo/getting-started/using.js
+<<< @/docs/getting-started/using.js
 
 ## 兼容性
 

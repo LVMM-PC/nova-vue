@@ -1,5 +1,3 @@
 <template>
-  <section>
-    <NovaRadio>Radio</NovaRadio>
-  </section>
+  <NovaRadio>Radio</NovaRadio>
 </template>

@@ -1,5 +1,3 @@
 <template>
-  <section>
-    <NovaCheckbox>Checkbox</NovaCheckbox>
-  </section>
+  <NovaCheckbox>Checkbox</NovaCheckbox>
 </template>
