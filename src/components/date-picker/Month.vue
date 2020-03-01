@@ -358,7 +358,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .nova-ui-date-picker-month {
   white-space: normal;
   vertical-align: top;

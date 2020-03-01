@@ -77,7 +77,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .nova-ui-select-option {
   cursor: pointer;
   padding: 5px 10px;

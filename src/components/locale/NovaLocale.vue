@@ -32,7 +32,7 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .nova-ui-locale {
   vertical-align: top;
   display: inline-block;

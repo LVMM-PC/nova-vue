@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less">
 .nova-ui-alert-icon {
   display: inline-block;
   vertical-align: top;
