@@ -7,7 +7,7 @@ Vue.component('ClientOnly', ClientOnly);
 Vue.component('MountingPortal', MountingPortal);
 
 export default function mountTest(Component) {
-  describe(`mount an unmount`, () => {
+  describe(`mount and unmount`, () => {
     it(`component could be updated and unmounted without error`, () => {
       const wrapper = mount(Component);
       expect(() => {

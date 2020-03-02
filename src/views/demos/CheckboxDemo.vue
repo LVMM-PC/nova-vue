@@ -55,16 +55,18 @@
         </NovaCheckboxGroup>
       </dd>
     </dl>
+    <Basic></Basic>
   </div>
 </template>
 
 <script>
 import NovaCheckbox from '../../components/checkbox/NovaCheckbox';
 import NovaCheckboxGroup from '../../components/checkbox/NovaCheckboxGroup';
+import Basic from '@/views/demos/checkbox/Basic';
 
 export default {
   name: 'CheckboxDemo',
-  components: { NovaCheckboxGroup, NovaCheckbox },
+  components: { Basic, NovaCheckboxGroup, NovaCheckbox },
   data() {
     return {
       isRead1: false,
