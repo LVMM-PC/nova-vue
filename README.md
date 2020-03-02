@@ -10,7 +10,7 @@ yarn install
 yarn serve
 ```
 
-### 编译并压缩为了生成
+### 编译并压缩为了生产
 ```
 yarn build
 ```

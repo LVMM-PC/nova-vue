@@ -27,3 +27,5 @@ Nova Vue 支持所有的现代浏览器和 IE9+。
 | IE / Edge             | Firefox         | Chrome          | Safari          | iOS Safari      |
 | --------------------- | --------------- | --------------- | --------------- | --------------- |
 | IE9, IE10, IE11, Edge | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
+
+对于 IE 系列浏览器，需要提供相应的 Polyfill 支持，建议使用 [babel-preset-env](https://babeljs.io/docs/en/babel-preset-env) 来解决浏览器兼容问题。

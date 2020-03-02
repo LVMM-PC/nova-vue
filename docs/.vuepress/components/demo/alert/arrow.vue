@@ -47,12 +47,6 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: 'arrow'
-};
-</script>
-
 <style lang="less" scoped>
 .nova-ui-alert {
   margin-bottom: 10px;

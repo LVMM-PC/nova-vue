@@ -52,3 +52,18 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+@import '../../styles/var';
+
+@checkbox: @{prefixed}checkbox;
+
+.@{checkbox}-group {
+  display: inline-block;
+  line-height: 20px;
+
+  .@{checkbox} {
+    margin-right: 10px;
+  }
+}
+</style>

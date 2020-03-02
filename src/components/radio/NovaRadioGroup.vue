@@ -35,3 +35,18 @@ export default {
   }
 };
 </script>
+
+<style lang="less">
+@import '../../styles/var';
+
+@radio: @{prefixed}-radio;
+
+.@{radio}-group {
+  display: inline-block;
+  line-height: 20px;
+
+  .@{radio} {
+    margin-right: 10px;
+  }
+}
+</style>
