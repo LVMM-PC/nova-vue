@@ -56,7 +56,7 @@ export default {
 <style lang="less">
 @import '../../styles/var';
 
-@checkbox: @{prefixed}checkbox;
+@checkbox: @{prefixed}-checkbox;
 
 .@{checkbox}-group {
   display: inline-block;
