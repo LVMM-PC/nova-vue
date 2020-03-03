@@ -26,10 +26,21 @@
           v-model="orientations"
           @change="handleOrientationsChange"
         >
-          <NovaCheckbox value="EAST">东</NovaCheckbox>
-          <NovaCheckbox value="SOUTH">南</NovaCheckbox>
-          <NovaCheckbox value="WEST">西</NovaCheckbox>
-          <NovaCheckbox value="NORTH">北</NovaCheckbox>
+          <NovaCheckbox
+            value="EAST"
+            v-model="isChecked"
+            @change="handleOrientationChange"
+            >东</NovaCheckbox
+          >
+          <NovaCheckbox value="SOUTH" @change="handleOrientationChange"
+            >南</NovaCheckbox
+          >
+          <NovaCheckbox value="WEST" @change="handleOrientationChange"
+            >西</NovaCheckbox
+          >
+          <NovaCheckbox value="NORTH" @change="handleOrientationChange"
+            >北</NovaCheckbox
+          >
         </NovaCheckboxGroup>
       </dd>
     </dl>
@@ -69,6 +80,7 @@ export default {
   components: { Basic, NovaCheckboxGroup, NovaCheckbox },
   data() {
     return {
+      isChecked: true,
       isRead1: false,
       isRead2: true,
       orientations: []
@@ -80,6 +92,9 @@ export default {
     },
     handleReadChange(value) {
       console.log(value);
+    },
+    handleOrientationChange(checked) {
+      console.log(checked);
     },
     handleOrientationsChange(value) {
       console.log(value);

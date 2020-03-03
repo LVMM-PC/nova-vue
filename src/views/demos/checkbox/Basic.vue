@@ -2,6 +2,10 @@
 import NovaCheckboxGroup from '@/components/checkbox/NovaCheckboxGroup';
 import NovaCheckbox from '@/components/checkbox/NovaCheckbox';
 
+function onGroupChange(value) {
+  console.log(value);
+}
+
 function onChange(value) {
   console.log(value);
 }
@@ -21,11 +25,11 @@ export default {
   },
   render() {
     let items = ['Apple', 'Pear', 'Orange'].map((item) => {
-      return <NovaCheckbox value={item.toLowerCase()}>{item}</NovaCheckbox>;
+      return <NovaCheckbox value={item.toLowerCase()} onChange={onChange}>{item}</NovaCheckbox>;
     });
 
     return (
-      <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate} onChange={onChange}>
+      <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate} onChange={onGroupChange}>
         {items}
       </NovaCheckboxGroup>
     );

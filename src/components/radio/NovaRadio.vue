@@ -27,7 +27,7 @@ export default {
   },
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'update'
   },
   props: {
     checked: {
@@ -69,9 +69,6 @@ export default {
     }
   },
   methods: {
-    onlySingleClick: function() {
-      this.$emit('change', true);
-    },
     inGroupClick() {
       this.NovaRadioGroup.setValue(this.value);
     },
@@ -80,11 +77,21 @@ export default {
         return;
       }
 
+      if (this.isChecked) {
+        return;
+      }
+
+      this.$emit('update', true);
+      this.$emit('change', true);
+
       if (this.NovaRadioGroup) {
         this.inGroupClick();
-      } else {
-        this.onlySingleClick();
       }
+    }
+  },
+  watch: {
+    isChecked(newValue) {
+      this.$emit('update', newValue);
     }
   }
 };

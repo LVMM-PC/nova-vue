@@ -27,7 +27,7 @@ export default {
   },
   model: {
     prop: 'checked',
-    event: 'change'
+    event: 'update'
   },
   props: {
     checked: {
@@ -62,7 +62,7 @@ export default {
     },
     isChecked() {
       if (this.NovaCheckboxGroup) {
-        return this.groupValue.find(item => {
+        return this.groupValue.some(item => {
           return item === this.value;
         });
       } else {
@@ -71,9 +71,6 @@ export default {
     }
   },
   methods: {
-    onlySingleClick() {
-      this.$emit('change', !this.checked);
-    },
     inGroupClick() {
       this.NovaCheckboxGroup.setCheck(this.value, !this.isChecked);
     },
@@ -82,11 +79,17 @@ export default {
         return;
       }
 
+      this.$emit('update', !this.isChecked);
+      this.$emit('change', !this.isChecked);
+
       if (this.NovaCheckboxGroup) {
         this.inGroupClick();
-      } else {
-        this.onlySingleClick();
       }
+    }
+  },
+  watch: {
+    isChecked(newValue) {
+      this.$emit('update', newValue);
     }
   }
 };
