@@ -136,7 +136,8 @@ export default {
     }
 
     .@{checkbox}-inner {
-      display: block;
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
     }
   }
 }
@@ -154,11 +155,11 @@ export default {
 }
 
 .@{checkbox}-inner {
-  display: none;
+  opacity: 0;
   width: 4.94974747px;
   height: 8.4852814px;
-  transform: translate(-50%, -50%);
-  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 200ms @ease-out-backward;
   position: absolute;
   top: 50%;
   left: 50%;

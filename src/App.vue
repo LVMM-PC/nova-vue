@@ -28,6 +28,7 @@ body {
 }
 
 #app {
+  line-height: 20px;
 }
 
 #nav {

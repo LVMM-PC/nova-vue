@@ -138,7 +138,8 @@ export default {
     }
 
     .@{radio}-inner {
-      display: block;
+      opacity: 1;
+      transform: scale(1);
     }
   }
 }
@@ -156,9 +157,11 @@ export default {
 }
 
 .@{radio}-inner {
-  display: none;
+  opacity: 0;
   width: 8px;
   height: 8px;
+  transform: scale(0);
+  transition: transform 100ms @ease-in-out-circular;
   background-color: #ee3388;
   border-radius: 50%;
   margin: 2px;

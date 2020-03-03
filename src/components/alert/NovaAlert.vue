@@ -1,22 +1,25 @@
 <template>
-  <div
-    v-show="visible"
-    class="nova-alert"
-    :class="classNameList"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <NovaAlertIcon :type="type"></NovaAlertIcon>
+  <transition name="nova-alert-slide-up" @after-leave="handleAfterLeave">
     <div
-      class="nova-alert-close"
-      @click="handleCloseClick"
-      v-if="border && closable"
+      v-show="visible"
+      class="nova-alert"
+      :class="classNameList"
+      v-bind="$attrs"
+      v-on="$listeners"
+      ref="alert"
     >
-      <div class="nova-alert-close-icon"></div>
+      <NovaAlertIcon :type="type"></NovaAlertIcon>
+      <div
+        class="nova-alert-close"
+        @click="handleCloseClick"
+        v-if="border && closable"
+      >
+        <div class="nova-alert-close-icon"></div>
+      </div>
+      <slot></slot>
+      <div class="nova-alert-arrow"></div>
     </div>
-    <slot></slot>
-    <div class="nova-alert-arrow"></div>
-  </div>
+  </transition>
 </template>
 
 <script>
@@ -27,7 +30,8 @@ export default {
   components: { NovaAlertIcon },
   data() {
     return {
-      visible: true
+      visible: true,
+      closing: false
     };
   },
   computed: {
@@ -38,12 +42,14 @@ export default {
       let closable = this.closable;
       let visibleArrow = this.visibleArrow;
       let placement = this.placement;
+      let closing = this.closing;
       return [
         `nova-alert-${type}`,
         `nova-alert-placement-${placement}`,
         {
           'nova-alert-border': border,
           'nova-alert-block': block,
+          'nova-alert-closing': closing,
           'nova-alert-closable': border && closable,
           'nova-alert-has-arrow': border && visibleArrow
         }
@@ -102,9 +108,23 @@ export default {
     close() {
       this.visible = false;
       this.$emit('close');
+
+      let $alert = this.$refs['alert'];
+
+      $alert.style.height = `${$alert.offsetHeight}px`;
+      // Magic code
+      // We can only set twice that the height can right
+      $alert.style.height = `${$alert.offsetHeight}px`;
+
+      this.closing = true;
     },
     handleCloseClick() {
       this.close();
+    },
+    handleAfterLeave() {
+      this.closing = false;
+      let $alert = this.$refs['alert'];
+      $alert.style.height = null;
     }
   }
 };
@@ -139,6 +159,7 @@ export default {
   font-family: @font-family;
   vertical-align: top;
   display: inline-block;
+  box-sizing: border-box;
   font-size: 12px;
   color: #333333;
   line-height: 18px;
@@ -438,6 +459,10 @@ export default {
 
 .@{alert}-block {
   display: block;
+}
+
+.@{alert}-closing {
+  height: 0 !important;
 }
 
 .@{alert}-border {

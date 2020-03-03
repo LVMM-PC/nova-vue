@@ -1,17 +1,19 @@
 <template>
   <ClientOnly>
     <MountingPortal mountTo="#portal-target" append :disabled="!appendToBody">
-      <div
-        ref="dropdownDom"
-        class="nova-dropdown"
-        :class="popoverClass"
-        v-show="opened"
-        :style="dropdownStyle()"
-        v-bind="$attrs"
-        v-on="$listeners"
-      >
-        <slot></slot>
-      </div>
+      <transition name="nova-slide-up">
+        <div
+          ref="dropdownDom"
+          class="nova-dropdown"
+          :class="popoverClass"
+          v-show="opened"
+          :style="dropdownStyle()"
+          v-bind="$attrs"
+          v-on="$listeners"
+        >
+          <slot></slot>
+        </div>
+      </transition>
     </MountingPortal>
   </ClientOnly>
 </template>

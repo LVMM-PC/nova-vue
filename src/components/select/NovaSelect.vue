@@ -27,15 +27,17 @@
         >
           {{ getPlaceholder() }}
         </span>
-        <div class="nova-select-labels" v-if="value.length">
-          <span class="nova-select-label" v-for="v in value" :key="v">
-            <span>{{ valueToLabel(v) || v }}</span>
-            <span
-              class="nova-select-label-delete"
-              :class="{ 'is-disabled': disabled }"
-              @click="handleDeleteClick(v)"
-            ></span>
-          </span>
+        <div class="nova-select-labels">
+          <transition-group name="nova-zoom">
+            <span class="nova-select-label" v-for="v in value" :key="v">
+              <span>{{ valueToLabel(v) || v }}</span>
+              <span
+                class="nova-select-label-delete"
+                :class="{ 'is-disabled': disabled }"
+                @click="handleDeleteClick(v)"
+              ></span>
+            </span>
+          </transition-group>
         </div>
       </template>
     </div>
@@ -180,8 +182,14 @@ export default {
       this.opened = false;
       this.closeDropdown();
     },
-    handleToggleClick() {
+    handleToggleClick(e) {
       if (this.disabled) {
+        return;
+      }
+
+      let target = e.target;
+      let isDelete = Utils.hasClassName(target, 'nova-select-label-delete');
+      if (isDelete) {
         return;
       }
 
@@ -267,12 +275,15 @@ export default {
     .@{select}-toggle {
       cursor: default;
     }
+
+    .@{select}-label {
+      background-color: #eee;
+    }
   }
 
   &.is-open {
     .@{select}-toggle {
       background-color: #fff;
-      position: relative;
       z-index: 1;
     }
 
@@ -285,6 +296,7 @@ export default {
 }
 
 .@{select}-toggle {
+  position: relative;
   cursor: pointer;
   display: block;
   border: 1px solid #cccccc;
@@ -298,6 +310,9 @@ export default {
 }
 
 .@{select}-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
   opacity: 0.5;
 }
 
@@ -306,6 +321,8 @@ export default {
 }
 
 .@{select}-label {
+  background-color: #fff;
+  position: relative;
   display: inline-block;
   vertical-align: top;
   margin: 2px;

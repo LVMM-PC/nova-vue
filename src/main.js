@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import PortalVue from 'portal-vue';
 import ClientOnly from 'vue-client-only';
+import './styles/common.less';
 
 Vue.use(PortalVue);
 Vue.component('ClientOnly', ClientOnly);

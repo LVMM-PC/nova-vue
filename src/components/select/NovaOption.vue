@@ -52,7 +52,10 @@ export default {
 
       this.$emit('click', ...args);
       this.NovaSelect.setValue(this.value);
-      this.NovaSelect.close();
+
+      if (!this.NovaSelect.multiple) {
+        this.NovaSelect.close();
+      }
     },
     isSelected() {
       let NovaSelect = this.NovaSelect;

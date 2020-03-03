@@ -1,5 +1,7 @@
 import { version } from '../package.json';
 
+import './styles/common.less';
+
 import en from './locales/lang/en';
 import zhCN from './locales/lang/zh-CN';
 import china from './locales/holiday/china';

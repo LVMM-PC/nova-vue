@@ -1,0 +1,60 @@
+@import './var';
+
+//region slide-up
+.nova-slide-up-enter-active {
+  transition: opacity 200ms, transform 200ms @ease-out-quintic;
+  transform-origin: 0 0;
+}
+
+.nova-slide-up-leave-active {
+  transition: opacity 200ms, transform 200ms @ease-in-quintic;
+  transform-origin: 0 0;
+}
+
+.nova-slide-up-enter,
+.nova-slide-up-leave-to {
+  transform: scaleY(0.75);
+  transform-origin: 0 0;
+  opacity: 0;
+}
+
+//endregion
+
+//region alert-slide-up
+.nova-alert-slide-up-enter-active {
+  transition: opacity 200ms, height 200ms @ease-in-out-circular,
+    transform 200ms @ease-in-out-circular;
+  transform-origin: 0 0;
+}
+
+.nova-alert-slide-up-leave-active {
+  transition: opacity 200ms, height 200ms @ease-in-out-circular,
+    transform 200ms @ease-in-out-circular;
+  transform-origin: 0 0;
+}
+
+.nova-alert-slide-up-enter,
+.nova-alert-slide-up-leave-to {
+  transform: scaleY(0);
+  transform-origin: 0 0;
+  opacity: 0;
+}
+
+//endregion
+
+//region zoom
+.nova-zoom-enter-active {
+  transition: opacity 200ms, transform 200ms @ease-out-backward;
+}
+
+.nova-zoom-leave-active {
+  transition: opacity 200ms, transform 200ms @ease-in-backward;
+}
+
+.nova-zoom-enter,
+.nova-zoom-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
+//endregion
