@@ -16,11 +16,25 @@
       <dt>镜头：</dt>
       <dd>
         <NovaRadioGroup v-model="lensValue1" @change="handleLensChange">
-          <NovaRadio value="ULTRA_WIDE_ANGLE" v-model="isChecked" @change="handleLenChange">超广角</NovaRadio>
-          <NovaRadio value="WIDE_ANGLE" @change="handleLenChange">广角</NovaRadio>
-          <NovaRadio value="STANDARD" @change="handleLenChange">标准</NovaRadio>
-          <NovaRadio value="TELEPHOTO" @change="handleLenChange">长焦</NovaRadio>
-          <NovaRadio value="MACRO" @change="handleLenChange">微距</NovaRadio>
+          <NovaRadio
+            value="ULTRA_WIDE_ANGLE"
+            v-model="isChecked"
+            @change="handleLenChange"
+          >
+            超广角
+          </NovaRadio>
+          <NovaRadio value="WIDE_ANGLE" @change="handleLenChange">
+            广角
+          </NovaRadio>
+          <NovaRadio value="STANDARD" @change="handleLenChange">
+            标准
+          </NovaRadio>
+          <NovaRadio value="TELEPHOTO" @change="handleLenChange">
+            长焦
+          </NovaRadio>
+          <NovaRadio value="MACRO" @change="handleLenChange">
+            微距
+          </NovaRadio>
         </NovaRadioGroup>
       </dd>
     </dl>

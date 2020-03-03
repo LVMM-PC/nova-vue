@@ -243,7 +243,7 @@ export default {
           .toDate();
         return current < today;
       }
-      //End
+      // End
       if (index === 1) {
         let start = this.someDateRange[0];
         return current <= start;

@@ -189,4 +189,114 @@ describe('NovaCheckboxGroup.vue', () => {
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChangeGroup).toHaveBeenLastCalledWith(['apple']);
   });
+
+  it('should be controlled by value', () => {
+    const options = [
+      { label: 'Apple', value: 'apple' },
+      { label: 'Orange', value: 'orange' }
+    ];
+
+    const wrapper = mount({
+      data() {
+        return {
+          value: []
+        };
+      },
+      methods: {
+        onUpdate(value) {
+          this.value = value;
+        }
+      },
+      render() {
+        let checkboxItems = options.map(option => {
+          return (
+            <NovaCheckbox value={option.value}>{option.label}</NovaCheckbox>
+          );
+        });
+
+        return (
+          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+            {checkboxItems}
+          </NovaCheckboxGroup>
+        );
+      }
+    });
+
+    expect(wrapper.vm.$data.value).toEqual([]);
+    wrapper.setData({
+      value: ['apple']
+    });
+    expect(wrapper.vm.$data.value).toEqual(['apple']);
+  });
+
+  it('should trigger onChange in sub Checkbox', () => {
+    const onChange = jest.fn();
+
+    const wrapper = mount({
+      data() {
+        return {
+          value: []
+        };
+      },
+      methods: {
+        onUpdate(value) {
+          this.value = value;
+        }
+      },
+      render() {
+        return (
+          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+            <NovaCheckbox value="my" onChange={onChange}>
+              My
+            </NovaCheckbox>
+          </NovaCheckboxGroup>
+        );
+      }
+    });
+
+    wrapper
+      .findAll('.nova-ui-checkbox-input')
+      .at(0)
+      .trigger('click');
+    expect(onChange).toHaveBeenCalled();
+    expect(onChange).toHaveBeenLastCalledWith(true);
+  });
+
+  it('should work when checkbox is wrapped by other components', async () => {
+    const wrapper = mount({
+      data() {
+        return {
+          value: []
+        };
+      },
+      methods: {
+        onUpdate(value) {
+          this.value = value;
+        }
+      },
+      render() {
+        return (
+          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+            <div>
+              <NovaCheckbox value={1}>1</NovaCheckbox>
+            </div>
+          </NovaCheckboxGroup>
+        );
+      }
+    });
+
+    wrapper
+      .findAll('.nova-ui-checkbox')
+      .at(0)
+      .trigger('click');
+    await flushPromises();
+    expect(wrapper.vm.$data.value).toEqual([1]);
+
+    wrapper
+      .findAll('.nova-ui-checkbox')
+      .at(0)
+      .trigger('click');
+    await flushPromises();
+    expect(wrapper.vm.$data.value).toEqual([]);
+  });
 });
