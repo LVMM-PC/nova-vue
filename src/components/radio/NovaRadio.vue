@@ -1,17 +1,17 @@
 <template>
   <div
     ref="radio"
-    class="nova-ui-radio"
+    class="nova-radio"
     v-bind="$attrs"
     v-on="$listeners"
     @click="handleRadioClick"
     :class="classList"
     :tabindex="!isDisabled ? 0 : -1"
   >
-    <div class="nova-ui-radio-input">
-      <div class="nova-ui-radio-inner"></div>
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
     </div>
-    <div class="nova-ui-radio-label">
+    <div class="nova-radio-label">
       <slot>{{ label }}</slot>
     </div>
   </div>

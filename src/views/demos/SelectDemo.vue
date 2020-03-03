@@ -250,7 +250,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.nova-ui-select {
+.nova-select {
   margin-right: 20px;
   margin-bottom: 20px;
 }

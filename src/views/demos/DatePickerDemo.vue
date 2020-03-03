@@ -381,18 +381,18 @@ export default {
 </script>
 
 <style lang="less" scoped>
-/deep/ .nova-ui-date-picker {
+/deep/ .nova-date-picker {
   margin-right: 20px;
   margin-bottom: 20px;
 
-  .nova-ui-date-picker-toggle {
-    .nova-ui-date-picker-inner {
+  .nova-date-picker-toggle {
+    .nova-date-picker-inner {
       margin-bottom: 20px;
     }
   }
 }
 
-.has-prefix /deep/ .nova-ui-date-picker-input {
+.has-prefix /deep/ .nova-date-picker-input {
   padding-left: 40px;
 }
 </style>

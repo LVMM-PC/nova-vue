@@ -1,17 +1,17 @@
 <template>
   <div
     ref="checkbox"
-    class="nova-ui-checkbox"
+    class="nova-checkbox"
     v-bind="$attrs"
     v-on="$listeners"
     @click="handleCheckboxClick"
     :class="classList"
     :tabindex="!isDisabled ? 0 : -1"
   >
-    <div class="nova-ui-checkbox-input">
-      <div class="nova-ui-checkbox-inner"></div>
+    <div class="nova-checkbox-input">
+      <div class="nova-checkbox-inner"></div>
     </div>
-    <div class="nova-ui-checkbox-label">
+    <div class="nova-checkbox-label">
       <slot>{{ label }}</slot>
     </div>
   </div>

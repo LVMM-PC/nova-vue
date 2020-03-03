@@ -1,7 +1,7 @@
 <template>
   <div
-    class="nova-ui-alert-icon"
-    :class="[`nova-ui-alert-icon-${type}`]"
+    class="nova-alert-icon"
+    :class="[`nova-alert-icon-${type}`]"
     v-bind="$attrs"
     v-on="$listeners"
   ></div>

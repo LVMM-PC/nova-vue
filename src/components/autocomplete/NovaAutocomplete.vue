@@ -1,17 +1,17 @@
 <template>
   <div
-    class="nova-ui-autocomplete"
+    class="nova-autocomplete"
     :class="autocompleteClass"
     v-bind="$attrs"
     v-on="$listeners"
     ref="autocomplete"
   >
-    <div class="nova-ui-autocomplete-toggle">
-      <div class="nova-ui-autocomplete-inner">
+    <div class="nova-autocomplete-toggle">
+      <div class="nova-autocomplete-inner">
         <input
           autocomplete="off"
           ref="input"
-          class="nova-ui-autocomplete-input"
+          class="nova-autocomplete-input"
           type="text"
           :value.prop="valueModel"
           :placeholder="placeholder"
@@ -22,13 +22,13 @@
           @keydown="handleKeydown"
         />
         <span
-          class="nova-ui-autocomplete-overlay nova-ui-autocomplete-prefix"
+          class="nova-autocomplete-overlay nova-autocomplete-prefix"
           v-if="showPrefix"
         >
           <slot name="prefix"></slot>
         </span>
         <span
-          class="nova-ui-autocomplete-overlay nova-ui-autocomplete-suffix"
+          class="nova-autocomplete-overlay nova-autocomplete-suffix"
           v-if="showSuffix"
         >
           <slot name="suffix"></slot>
@@ -39,9 +39,9 @@
       ref="start-dropdown"
       :opened="start.opened"
       :append-to-body="appendToBody"
-      :popover-class="['nova-ui-autocomplete-dropdown', popoverClass]"
+      :popover-class="['nova-autocomplete-dropdown', popoverClass]"
     >
-      <div class="nova-ui-autocomplete-start">
+      <div class="nova-autocomplete-start">
         <slot name="start"></slot>
       </div>
     </NovaDropdown>
@@ -49,24 +49,24 @@
       ref="list-dropdown"
       :opened="list.opened"
       :append-to-body="appendToBody"
-      :popover-class="['nova-ui-autocomplete-dropdown', popoverClass]"
+      :popover-class="['nova-autocomplete-dropdown', popoverClass]"
     >
       <div
-        class="nova-ui-autocomplete-groups"
+        class="nova-autocomplete-groups"
         ref="groups"
         v-if="list.groups.length"
       >
         <div
-          class="nova-ui-autocomplete-group"
+          class="nova-autocomplete-group"
           v-for="(group, groupIndex) in list.groups"
           :key="groupIndex"
         >
-          <div class="nova-ui-autocomplete-label">
+          <div class="nova-autocomplete-label">
             <slot name="group-label" :group="group"></slot>
           </div>
-          <div class="nova-ui-autocomplete-list" v-if="group.children.length">
+          <div class="nova-autocomplete-list" v-if="group.children.length">
             <div
-              class="nova-ui-autocomplete-item"
+              class="nova-autocomplete-item"
               :class="{
                 'is-selected': item.index === list.activeIndex,
                 'is-disabled': item.disabled
@@ -86,7 +86,7 @@
 
       <template v-if="!list.data.length">
         <slot name="empty">
-          <div class="nova-ui-autocomplete-empty">
+          <div class="nova-autocomplete-empty">
             <NovaAlert type="info">
               <span>{{ novaLocale.autocomplete.noData }}</span>
             </NovaAlert>
@@ -627,7 +627,7 @@ export default {
 }
 
 .@{autocomplete}-empty {
-  .nova-ui-alert {
+  .nova-alert {
     padding-left: 30px;
     padding-right: 10px;
   }

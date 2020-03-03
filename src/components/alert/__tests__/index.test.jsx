@@ -14,7 +14,7 @@ describe('NovaAlert.vue', () => {
         );
       }
     });
-    wrapper.find('.nova-ui-alert-close').trigger('click');
+    wrapper.find('.nova-alert-close').trigger('click');
     expect(onClose).toHaveBeenCalled();
   });
 

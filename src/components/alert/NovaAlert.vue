@@ -1,21 +1,21 @@
 <template>
   <div
     v-show="visible"
-    class="nova-ui-alert"
+    class="nova-alert"
     :class="classNameList"
     v-bind="$attrs"
     v-on="$listeners"
   >
     <NovaAlertIcon :type="type"></NovaAlertIcon>
     <div
-      class="nova-ui-alert-close"
+      class="nova-alert-close"
       @click="handleCloseClick"
       v-if="border && closable"
     >
-      <div class="nova-ui-alert-close-icon"></div>
+      <div class="nova-alert-close-icon"></div>
     </div>
     <slot></slot>
-    <div class="nova-ui-alert-arrow"></div>
+    <div class="nova-alert-arrow"></div>
   </div>
 </template>
 
@@ -33,19 +33,19 @@ export default {
   computed: {
     classNameList() {
       let border = this.border;
-      let type = this.type;
+      let type = this.type || 'normal';
       let block = this.block;
       let closable = this.closable;
       let visibleArrow = this.visibleArrow;
       let placement = this.placement;
       return [
-        `nova-ui-alert-${type}`,
-        `nova-ui-alert-placement-${placement}`,
+        `nova-alert-${type}`,
+        `nova-alert-placement-${placement}`,
         {
-          'nova-ui-alert-border': border,
-          'nova-ui-alert-block': block,
-          'nova-ui-alert-closable': border && closable,
-          'nova-ui-alert-has-arrow': border && visibleArrow
+          'nova-alert-border': border,
+          'nova-alert-block': block,
+          'nova-alert-closable': border && closable,
+          'nova-alert-has-arrow': border && visibleArrow
         }
       ];
     }

@@ -182,7 +182,7 @@ dd {
   vertical-align: top;
 }
 
-.nova-ui-radio {
+.nova-radio {
   margin-right: 10px;
 }
 </style>

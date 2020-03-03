@@ -1,6 +1,6 @@
 <template>
-  <div class="nova-ui-calendar" v-bind="$attrs" v-on="$listeners">
-    <div class="nova-ui-calendar-months">
+  <div class="nova-calendar" v-bind="$attrs" v-on="$listeners">
+    <div class="nova-calendar-months">
       <Month
         ref="monthRef"
         :nova-locale="novaLocale"

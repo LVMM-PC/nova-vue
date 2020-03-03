@@ -1,6 +1,6 @@
 <template>
   <div
-    class="nova-ui-select-option"
+    class="nova-select-option"
     :class="optionClasses"
     @click="handleClick"
     v-bind="$attrs"

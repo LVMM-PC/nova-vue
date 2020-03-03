@@ -1,35 +1,35 @@
 <template>
-  <div class="nova-ui-calendar-month">
-    <div class="nova-ui-calendar-weeks">
+  <div class="nova-calendar-month">
+    <div class="nova-calendar-weeks">
       <div
-        class="nova-ui-calendar-week"
-        :class="'nova-ui-calendar-' + weeks[titleIndex]"
+        class="nova-calendar-week"
+        :class="'nova-calendar-' + weeks[titleIndex]"
         v-for="(title, titleIndex) in weeks"
         :key="titleIndex"
       >
         {{ novaLocale.datePicker.weeksLong[title] }}
       </div>
     </div>
-    <div class="nova-ui-calendar-content">
-      <div class="nova-ui-calendar-header">
+    <div class="nova-calendar-content">
+      <div class="nova-calendar-header">
         <div
-          class="nova-ui-calendar-prev"
+          class="nova-calendar-prev"
           :class="getMonthPrevClass()"
           @click="prevMonthClick"
           :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
         >
           {{ novaLocale.datePicker.prevMonth }}
         </div>
-        <div class="nova-ui-calendar-title">
-          <span class="nova-ui-calendar-title-support"></span>
+        <div class="nova-calendar-title">
+          <span class="nova-calendar-title-support"></span>
           <span
-            class="nova-ui-calendar-title-text"
+            class="nova-calendar-title-text"
             v-html="getCalendarTitle()"
           ></span>
         </div>
 
         <div
-          class="nova-ui-calendar-next"
+          class="nova-calendar-next"
           :class="getMonthNextClass()"
           @click="nextMonthClick"
           :title="!isDisabledMonthNext() ? novaLocale.datePicker.prevMonth : ''"
@@ -38,9 +38,9 @@
         </div>
       </div>
 
-      <div class="nova-ui-calendar-dates">
+      <div class="nova-calendar-dates">
         <div
-          class="nova-ui-calendar-date"
+          class="nova-calendar-date"
           :class="getMomentClassName(dateMoment)"
           v-for="(dateMoment, dateMomentIndex) in momentList"
           :key="dateMoment.format(defaultFormat)"
@@ -52,7 +52,7 @@
             :offset="offset"
             :paneDate="getShowMoment().toDate()"
           >
-            <div class="nova-ui-calendar-date-number">
+            <div class="nova-calendar-date-number">
               {{ dateMoment.date() }}
             </div>
           </slot>

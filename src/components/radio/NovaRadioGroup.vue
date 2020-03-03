@@ -1,7 +1,7 @@
 <template>
   <div
     ref="radio-group"
-    class="nova-ui-radio-group"
+    class="nova-radio-group"
     v-bind="$attrs"
     v-on="$listeners"
   >

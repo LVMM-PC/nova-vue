@@ -21,11 +21,11 @@ export default {
 
 <style lang="less" scoped>
 .group-more {
-  .nova-ui-radio {
+  .nova-radio {
     display: block;
     line-height: 30px;
 
-    /deep/ .nova-ui-radio-input {
+    /deep/ .nova-radio-input {
       margin-top: 8px;
     }
   }

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="checkbox-group"
-    class="nova-ui-checkbox-group"
+    class="nova-checkbox-group"
     v-bind="$attrs"
     v-on="$listeners"
   >

@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.nova-ui-checkbox-group {
+.nova-checkbox-group {
   display: block;
   margin-top: 10px;
   margin-bottom: 10px;

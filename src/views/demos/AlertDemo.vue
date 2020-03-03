@@ -13,8 +13,8 @@
     </div>
     <div class="box">
       <NovaAlert type="success" block border @click="handleClick"
-        >成功提示的文案</NovaAlert
-      >
+        >成功提示的文案
+      </NovaAlert>
       <NovaAlert type="info" block border>消息提示的文案</NovaAlert>
       <NovaAlert type="warning" block border>警告提示的文案</NovaAlert>
       <NovaAlert type="error" block border>错误提示的文案</NovaAlert>
@@ -35,7 +35,7 @@
         >警告提醒，例：您的密码设置过于简单
       </NovaAlert>
       <NovaAlert type="error" block>错误提醒，例：请输入您的手机号码</NovaAlert>
-      <NovaAlert type="normal" block>一般提示，内容自行编辑</NovaAlert>
+      <NovaAlert block>一般提示，内容自行编辑</NovaAlert>
       <NovaAlert type="weak" block>一般提示，层级最弱</NovaAlert>
     </div>
     <div class="box">
@@ -58,7 +58,7 @@
       <NovaAlert type="help">帮助说明，内容自行编辑</NovaAlert>
       <NovaAlert type="warning">警告提醒，例：您的密码设置过于简单</NovaAlert>
       <NovaAlert type="error">错误提醒，例：请输入您的手机号码</NovaAlert>
-      <NovaAlert type="normal">一般提示，内容自行编辑</NovaAlert>
+      <NovaAlert>一般提示，内容自行编辑</NovaAlert>
       <NovaAlert type="weak">一般提示，层级最弱</NovaAlert>
     </div>
   </div>
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.nova-ui-alert {
+.nova-alert {
   margin-bottom: 10px;
   margin-right: 10px;
 }

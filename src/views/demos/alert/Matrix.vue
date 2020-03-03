@@ -60,7 +60,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.nova-ui-alert {
+.nova-alert {
   margin-bottom: 10px;
   margin-right: 10px;
 }

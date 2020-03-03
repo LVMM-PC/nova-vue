@@ -1,37 +1,37 @@
 <template>
   <div
     ref="select"
-    class="nova-ui-select"
+    class="nova-select"
     :class="selectClass"
     v-bind="$attrs"
     v-on="$listeners"
     :tabindex="!disabled ? 0 : -1"
   >
-    <div class="nova-ui-select-toggle" @click="handleToggleClick">
-      <span class="nova-ui-select-arrow"></span>
+    <div class="nova-select-toggle" @click="handleToggleClick">
+      <span class="nova-select-arrow"></span>
       <template v-if="multiple === false">
         <span
-          class="nova-ui-select-text nova-ui-select-placeholder"
+          class="nova-select-text nova-select-placeholder"
           v-if="!hasValue()"
         >
           {{ getPlaceholder() }}
         </span>
-        <span class="nova-ui-select-text" v-if="hasValue()">
+        <span class="nova-select-text" v-if="hasValue()">
           {{ displayedLabel() || value }}
         </span>
       </template>
       <template v-if="multiple === true && value">
         <span
-          class="nova-ui-select-text nova-ui-select-placeholder"
+          class="nova-select-text nova-select-placeholder"
           v-if="!value.length"
         >
           {{ getPlaceholder() }}
         </span>
-        <div class="nova-ui-select-labels" v-if="value.length">
-          <span class="nova-ui-select-label" v-for="v in value" :key="v">
+        <div class="nova-select-labels" v-if="value.length">
+          <span class="nova-select-label" v-for="v in value" :key="v">
             <span>{{ valueToLabel(v) || v }}</span>
             <span
-              class="nova-ui-select-label-delete"
+              class="nova-select-label-delete"
               :class="{ 'is-disabled': disabled }"
               @click="handleDeleteClick(v)"
             ></span>
@@ -44,7 +44,7 @@
       ref="dropdown"
       :opened="opened"
       :append-to-body="appendToBody"
-      :popover-class="['nova-ui-select-dropdown', popoverClass]"
+      :popover-class="['nova-select-dropdown', popoverClass]"
     >
       <slot></slot>
     </NovaDropdown>

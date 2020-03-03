@@ -41,28 +41,28 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(0)
       .trigger('click');
     await flushPromises();
     expect(onChange).toHaveBeenLastCalledWith(['apple']);
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(1)
       .trigger('click');
     await flushPromises();
     expect(onChange).toHaveBeenLastCalledWith(['apple', 'pear']);
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(2)
       .trigger('click');
     await flushPromises();
     expect(onChange).toHaveBeenLastCalledWith(['apple', 'pear', 'orange']);
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(1)
       .trigger('click');
     await flushPromises();
@@ -112,7 +112,7 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(0)
       .trigger('click');
     await flushPromises();
@@ -120,7 +120,7 @@ describe('NovaCheckboxGroup.vue', () => {
     expect(onChangeGroup).not.toHaveBeenCalled();
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(1)
       .trigger('click');
     await flushPromises();
@@ -174,7 +174,7 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(0)
       .trigger('click');
     await flushPromises();
@@ -182,7 +182,7 @@ describe('NovaCheckboxGroup.vue', () => {
     expect(onChangeGroup).toHaveBeenLastCalledWith(['apple']);
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(1)
       .trigger('click');
     await flushPromises();
@@ -255,7 +255,7 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     wrapper
-      .findAll('.nova-ui-checkbox-input')
+      .findAll('.nova-checkbox-input')
       .at(0)
       .trigger('click');
     expect(onChange).toHaveBeenCalled();
@@ -286,14 +286,14 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     wrapper
-      .findAll('.nova-ui-checkbox')
+      .findAll('.nova-checkbox')
       .at(0)
       .trigger('click');
     await flushPromises();
     expect(wrapper.vm.$data.value).toEqual([1]);
 
     wrapper
-      .findAll('.nova-ui-checkbox')
+      .findAll('.nova-checkbox')
       .at(0)
       .trigger('click');
     await flushPromises();

@@ -241,7 +241,7 @@ export default {
 
 <style lang="less" scoped>
 .my-autocomplete {
-  /deep/ .nova-ui-autocomplete-input {
+  /deep/ .nova-autocomplete-input {
     padding-left: 60px;
   }
 }
@@ -319,7 +319,7 @@ export default {
 
 <style lang="less">
 .my-autocomplete-dropdown {
-  .nova-ui-autocomplete-start {
+  .nova-autocomplete-start {
     width: 400px;
   }
 }

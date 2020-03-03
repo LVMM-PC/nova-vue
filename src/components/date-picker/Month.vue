@@ -1,19 +1,19 @@
 <template>
   <div
-    class="nova-ui-date-picker-month"
+    class="nova-date-picker-month"
     :data-month-offset="offset"
     :data-range-active="rangeCurrentPane"
   >
-    <div class="nova-ui-date-picker-header">
+    <div class="nova-date-picker-header">
       <div
-        class="nova-ui-date-picker-prev"
+        class="nova-date-picker-prev"
         :class="getMonthPrevClass()"
         @click="prevMonthClick"
         :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
       >
         {{ novaLocale.datePicker.prevMonth }}
       </div>
-      <div class="nova-ui-date-picker-title">
+      <div class="nova-date-picker-title">
         {{
           novaLocale.datePicker.yearAndMonth(
             getShowMoment().year(),
@@ -22,7 +22,7 @@
         }}
       </div>
       <div
-        class="nova-ui-date-picker-next"
+        class="nova-date-picker-next"
         :class="getMonthNextClass()"
         @click="nextMonthClick"
         :title="!isDisabledMonthNext() ? novaLocale.datePicker.prevMonth : ''"
@@ -30,20 +30,20 @@
         {{ novaLocale.datePicker.nextMonth }}
       </div>
     </div>
-    <div class="nova-ui-date-picker-body">
-      <div class="nova-ui-date-picker-weeks">
+    <div class="nova-date-picker-body">
+      <div class="nova-date-picker-weeks">
         <div
-          class="nova-ui-date-picker-week"
-          :class="'nova-ui-date-picker-' + weeks[titleIndex]"
+          class="nova-date-picker-week"
+          :class="'nova-date-picker-' + weeks[titleIndex]"
           v-for="(title, titleIndex) in weeks"
           :key="titleIndex"
         >
           <template>{{ novaLocale.datePicker.weeksShort[title] }}</template>
         </div>
       </div>
-      <div class="nova-ui-date-picker-dates" ref="datesRef">
+      <div class="nova-date-picker-dates" ref="datesRef">
         <div
-          class="nova-ui-date-picker-date"
+          class="nova-date-picker-date"
           :class="getMomentClassName(dateMoment)"
           v-for="dateMoment in momentList"
           :key="dateMoment.format('YYYY-MM-DD')"
@@ -189,9 +189,7 @@ export default {
     showDefaultTooltip(first, index, text) {
       function run() {
         let $ref = this.$refs['datesRef'];
-        let $endDate = $ref.querySelectorAll('.nova-ui-date-picker-date')[
-          index
-        ];
+        let $endDate = $ref.querySelectorAll('.nova-date-picker-date')[index];
 
         this.NovaDatePicker.defaultEndTooltip = $endDate;
         if ($endDate) {

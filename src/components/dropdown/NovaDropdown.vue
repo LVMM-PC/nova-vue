@@ -3,7 +3,7 @@
     <MountingPortal mountTo="#portal-target" append :disabled="!appendToBody">
       <div
         ref="dropdownDom"
-        class="nova-ui-dropdown"
+        class="nova-dropdown"
         :class="popoverClass"
         v-show="opened"
         :style="dropdownStyle()"

@@ -1,16 +1,16 @@
 <template>
   <div
-    class="nova-ui-date-picker"
+    class="nova-date-picker"
     :class="datePickerClass"
     v-bind="$attrs"
     v-on="$listeners"
     ref="date-picker"
   >
-    <div class="nova-ui-date-picker-toggle" v-if="!isRange">
-      <div class="nova-ui-date-picker-inner" ref="inner">
+    <div class="nova-date-picker-toggle" v-if="!isRange">
+      <div class="nova-date-picker-inner" ref="inner">
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input"
+          class="nova-date-picker-input"
           type="text"
           :value="displayedDate"
           readonly
@@ -21,33 +21,33 @@
           ref="input"
         />
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-prefix"
+          class="nova-date-picker-overlay nova-date-picker-prefix"
           v-if="showPrefix"
         >
           <slot name="prefix"></slot>
         </span>
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-suffix"
+          class="nova-date-picker-overlay nova-date-picker-suffix"
           v-if="showSuffix"
         >
           <slot name="suffix">
             {{ getSuffixText(value) }}
           </slot>
         </span>
-        <span class="nova-ui-date-picker-icon" v-if="showIcon"></span>
+        <span class="nova-date-picker-icon" v-if="showIcon"></span>
       </div>
     </div>
-    <div class="nova-ui-date-picker-toggle" v-if="isRange">
+    <div class="nova-date-picker-toggle" v-if="isRange">
       <div
-        class="nova-ui-date-picker-inner nova-ui-date-range-start"
+        class="nova-date-picker-inner nova-date-range-start"
         :class="{
-          'nova-ui-date-picker-inner-fake-disabled': startFakeDisabled
+          'nova-date-picker-inner-fake-disabled': startFakeDisabled
         }"
         ref="start"
       >
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input"
+          class="nova-date-picker-input"
           type="text"
           :value="displayedRange.start"
           readonly
@@ -61,7 +61,7 @@
         />
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input"
+          class="nova-date-picker-input"
           readonly
           @focus="handleStartFocus"
           @blur="handleStartBlur"
@@ -70,29 +70,29 @@
           :placeholder="getStartPlaceholder"
         />
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-prefix"
+          class="nova-date-picker-overlay nova-date-picker-prefix"
           v-if="showPrefix"
         >
           <slot range="start" name="prefix"></slot>
         </span>
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-suffix"
+          class="nova-date-picker-overlay nova-date-picker-suffix"
           v-if="showSuffix"
         >
           <slot range="start" name="suffix">
             {{ getSuffixText(value[0]) }}
           </slot>
         </span>
-        <span class="nova-ui-date-picker-icon" v-if="showIcon"></span>
+        <span class="nova-date-picker-icon" v-if="showIcon"></span>
       </div>
       <div
-        class="nova-ui-date-picker-inner nova-ui-date-range-end"
-        :class="{ 'nova-ui-date-picker-inner-fake-disabled': endFakeDisabled }"
+        class="nova-date-picker-inner nova-date-range-end"
+        :class="{ 'nova-date-picker-inner-fake-disabled': endFakeDisabled }"
         ref="end"
       >
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input"
+          class="nova-date-picker-input"
           type="text"
           :value="displayedRange.end"
           readonly
@@ -106,7 +106,7 @@
         />
         <input
           autocomplete="off"
-          class="nova-ui-date-picker-input nova-ui-date-picker-input-fake-disabled"
+          class="nova-date-picker-input nova-date-picker-input-fake-disabled"
           readonly
           @focus="handleEndFocus"
           @blur="handleEndBlur"
@@ -115,30 +115,30 @@
           :placeholder="getEndPlaceholder"
         />
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-prefix"
+          class="nova-date-picker-overlay nova-date-picker-prefix"
           v-if="showPrefix"
         >
           <slot range="end" name="prefix"></slot>
         </span>
         <span
-          class="nova-ui-date-picker-overlay nova-ui-date-picker-suffix"
+          class="nova-date-picker-overlay nova-date-picker-suffix"
           v-if="showSuffix"
         >
           <slot range="end" name="suffix">
             {{ getSuffixText(value[1]) }}
           </slot>
         </span>
-        <span class="nova-ui-date-picker-icon" v-if="showIcon"></span>
+        <span class="nova-date-picker-icon" v-if="showIcon"></span>
       </div>
     </div>
     <NovaDropdown
       ref="dropdown"
       :opened="opened"
       :append-to-body="appendToBody"
-      :popover-class="['nova-ui-date-picker-dropdown', popoverClass]"
+      :popover-class="['nova-date-picker-dropdown', popoverClass]"
     >
       <div
-        class="nova-ui-date-picker-months"
+        class="nova-date-picker-months"
         ref="months"
         @mousedown="handleDropdownMousedown"
       >
@@ -152,7 +152,7 @@
         ></Month>
       </div>
       <div
-        class="nova-ui-date-picker-tooltip"
+        class="nova-date-picker-tooltip"
         v-show="tooltip.visible && showTooltip"
         :style="tooltipStyle()"
       >

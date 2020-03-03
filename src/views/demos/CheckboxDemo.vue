@@ -126,7 +126,7 @@ dd {
   vertical-align: top;
 }
 
-.nova-ui-checkbox {
+.nova-checkbox {
   margin-right: 10px;
 }
 </style>

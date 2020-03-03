@@ -1,5 +1,5 @@
 <template>
-  <div class="nova-ui-locale" v-bind="$attrs" v-on="$listeners">
+  <div class="nova-locale" v-bind="$attrs" v-on="$listeners">
     <slot></slot>
   </div>
 </template>

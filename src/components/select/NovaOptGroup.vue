@@ -1,11 +1,11 @@
 <template>
-  <div class="nova-ui-select-option-group" v-bind="$attrs" v-on="$listeners">
-    <div class="nova-ui-select-option-group-label">
+  <div class="nova-select-option-group" v-bind="$attrs" v-on="$listeners">
+    <div class="nova-select-option-group-label">
       <slot name="label">
         {{ label }}
       </slot>
     </div>
-    <div class="nova-ui-select-option-group-content">
+    <div class="nova-select-option-group-content">
       <slot></slot>
     </div>
   </div>
