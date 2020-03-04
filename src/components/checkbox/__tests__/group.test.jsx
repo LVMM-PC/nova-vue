@@ -71,7 +71,7 @@ describe('NovaCheckboxGroup.vue', () => {
 
   it('does not trigger onChange callback of both Checkbox and CheckboxGroup when CheckboxGroup is disabled', async () => {
     const onChange = jest.fn();
-    const onChangeGroup = jest.fn();
+    const onGroupChange = jest.fn();
 
     const options = [
       { label: 'Apple', value: 'apple' },
@@ -102,7 +102,7 @@ describe('NovaCheckboxGroup.vue', () => {
           <NovaCheckboxGroup
             value={this.value}
             onUpdate={this.onUpdate}
-            onChange={onChangeGroup}
+            onChange={onGroupChange}
             disabled
           >
             {checkboxItems}
@@ -117,7 +117,7 @@ describe('NovaCheckboxGroup.vue', () => {
       .trigger('click');
     await flushPromises();
     expect(onChange).not.toHaveBeenCalled();
-    expect(onChangeGroup).not.toHaveBeenCalled();
+    expect(onGroupChange).not.toHaveBeenCalled();
 
     wrapper
       .findAll('.nova-checkbox-input')
@@ -125,12 +125,12 @@ describe('NovaCheckboxGroup.vue', () => {
       .trigger('click');
     await flushPromises();
     expect(onChange).not.toHaveBeenCalled();
-    expect(onChangeGroup).not.toHaveBeenCalled();
+    expect(onGroupChange).not.toHaveBeenCalled();
   });
 
   it('does not prevent onChange callback from Checkbox when CheckboxGroup is not disabled', async () => {
     const onChange = jest.fn();
-    const onChangeGroup = jest.fn();
+    const onGroupChange = jest.fn();
 
     const options = [
       { label: 'Apple', value: 'apple' },
@@ -165,7 +165,7 @@ describe('NovaCheckboxGroup.vue', () => {
           <NovaCheckboxGroup
             value={this.value}
             onUpdate={this.onUpdate}
-            onChange={onChangeGroup}
+            onChange={onGroupChange}
           >
             {checkboxItems}
           </NovaCheckboxGroup>
@@ -179,7 +179,7 @@ describe('NovaCheckboxGroup.vue', () => {
       .trigger('click');
     await flushPromises();
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChangeGroup).toHaveBeenLastCalledWith(['apple']);
+    expect(onGroupChange).toHaveBeenLastCalledWith(['apple']);
 
     wrapper
       .findAll('.nova-checkbox-input')
@@ -187,10 +187,10 @@ describe('NovaCheckboxGroup.vue', () => {
       .trigger('click');
     await flushPromises();
     expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChangeGroup).toHaveBeenLastCalledWith(['apple']);
+    expect(onGroupChange).toHaveBeenLastCalledWith(['apple']);
   });
 
-  it('should be controlled by value', () => {
+  it('should be controlled by value', async () => {
     const options = [
       { label: 'Apple', value: 'apple' },
       { label: 'Orange', value: 'orange' }
@@ -223,9 +223,8 @@ describe('NovaCheckboxGroup.vue', () => {
     });
 
     expect(wrapper.vm.$data.value).toEqual([]);
-    wrapper.setData({
-      value: ['apple']
-    });
+    wrapper.setData({ value: ['apple'] });
+    await flushPromises();
     expect(wrapper.vm.$data.value).toEqual(['apple']);
   });
 

@@ -175,8 +175,10 @@ export default {
         this.$emit('update', newValue);
         this.$emit('change', newValue);
       } else {
-        this.$emit('update', value);
-        this.$emit('change', value);
+        if (this.value !== value) {
+          this.$emit('update', value);
+          this.$emit('change', value);
+        }
       }
     },
     getValue() {
