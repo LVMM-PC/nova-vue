@@ -133,20 +133,20 @@
 
 <script>
 import NovaDatePicker from '../../components/date-picker/NovaDatePicker';
-import moment from 'moment';
 import NovaLocale from '@/components/locale/NovaLocale';
 import zhCN from '@/locales/lang/zh-CN';
 import en from '@/locales/lang/en';
+import dayjs from 'dayjs';
 
 export default {
   name: 'DatePickerDemo',
   components: { NovaLocale, NovaDatePicker },
   data() {
-    let someDate = moment()
+    let someDate = dayjs()
       .startOf('day')
       .toDate();
-    let anotherDate = moment()
-      .add(1, 'months')
+    let anotherDate = dayjs()
+      .add(1, 'month')
       .toDate();
 
     return {
@@ -208,8 +208,8 @@ export default {
     },
     handleRangeChange(range) {
       console.log(range[0], range[1]);
-      let start = moment(range[0]);
-      let end = moment(range[1]);
+      let start = dayjs(range[0]);
+      let end = dayjs(range[1]);
       if (start.isSame(end, 'day')) {
         end.add(1, 'days');
       }
@@ -223,14 +223,14 @@ export default {
     },
     disabledDateBefore(current) {
       // Can not select days before today and today
-      let today = moment()
+      let today = dayjs()
         .startOf('day')
         .toDate();
       return current && current < today;
     },
     disabledDateAfter(current) {
       // Can not select days after today
-      let today = moment()
+      let today = dayjs()
         .endOf('day')
         .toDate();
       return current > today;
@@ -238,7 +238,7 @@ export default {
     disabledRange(current, index) {
       // Start
       if (index === 0) {
-        let today = moment()
+        let today = dayjs()
           .startOf('day')
           .toDate();
         return current < today;
@@ -251,18 +251,20 @@ export default {
     },
     customTooltip(date) {
       // console.log(date);
-      let today = moment().startOf('day');
-      let dateMoment = moment(date);
+      let today = dayjs().startOf('day');
+      let dateMoment = dayjs(date);
       return dateMoment.diff(today, 'days');
     },
     disabledMonthPrev(date) {
-      let thisMonth = moment().startOf('month');
-      return thisMonth.isSameOrAfter(date, 'month');
+      let thisMonth = dayjs().startOf('month');
+      return (
+        thisMonth.isSame(date, 'month') || thisMonth.isAfter(date, 'month')
+      );
     },
     disabledMonthNext(date) {
-      let thisMonth = moment().startOf('month');
-      let sixMonthLater = thisMonth.add(6, 'months');
-      return sixMonthLater.isSameOrBefore(date);
+      let thisMonth = dayjs().startOf('month');
+      let sixMonthLater = thisMonth.add(6, 'month');
+      return sixMonthLater.isSame(date) || sixMonthLater.isBefore(date);
     },
     handleSelectToday() {
       this.someDate = new Date();

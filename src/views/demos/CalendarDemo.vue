@@ -30,7 +30,7 @@
 
       <div class="calendar-footer">
         <a href="" class="calendar-more">
-          <template>{{ moment(calendarDate).format('YYYY-MM') }}</template>
+          <template>{{ dayjs(calendarDate).format('YYYY-MM') }}</template>
           <template>{{ '更多' }}</template>
         </a>
       </div>
@@ -45,9 +45,9 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
 import holiday from '@/locales/holiday/china';
 import NovaCalendar from '@/components/calendar/NovaCalendar';
-import moment from 'moment';
 import NovaLocale from '@/components/locale/NovaLocale';
 import en from '@/locales/lang/en';
 
@@ -57,38 +57,40 @@ export default {
   data() {
     return {
       en,
-      moment,
+      dayjs,
       holiday,
-      calendarDate: moment()
-        .add(0, 'months')
+      calendarDate: dayjs()
+        .add(0, 'month')
         .toDate()
     };
   },
   methods: {
     getHoliday(date) {
-      return this.holiday[moment(date).format('YYYY-MM-DD')];
+      return this.holiday[dayjs(date).format('YYYY-MM-DD')];
     },
     getDayOfMonth(date) {
-      return moment(date).date();
+      return dayjs(date).date();
     },
     disabledDateBefore(current) {
       // Can not select days before today and today
-      let today = moment()
+      let today = dayjs()
         .startOf('day')
         .toDate();
       return current && current < today;
     },
     disabledMonthPrev(date) {
-      let thisMonth = moment().startOf('month');
-      return thisMonth.isSameOrAfter(date, 'month');
+      let thisMonth = dayjs().startOf('month');
+      return (
+        thisMonth.isSame(date, 'month') || thisMonth.isAfter(date, 'month')
+      );
     },
     disabledMonthNext(date) {
-      let thisMonth = moment().startOf('month');
-      let sixMonthLater = thisMonth.add(6, 'months');
-      return sixMonthLater.isSameOrBefore(date);
+      let thisMonth = dayjs().startOf('month');
+      let sixMonthLater = thisMonth.add(6, 'month');
+      return sixMonthLater.isSame(date) || sixMonthLater.isBefore(date);
     },
     handlePanelChange(date) {
-      console.log(moment(date).format('YYYY-MM-DD'));
+      console.log(dayjs(date).format('YYYY-MM-DD'));
     },
     handleCellEnter(e, scope) {
       console.log(scope);

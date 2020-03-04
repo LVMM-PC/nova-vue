@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./docs/.vuepress/components/demo/radio/basic.vue correctly 1`] = `
+<div tabindex="0" class="nova-radio">
+  <div class="nova-radio-input">
+    <div class="nova-radio-inner"></div>
+  </div>
+  <div class="nova-radio-label">Radio</div>
+</div>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/radio/disabled.vue correctly 1`] = `
+<section>
+  <div tabindex="-1" class="nova-radio is-disabled">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Disabled</div>
+  </div> <br>
+  <div tabindex="-1" class="nova-radio is-checked is-disabled">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Disabled</div>
+  </div> <br> <button>Toggle Disabled</button>
+</section>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/radio/group.vue correctly 1`] = `
+<div class="nova-radio-group">
+  <div tabindex="0" class="nova-radio is-checked">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Apple</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Peach</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Orange</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Cherry</div>
+  </div>
+</div>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/radio/group-more.vue correctly 1`] = `
+<div class="nova-radio-group group-more">
+  <div tabindex="0" class="nova-radio is-checked">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Apple</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Peach</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">Orange</div>
+  </div>
+  <div tabindex="0" class="nova-radio">
+    <div class="nova-radio-input">
+      <div class="nova-radio-inner"></div>
+    </div>
+    <div class="nova-radio-label">More...
+      <!---->
+    </div>
+  </div>
+</div>
+`;

@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import moment from 'moment';
+import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import Month from '@/components/calendar/Month';
@@ -68,9 +68,9 @@ export default {
     }
   },
   data() {
-    let defaultDate = moment();
+    let defaultDate = dayjs();
     if (this.value) {
-      defaultDate = moment(this.value);
+      defaultDate = dayjs(this.value);
     }
     let first = Calendar.getFirstDateMomentOfMonth(defaultDate);
     this.$emit('update', first.toDate());
@@ -90,7 +90,7 @@ export default {
       if (!date) {
         return;
       }
-      if (moment.isDate(date)) {
+      if (dayjs(date).isValid()) {
         this.paneMoment = Calendar.getFirstDateMomentOfMonth(date);
       }
 

@@ -163,12 +163,12 @@
 </template>
 
 <script>
-import Month from './Month';
-import moment from 'moment';
-import NovaDropdown from '../dropdown/NovaDropdown';
+import dayjs from 'dayjs';
 import locale from '@/mixin/locale';
 import Utils from '@/utils/utils';
 import Calendar from '@/utils/calendar';
+import Month from './Month';
+import NovaDropdown from '../dropdown/NovaDropdown';
 
 export default {
   name: 'NovaDatePicker',
@@ -268,7 +268,7 @@ export default {
     }
   },
   data() {
-    let first = Calendar.getFirstDateMomentOfMonth(moment());
+    let first = Calendar.getFirstDateMomentOfMonth(dayjs());
     return {
       blurTimer: null,
       startBlurTimer: null,
@@ -356,13 +356,12 @@ export default {
     init() {
       this.refreshDateList();
     },
+    isToday(dateMoment) {
+      let now = dayjs();
+      return dateMoment.isSame(now, 'date');
+    },
     getSpecialText(dateMoment) {
       let ymd = dateMoment.format(Calendar.defaultFormat);
-
-      let now = moment();
-      if (dateMoment.isSame(now, 'date')) {
-        return this.novaLocale.datePicker.today;
-      }
 
       let holiday = this.novaHoliday;
       if (holiday) {
@@ -379,11 +378,11 @@ export default {
       if (!date) {
         return;
       }
-      let day = moment(date).day();
+      let day = dayjs(date).day();
       return novaLocale.datePicker.weeksLong[this.weeks[day]];
     },
     getSuffixText(date) {
-      let dateMoment = moment(date);
+      let dateMoment = dayjs(date);
       let specialText = this.getSpecialText(dateMoment);
       if (specialText) {
         return specialText;
@@ -526,13 +525,13 @@ export default {
       if (!date) {
         return '';
       }
-      return moment(date).format(this.format);
+      return dayjs(date).format(this.format);
     },
     dateToMoment(date) {
-      if (!moment.isDate(date)) {
+      if (!dayjs(date).isValid()) {
         return null;
       }
-      return moment(date);
+      return dayjs(date);
     },
     refreshDateList() {
       this.defaultEndTooltip = null;
@@ -564,7 +563,7 @@ export default {
       let newStartDate = dateRange[0];
 
       if (rangeCurrentPane === 0 && oldEndDate) {
-        if (moment(oldEndDate).isBefore(moment(newStartDate))) {
+        if (dayjs(oldEndDate).isBefore(dayjs(newStartDate))) {
           dateRange[1] = new Date(newStartDate);
         }
       }
@@ -598,7 +597,7 @@ export default {
       if (!date) {
         return;
       }
-      if (moment.isDate(date)) {
+      if (dayjs(date).isValid()) {
         this.paneMoment = Calendar.getFirstDateMomentOfMonth(date);
       }
 

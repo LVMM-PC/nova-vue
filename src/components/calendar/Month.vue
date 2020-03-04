@@ -94,13 +94,11 @@ export default {
     refreshDateList() {
       let firstMomentOfMonth = this.getShowMoment();
       let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPane = firstMomentOfMonth
-        .clone()
-        .subtract(dayOfWeek, 'days');
+      let firstMomentOfPane = firstMomentOfMonth.subtract(dayOfWeek, 'days');
 
       let momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
-        return firstMomentOfPane.clone().add(index, 'days');
+        return firstMomentOfPane.add(index, 'days');
       });
     },
     getCalendarTitle() {
@@ -111,7 +109,7 @@ export default {
         .replace(' ', '<br>');
     },
     getShowMoment() {
-      return this.NovaCalendar.paneMoment.clone().add(this.offset, 'months');
+      return this.NovaCalendar.paneMoment.add(this.offset, 'month');
     },
     getMomentClassName(dateMoment) {
       let paneMoment = this.getShowMoment();
@@ -141,7 +139,7 @@ export default {
         return;
       }
 
-      let paneMoment = this.NovaCalendar.paneMoment.clone().add(-1, 'months');
+      let paneMoment = this.NovaCalendar.paneMoment.add(-1, 'month');
       this.NovaCalendar.updateShowDate(paneMoment.toDate());
     },
     nextMonthClick() {
@@ -149,7 +147,7 @@ export default {
         return;
       }
 
-      let paneMoment = this.NovaCalendar.paneMoment.clone().add(1, 'months');
+      let paneMoment = this.NovaCalendar.paneMoment.add(1, 'month');
       this.NovaCalendar.updateShowDate(paneMoment.toDate());
     },
     isDisabledMonthPrev() {

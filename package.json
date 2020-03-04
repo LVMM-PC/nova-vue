@@ -42,7 +42,6 @@
     "core-js": "^3.6.4",
     "dayjs": "^1.8.21",
     "lodash": "^4.17.15",
-    "moment": "^2.24.0",
     "portal-vue": "^2.1.7",
     "vue": "^2.6.11",
     "vue-client-only": "^2.0.0",

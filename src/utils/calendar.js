@@ -1,10 +1,10 @@
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 export default class Calendar {
   static weeks = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   static defaultFormat = 'YYYY-MM-DD';
 
   static getFirstDateMomentOfMonth(date) {
-    return moment(date).startOf('month');
+    return dayjs(date).startOf('month');
   }
 }
