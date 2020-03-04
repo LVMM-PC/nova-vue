@@ -28,7 +28,11 @@
           {{ getPlaceholder() }}
         </span>
         <div class="nova-select-labels">
-          <transition-group name="nova-zoom">
+          <transition-group
+            name="nova-zoom"
+            @after-leave="handleTransitionFinished"
+            @after-enter="handleTransitionFinished"
+          >
             <span class="nova-select-label" v-for="v in value" :key="v">
               <span>{{ valueToLabel(v) || v }}</span>
               <span
@@ -203,11 +207,17 @@ export default {
     openDropdown() {
       document.addEventListener('click', this.handleOtherClick);
       this.$emit('open');
+      this.refreshDropdown();
+    },
+    refreshDropdown() {
       if (this.appendToBody) {
         let select = this.$refs['select'];
         let dropdown = this.$refs['dropdown'];
         dropdown.setPosition(select);
       }
+    },
+    handleTransitionFinished() {
+      this.refreshDropdown();
     },
     closeDropdown() {
       document.removeEventListener('click', this.handleOtherClick);
@@ -313,7 +323,9 @@ export default {
   position: absolute;
   top: 0;
   left: 0;
+  right: 23px;
   opacity: 0.5;
+  .ellipsis();
 }
 
 .@{select}-labels {
@@ -369,18 +381,22 @@ export default {
 }
 
 .@{select}-arrow {
-  float: right;
-  vertical-align: top;
-  width: 24px;
-  height: 20px;
-  margin-top: 4px;
+  position: absolute;
+  display: block;
+  top: 4px;
+  box-sizing: border-box;
+  bottom: 4px;
+  right: 0;
+  width: 23px;
   border-left: 1px solid #eeeeee;
-  display: inline-block;
   text-align: center;
 
   &:before {
+    position: absolute;
+    left: 50%;
+    top: 50%;
     vertical-align: top;
-    margin-top: 8px;
+    margin: -2px -4px;
     content: '';
     width: 0;
     height: 0;

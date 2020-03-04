@@ -187,6 +187,10 @@ export default {
         {
           label: '香蕉',
           value: 'banana'
+        },
+        {
+          label: '桃子',
+          value: 'peach'
         }
       ],
       selectValue1: '',

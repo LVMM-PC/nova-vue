@@ -583,6 +583,7 @@ export default {
     .@{date-picket}-date-inner {
       color: #ee3388;
       border: 1px solid #ee3388;
+      padding: 2px 0;
     }
   }
 
