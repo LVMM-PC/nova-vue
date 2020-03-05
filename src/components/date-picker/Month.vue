@@ -46,7 +46,7 @@
           class="nova-date-picker-date"
           :class="getMomentClassName(dateMoment)"
           v-for="dateMoment in momentList"
-          :key="dateMoment.format('YYYY-MM-DD')"
+          :key="dateMoment.format(defaultFormat)"
           @click="handleMomentSelect(dateMoment)"
           @mouseenter="handleDateMouseEnter(dateMoment, $event)"
           @mouseleave="handleDateMouseLeave"
@@ -62,6 +62,7 @@
 
 <script>
 import dayjs from 'dayjs';
+import Calendar from '@/utils/calendar';
 
 export default {
   name: 'Month',
@@ -84,7 +85,8 @@ export default {
       momentList: [],
       showMonthSize: NovaDatePicker.showMonthSize,
       weeks: NovaDatePicker.weeks,
-      isRange: NovaDatePicker.isRange
+      isRange: NovaDatePicker.isRange,
+      defaultFormat: Calendar.defaultFormat
     };
   },
   computed: {

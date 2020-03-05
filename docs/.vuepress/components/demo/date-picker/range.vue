@@ -1,12 +1,12 @@
 <template>
-  <NovaDatePicker v-model="date" @change="onChange" />
+  <NovaDatePicker v-model="date" @change="onChange" type="range" />
 </template>
 
 <script>
 export default {
   data() {
     return {
-      date: null
+      date: [null, null]
     };
   },
   methods: {

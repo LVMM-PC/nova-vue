@@ -7,7 +7,11 @@
     ref="date-picker"
   >
     <div class="nova-date-picker-toggle" v-if="!isRange">
-      <div class="nova-date-picker-inner" ref="inner">
+      <div
+        class="nova-date-picker-inner"
+        :class="{ 'is-disabled': isDisabled }"
+        ref="inner"
+      >
         <input
           autocomplete="off"
           class="nova-date-picker-input"
@@ -39,9 +43,10 @@
     </div>
     <div class="nova-date-picker-toggle" v-if="isRange">
       <div
-        class="nova-date-picker-inner nova-date-range-start"
+        class="nova-date-picker-inner nova-date-picker-range-start"
         :class="{
-          'nova-date-picker-inner-fake-disabled': startFakeDisabled
+          'nova-date-picker-inner-fake-disabled': startFakeDisabled,
+          'is-disabled': startDisabled
         }"
         ref="start"
       >
@@ -51,7 +56,7 @@
           type="text"
           :value="displayedRange.start"
           readonly
-          :disabled="disabled"
+          :disabled="startDisabled"
           :placeholder="getStartPlaceholder"
           v-if="!startFakeDisabled"
           @focus="handleStartFocus"
@@ -86,8 +91,11 @@
         <span class="nova-date-picker-icon" v-if="showIcon"></span>
       </div>
       <div
-        class="nova-date-picker-inner nova-date-range-end"
-        :class="{ 'nova-date-picker-inner-fake-disabled': endFakeDisabled }"
+        class="nova-date-picker-inner nova-date-picker-range-end"
+        :class="{
+          'nova-date-picker-inner-fake-disabled': endFakeDisabled,
+          'is-disabled': endDisabled
+        }"
         ref="end"
       >
         <input
@@ -96,7 +104,7 @@
           type="text"
           :value="displayedRange.end"
           readonly
-          :disabled="disabled"
+          :disabled="endDisabled"
           :placeholder="getEndPlaceholder"
           v-if="!endFakeDisabled"
           @focus="handleEndFocus"
@@ -202,7 +210,7 @@ export default {
       default: Calendar.defaultFormat
     },
     disabled: {
-      type: Boolean,
+      type: [Boolean, Array],
       default: false
     },
     startFakeDisabled: {
@@ -293,8 +301,32 @@ export default {
     datePickerClass() {
       return {
         'is-open': this.opened,
-        'is-disabled': this.disabled
+        'nova-date-picker-range': this.isRange
       };
+    },
+    isDisabled() {
+      let disabled = this.disabled;
+      let isArray = Array.isArray(disabled);
+      if (!isArray) {
+        return disabled;
+      }
+      return false;
+    },
+    startDisabled() {
+      let disabled = this.disabled;
+      let isArray = Array.isArray(disabled);
+      if (!isArray) {
+        return disabled;
+      }
+      return disabled[0];
+    },
+    endDisabled() {
+      let disabled = this.disabled;
+      let isArray = Array.isArray(disabled);
+      if (!isArray) {
+        return disabled;
+      }
+      return disabled[1];
     },
     showMonthSize() {
       if (this.monthSize) {
@@ -414,7 +446,7 @@ export default {
       clearTimeout(this.startBlurTimer);
       clearTimeout(this.endBlurTimer);
 
-      if (this.disabled) {
+      if (this.startDisabled) {
         return;
       }
 
@@ -425,7 +457,7 @@ export default {
       this.openDropdown(start);
     },
     handleStartFocus(e) {
-      if (this.disabled) {
+      if (this.startDisabled) {
         return;
       }
       this.openStartImplement();
@@ -440,7 +472,7 @@ export default {
       clearTimeout(this.startBlurTimer);
       clearTimeout(this.endBlurTimer);
 
-      if (this.disabled) {
+      if (this.endDisabled) {
         return;
       }
       this.rangeCurrentPane = 1;
@@ -450,7 +482,7 @@ export default {
       this.openDropdown(end);
     },
     handleEndFocus(e) {
-      if (this.disabled) {
+      if (this.endDisabled) {
         return;
       }
       this.openEndImplement();
@@ -692,25 +724,25 @@ export default {
   font-size: 14px;
   line-height: 20px;
   font-family: @font-family;
-
-  &.is-disabled {
-    opacity: 0.5;
-  }
+  color: @font-color;
 }
 
 .@{date-picket}-toggle {
   box-sizing: border-box;
   width: 200px;
-  height: 30px;
 }
 
 .@{date-picket}-inner {
   display: block;
   box-sizing: border-box;
-  height: 100%;
+  height: 30px;
 
   ::placeholder {
     color: @placeholder-color;
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
   }
 
   &.@{date-picket}-inner-fake-disabled {
@@ -734,6 +766,7 @@ export default {
   padding: 5px;
   outline: none;
   cursor: default;
+  color: @font-color;
 
   &[disabled] {
     background-color: #eeeeee;

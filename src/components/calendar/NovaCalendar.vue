@@ -121,5 +121,6 @@ export default {
   font-family: @font-family;
   font-size: 12px;
   background-color: #fff;
+  color: @font-color;
 }
 </style>

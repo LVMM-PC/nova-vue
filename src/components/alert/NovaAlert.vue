@@ -162,7 +162,7 @@ export default {
   display: inline-block;
   box-sizing: border-box;
   font-size: 12px;
-  color: #333333;
+  color: @font-color;
   line-height: 18px;
 
   &.@{alert}-success,

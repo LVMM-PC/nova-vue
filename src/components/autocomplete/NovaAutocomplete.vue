@@ -552,6 +552,7 @@ export default {
   font-size: 14px;
   line-height: 20px;
   font-family: @font-family;
+  color: @font-color;
 
   &.is-disabled {
     opacity: 0.5;

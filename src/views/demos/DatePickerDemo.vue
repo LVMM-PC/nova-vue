@@ -118,6 +118,36 @@
         :disabled-date="disabledRange"
         :locale="customChinese"
       ></NovaDatePicker>
+      <NovaDatePicker
+        v-model="someDateRange"
+        :show-suffix="true"
+        type="range"
+        @open="handleOpen"
+        @close="handleClose"
+        @change="handleRangeChange"
+        @startChange="handleStartChange"
+        @endChange="handleEndChange"
+        :disabled="[false, true]"
+        :disabled-date="disabledRange"
+        :locale="customChinese"
+        start-placeholder="START"
+        end-placeholder="END"
+      ></NovaDatePicker>
+      <NovaDatePicker
+        v-model="someDateRange"
+        :show-suffix="true"
+        type="range"
+        @open="handleOpen"
+        @close="handleClose"
+        @change="handleRangeChange"
+        @startChange="handleStartChange"
+        @endChange="handleEndChange"
+        :disabled="[true, false]"
+        :disabled-date="disabledRange"
+        :locale="customChinese"
+        start-placeholder="START"
+        end-placeholder="END"
+      ></NovaDatePicker>
     </div>
     <div class="box">
       <button @click="triggerFocusStart">Focus Start</button>

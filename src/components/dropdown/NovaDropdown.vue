@@ -75,6 +75,7 @@ export default {
   line-height: 20px;
   position: absolute;
   background-color: #fff;
+  color: @font-color;
   border: 1px solid #cccccc;
   font-family: @font-family;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);

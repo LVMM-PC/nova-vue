@@ -28,6 +28,7 @@ export default {
 @select: @{prefixed}-select;
 
 .@{select}-option-group {
+  color: @font-color;
 }
 
 .@{select}-option-group-label {

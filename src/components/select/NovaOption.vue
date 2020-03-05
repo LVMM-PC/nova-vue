@@ -88,6 +88,7 @@ export default {
 .@{select}-option {
   cursor: pointer;
   padding: 5px 10px;
+  color: @font-color;
 
   &:hover:not(.is-disabled) {
     color: #ee3388;

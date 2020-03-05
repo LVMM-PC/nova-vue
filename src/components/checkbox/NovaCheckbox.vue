@@ -123,11 +123,11 @@ export default {
 .@{checkbox} {
   cursor: pointer;
   line-height: 20px;
-  color: #333333;
   display: inline-block;
   vertical-align: top;
   font-size: 12px;
   font-family: @font-family;
+  color: @font-color;
 
   &:focus {
     outline: none;
