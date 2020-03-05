@@ -56,23 +56,22 @@
 .box {
   display: inline-block;
   vertical-align: top;
-  width: 400px;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  width: 320px;
 
   .top,
   .bottom {
     display: flex;
-    justify-content: center;
+    padding-left: 70px;
   }
 
   .left {
-    width: 100px;
+    width: 70px;
     float: left;
+    text-align: right;
   }
 
   .right {
-    width: 80px;
+    width: 60px;
     float: right;
   }
 

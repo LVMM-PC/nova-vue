@@ -8,8 +8,39 @@ div[class*="language-"]::before
 code
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", "PingFang SC", "Microsoft Yahei", monospace
 
-.nova-dropdown
-  z-index: 1
+.nova-alert,
+.nova-select,
+.nova-date-picker
+  margin-bottom: 5px
 
 .nova-alert-block
   margin-bottom: 10px
+
+.nova-dropdown
+  z-index: 1
+
+.pic-plus
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+.pic-plus-icon
+  display: block;
+  position: relative;
+  color: #aaa;
+  margin: 0 0 0 20px;
+  width: 16px;
+  height: 2px;
+  background-color: #aaa;
+
+.pic-plus-icon:before
+  display: block;
+  content: '';
+  background-color: #aaa;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 16px;
+  transform: translate(-50%, -50%);
+

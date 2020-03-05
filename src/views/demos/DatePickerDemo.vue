@@ -211,7 +211,7 @@ export default {
       let start = dayjs(range[0]);
       let end = dayjs(range[1]);
       if (start.isSame(end, 'day')) {
-        end.add(1, 'days');
+        end.add(1, 'day');
       }
       this.someDateRange[1] = end.toDate();
     },
@@ -253,7 +253,7 @@ export default {
       // console.log(date);
       let today = dayjs().startOf('day');
       let dateMoment = dayjs(date);
-      return dateMoment.diff(today, 'days');
+      return dateMoment.diff(today, 'day');
     },
     disabledMonthPrev(date) {
       let thisMonth = dayjs().startOf('month');

@@ -3,22 +3,10 @@
 `nova-vue` 是基于 Nova 设计体系的 Vue UI 组件库，主要用于研发企业级前台产品。
 
 <div class="pic-plus">
-  <img width="150" src="./assets/nova-logo.svg"/>
-  <span>+</span>
-  <img width="160" src="./assets/vue-logo.png"/>
+  <img width="125" src="./assets/nova-logo.svg"/>
+  <span class="pic-plus-icon"></span>
+  <img width="150" src="./assets/vue-logo.png"/>
 </div>
-
-<style>
-.pic-plus > * {
-  display: inline-block !important;
-  vertical-align: middle;
-}
-.pic-plus span {
-  font-size: 30px;
-  color: #aaa;
-  margin: 0 20px;
-}
-</style>
 
 ---
 
