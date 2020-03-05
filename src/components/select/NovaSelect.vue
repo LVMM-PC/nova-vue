@@ -31,7 +31,7 @@
           <transition-group
             name="nova-zoom"
             @after-leave="handleTransitionFinished"
-            @after-enter="handleTransitionFinished"
+            @enter="handleTransitionFinished"
           >
             <span class="nova-select-label" v-for="v in value" :key="v">
               <span>{{ valueToLabel(v) || v }}</span>
@@ -160,7 +160,7 @@ export default {
       }
       return '';
     },
-    setValue(value) {
+    setSelected(value) {
       if (this.multiple) {
         let newValue = this.value.slice();
         let foundIndex = newValue.findIndex(v => {
@@ -244,7 +244,7 @@ export default {
         return;
       }
 
-      this.setValue(value);
+      this.setSelected(value);
     },
     getDropdownDom() {
       return this.$refs['dropdown'].getDom();

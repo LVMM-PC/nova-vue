@@ -28,9 +28,18 @@ export default {
     }
   },
   methods: {
-    setValue(value) {
+    setChecked(value, trigger) {
+      if (value === this.value) {
+        return;
+      }
+
       this.$emit('update', value);
-      this.$emit('change', value);
+      if (trigger) {
+        this.$emit('change', value);
+      }
+    },
+    getChecked() {
+      return this.value;
     }
   }
 };

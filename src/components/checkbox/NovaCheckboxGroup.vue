@@ -28,26 +28,31 @@ export default {
     }
   },
   methods: {
-    setCheck(value, state) {
-      let newValue = this.value;
+    setChecked(checkedValue, checked, trigger) {
+      let newValue;
+      let found = this.value.find(item => {
+        return item === checkedValue;
+      });
 
-      if (state) {
-        let found = this.value.find(item => {
-          return item === value;
-        });
+      if (checked) {
         if (found) {
           return;
         }
 
-        newValue = this.value.concat([value]);
+        newValue = this.value.concat([checkedValue]);
       } else {
+        if (!found) {
+          return;
+        }
         newValue = this.value.filter(item => {
-          return item !== value;
+          return item !== checkedValue;
         });
       }
 
       this.$emit('update', newValue);
-      this.$emit('change', newValue);
+      if (trigger) {
+        this.$emit('change', newValue);
+      }
     }
   }
 };

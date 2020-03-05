@@ -72,24 +72,40 @@ export default {
   },
   methods: {
     inGroupClick() {
-      this.NovaCheckboxGroup.setCheck(this.value, !this.isChecked);
+      this.NovaCheckboxGroup.setChecked(this.value, !this.isChecked, true);
     },
     handleCheckboxClick() {
       if (this.isDisabled) {
         return;
       }
 
-      this.$emit('update', !this.isChecked);
       this.$emit('change', !this.isChecked);
 
       if (this.NovaCheckboxGroup) {
         this.inGroupClick();
+      } else {
+        this.$emit('update', !this.isChecked);
       }
     }
   },
   watch: {
-    isChecked(newValue) {
+    isChecked(newValue, oldValue) {
+      if (newValue === oldValue) {
+        return;
+      }
+
       this.$emit('update', newValue);
+    },
+    checked(newValue, oldValue) {
+      if (newValue === oldValue) {
+        return;
+      }
+
+      if (!this.NovaCheckboxGroup) {
+        return;
+      }
+
+      this.NovaCheckboxGroup.setChecked(this.value, newValue, false);
     }
   }
 };
@@ -99,6 +115,10 @@ export default {
 @import '../../styles/var';
 
 @checkbox: @{prefixed}-checkbox;
+
+@checkWidth: 4.94974747px; // sqrt(7^2 / 2)
+@checkHeight: 8.4852814px; // sqrt(12^2 / 2)
+@checkTop: 1.41421356px; // sqrt(2^2 / 2)
 
 .@{checkbox} {
   cursor: pointer;
@@ -136,8 +156,10 @@ export default {
     }
 
     .@{checkbox}-inner {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+      &:before {
+        transform: rotate(45deg) scale(1);
+        opacity: 1;
+      }
     }
   }
 }
@@ -155,26 +177,20 @@ export default {
 }
 
 .@{checkbox}-inner {
-  opacity: 0;
-  width: 4.94974747px;
-  height: 8.4852814px;
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 200ms @ease-out-backward;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
   &:before {
-    margin-top: -0.70710678px; //( sqrt(2^2 / 2) ) / 2
+    opacity: 0;
+    margin-top: (12 - @checkHeight) / 2 - @checkTop / 2;
+    margin-left: (12 - @checkWidth) / 2;
     box-sizing: border-box;
-    width: 4.94974747px; //sqrt(7^2 / 2)
-    height: 8.4852814px; //sqrt(12^2 / 2)
+    width: @checkWidth;
+    height: @checkHeight;
     content: '';
     display: block;
     border: 2px solid #ee3388;
     border-top: none;
     border-left: none;
-    transform: rotate(45deg);
+    transform: rotate(45deg) scale(0);
+    transition: transform 200ms @ease-out-backward;
   }
 }
 

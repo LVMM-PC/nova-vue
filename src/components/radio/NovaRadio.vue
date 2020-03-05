@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     inGroupClick() {
-      this.NovaRadioGroup.setValue(this.value);
+      this.NovaRadioGroup.setChecked(this.value, true);
     },
     handleRadioClick() {
       if (this.isDisabled) {
@@ -81,17 +81,40 @@ export default {
         return;
       }
 
-      this.$emit('update', true);
       this.$emit('change', true);
 
       if (this.NovaRadioGroup) {
         this.inGroupClick();
+      } else {
+        this.$emit('update', true);
       }
     }
   },
   watch: {
-    isChecked(newValue) {
+    isChecked(newValue, oldValue) {
+      if (newValue === oldValue) {
+        return;
+      }
+
       this.$emit('update', newValue);
+    },
+    checked(newValue, oldValue) {
+      if (newValue === oldValue) {
+        return;
+      }
+
+      if (!this.NovaRadioGroup) {
+        return;
+      }
+
+      if (newValue) {
+        this.NovaRadioGroup.setChecked(this.value, false);
+      } else {
+        let isChecked = this.value === this.NovaRadioGroup.getChecked();
+        if (isChecked) {
+          this.NovaRadioGroup.setChecked(null, false);
+        }
+      }
     }
   }
 };
