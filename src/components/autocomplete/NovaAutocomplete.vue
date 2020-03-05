@@ -98,11 +98,11 @@
 </template>
 
 <script>
-import NovaDropdown from '@/components/dropdown/NovaDropdown';
+import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
-import lodash from 'lodash';
-import NovaAlert from '@/components/alert/NovaAlert';
 import locale from '@/mixin/locale';
+import NovaDropdown from '@/components/dropdown/NovaDropdown';
+import NovaAlert from '@/components/alert/NovaAlert';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',
@@ -196,7 +196,7 @@ export default {
     }
   },
   data() {
-    let searchDebounce = lodash.debounce(this.searchImplement, this.debounce);
+    let searchDebounce = debounce(this.searchImplement, this.debounce);
     return {
       searchDebounce: searchDebounce,
       queryString: '',

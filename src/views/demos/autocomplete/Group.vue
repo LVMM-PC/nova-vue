@@ -19,9 +19,9 @@
 </template>
 
 <script>
+import groupBy from 'lodash/groupBy';
 import NovaAutocomplete from '@/components/autocomplete/NovaAutocomplete';
 import globalHotelList from '@/views/data/global-hotel-list';
-import lodash from 'lodash';
 
 export default {
   name: 'Group',
@@ -41,7 +41,7 @@ export default {
         return Object.assign(ret, matchItem);
       });
 
-      let listGroups = lodash.groupBy(matchList, item => {
+      let listGroups = groupBy(matchList, item => {
         return item.type;
       });
 

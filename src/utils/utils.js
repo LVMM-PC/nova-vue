@@ -4,7 +4,7 @@ export default class Utils {
    * @param stopEl Stop calc parent
    * @returns {{top: number, left: number}}
    */
-  static getElementOffset(el, stopEl) {
+  static getElementOffset(el, stopEl = null) {
     let left = 0;
     let top = 0;
 

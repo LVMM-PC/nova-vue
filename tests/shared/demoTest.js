@@ -17,7 +17,7 @@ import nova, {
   NovaRadioGroup,
   NovaCheckbox,
   NovaCheckboxGroup
-} from '../..';
+} from '../../src/index';
 
 Vue.component('ClientOnly', ClientOnly);
 Vue.component('MountingPortal', MountingPortal);

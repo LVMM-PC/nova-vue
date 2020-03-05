@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import Utils from '../../utils/utils';
+import Utils from '@/utils/utils';
 
 export default {
   name: 'NovaDropdown',

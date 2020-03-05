@@ -26,7 +26,7 @@
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
-import Month from '@/components/calendar/Month';
+import Month from './Month';
 
 export default {
   name: 'NovaCalendar',

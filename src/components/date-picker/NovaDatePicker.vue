@@ -164,11 +164,11 @@
 
 <script>
 import dayjs from 'dayjs';
-import locale from '@/mixin/locale';
 import Utils from '@/utils/utils';
 import Calendar from '@/utils/calendar';
+import locale from '@/mixin/locale';
+import NovaDropdown from '@/components/dropdown/NovaDropdown';
 import Month from './Month';
-import NovaDropdown from '../dropdown/NovaDropdown';
 
 export default {
   name: 'NovaDatePicker',

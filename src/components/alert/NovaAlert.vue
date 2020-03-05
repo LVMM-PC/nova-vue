@@ -8,7 +8,7 @@
       v-on="$listeners"
       ref="alert"
     >
-      <NovaAlertIcon :type="type"></NovaAlertIcon>
+      <Icon :type="type"></Icon>
       <div
         class="nova-alert-close"
         @click="handleCloseClick"
@@ -23,11 +23,11 @@
 </template>
 
 <script>
-import NovaAlertIcon from '@/components/alert/NovaAlertIcon';
+import Icon from './Icon';
 
 export default {
   name: 'NovaAlert',
-  components: { NovaAlertIcon },
+  components: { Icon },
   data() {
     return {
       visible: true,

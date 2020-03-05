@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'NovaAlertIcon',
+  name: 'Icon',
   props: {
     type: String
   }
