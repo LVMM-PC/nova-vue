@@ -45,6 +45,27 @@
       </dd>
     </dl>
     <dl>
+      <dt>协议：</dt>
+      <dd>
+        <NovaRadioGroup v-model="isReadGroup">
+          <NovaRadio v-model="isRead3" value="LISTENING"
+            >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+          </NovaRadio>
+          <NovaRadio v-model="isRead4" value="SPEAKING"
+            >input 的 radio
+            类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
+          </NovaRadio>
+          <NovaRadio v-model="isRead5" value="READING"
+            >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+          </NovaRadio>
+          <NovaRadio v-model="isRead6" value="WRITING"
+            >input 的 radio
+            类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
+          </NovaRadio>
+        </NovaRadioGroup>
+      </dd>
+    </dl>
+    <dl>
       <dt>镜头：</dt>
       <dd>
         <NovaRadioGroup v-model="lensValue2">
@@ -59,7 +80,7 @@
     <dl>
       <dt>协议：</dt>
       <dd>
-        <NovaRadio v-model="isRead3" value="READ" disabled>我已阅读</NovaRadio>
+        <NovaRadio v-model="isRead7" value="READ" disabled>我已阅读</NovaRadio>
       </dd>
     </dl>
     <dl>
@@ -134,6 +155,11 @@ export default {
       isRead1: false,
       isRead2: true,
       isRead3: false,
+      isRead4: false,
+      isRead5: false,
+      isRead6: false,
+      isRead7: false,
+      isReadGroup: '',
       lensValue1: '',
       lensValue3: 'MACRO',
       lensValue2: 'MACRO'
@@ -159,7 +185,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .box {
   line-height: 20px;
   font-size: 12px;
@@ -177,6 +203,7 @@ dt {
 }
 
 dd {
+  width: calc(100% - 100px);
   margin: 0;
   display: inline-block;
   vertical-align: top;
@@ -184,5 +211,9 @@ dd {
 
 .nova-radio {
   margin-right: 10px;
+
+  /deep/ .nova-radio-label {
+    max-width: 300px;
+  }
 }
 </style>

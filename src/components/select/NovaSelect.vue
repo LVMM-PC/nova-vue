@@ -313,12 +313,14 @@ export default {
   display: block;
   border: 1px solid #cccccc;
   min-height: 28px;
+  padding-right: 23px;
 }
 
 .@{select}-text {
-  display: inline-block;
+  display: block;
   vertical-align: top;
   padding: 4px 10px;
+  .ellipsis();
 }
 
 .@{select}-placeholder {
@@ -335,24 +337,30 @@ export default {
 }
 
 .@{select}-label {
+  max-width: calc(100% - 4px);
+  box-sizing: border-box;
   background-color: #fff;
   position: relative;
   display: inline-block;
   vertical-align: top;
   margin: 2px;
   line-height: 18px;
-  padding: 0 4px;
+  padding: 0 18px 0 4px;
   border: 1px solid #ccc;
+  .ellipsis();
 }
 
 .@{select}-label-delete {
+  position: absolute;
+  right: 0;
+  top: 0;
   width: 12px;
   height: 12px;
   border-radius: 50%;
   background-color: #ccc;
   display: inline-block;
   vertical-align: top;
-  margin: 3px 0 0 3px;
+  margin: 3px;
   text-align: center;
   line-height: 12px;
 
@@ -412,7 +420,7 @@ export default {
 @supports (transform-style: preserve-3d) {
   .@{select}-arrow {
     &:before {
-      transition: transform 200ms;
+      transition: transform @normal-motion;
     }
   }
 

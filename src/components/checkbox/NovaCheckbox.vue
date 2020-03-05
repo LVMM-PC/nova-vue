@@ -190,7 +190,7 @@ export default {
     border-top: none;
     border-left: none;
     transform: rotate(45deg) scale(0);
-    transition: transform 200ms @ease-out-backward;
+    transition: transform @normal-motion @ease-out-backward;
   }
 }
 

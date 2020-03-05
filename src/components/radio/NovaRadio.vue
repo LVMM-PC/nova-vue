@@ -184,7 +184,7 @@ export default {
   width: 8px;
   height: 8px;
   transform: scale(0);
-  transition: transform 100ms @ease-in-out-circular;
+  transition: transform @fast-motion @ease-in-out-circular;
   background-color: #ee3388;
   border-radius: 50%;
   margin: 2px;

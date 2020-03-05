@@ -125,6 +125,7 @@ export default {
       this.closing = false;
       let $alert = this.$refs['alert'];
       $alert.style.height = null;
+      this.$emit('afterClose');
     }
   }
 };

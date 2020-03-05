@@ -71,6 +71,7 @@
           @open="handleOpen"
           @close="handleClose"
           :multiple="true"
+          :append-to-body="false"
         >
           <NovaOption
             :key="option.value"
@@ -119,6 +120,33 @@
           :key="pIndex"
         ></NovaOption>
       </NovaSelect>
+      <NovaSelect
+        placeholder="元素表示一个控件，提供一个选项菜单"
+        v-model="selectValue4"
+      >
+        <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
+          <NovaOption
+            value="apple"
+            label="元素表示一个控件，提供一个选项菜单"
+          ></NovaOption>
+        </NovaOptGroup>
+      </NovaSelect>
+      <NovaSelect
+        placeholder="元素表示一个控件，提供一个选项菜单"
+        v-model="selectValue5"
+        multiple
+      >
+        <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
+          <NovaOption
+            value="apple"
+            label="元素表示一个控件，提供一个选项菜单"
+          ></NovaOption>
+          <NovaOption
+            value="banana"
+            label="元素表示一个控件，提供一个选项菜单"
+          ></NovaOption>
+        </NovaOptGroup>
+      </NovaSelect>
     </div>
     <div class="block"></div>
     <div class="box">
@@ -128,13 +156,13 @@
             <div class="large-icon">❤</div>
           </template>
           <template>
-            <NovaOption value="苹果">
+            <NovaOption value="apple" label="苹果">
               <div class="large-icon">🍎</div>
             </NovaOption>
-            <NovaOption value="橘子">
+            <NovaOption value="orange" label="橘子">
               <div class="large-icon">🍊</div>
             </NovaOption>
-            <NovaOption value="香蕉">
+            <NovaOption value="banana" label="香蕉">
               <div class="large-icon">🍌</div>
             </NovaOption>
           </template>
@@ -174,7 +202,7 @@ export default {
   data() {
     return {
       en: en,
-      emojiSelect: '苹果',
+      emojiSelect: 'apple',
       selectOptions: [
         {
           label: '苹果',
@@ -196,6 +224,8 @@ export default {
       selectValue1: '',
       selectValue2: [],
       selectValue3: '',
+      selectValue4: '',
+      selectValue5: [],
       administrativeDivision: {
         municipality: ['北京市', '上海市', '天津市', '重庆市'],
         autonomousRegion: [

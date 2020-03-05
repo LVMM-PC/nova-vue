@@ -2,12 +2,12 @@
 
 //region slide-up
 .nova-slide-up-enter-active {
-  transition: opacity 200ms, transform 200ms @ease-out-quintic;
+  transition: opacity @normal-motion, transform @normal-motion @ease-out-quintic;
   transform-origin: 0 0;
 }
 
 .nova-slide-up-leave-active {
-  transition: opacity 200ms, transform 200ms @ease-in-quintic;
+  transition: opacity @normal-motion, transform @normal-motion @ease-in-quintic;
   transform-origin: 0 0;
 }
 
@@ -22,14 +22,14 @@
 
 //region alert-slide-up
 .nova-alert-slide-up-enter-active {
-  transition: opacity 200ms, height 200ms @ease-in-out-circular,
-    transform 200ms @ease-in-out-circular;
+  transition: opacity @normal-motion, height @normal-motion @ease-in-out-circular,
+    transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
 .nova-alert-slide-up-leave-active {
-  transition: opacity 200ms, height 200ms @ease-in-out-circular,
-    transform 200ms @ease-in-out-circular;
+  transition: opacity @normal-motion, height @normal-motion @ease-in-out-circular,
+    transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
@@ -44,11 +44,11 @@
 
 //region zoom
 .nova-zoom-enter-active {
-  transition: opacity 200ms, transform 200ms @ease-out-backward;
+  transition: opacity @normal-motion, transform @normal-motion @ease-out-backward;
 }
 
 .nova-zoom-leave-active {
-  transition: opacity 200ms, transform 200ms @ease-in-backward;
+  transition: opacity @normal-motion, transform @normal-motion @ease-in-backward;
 }
 
 .nova-zoom-enter,

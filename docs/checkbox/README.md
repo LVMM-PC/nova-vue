@@ -54,9 +54,10 @@ checkbox 不可用。
 
 ### Checkbox Events
 
-| 事件名称 | 说明           | 类型               |
-| -------- | -------------- | ------------------ |
-| change   | 变化时回调函数 | function\(checked) |
+| 事件名称 | 说明                                      | 类型               |
+| -------- | ----------------------------------------- | ------------------ |
+| change   | 变化时回调函数                            | function\(checked) |
+| update   | 不使用 v-model 时，调用此函数更新 checked | function\(checked) |
 
 ### CheckboxGroup props
 
@@ -67,6 +68,7 @@ checkbox 不可用。
 
 ### CheckboxGroup Events
 
-| 事件名称 | 说明           | 类型             |
-| -------- | -------------- | ---------------- |
-| change   | 变化时回调函数 | function\(value) |
+| 事件名称 | 说明                                    | 类型             |
+| -------- | --------------------------------------- | ---------------- |
+| change   | 变化时回调函数                          | function\(value) |
+| update   | 不使用 v-model 时，调用此函数更新 value | function\(value) |
