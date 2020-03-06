@@ -334,7 +334,7 @@ export default {
 }
 
 .@{select}-labels {
-  padding: 2px;
+  padding: 2px 4px;
 }
 
 .@{select}-label {
