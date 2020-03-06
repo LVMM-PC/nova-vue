@@ -4,6 +4,7 @@ import './styles/common.less';
 
 import en from './locales/lang/en';
 import zhCN from './locales/lang/zh-CN';
+import zhTW from './locales/lang/zh-TW';
 import china from './locales/holiday/china';
 
 export NovaLocale from './components/locale/NovaLocale';
@@ -24,7 +25,8 @@ export default {
   version,
   locale: {
     en,
-    zhCN
+    zhCN,
+    zhTW
   },
   holiday: {
     china

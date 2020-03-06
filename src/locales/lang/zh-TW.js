@@ -1,17 +1,17 @@
-let zhCN = {
+let zhTW = {
   select: {
-    placeholder: '请选择'
+    placeholder: '請選擇'
   },
   datePicker: {
     night: '晚',
-    placeholder: '请选择日期',
-    rangePlaceholder: ['开始日期', '结束日期'],
+    placeholder: '請選擇日期',
+    rangePlaceholder: ['開始日期', '結束日期'],
     yearAndMonth: (year, month) => {
-      return `${year}${zhCN.datePicker.year} ${zhCN.datePicker.months[month]}`;
+      return `${year}${zhTW.datePicker.year} ${zhTW.datePicker.months[month]}`;
     },
     today: '今天',
-    prevMonth: '上个月',
-    nextMonth: '下个月',
+    prevMonth: '上個月',
+    nextMonth: '下個月',
     year: '年',
     weeksShort: {
       sun: '日',
@@ -47,8 +47,8 @@ let zhCN = {
     ]
   },
   autocomplete: {
-    noData: '未找到匹配数据'
+    noData: '未找到匹配數據'
   }
 };
 
-export default zhCN;
+export default zhTW;

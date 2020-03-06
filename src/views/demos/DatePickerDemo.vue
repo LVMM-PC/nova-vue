@@ -321,7 +321,7 @@ export default {
       let $myDatePicker = this.$refs['my-range-date-picker'];
 
       setTimeout(() => {
-        $myDatePicker.focusStart();
+        $myDatePicker.focus('start');
       }, 1);
     },
     triggerBlurStart() {
@@ -332,14 +332,14 @@ export default {
       }, 1);
 
       setTimeout(() => {
-        $myDatePicker.blurStart();
+        $myDatePicker.blur('start');
       }, 1000);
     },
     triggerFocusEnd() {
       let $myDatePicker = this.$refs['my-range-date-picker'];
 
       setTimeout(() => {
-        $myDatePicker.focusEnd();
+        $myDatePicker.focus('end');
       }, 1);
     },
     triggerBlurEnd() {
@@ -350,30 +350,30 @@ export default {
       }, 1);
 
       setTimeout(() => {
-        $myDatePicker.blurEnd();
+        $myDatePicker.blur('end');
       }, 1000);
     },
     triggerOpenStart() {
       let $myDatePicker = this.$refs['my-range-date-picker'];
       setTimeout(() => {
-        $myDatePicker.openStart();
+        $myDatePicker.open('start');
       }, 1);
     },
     triggerOpenEnd() {
       let $myDatePicker = this.$refs['my-range-date-picker'];
 
       setTimeout(() => {
-        $myDatePicker.openEnd();
+        $myDatePicker.open('end');
       }, 1);
     },
     triggerRangeClose() {
       let $myDatePicker = this.$refs['my-range-date-picker'];
 
       setTimeout(() => {
-        $myDatePicker.openStart();
+        $myDatePicker.open('start');
       }, 1);
       setTimeout(() => {
-        $myDatePicker.openEnd();
+        $myDatePicker.open('end');
       }, 500);
 
       setTimeout(() => {
@@ -381,10 +381,10 @@ export default {
       }, 1000);
 
       setTimeout(() => {
-        $myDatePicker.openEnd();
+        $myDatePicker.open('end');
       }, 1500);
       setTimeout(() => {
-        $myDatePicker.openStart();
+        $myDatePicker.open('start');
       }, 2000);
 
       setTimeout(() => {

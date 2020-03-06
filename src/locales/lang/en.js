@@ -3,7 +3,9 @@ let en = {
     placeholder: 'Select'
   },
   datePicker: {
+    night: 'Night',
     placeholder: 'Select date',
+    rangePlaceholder: ['Start date', 'End date'],
     yearAndMonth: (year, month) => {
       return `${en.datePicker.months[month]} ${year}`;
     },
@@ -43,10 +45,6 @@ let en = {
       'November',
       'December'
     ]
-  },
-  datePickerRange: {
-    night: 'Night',
-    placeholder: ['Start date', 'End date']
   },
   autocomplete: {
     noData: 'No matching data found'

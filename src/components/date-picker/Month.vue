@@ -25,7 +25,7 @@
         class="nova-date-picker-next"
         :class="getMonthNextClass()"
         @click="nextMonthClick"
-        :title="!isDisabledMonthNext() ? novaLocale.datePicker.prevMonth : ''"
+        :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
       >
         {{ novaLocale.datePicker.nextMonth }}
       </div>
@@ -128,7 +128,7 @@ export default {
         let diff = date.diff(selectedMoment[0], 'days');
 
         this.NovaDatePicker.updateHoverDate(date.toDate());
-        let night = this.novaLocale.datePickerRange.night;
+        let night = this.novaLocale.datePicker.night;
         let tooltipText = diff + ' ' + night;
 
         if (this.NovaDatePicker.customTooltip) {
@@ -177,7 +177,7 @@ export default {
               }
 
               let diff = endDate.diff(startDate, 'days');
-              let night = this.novaLocale.datePickerRange.night;
+              let night = this.novaLocale.datePicker.night;
               let tooltip = diff + ' ' + night;
               if (this.NovaDatePicker.customTooltip) {
                 tooltip = this.NovaDatePicker.customTooltip.call(

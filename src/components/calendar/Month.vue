@@ -32,7 +32,7 @@
           class="nova-calendar-next"
           :class="getMonthNextClass()"
           @click="nextMonthClick"
-          :title="!isDisabledMonthNext() ? novaLocale.datePicker.prevMonth : ''"
+          :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
         >
           {{ novaLocale.datePicker.nextMonth }}
         </div>

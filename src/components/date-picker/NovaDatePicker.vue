@@ -305,7 +305,7 @@ export default {
         placeholder === undefined ||
         (placeholder && placeholder[0] === undefined)
       ) {
-        return novaLocale.datePickerRange.placeholder[0];
+        return novaLocale.datePicker.rangePlaceholder[0];
       }
 
       let isArray = Array.isArray(placeholder);
@@ -322,7 +322,7 @@ export default {
         placeholder === undefined ||
         (placeholder && placeholder[1] === undefined)
       ) {
-        return novaLocale.datePickerRange.placeholder[1];
+        return novaLocale.datePicker.rangePlaceholder[1];
       }
 
       let isArray = Array.isArray(placeholder);
@@ -629,38 +629,47 @@ export default {
         clearTimeout(this.endBlurTimer);
       }, 1);
     },
-    focus() {
-      let $input = this.$refs['input'];
-      $input.focus();
+    focus(rangeName) {
+      if (!this.isRange) {
+        this.focusImplement(this.$refs['input']);
+        return;
+      }
+
+      if (rangeName === 'start') {
+        this.focusImplement(this.$refs['startInput']);
+      } else if (rangeName === 'end') {
+        this.focusImplement(this.$refs['endInput']);
+      }
     },
-    focusStart() {
-      let $input = this.$refs['startInput'];
-      $input.focus();
+    focusImplement($target) {
+      $target.focus();
     },
-    focusEnd() {
-      let $input = this.$refs['endInput'];
-      $input.focus();
+    blur(rangeName) {
+      if (!this.isRange) {
+        this.blurImplement(this.$refs['input']);
+        return;
+      }
+
+      if (rangeName === 'start') {
+        this.blurImplement(this.$refs['startInput']);
+      } else if (rangeName === 'end') {
+        this.blurImplement(this.$refs['endInput']);
+      }
     },
-    blur() {
-      let $input = this.$refs['input'];
-      $input.blur();
+    blurImplement($target) {
+      $target.blur();
     },
-    blurStart() {
-      let $input = this.$refs['startInput'];
-      $input.blur();
-    },
-    blurEnd() {
-      let $input = this.$refs['endInput'];
-      $input.blur();
-    },
-    open() {
-      this.openImplement();
-    },
-    openStart() {
-      this.openStartImplement();
-    },
-    openEnd() {
-      this.openEndImplement();
+    open(rangeName) {
+      if (!this.isRange) {
+        this.openImplement();
+        return;
+      }
+
+      if (rangeName === 'start') {
+        this.openStartImplement();
+      } else if (rangeName === 'end') {
+        this.openEndImplement();
+      }
     }
   }
 };
