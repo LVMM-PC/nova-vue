@@ -92,6 +92,9 @@ export default {
   computed: {
     rangeIndex() {
       return this.NovaDatePicker.rangeIndex;
+    },
+    rangeName() {
+      return this.NovaDatePicker.rangeName;
     }
   },
   mounted() {
@@ -125,7 +128,7 @@ export default {
         let diff = date.diff(selectedMoment[0], 'days');
 
         this.NovaDatePicker.updateHoverDate(date.toDate());
-        let night = this.novaLocale.datePicker.night;
+        let night = this.novaLocale.datePickerRange.night;
         let tooltipText = diff + ' ' + night;
 
         if (this.NovaDatePicker.customTooltip) {
@@ -174,7 +177,7 @@ export default {
               }
 
               let diff = endDate.diff(startDate, 'days');
-              let night = this.novaLocale.datePicker.night;
+              let night = this.novaLocale.datePickerRange.night;
               let tooltip = diff + ' ' + night;
               if (this.NovaDatePicker.customTooltip) {
                 tooltip = this.NovaDatePicker.customTooltip.call(
@@ -320,7 +323,7 @@ export default {
       let userDisabled = this.NovaDatePicker.disabledDate.call(
         undefined,
         dateMoment.toDate(),
-        this.rangeIndex
+        this.rangeName
       );
       return userDisabled || rangeDisabled;
     },

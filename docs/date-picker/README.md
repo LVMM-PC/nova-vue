@@ -24,9 +24,17 @@
 
 <<< @/docs/.vuepress/components/demo/date-picker/range.vue
 
+### 日期格式
+
+使用 `format` 属性，可以自定义日期显示格式。
+
+<demo-date-picker-format/>
+
+<<< @/docs/.vuepress/components/demo/date-picker/format.vue
+
 ### 禁用
 
-选择框的不可用状态。你也可以通过数组单独禁用 RangePicker 的其中一项。
+选择框的不可用状态。你也可以通过数组单独禁用 type 为 `range` 的其中一项。
 
 <demo-date-picker-disabled/>
 
@@ -42,17 +50,51 @@
 
 ## API
 
-| 参数            | 说明                              | 类型                           | 默认值 |
-| --------------- | --------------------------------- | ------------------------------ | ------ |
-| disabled        | 禁用                              | boolean                        | false  |
-| disabledDate    | 不可选择的日期                    | (currentDate: Date) => boolean | 无     |
-| placeholder     | 输入框提示文字                    | string                         | -      |
-| type            | 选择器的类型，可选 `date` `range` | string                         | `date` |
-| value / v-model | 日期                              | Date                           | -      |
+### 共同的 props
 
-### Events
+以下 API 为 type 等于 `date`、`range` 共享的 API。
+
+| 参数         | 说明                                                       | 类型    | 默认值       |
+| ------------ | ---------------------------------------------------------- | ------- | ------------ |
+| appendToBody | 是否渲染到 body 上                                         | boolean | true         |
+| class        | 选择器 className                                           | string  | -            |
+| format       | 设置日期格式。配置参考 [Day.js](https://day.js.org/zh-CN/) | string  | `YYYY-MM-DD` |
+| locale       | 国际化配置                                                 | object  |              |
+| popoverClass | 额外的弹出日历 className                                   | string  | -            |
+| type         | 选择器的类型，可选 `date` `range`                          | string  | `date`       |
+
+### `date` props
+
+| 参数            | 说明           | 类型                            | 默认值 |
+| --------------- | -------------- | ------------------------------- | ------ |
+| disabled        | 禁用           | boolean                         | false  |
+| disabledDate    | 不可选择的日期 | \(currentDate: Date) => boolean | -      |
+| placeholder     | 输入框提示文字 | string                          | -      |
+| value / v-model | 日期           | Date                            | -      |
+
+### `range` props
+
+| 参数            | 说明           | 类型                                               | 默认值 |
+| --------------- | -------------- | -------------------------------------------------- | ------ |
+| disabled        | 禁用           | boolean \| \[boolean, boolean]                     | false  |
+| disabledDate    | 不可选择的日期 | \(currentDate: Date, rangeName: string) => boolean | -      |
+| placeholder     | 输入框提示文字 | string \| \[string, string]                        | -      |
+| value / v-model | 日期           | \[Date, Date]                                      | -      |
+
+### `date` Events
 
 | 事件名称 | 说明                                    | 类型                  |
 | -------- | --------------------------------------- | --------------------- |
 | change   | 时间发生变化的回调                      | function\(date: Date) |
+| close    | 关闭日历的回调                          | function\()           |
+| open     | 弹出日历的回调                          | function\()           |
 | update   | 不使用 v-model 时，调用此函数更新 value | function\(date: Date) |
+
+### `range` Events
+
+| 事件名称 | 说明                                    | 类型                                               |
+| -------- | --------------------------------------- | -------------------------------------------------- |
+| change   | 时间发生变化的回调                      | function\(dates: \[Date, Date], rangeName: string) |
+| close    | 关闭日历的回调                          | function\(rangeName: string)                       |
+| open     | 弹出日历的回调                          | function\(rangeName: string)                       |
+| update   | 不使用 v-model 时，调用此函数更新 value | function\(dates: \[Date, Date])                    |

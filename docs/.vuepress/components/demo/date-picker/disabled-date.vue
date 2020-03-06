@@ -7,7 +7,8 @@
     <NovaDatePicker
       v-model="dates"
       type="range"
-      :disabled-date="disabledDate"
+      :disabled-date="disabledDateRange"
+      @change="handleRangeChange"
     ></NovaDatePicker>
   </section>
 </template>
@@ -24,7 +25,37 @@ export default {
   },
   methods: {
     disabledDate(current) {
-      return current && current < dayjs().endOf('day');
+      let today = dayjs().startOf('day');
+      return current < today;
+    },
+    disabledDateRange(current, rangeName) {
+      let today = dayjs().startOf('day');
+      switch (rangeName) {
+        case 'start':
+          return current < today;
+        case 'end':
+          let dates = this.dates;
+          let startDate = dates[0];
+          return (
+            current < today ||
+            dayjs(startDate || today)
+              .add(30, 'day')
+              .isBefore(current)
+          );
+        default:
+          return false;
+      }
+    },
+    handleRangeChange(dates, rangeName) {
+      let startDate = dates[0];
+      let endDate = dates[1];
+      if (rangeName === 'start' && startDate && endDate) {
+        let limitDate = dayjs(startDate).add(30, 'day');
+        let overLimit = limitDate.isBefore(endDate);
+        if (overLimit) {
+          this.dates[1] = limitDate.toDate();
+        }
+      }
     }
   }
 };

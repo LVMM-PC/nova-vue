@@ -19,7 +19,7 @@
           :value="displayedDate"
           readonly
           :disabled="disabled"
-          :placeholder="placeholder"
+          :placeholder="datePlaceholder"
           @focus="handleInputFocus"
           @blur="handleInputBlur"
           @click="handleInputClick"
@@ -130,7 +130,7 @@ export default {
     value: {},
     placeholder: {
       type: [String, Array],
-      default: ''
+      default: undefined
     },
     format: {
       type: String,
@@ -140,7 +140,6 @@ export default {
       type: [Boolean, Array],
       default: false
     },
-
     appendToBody: {
       type: Boolean,
       default: true
@@ -156,10 +155,9 @@ export default {
       type: Boolean,
       default: true
     },
-
     showTooltip: {
       type: Boolean,
-      default: true
+      default: false
     },
     customTooltip: {
       type: Function,
@@ -290,8 +288,26 @@ export default {
         return this.dateToMoment(date);
       }
     },
-    startPlaceholder() {
+    datePlaceholder() {
+      let novaLocale = this.novaLocale;
+
       let placeholder = this.placeholder;
+      if (placeholder === undefined) {
+        return novaLocale.datePicker.placeholder;
+      }
+      return placeholder;
+    },
+    startPlaceholder() {
+      let novaLocale = this.novaLocale;
+
+      let placeholder = this.placeholder;
+      if (
+        placeholder === undefined ||
+        (placeholder && placeholder[0] === undefined)
+      ) {
+        return novaLocale.datePickerRange.placeholder[0];
+      }
+
       let isArray = Array.isArray(placeholder);
       if (isArray) {
         return placeholder[0];
@@ -299,7 +315,16 @@ export default {
       return placeholder;
     },
     endPlaceholder() {
+      let novaLocale = this.novaLocale;
+
       let placeholder = this.placeholder;
+      if (
+        placeholder === undefined ||
+        (placeholder && placeholder[1] === undefined)
+      ) {
+        return novaLocale.datePickerRange.placeholder[1];
+      }
+
       let isArray = Array.isArray(placeholder);
       if (isArray) {
         return placeholder[1];
@@ -541,7 +566,11 @@ export default {
 
       setTimeout(() => {
         if (rangeIndex === 0) {
-          this.$refs['endInput'].focus();
+          if (!this.endDisabled) {
+            this.$refs['endInput'].focus();
+          } else {
+            this.close();
+          }
         }
 
         if (rangeIndex === 1) {

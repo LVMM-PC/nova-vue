@@ -1,8 +1,9 @@
 let en = {
   select: {
-    placeholder: 'Select...'
+    placeholder: 'Select'
   },
   datePicker: {
+    placeholder: 'Select date',
     yearAndMonth: (year, month) => {
       return `${en.datePicker.months[month]} ${year}`;
     },
@@ -10,7 +11,6 @@ let en = {
     prevMonth: 'Previous month',
     nextMonth: 'Next month',
     year: 'Year',
-    night: 'Night',
     weeksShort: {
       sun: 'Sun',
       mon: 'Mon',
@@ -43,6 +43,10 @@ let en = {
       'November',
       'December'
     ]
+  },
+  datePickerRange: {
+    night: 'Night',
+    placeholder: ['Start date', 'End date']
   },
   autocomplete: {
     noData: 'No matching data found'

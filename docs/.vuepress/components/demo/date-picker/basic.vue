@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
+
 export default {
   data() {
     return {
@@ -11,7 +13,8 @@ export default {
   },
   methods: {
     onChange(date) {
-      console.log(date);
+      let dateFormatted = dayjs(date).format('YYYY-MM-DD');
+      console.log(dateFormatted);
     }
   }
 };

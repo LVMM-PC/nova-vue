@@ -66,7 +66,6 @@
           @focus="handleRangeFocus"
           @blur="handleRangeBlur"
           @click="handleRangeClick"
-          :placeholder="['请选择开始日期', '请选择结束日期']"
           ref="my-range-date-picker"
         ></NovaDatePicker>
       </NovaLocale>
@@ -133,7 +132,7 @@
         :disabled="[true, false]"
         :disabled-date="disabledRange"
         :locale="customChinese"
-        :placeholder="['START', 'END']"
+        :placeholder="['请选择开始日期', '请选择结束日期']"
       ></NovaDatePicker>
     </div>
     <div class="box">
@@ -163,7 +162,7 @@ export default {
       .startOf('day')
       .toDate();
     let anotherDate = dayjs()
-      .add(1, 'month')
+      .add(15, 'day')
       .toDate();
 
     return {
@@ -244,18 +243,23 @@ export default {
         .toDate();
       return current > today;
     },
-    disabledRange(current, index) {
+    disabledRange(current, rangeName) {
       // Start
-      if (index === 0) {
+      if (rangeName === 'start') {
         let today = dayjs()
           .startOf('day')
           .toDate();
         return current < today;
       }
       // End
-      if (index === 1) {
+      if (rangeName === 'end') {
         let start = this.someDateRange[0];
-        return current <= start;
+        return (
+          current <= start ||
+          dayjs(start)
+            .add(30, 'day')
+            .isBefore(current)
+        );
       }
     },
     customTooltip(date) {
@@ -392,13 +396,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
-/deep/ .nova-date-picker {
+.nova-date-picker {
   margin-right: 20px;
   margin-bottom: 20px;
 
-  .nova-date-picker-toggle {
+  /deep/ .nova-date-picker-toggle {
     .nova-date-picker-inner {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
   }
 }

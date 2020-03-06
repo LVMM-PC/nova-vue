@@ -1,8 +1,9 @@
 let zhCN = {
   select: {
-    placeholder: '请选择...'
+    placeholder: '请选择'
   },
   datePicker: {
+    placeholder: '请选择日期',
     /**
      * @param year
      * @param month 0-11
@@ -15,7 +16,6 @@ let zhCN = {
     prevMonth: '上一月',
     nextMonth: '下一月',
     year: '年',
-    night: '晚',
     weeksShort: {
       sun: '日',
       mon: '一',
@@ -48,6 +48,10 @@ let zhCN = {
       '11月',
       '12月'
     ]
+  },
+  datePickerRange: {
+    night: '晚',
+    placeholder: ['开始日期', '结束日期']
   },
   autocomplete: {
     noData: '未找到匹配数据'
