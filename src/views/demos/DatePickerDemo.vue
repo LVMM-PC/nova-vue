@@ -11,6 +11,7 @@
           :disabledDate="disabledDateBefore"
           popover-class="test"
           @focus="handleInputFocus"
+          @blur="handleInputBlur"
           placeholder="请选择日期"
           ref="my-date-picker"
         ></NovaDatePicker>
@@ -63,17 +64,13 @@
           type="range"
           :show-suffix="true"
           @focus="handleRangeFocus"
-          @startFocus="handleStartFocus"
-          @endFocus="handleEndFocus"
-          @startClick="handleStartClick"
-          @endClick="handleEndClick"
-          start-placeholder="请选择开始日期"
-          end-placeholder="请选择结束日期"
+          @blur="handleRangeBlur"
+          @click="handleRangeClick"
+          :placeholder="['请选择开始日期', '请选择结束日期']"
           ref="my-range-date-picker"
         ></NovaDatePicker>
       </NovaLocale>
       <NovaDatePicker
-        class="has-prefix"
         v-model="emptyDateRange"
         type="range"
         :disabled="true"
@@ -93,16 +90,14 @@
       <NovaDatePicker
         v-model="emptyDateRange"
         type="range"
-        :start-fake-disabled="true"
-        start-placeholder="YYYY-MM-DD"
+        :placeholder="['YYYY-MM-DD', null]"
         :custom-tooltip="customTooltip"
         show-suffix
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="emptyDateRange"
         type="range"
-        :end-fake-disabled="true"
-        end-placeholder=""
+        :placeholder="[null, 'EMPTY']"
         :show-tooltip="false"
         show-suffix
       ></NovaDatePicker>
@@ -113,8 +108,6 @@
         @open="handleOpen"
         @close="handleClose"
         @change="handleRangeChange"
-        @startChange="handleStartChange"
-        @endChange="handleEndChange"
         :disabled-date="disabledRange"
         :locale="customChinese"
       ></NovaDatePicker>
@@ -125,13 +118,10 @@
         @open="handleOpen"
         @close="handleClose"
         @change="handleRangeChange"
-        @startChange="handleStartChange"
-        @endChange="handleEndChange"
         :disabled="[false, true]"
         :disabled-date="disabledRange"
         :locale="customChinese"
-        start-placeholder="START"
-        end-placeholder="END"
+        :placeholder="['START', 'END']"
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="someDateRange"
@@ -140,13 +130,10 @@
         @open="handleOpen"
         @close="handleClose"
         @change="handleRangeChange"
-        @startChange="handleStartChange"
-        @endChange="handleEndChange"
         :disabled="[true, false]"
         :disabled-date="disabledRange"
         :locale="customChinese"
-        start-placeholder="START"
-        end-placeholder="END"
+        :placeholder="['START', 'END']"
       ></NovaDatePicker>
     </div>
     <div class="box">
@@ -212,44 +199,36 @@ export default {
     handleInputFocus(e) {
       console.log('Input Focus', e);
     },
-    handleRangeFocus(e) {
-      console.log('Range Focus', e);
+    handleInputBlur(e) {
+      console.log('Input Blur', e);
     },
-    handleStartFocus(e) {
-      console.log('Start Focus', e);
+    handleRangeFocus(e, rangeName) {
+      console.log('Range Focus', e, rangeName);
     },
-    handleEndFocus(e) {
-      console.log('End Focus', e);
+    handleRangeBlur(e, rangeName) {
+      console.log('Range Blur', e, rangeName);
     },
-    handleStartClick(e) {
-      console.log('Start Click', e);
+    handleRangeClick(e) {
+      console.log('Range click', e);
     },
-    handleEndClick(e) {
-      console.log('End Click', e);
+    handleOpen(rangeName) {
+      console.log('DatePicker Dropdown OPEN', rangeName);
     },
-    handleOpen() {
-      console.log('DatePicker Dropdown OPEN');
-    },
-    handleClose() {
-      console.log('DatePicker Dropdown CLOSE');
+    handleClose(rangeName) {
+      console.log('DatePicker Dropdown CLOSE', rangeName);
     },
     handleChange(value) {
       console.log(value);
     },
-    handleRangeChange(range) {
-      console.log(range[0], range[1]);
-      let start = dayjs(range[0]);
-      let end = dayjs(range[1]);
+    handleRangeChange(dates, rangeName) {
+      console.log(dates, rangeName);
+
+      let start = dayjs(dates[0]);
+      let end = dayjs(dates[1]);
       if (start.isSame(end, 'day')) {
         end.add(1, 'day');
       }
       this.someDateRange[1] = end.toDate();
-    },
-    handleStartChange(value) {
-      console.log('start', value);
-    },
-    handleEndChange(value) {
-      console.log('end', value);
     },
     disabledDateBefore(current) {
       // Can not select days before today and today
@@ -422,9 +401,5 @@ export default {
       margin-bottom: 20px;
     }
   }
-}
-
-.has-prefix /deep/ .nova-date-picker-input {
-  padding-left: 40px;
 }
 </style>
