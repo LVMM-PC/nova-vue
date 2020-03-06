@@ -200,6 +200,7 @@ dt {
   text-align: right;
   display: inline-block;
   vertical-align: top;
+  padding-top: 5px;
 }
 
 dd {
@@ -210,8 +211,6 @@ dd {
 }
 
 .nova-radio {
-  margin-right: 10px;
-
   /deep/ .nova-radio-label {
     max-width: 300px;
   }

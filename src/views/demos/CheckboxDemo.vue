@@ -151,6 +151,7 @@ dt {
   text-align: right;
   display: inline-block;
   vertical-align: top;
+  padding-top: 5px;
 }
 
 dd {
@@ -161,8 +162,6 @@ dd {
 }
 
 .nova-checkbox {
-  margin-right: 10px;
-
   /deep/ .nova-checkbox-label {
     max-width: 300px;
   }

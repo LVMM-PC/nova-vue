@@ -17,7 +17,7 @@
         <div class="nova-alert-close-icon"></div>
       </div>
       <slot></slot>
-      <div class="nova-alert-arrow"></div>
+      <div v-if="visibleArrow" class="nova-alert-arrow"></div>
     </div>
   </transition>
 </template>
@@ -156,24 +156,24 @@ export default {
 @info-background-color: #f0f5fc;
 
 .@{alert} {
-  padding: 6px 0 6px 0;
+  padding: 5px 0 5px 0;
   font-family: @font-family;
   vertical-align: top;
   display: inline-block;
   box-sizing: border-box;
   font-size: 12px;
   color: @font-color;
-  line-height: 18px;
+  line-height: 20px;
 
   &.@{alert}-success,
   &.@{alert}-error,
   &.@{alert}-warning,
   &.@{alert}-info,
   &.@{alert}-help {
-    padding: 6px 0 6px 20px;
+    padding: 5px 0 5px 19px;
 
     .@{alert}-icon {
-      margin: 2px 5px 0 -19px;
+      margin: 3px 5px 0 -19px;
     }
   }
 
@@ -469,21 +469,21 @@ export default {
 .@{alert}-border {
   background-color: @default-background-color;
   border: 1px solid @default-border-color;
-  padding: 5px 11px 5px 11px;
+  padding: 4px 11px 4px 11px;
 
   &.@{alert}-success,
   &.@{alert}-error,
   &.@{alert}-warning,
   &.@{alert}-info,
   &.@{alert}-help {
-    padding: 5px 6px 5px 26px;
+    padding: 4px 7px 4px 26px;
 
     &.@{alert}-closable {
-      padding: 5px 28px 5px 26px;
+      padding: 4px 28px 4px 26px;
     }
 
     .@{alert}-icon {
-      margin: 2px 5px 0 -19px;
+      margin: 3px 5px 0 -19px;
     }
   }
 
@@ -497,8 +497,10 @@ export default {
         &:after {
           background-color: @close-color;
         }
+      }
 
-        &:hover {
+      .@{alert}-close:hover {
+        .@{alert}-close-icon {
           &:before,
           &:after {
             background-color: @border-color;
@@ -532,7 +534,7 @@ export default {
   float: right;
   right: 0;
   top: 0;
-  margin: 2px -21px 0 0;
+  margin: 3px -21px 0 0;
   display: block;
   cursor: pointer;
 

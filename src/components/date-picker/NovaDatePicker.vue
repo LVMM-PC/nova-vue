@@ -695,13 +695,11 @@ export default {
 }
 
 .@{date-picket}-inner {
+  position: relative;
   display: block;
   box-sizing: border-box;
+  border: 1px solid #ccc;
   height: 30px;
-
-  ::placeholder {
-    color: @placeholder-color;
-  }
 
   &.is-disabled {
     opacity: 0.5;
@@ -709,12 +707,13 @@ export default {
 }
 
 .@{date-picket}-input {
-  line-height: 18px;
+  font-size: 14px;
+  line-height: 20px;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: none;
   width: 100%;
   height: 100%;
-  padding: 5px;
+  padding: 4px 28px 4px 10px;
   outline: none;
   cursor: default;
   color: @font-color;
@@ -726,22 +725,14 @@ export default {
 
 .@{date-picket}-icon {
   float: right;
-  margin-top: -30px;
-  position: relative;
-  width: 30px;
-  height: 30px;
-  vertical-align: top;
-  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  margin: 6px;
   pointer-events: none;
-
-  &:before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
-    margin: 3px;
-    background-image: url(../../assets/icons/icon-calendar.svg);
-  }
+  background-image: url(../../assets/icons/icon-calendar.svg);
 }
 
 .@{date-picket}-months {

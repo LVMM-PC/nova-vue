@@ -1,5 +1,10 @@
 @import './var';
 
+::placeholder {
+  color: @placeholder-color;
+  opacity: 1;
+}
+
 //region slide-up
 .nova-slide-up-enter-active {
   transition: opacity @normal-motion, transform @normal-motion @ease-out-quintic;
@@ -22,13 +27,15 @@
 
 //region alert-slide-up
 .nova-alert-slide-up-enter-active {
-  transition: opacity @normal-motion, height @normal-motion @ease-in-out-circular,
+  transition: opacity @normal-motion,
+    height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
 .nova-alert-slide-up-leave-active {
-  transition: opacity @normal-motion, height @normal-motion @ease-in-out-circular,
+  transition: opacity @normal-motion,
+    height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
@@ -44,7 +51,8 @@
 
 //region zoom
 .nova-zoom-enter-active {
-  transition: opacity @normal-motion, transform @normal-motion @ease-out-backward;
+  transition: opacity @normal-motion,
+    transform @normal-motion @ease-out-backward;
 }
 
 .nova-zoom-leave-active {

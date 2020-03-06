@@ -346,7 +346,7 @@ export default {
   vertical-align: top;
   margin: 2px;
   line-height: 18px;
-  padding: 0 18px 0 4px;
+  padding: 0 18px 0 3px;
   border: 1px solid #ccc;
   .ellipsis();
 }
