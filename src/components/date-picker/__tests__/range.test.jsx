@@ -29,7 +29,7 @@ describe('NovaDatePicker.vue type:range', () => {
         );
       }
     });
-    wrapper.vm.$children[0].open();
+    wrapper.vm.$children[0].open('start');
     await flushPromises();
     expect(wrapper).toMatchSnapshot();
   });
@@ -57,6 +57,7 @@ describe('NovaDatePicker.vue type:range', () => {
       render() {
         return (
           <NovaDatePicker
+            type='range'
             holiday={{}}
             value={this.someRange}
             disabledDate={disabledDate}
@@ -64,7 +65,7 @@ describe('NovaDatePicker.vue type:range', () => {
         );
       }
     });
-    wrapper.vm.$children[0].open();
+    wrapper.vm.$children[0].open('start');
     await flushPromises();
     expect(wrapper).toMatchSnapshot();
   });
