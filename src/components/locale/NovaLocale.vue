@@ -1,5 +1,10 @@
 <template>
-  <div class="nova-locale" v-bind="$attrs" v-on="$listeners">
+  <div
+    class="nova-locale"
+    :class="{ 'nova-locale-block': block }"
+    v-bind="$attrs"
+    v-on="$listeners"
+  >
     <slot></slot>
   </div>
 </template>
@@ -16,6 +21,10 @@ export default {
     };
   },
   props: {
+    block: {
+      type: Boolean,
+      default: true
+    },
     holiday: {
       type: Object,
       default: () => {
@@ -36,7 +45,9 @@ export default {
 @import '../../styles/var';
 
 .@{prefixed}-locale {
-  vertical-align: top;
-  display: inline-block;
+  &:not(.@{prefixed}-locale-block) {
+    vertical-align: top;
+    display: inline-block;
+  }
 }
 </style>

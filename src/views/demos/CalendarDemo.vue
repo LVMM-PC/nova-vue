@@ -37,7 +37,7 @@
     </div>
     <div class="calendar-box">
       <div class="calendar-title">Calendar</div>
-      <NovaLocale :locale="en">
+      <NovaLocale :locale="en" block>
         <NovaCalendar></NovaCalendar>
       </NovaLocale>
     </div>
@@ -102,7 +102,6 @@ export default {
 <style lang="less" scoped>
 .calendar-box {
   margin-top: 45px;
-  width: 1196px;
   border: 2px solid #f90;
 }
 
@@ -183,7 +182,6 @@ export default {
 }
 
 .date-cell {
-  width: 159px;
   height: 94px;
 }
 </style>

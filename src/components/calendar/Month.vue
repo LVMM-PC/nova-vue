@@ -1,43 +1,18 @@
 <template>
   <div class="nova-calendar-month">
-    <div class="nova-calendar-weeks">
-      <div
-        class="nova-calendar-week"
-        :class="'nova-calendar-' + weeks[titleIndex]"
-        v-for="(title, titleIndex) in weeks"
-        :key="titleIndex"
-      >
-        {{ novaLocale.datePicker.weeksLong[title] }}
+    <div class="nova-calendar-header">
+      <div class="nova-calendar-weeks">
+        <div
+          class="nova-calendar-week"
+          :class="'nova-calendar-' + weeks[titleIndex]"
+          v-for="(title, titleIndex) in weeks"
+          :key="titleIndex"
+        >
+          {{ novaLocale.datePicker.weeksShort[title] }}
+        </div>
       </div>
     </div>
     <div class="nova-calendar-content">
-      <div class="nova-calendar-header">
-        <div
-          class="nova-calendar-prev"
-          :class="getMonthPrevClass()"
-          @click="prevMonthClick"
-          :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
-        >
-          {{ novaLocale.datePicker.prevMonth }}
-        </div>
-        <div class="nova-calendar-title">
-          <span class="nova-calendar-title-support"></span>
-          <span
-            class="nova-calendar-title-text"
-            v-html="getCalendarTitle()"
-          ></span>
-        </div>
-
-        <div
-          class="nova-calendar-next"
-          :class="getMonthNextClass()"
-          @click="nextMonthClick"
-          :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
-        >
-          {{ novaLocale.datePicker.nextMonth }}
-        </div>
-      </div>
-
       <div class="nova-calendar-dates">
         <div
           class="nova-calendar-date"
@@ -57,6 +32,32 @@
             </div>
           </slot>
         </div>
+      </div>
+    </div>
+    <div class="nova-calendar-sidebar">
+      <div
+        class="nova-calendar-prev"
+        :class="getMonthPrevClass()"
+        @click="prevMonthClick"
+        :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
+      >
+        {{ novaLocale.datePicker.prevMonth }}
+      </div>
+      <div class="nova-calendar-title">
+        <span class="nova-calendar-title-support"></span>
+        <span
+          class="nova-calendar-title-text"
+          v-html="getCalendarTitle()"
+        ></span>
+      </div>
+
+      <div
+        class="nova-calendar-next"
+        :class="getMonthNextClass()"
+        @click="nextMonthClick"
+        :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
+      >
+        {{ novaLocale.datePicker.nextMonth }}
       </div>
     </div>
   </div>
@@ -188,11 +189,8 @@ export default {
 @calendar: @{prefixed}-calendar;
 
 .@{calendar}-month {
-  border: 1px solid #eee;
-}
-
-.@{calendar}-content {
   position: relative;
+  border: 1px solid #eee;
 }
 
 .@{calendar}-month + .@{calendar}-month {
@@ -204,7 +202,6 @@ export default {
     content: '';
     display: block;
     position: absolute;
-    width: 1198px;
     height: 1px;
     border-top: 1px solid #f90;
     margin-left: -1px;
@@ -218,11 +215,13 @@ export default {
   }
 }
 
-.@{calendar}-header {
+.@{calendar}-sidebar {
   width: 75px;
   position: absolute;
-  height: 100%;
+  bottom: 0;
   right: 0;
+  top: 0;
+  padding-top: 41px;
 }
 
 .@{calendar}-prev,
@@ -307,7 +306,7 @@ export default {
   text-align: center;
   font-size: 16px;
   width: 75px;
-  height: 379px;
+  height: calc(100% - 95px * 2);
   color: #666;
   padding: 5px 5px 5px 5px;
   box-sizing: border-box;
@@ -327,15 +326,20 @@ export default {
   vertical-align: middle;
   width: 100%;
 }
-.@{calendar}-weeks {
+
+.@{calendar}-header {
   border-bottom: 1px solid #eee;
+  padding-right: 75px;
+}
+
+.@{calendar}-weeks {
   height: 40px;
 }
 
 .@{calendar}-week {
   color: #666;
   box-sizing: border-box;
-  width: 160px;
+  width: calc(100% / 7);
   display: inline-block;
   vertical-align: top;
   height: 40px;
@@ -350,12 +354,14 @@ export default {
   }
 }
 
+.@{calendar}-content {
+  position: relative;
+  padding-right: 75px;
+}
+
 .@{calendar}-dates {
   user-select: none;
-  display: inline-block;
-  vertical-align: top;
   padding: 1px 0 0 1px;
-  width: 1120px;
   margin: -1px;
 }
 
@@ -363,7 +369,7 @@ export default {
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 161px;
+  width: calc((100% - 1px) / 7 + 1px);
   height: 96px;
   border: 1px solid #eee;
   box-sizing: border-box;

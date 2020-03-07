@@ -173,6 +173,7 @@ export default {
   border: 1px solid #cccccc;
   box-sizing: border-box;
   position: relative;
+  background-color: @component-background;
 }
 
 .@{checkbox}-inner {

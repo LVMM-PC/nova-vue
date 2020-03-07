@@ -176,6 +176,7 @@ export default {
   border: 1px solid #cccccc;
   box-sizing: border-box;
   border-radius: 50%;
+  background-color: @component-background;
 }
 
 .@{radio}-inner {

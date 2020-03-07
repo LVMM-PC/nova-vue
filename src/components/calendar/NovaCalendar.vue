@@ -117,10 +117,8 @@ export default {
 @calendar: @{prefixed}-calendar;
 
 .@{calendar} {
-  width: 1196px;
   font-family: @font-family;
   font-size: 12px;
-  background-color: #fff;
   color: @font-color;
 }
 </style>

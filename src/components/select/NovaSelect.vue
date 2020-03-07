@@ -265,6 +265,7 @@ export default {
   font-size: 14px;
   line-height: 20px;
   font-family: @font-family;
+  background-color: @component-background;
   color: @font-color;
 
   &:focus {

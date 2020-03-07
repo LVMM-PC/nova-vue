@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="box">
-      <NovaLocale>
+      <NovaLocale :block="false">
         <NovaDatePicker
           v-model="emptyDate"
           @open="handleOpen"
@@ -16,7 +16,7 @@
           ref="my-date-picker"
         ></NovaDatePicker>
       </NovaLocale>
-      <NovaLocale :locale="en" :holiday="hideHoliday">
+      <NovaLocale :locale="en" :holiday="hideHoliday" :block="false">
         <NovaDatePicker
           v-model="emptyDate"
           @open="handleOpen"
@@ -29,7 +29,7 @@
           :month-size="2"
         ></NovaDatePicker>
       </NovaLocale>
-      <NovaLocale :locale="zhCN">
+      <NovaLocale :locale="zhCN" :block="false">
         <NovaDatePicker
           v-model="emptyDate"
           @open="handleOpen"
