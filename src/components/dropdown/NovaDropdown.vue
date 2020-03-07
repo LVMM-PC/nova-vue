@@ -1,24 +1,4 @@
-<template>
-  <ClientOnly>
-    <MountingPortal mountTo="#portal-target" append :disabled="!appendToBody">
-      <transition name="nova-slide-up">
-        <div
-          ref="dropdownDom"
-          class="nova-dropdown"
-          :class="popoverClass"
-          v-show="opened"
-          :style="dropdownStyle()"
-          v-bind="$attrs"
-          v-on="$listeners"
-        >
-          <slot></slot>
-        </div>
-      </transition>
-    </MountingPortal>
-  </ClientOnly>
-</template>
-
-<script>
+<script lang="jsx">
 import Utils from '@/utils/utils';
 
 export default {
@@ -41,6 +21,48 @@ export default {
     popoverClass: {
       type: [String, Array, Object],
       default: null
+    }
+  },
+  render() {
+    let className = [
+      'nova-dropdown',
+      this.popoverClass
+    ];
+    let {
+      appendToBody,
+      opened,
+      $attrs,
+      $listeners,
+      $slots,
+      dropdownStyle
+    } = this;
+
+    let children = $slots.default;
+
+    let dropdownContent = (
+      <transition name="nova-slide-up">
+        <div ref="dropdownDom"
+             class={className}
+             v-show={opened}
+             style={dropdownStyle()}
+             props={$attrs}
+             on={$listeners}
+        >
+          {children}
+        </div>
+      </transition>
+    );
+
+    if (appendToBody) {
+      return (
+        <ClientOnly>
+          <MountingPortal mountTo="body" append={true} disabled={!appendToBody}>
+            {dropdownContent}
+          </MountingPortal>
+        </ClientOnly>
+      );
+    } else {
+      return (dropdownContent);
     }
   },
   methods: {

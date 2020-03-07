@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import PortalVue from 'portal-vue';
+
 import { version } from '../package.json';
 
 import './styles/common.less';
@@ -6,6 +9,8 @@ import en from './locales/lang/en';
 import zhCN from './locales/lang/zh-CN';
 import zhTW from './locales/lang/zh-TW';
 import china from './locales/holiday/china';
+
+Vue.use(PortalVue);
 
 export NovaLocale from './components/locale/NovaLocale';
 export NovaSelect from './components/select/NovaSelect';

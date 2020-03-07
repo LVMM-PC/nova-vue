@@ -1,4 +1,3 @@
-import PortalVue from 'portal-vue';
 import nova, {
   NovaLocale,
   NovaSelect,
@@ -17,8 +16,6 @@ import nova, {
 import '../../dist/nova.css';
 
 export default ({ Vue }) => {
-  Vue.use(PortalVue);
-
   if (typeof window !== 'undefined') {
     window.nova = nova;
   } else if (typeof global !== 'undefined') {
