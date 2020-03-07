@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import PortalVue from 'portal-vue';
+import ClientOnly from 'vue-client-only';
 
 import { version } from '../package.json';
 
@@ -11,6 +12,7 @@ import zhTW from './locales/lang/zh-TW';
 import china from './locales/holiday/china';
 
 Vue.use(PortalVue);
+Vue.component('ClientOnly', ClientOnly);
 
 export NovaLocale from './components/locale/NovaLocale';
 export NovaSelect from './components/select/NovaSelect';
