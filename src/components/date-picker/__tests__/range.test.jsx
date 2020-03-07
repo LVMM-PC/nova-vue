@@ -57,7 +57,7 @@ describe('NovaDatePicker.vue type:range', () => {
       render() {
         return (
           <NovaDatePicker
-            type='range'
+            type="range"
             holiday={{}}
             value={this.someRange}
             disabledDate={disabledDate}
