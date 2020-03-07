@@ -8,7 +8,7 @@ exports[`NovaDatePicker.vue type:range disabled date 1`] = `
     <div class="nova-date-picker-inner nova-date-picker-range-end"><input autocomplete="off" type="text" readonly="readonly" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <div data-mock="client-only">
-    <div data-mock="mounting-portal" mountto="#portal-target" append="">
+    <div data-mock="mounting-portal" mountto="body" append="true">
       <div class="nova-dropdown nova-date-picker-dropdown nova-slide-up-enter nova-slide-up-enter-active" style="left: 0px; top: 0px;">
         <div class="nova-date-picker-months">
           <div data-month-offset="0" data-range-index="0" class="nova-date-picker-month">
@@ -501,7 +501,7 @@ exports[`NovaDatePicker.vue type:range prop locale should works 1`] = `
     <div class="nova-date-picker-inner nova-date-picker-range-end"><input autocomplete="off" type="text" readonly="readonly" placeholder="結束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <div data-mock="client-only">
-    <div data-mock="mounting-portal" mountto="#portal-target" append="">
+    <div data-mock="mounting-portal" mountto="body" append="true">
       <div class="nova-dropdown nova-date-picker-dropdown nova-slide-up-enter nova-slide-up-enter-active" style="left: 0px; top: 0px;">
         <div class="nova-date-picker-months">
           <div data-month-offset="0" data-range-index="0" class="nova-date-picker-month">
