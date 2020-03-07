@@ -9,21 +9,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`]
       </span>
       <!---->
     </div>
-    <div data-mock="client-only">
-      <div data-mock="mounting-portal" mountto="#portal-target" append="">
-        <div class="nova-dropdown nova-select-dropdown" style="left: 0px; top: 0px; display: none;">
-          <div class="nova-select-option">
-            Beijing
-          </div>
-          <div class="nova-select-option is-selected">
-            Shanghai
-          </div>
-          <div class="nova-select-option is-disabled">
-            Disabled
-          </div>
-        </div>
-      </div>
-    </div>
+    <!---->
   </div>
   <div tabindex="-1" class="nova-select is-disabled">
     <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
@@ -32,15 +18,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`]
       </span>
       <!---->
     </div>
-    <div data-mock="client-only">
-      <div data-mock="mounting-portal" mountto="#portal-target" append="">
-        <div class="nova-dropdown nova-select-dropdown" style="left: 0px; top: 0px; display: none;">
-          <div class="nova-select-option is-selected">
-            Shanghai
-          </div>
-        </div>
-      </div>
-    </div>
+    <!---->
   </div>
 </section>
 `;
@@ -52,21 +30,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 
     <!---->
     <div class="nova-select-labels"><span><span class="nova-select-label"><span>beijing</span> <span class="nova-select-label-delete"></span></span><span class="nova-select-label"><span>shanghai</span> <span class="nova-select-label-delete"></span></span></span></div>
   </div>
-  <div data-mock="client-only">
-    <div data-mock="mounting-portal" mountto="#portal-target" append="">
-      <div class="nova-dropdown nova-select-dropdown" style="left: 0px; top: 0px; display: none;">
-        <div class="nova-select-option is-selected">
-          Beijing
-        </div>
-        <div class="nova-select-option is-selected">
-          Shanghai
-        </div>
-        <div class="nova-select-option">
-          Shenzhen
-        </div>
-      </div>
-    </div>
-  </div>
+  <!---->
 </div>
 `;
 
@@ -78,37 +42,6 @@ exports[`renders ./docs/.vuepress/components/demo/select/opt-group.vue correctly
       </span>
     <!---->
   </div>
-  <div data-mock="client-only">
-    <div data-mock="mounting-portal" mountto="#portal-target" append="">
-      <div class="nova-dropdown nova-select-dropdown" style="left: 0px; top: 0px; display: none;">
-        <div class="nova-select-option-group">
-          <div class="nova-select-option-group-label">
-            Municipality directly under the Central Government
-          </div>
-          <div class="nova-select-option-group-content">
-            <div class="nova-select-option">
-              Beijing
-            </div>
-            <div class="nova-select-option is-selected">
-              Shanghai
-            </div>
-          </div>
-        </div>
-        <div class="nova-select-option-group">
-          <div class="nova-select-option-group-label">
-            Special Administrative Region
-          </div>
-          <div class="nova-select-option-group-content">
-            <div class="nova-select-option">
-              Hong Kong
-            </div>
-            <div class="nova-select-option">
-              Macao
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!---->
 </div>
 `;

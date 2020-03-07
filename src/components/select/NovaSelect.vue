@@ -47,6 +47,7 @@
     </div>
 
     <NovaDropdown
+      v-if="dropdownLoaded"
       ref="dropdown"
       :opened="opened"
       :append-to-body="appendToBody"
@@ -98,6 +99,7 @@ export default {
   },
   data() {
     return {
+      dropdownLoaded: false,
       opened: false,
       currentChild: null,
       multipleOptions: []
@@ -189,6 +191,14 @@ export default {
       this.closeDropdown();
     },
     handleToggleClick(e) {
+      if (!this.dropdownLoaded) {
+        this.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.handleToggleClick(e);
+        });
+        return;
+      }
+
       if (this.disabled) {
         return;
       }

@@ -37,6 +37,7 @@
     </div>
     <NovaDropdown
       ref="start-dropdown"
+      v-if="start.dropdownLoaded"
       :opened="start.opened"
       :append-to-body="appendToBody"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
@@ -47,6 +48,7 @@
     </NovaDropdown>
     <NovaDropdown
       ref="list-dropdown"
+      v-if="list.dropdownLoaded"
       :opened="list.opened"
       :append-to-body="appendToBody"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
@@ -201,13 +203,15 @@ export default {
       searchDebounce: searchDebounce,
       queryString: '',
       start: {
+        dropdownLoaded: false,
         opened: false
       },
       list: {
+        dropdownLoaded: false,
+        opened: false,
         data: [],
         groups: [],
-        activeIndex: -1,
-        opened: false
+        activeIndex: -1
       },
       autoSelectTimer: null
     };
@@ -286,6 +290,14 @@ export default {
       }
     },
     openStartDropdown() {
+      if (!this.start.dropdownLoaded) {
+        this.start.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.openStartDropdown();
+        });
+        return;
+      }
+
       document.addEventListener('click', this.startOtherClick);
       this.start.opened = true;
 
@@ -462,6 +474,14 @@ export default {
       }
     },
     openListDropdown() {
+      if (!this.list.dropdownLoaded) {
+        this.list.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.openListDropdown();
+        });
+        return;
+      }
+
       document.addEventListener('click', this.listOtherClick);
       this.list.opened = true;
       this.start.opened = false;

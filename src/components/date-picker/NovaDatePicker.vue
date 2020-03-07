@@ -73,6 +73,7 @@
       </div>
     </div>
     <NovaDropdown
+      v-if="dropdownLoaded"
       ref="dropdown"
       :opened="opened"
       :append-to-body="appendToBody"
@@ -194,6 +195,7 @@ export default {
       endBlurTimer: null,
       weeks: Calendar.weeks,
       paneMoment: first,
+      dropdownLoaded: false,
       opened: false,
       rangeIndex: 0,
       hoverDate: null,
@@ -377,6 +379,14 @@ export default {
       return this.getWeekTitle(date);
     },
     openImplement: function() {
+      if (!this.dropdownLoaded) {
+        this.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.openImplement();
+        });
+        return;
+      }
+
       clearTimeout(this.blurTimer);
 
       if (this.disabled) {
@@ -407,6 +417,14 @@ export default {
       this.openImplement();
     },
     openStartImplement: function() {
+      if (!this.dropdownLoaded) {
+        this.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.openStartImplement();
+        });
+        return;
+      }
+
       clearTimeout(this.startBlurTimer);
       clearTimeout(this.endBlurTimer);
 
@@ -429,6 +447,14 @@ export default {
       this.$emit('focus', e, 'start');
     },
     openEndImplement: function() {
+      if (!this.dropdownLoaded) {
+        this.dropdownLoaded = true;
+        this.$nextTick(() => {
+          this.openEndImplement();
+        });
+        return;
+      }
+
       clearTimeout(this.startBlurTimer);
       clearTimeout(this.endBlurTimer);
 
