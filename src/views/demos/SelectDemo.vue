@@ -222,7 +222,7 @@ export default {
         }
       ],
       selectValue1: '',
-      selectValue2: [],
+      selectValue2: ['orange', 'apple'],
       selectValue3: '',
       selectValue4: '',
       selectValue5: [],

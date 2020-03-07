@@ -1,6 +1,9 @@
 <template>
   <div class="nova-select-option-group" v-bind="$attrs" v-on="$listeners">
-    <div class="nova-select-option-group-label">
+    <div
+      class="nova-select-option-group-label"
+      v-if="this.NovaSelect.dropdownLoaded"
+    >
       <slot name="label">
         {{ label }}
       </slot>
@@ -14,6 +17,7 @@
 <script>
 export default {
   name: 'NovaOptGroup',
+  inject: ['NovaSelect'],
   props: {
     label: {
       type: String

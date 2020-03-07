@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="this.NovaSelect.dropdownLoaded"
     class="nova-select-option"
     :class="optionClasses"
     @click="handleClick"

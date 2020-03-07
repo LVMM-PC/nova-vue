@@ -47,10 +47,9 @@
     </div>
 
     <NovaDropdown
-      v-if="dropdownLoaded"
       ref="dropdown"
       :opened="opened"
-      :append-to-body="appendToBody"
+      :append-to-body="appendToBody && dropdownLoaded"
       :popover-class="['nova-select-dropdown', popoverClass]"
     >
       <slot></slot>
