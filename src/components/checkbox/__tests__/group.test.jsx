@@ -16,11 +16,6 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         let checkboxItems = ['Apple', 'Pear', 'Orange'].map(option => {
           return (
@@ -30,8 +25,7 @@ describe('NovaCheckboxGroup.vue', () => {
 
         return (
           <NovaCheckboxGroup
-            value={this.value}
-            onUpdate={this.onUpdate}
+            vModel={this.value}
             onChange={onChange}
           >
             {checkboxItems}
@@ -84,11 +78,6 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         let checkboxItems = options.map(option => {
           return (
@@ -100,8 +89,7 @@ describe('NovaCheckboxGroup.vue', () => {
 
         return (
           <NovaCheckboxGroup
-            value={this.value}
-            onUpdate={this.onUpdate}
+            vModel={this.value}
             onChange={onGroupChange}
             disabled
           >
@@ -143,11 +131,6 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         let checkboxItems = options.map(option => {
           return (
@@ -163,8 +146,7 @@ describe('NovaCheckboxGroup.vue', () => {
 
         return (
           <NovaCheckboxGroup
-            value={this.value}
-            onUpdate={this.onUpdate}
+            vModel={this.value}
             onChange={onGroupChange}
           >
             {checkboxItems}
@@ -202,11 +184,6 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         let checkboxItems = options.map(option => {
           return (
@@ -215,7 +192,7 @@ describe('NovaCheckboxGroup.vue', () => {
         });
 
         return (
-          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+          <NovaCheckboxGroup vModel={this.value}>
             {checkboxItems}
           </NovaCheckboxGroup>
         );
@@ -237,14 +214,9 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         return (
-          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+          <NovaCheckboxGroup vModel={this.value}>
             <NovaCheckbox value="my" onChange={onChange}>
               My
             </NovaCheckbox>
@@ -268,14 +240,9 @@ describe('NovaCheckboxGroup.vue', () => {
           value: []
         };
       },
-      methods: {
-        onUpdate(value) {
-          this.value = value;
-        }
-      },
       render() {
         return (
-          <NovaCheckboxGroup value={this.value} onUpdate={this.onUpdate}>
+          <NovaCheckboxGroup vModel={this.value}>
             <div>
               <NovaCheckbox value={1}>1</NovaCheckbox>
             </div>

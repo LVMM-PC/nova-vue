@@ -16,7 +16,7 @@ describe('NovaDatePicker.vue', () => {
       },
       render() {
         return (
-          <NovaDatePicker locale={zhTW} holiday={{}} value={this.birthday} />
+          <NovaDatePicker locale={zhTW} holiday={{}} vModel={this.birthday} />
         );
       }
     });
@@ -45,7 +45,7 @@ describe('NovaDatePicker.vue', () => {
         return (
           <NovaDatePicker
             holiday={null}
-            value={this.birthday}
+            vModel={this.birthday}
             disabledDate={disabledDate}
           />
         );

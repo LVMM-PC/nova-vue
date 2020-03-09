@@ -24,7 +24,7 @@ describe('NovaDatePicker.vue type:range', () => {
             type="range"
             locale={zhTW}
             holiday={null}
-            value={this.someRange}
+            vModel={this.someRange}
           />
         );
       }
@@ -59,7 +59,7 @@ describe('NovaDatePicker.vue type:range', () => {
           <NovaDatePicker
             type="range"
             holiday={null}
-            value={this.someRange}
+            vModel={this.someRange}
             disabledDate={disabledDate}
           />
         );

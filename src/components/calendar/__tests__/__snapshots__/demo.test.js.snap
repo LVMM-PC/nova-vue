@@ -1,0 +1,674 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders ./docs/.vuepress/components/demo/calendar/basic.vue correctly 1`] = `
+<div class="nova-calendar">
+  <div class="nova-calendar-months">
+    <div class="nova-calendar-month">
+      <div class="nova-calendar-header">
+        <div class="nova-calendar-weeks">
+          <div class="nova-calendar-week nova-calendar-sun">
+            日
+          </div>
+          <div class="nova-calendar-week nova-calendar-mon">
+            一
+          </div>
+          <div class="nova-calendar-week nova-calendar-tue">
+            二
+          </div>
+          <div class="nova-calendar-week nova-calendar-wed">
+            三
+          </div>
+          <div class="nova-calendar-week nova-calendar-thu">
+            四
+          </div>
+          <div class="nova-calendar-week nova-calendar-fri">
+            五
+          </div>
+          <div class="nova-calendar-week nova-calendar-sat">
+            六
+          </div>
+        </div>
+      </div>
+      <div class="nova-calendar-content">
+        <div class="nova-calendar-dates">
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              1
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              2
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              3
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              4
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              5
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              6
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              7
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              8
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              9
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              10
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              11
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              12
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              13
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              14
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              15
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              16
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              17
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              18
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              19
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              20
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              21
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              22
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              23
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              24
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              25
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              26
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              27
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              28
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              29
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              30
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="nova-calendar-date-number">
+              31
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              1
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              2
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              3
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              4
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              5
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              6
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              7
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              8
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              9
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              10
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="nova-calendar-date-number">
+              11
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nova-calendar-sidebar">
+        <div title="上个月" class="nova-calendar-prev">
+          上个月
+        </div>
+        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年<br>3月</span></div>
+        <div title="下个月" class="nova-calendar-next">
+          下个月
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 1`] = `
+<div class="nova-calendar">
+  <div class="nova-calendar-months">
+    <div class="nova-calendar-month">
+      <div class="nova-calendar-header">
+        <div class="nova-calendar-weeks">
+          <div class="nova-calendar-week nova-calendar-sun">
+            日
+          </div>
+          <div class="nova-calendar-week nova-calendar-mon">
+            一
+          </div>
+          <div class="nova-calendar-week nova-calendar-tue">
+            二
+          </div>
+          <div class="nova-calendar-week nova-calendar-wed">
+            三
+          </div>
+          <div class="nova-calendar-week nova-calendar-thu">
+            四
+          </div>
+          <div class="nova-calendar-week nova-calendar-fri">
+            五
+          </div>
+          <div class="nova-calendar-week nova-calendar-sat">
+            六
+          </div>
+        </div>
+      </div>
+      <div class="nova-calendar-content">
+        <div class="nova-calendar-dates">
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">1</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">2</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">3</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">4</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">5</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">6</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">7</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">8</div>
+              <ul class="events">
+                <li>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
+                    <!----> This is warning event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>
+                    <!----> This is success event.
+                    <!---->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">9</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">10</div>
+              <ul class="events">
+                <li>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
+                    <!----> This is warning event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>
+                    <!----> This is success event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event.
+                    <!---->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">11</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">12</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">13</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">14</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">15</div>
+              <ul class="events">
+                <li>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
+                    <!----> This is warning event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>
+                    <!----> This is very long usual event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event 1.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event 2.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event 3.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event 4.
+                    <!---->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">16</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">17</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">18</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">19</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">20</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">21</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">22</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">23</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">24</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">25</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">26</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">27</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">28</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">29</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">30</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date">
+            <div class="date-cell">
+              <div class="date-num">31</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">1</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">2</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">3</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">4</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">5</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">6</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">7</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">8</div>
+              <ul class="events">
+                <li>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
+                    <!----> This is warning event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>
+                    <!----> This is success event.
+                    <!---->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">9</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">10</div>
+              <ul class="events">
+                <li>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
+                    <!----> This is warning event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>
+                    <!----> This is success event.
+                    <!---->
+                  </div>
+                </li>
+                <li>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>
+                    <!----> This is error event.
+                    <!---->
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="nova-calendar-date is-next">
+            <div class="date-cell">
+              <div class="date-num">11</div>
+              <ul class="events"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nova-calendar-sidebar">
+        <div title="上个月" class="nova-calendar-prev">
+          上个月
+        </div>
+        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年<br>3月</span></div>
+        <div title="下个月" class="nova-calendar-next">
+          下个月
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
