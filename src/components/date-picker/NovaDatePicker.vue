@@ -194,7 +194,7 @@ export default {
       startBlurTimer: null,
       endBlurTimer: null,
       weeks: Calendar.weeks,
-      paneMoment: first,
+      panelMoment: first,
       dropdownLoaded: false,
       opened: false,
       rangeIndex: 0,
@@ -334,7 +334,7 @@ export default {
       return placeholder;
     }
   },
-  mounted() {
+  created() {
     this.init();
   },
   destroyed() {
@@ -609,7 +609,7 @@ export default {
         return;
       }
       if (dayjs(date).isValid()) {
-        this.paneMoment = Calendar.getFirstDateMomentOfMonth(date);
+        this.panelMoment = Calendar.getFirstDateMomentOfMonth(date);
       }
 
       this.refreshDateList();

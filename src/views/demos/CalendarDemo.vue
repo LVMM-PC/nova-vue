@@ -10,16 +10,19 @@
         :disabledMonthNext="disabledMonthNext"
         @panelChange="handlePanelChange"
       >
-        <template slot="dateCellRender" slot-scope="scope">
-          <div class="date-cell" @mouseenter="handleCellEnter($event, scope)">
+        <template v-slot:dateCellRender="slotProps">
+          <div
+            class="date-cell"
+            @mouseenter="handleCellEnter($event, slotProps)"
+          >
             <div class="calendar-num">
-              {{ getDayOfMonth(scope.date) }}
+              {{ getDayOfMonth(slotProps.date) }}
             </div>
             <div class="calendar-labels">
               <div
                 class="calendar-label calendar-rest"
-                v-if="getHoliday(scope.date)"
-                :title="getHoliday(scope.date).title"
+                v-if="getHoliday(slotProps.date)"
+                :title="getHoliday(slotProps.date).title"
               >
                 休
               </div>
@@ -92,8 +95,8 @@ export default {
     handlePanelChange(date) {
       console.log(dayjs(date).format('YYYY-MM-DD'));
     },
-    handleCellEnter(e, scope) {
-      console.log(scope);
+    handleCellEnter(e, slotProps) {
+      console.log(slotProps);
     }
   }
 };
@@ -147,7 +150,6 @@ export default {
   top: 10px;
   left: 10px;
   line-height: 12px;
-  width: 100px;
   height: 12px;
 }
 

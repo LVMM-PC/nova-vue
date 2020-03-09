@@ -8,10 +8,10 @@ describe('NovaDatePicker.vue type:range', () => {
   it('prop locale should works', async () => {
     const wrapper = mount({
       data() {
-        let startDate = dayjs('2020-01-01')
+        let startDate = dayjs('2000-01-01')
           .startOf('day')
           .toDate();
-        let endDate = dayjs('2020-12-31')
+        let endDate = dayjs('2000-12-31')
           .startOf('day')
           .toDate();
         return {
@@ -23,7 +23,7 @@ describe('NovaDatePicker.vue type:range', () => {
           <NovaDatePicker
             type="range"
             locale={zhTW}
-            holiday={{}}
+            holiday={null}
             value={this.someRange}
           />
         );
@@ -36,7 +36,7 @@ describe('NovaDatePicker.vue type:range', () => {
 
   it('disabled date', async function() {
     function disabledDate(current) {
-      let someDate = dayjs('2020-01-15')
+      let someDate = dayjs('2000-01-15')
         .startOf('day')
         .toDate();
       return current > someDate;
@@ -44,10 +44,10 @@ describe('NovaDatePicker.vue type:range', () => {
 
     const wrapper = mount({
       data() {
-        let startDate = dayjs('2020-01-01')
+        let startDate = dayjs('2000-01-01')
           .startOf('day')
           .toDate();
-        let endDate = dayjs('2020-12-31')
+        let endDate = dayjs('2000-12-31')
           .startOf('day')
           .toDate();
         return {
@@ -58,7 +58,7 @@ describe('NovaDatePicker.vue type:range', () => {
         return (
           <NovaDatePicker
             type="range"
-            holiday={{}}
+            holiday={null}
             value={this.someRange}
             disabledDate={disabledDate}
           />

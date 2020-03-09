@@ -16,13 +16,27 @@ module.exports = {
       '/',
       '/getting-started/',
       '/i18n/',
-      '/alert/',
-      '/select/',
-      '/radio/',
-      '/checkbox/',
-      '/date-picker/',
-      '/calendar/',
-      '/autocomplete/'
+      {
+        title: '数据录入',
+        collapsable: false,
+        children: [
+          '/autocomplete/',
+          '/checkbox/',
+          '/date-picker/',
+          '/radio/',
+          '/select/'
+        ]
+      },
+      {
+        title: '数据展示',
+        collapsable: false,
+        children: ['/calendar/']
+      },
+      {
+        title: '反馈',
+        collapsable: false,
+        children: ['/alert/']
+      }
     ]
   }
 };

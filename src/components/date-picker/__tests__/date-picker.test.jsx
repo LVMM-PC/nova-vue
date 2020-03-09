@@ -9,7 +9,7 @@ describe('NovaDatePicker.vue', () => {
     const wrapper = mount({
       data() {
         return {
-          birthday: dayjs('2020-01-01')
+          birthday: dayjs('2000-01-01')
             .startOf('day')
             .toDate()
         };
@@ -27,7 +27,7 @@ describe('NovaDatePicker.vue', () => {
 
   it('disabled date', async function() {
     function disabledDate(current) {
-      let someDate = dayjs('2020-01-15')
+      let someDate = dayjs('2000-01-15')
         .startOf('day')
         .toDate();
       return current > someDate;
@@ -36,7 +36,7 @@ describe('NovaDatePicker.vue', () => {
     const wrapper = mount({
       data() {
         return {
-          birthday: dayjs('2020-01-01')
+          birthday: dayjs('2000-01-01')
             .startOf('day')
             .toDate()
         };
@@ -44,7 +44,7 @@ describe('NovaDatePicker.vue', () => {
       render() {
         return (
           <NovaDatePicker
-            holiday={{}}
+            holiday={null}
             value={this.birthday}
             disabledDate={disabledDate}
           />

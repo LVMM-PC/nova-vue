@@ -97,7 +97,7 @@ export default {
       return this.NovaDatePicker.rangeName;
     }
   },
-  mounted() {
+  created() {
     this.init();
   },
   methods: {
@@ -150,11 +150,11 @@ export default {
       let firstMomentOfMonth = this.getShowMoment();
 
       let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPane = firstMomentOfMonth.subtract(dayOfWeek, 'days');
+      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'days');
 
       let momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
-        return firstMomentOfPane.add(index, 'days');
+        return firstMomentOfPanel.add(index, 'days');
       });
 
       this.openDefaultTooltip(true);
@@ -213,10 +213,10 @@ export default {
       }
     },
     getShowMoment() {
-      return this.NovaDatePicker.paneMoment.add(this.offset, 'month');
+      return this.NovaDatePicker.panelMoment.add(this.offset, 'month');
     },
     getMomentClassName(dateMoment) {
-      let paneMoment = this.getShowMoment();
+      let panelMoment = this.getShowMoment();
       let selectedMoment = this.NovaDatePicker.valueMoment;
 
       let isDisabled = this.isDisabled(dateMoment);
@@ -238,7 +238,7 @@ export default {
 
         isRangeStart = this.isSameDateMoment(startMoment, dateMoment);
         isRangeEnd = this.isSameDateMoment(endMoment, dateMoment);
-        let isEndPane = this.rangeIndex === 1;
+        let isEndPanel = this.rangeIndex === 1;
 
         if (startMoment && !endMoment) {
           isRangeStartSingle = true;
@@ -248,7 +248,7 @@ export default {
           isRangeEndSingle = true;
         }
 
-        if (isRangeStart || (isRangeEnd && isEndPane)) {
+        if (isRangeStart || (isRangeEnd && isEndPanel)) {
           isSelected = true;
         } else if (startMoment && endMoment) {
           if (
@@ -258,7 +258,7 @@ export default {
             isInRange = true;
           }
         }
-        if (isEndPane && !isDisabled) {
+        if (isEndPanel && !isDisabled) {
           let hoverDate = this.NovaDatePicker.hoverDate;
           if (hoverDate) {
             let hoverMoment = dayjs(hoverDate);
@@ -282,8 +282,8 @@ export default {
       }
 
       if (dateMoment) {
-        isPrev = paneMoment.isAfter(dateMoment, 'month');
-        isNext = paneMoment.isBefore(dateMoment, 'month');
+        isPrev = panelMoment.isAfter(dateMoment, 'month');
+        isNext = panelMoment.isBefore(dateMoment, 'month');
       }
 
       let isSpecial = !!this.NovaDatePicker.getSpecialText(dateMoment);
@@ -337,12 +337,12 @@ export default {
       return a.isSame(b, 'day');
     },
     prevMonthClick() {
-      let paneMoment = this.NovaDatePicker.paneMoment.add(-1, 'month');
-      this.NovaDatePicker.updateShowDate(paneMoment.toDate());
+      let panelMoment = this.NovaDatePicker.panelMoment.add(-1, 'month');
+      this.NovaDatePicker.updateShowDate(panelMoment.toDate());
     },
     nextMonthClick() {
-      let paneMoment = this.NovaDatePicker.paneMoment.add(1, 'month');
-      this.NovaDatePicker.updateShowDate(paneMoment.toDate());
+      let panelMoment = this.NovaDatePicker.panelMoment.add(1, 'month');
+      this.NovaDatePicker.updateShowDate(panelMoment.toDate());
     },
     isDisabledMonthPrev() {
       return this.NovaDatePicker.disabledMonthPrev.call(
@@ -634,11 +634,5 @@ export default {
   height: 26px;
   padding: 3px 0;
   margin: 0 auto;
-}
-
-.@{date-picket}-weeks {
-}
-
-.@{date-picket}-dates {
 }
 </style>

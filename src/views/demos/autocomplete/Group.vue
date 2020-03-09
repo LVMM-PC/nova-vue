@@ -5,13 +5,13 @@
       :fetch-suggestions="querySearch"
       focusSearch
     >
-      <template slot="start">Hot</template>
-      <template slot-scope="scope">
-        {{ scope.item.trueDistrictAlias }}
+      <template v-slot:start>Hot</template>
+      <template v-slot:default="slotProps">
+        {{ slotProps.item.trueDistrictAlias }}
       </template>
-      <template slot="group-label" slot-scope="scope">
+      <template v-slot:group-label="slotProps">
         <div>
-          {{ scope.group.type }}
+          {{ slotProps.group.type }}
         </div>
       </template>
     </NovaAutocomplete>

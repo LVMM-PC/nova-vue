@@ -76,14 +76,6 @@
         placeholder="提示"
         show-prefix
       >
-        <div slot="prefix" slot-scope="scope">
-          <template v-if="scope.range === 'start'">
-            开始
-          </template>
-          <template v-if="scope.range === 'end'">
-            结束
-          </template>
-        </div>
       </NovaDatePicker>
 
       <NovaDatePicker
@@ -184,7 +176,7 @@ export default {
           }
         }
       },
-      hideHoliday: {},
+      hideHoliday: null,
       emptyDate: null,
       someDate: someDate,
       emptyDateRange: [null, null],

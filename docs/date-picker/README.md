@@ -50,7 +50,7 @@
 
 ## API
 
-### 共同的 props
+### props
 
 以下 API 为 type 等于 `date`、`range` 共享的 API。
 
@@ -63,7 +63,7 @@
 | popoverClass | 额外的弹出日历 className                                   | string  | -            |
 | type         | 选择器的类型，可选 `date` `range`                          | string  | `date`       |
 
-### `date` props
+### type:`date` props
 
 | 参数            | 说明           | 类型                            | 默认值 |
 | --------------- | -------------- | ------------------------------- | ------ |
@@ -72,16 +72,7 @@
 | placeholder     | 输入框提示文字 | string                          | -      |
 | value / v-model | 日期           | Date                            | -      |
 
-### `range` props
-
-| 参数            | 说明           | 类型                                               | 默认值 |
-| --------------- | -------------- | -------------------------------------------------- | ------ |
-| disabled        | 禁用           | boolean \| \[boolean, boolean]                     | false  |
-| disabledDate    | 不可选择的日期 | \(currentDate: Date, rangeName: string) => boolean | -      |
-| placeholder     | 输入框提示文字 | string \| \[string, string]                        | -      |
-| value / v-model | 日期           | \[Date, Date]                                      | -      |
-
-### `date` Events
+### type:`date` Events
 
 | 事件名称 | 说明                                    | 类型                  |
 | -------- | --------------------------------------- | --------------------- |
@@ -90,11 +81,34 @@
 | open     | 弹出日历的回调                          | function\()           |
 | update   | 不使用 v-model 时，调用此函数更新 value | function\(date: Date) |
 
-### `range` Events
+### type:`date` Methods
 
-| 事件名称 | 说明                                    | 类型                                               |
-| -------- | --------------------------------------- | -------------------------------------------------- |
-| change   | 时间发生变化的回调                      | function\(dates: \[Date, Date], rangeName: string) |
-| close    | 关闭日历的回调                          | function\(rangeName: string)                       |
-| open     | 弹出日历的回调                          | function\(rangeName: string)                       |
-| update   | 不使用 v-model 时，调用此函数更新 value | function\(dates: \[Date, Date])                    |
+| 方法名称 | 说明     | 参数 |
+| -------- | -------- | ---- |
+| focus\() | 获取焦点 | -    |
+| blur\()  | 移除焦点 | -    |
+
+### type:`range` props
+
+| 参数            | 说明           | 类型                                                         | 默认值 |
+| --------------- | -------------- | ------------------------------------------------------------ | ------ |
+| disabled        | 禁用           | boolean \| \[boolean, boolean]                               | false  |
+| disabledDate    | 不可选择的日期 | \(currentDate: Date, rangeName: `start` \| `end`) => boolean | -      |
+| placeholder     | 输入框提示文字 | string \| \[string, string]                                  | -      |
+| value / v-model | 日期           | \[Date, Date]                                                | -      |
+
+### type:`range` Events
+
+| 事件名称 | 说明                                    | 类型                                                         |
+| -------- | --------------------------------------- | ------------------------------------------------------------ |
+| change   | 时间发生变化的回调                      | function\(dates: \[Date, Date], rangeName: `start` \| `end`) |
+| close    | 关闭日历的回调                          | function\(rangeName: `start` \| `end`)                       |
+| open     | 弹出日历的回调                          | function\(rangeName: `start` \| `end`)                       |
+| update   | 不使用 v-model 时，调用此函数更新 value | function\(dates: \[Date, Date])                              |
+
+### type:`range` Methods
+
+| 方法名称 | 说明                   | 参数                        |
+| -------- | ---------------------- | --------------------------- |
+| focus\() | 获取焦点，必须指定目标 | rangeName: `start` \| `end` |
+| blur\()  | 移除焦点，必须指定目标 | rangeName: `start` \| `end` |

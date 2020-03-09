@@ -14,13 +14,13 @@
         auto-select
         @click="handleClick"
       >
-        <template slot="prefix">
+        <template v-slot:prefix>
           出发地：
         </template>
-        <template slot="suffix">
+        <template v-slot:suffix>
           🚝
         </template>
-        <template slot="start">
+        <template v-slot:start>
           <div class="city-area">
             <div class="city-hot">
               <div class="city-hot-title">
@@ -53,7 +53,7 @@
             </div>
 
             <div
-              class="city-pane"
+              class="city-panel"
               :class="{
                 active: cityStartActiveIndex === listIndex
               }"
@@ -81,8 +81,8 @@
             </div>
           </div>
         </template>
-        <template slot-scope="scope">
-          {{ scope.item.name }}
+        <template v-slot:default="slotProps">
+          {{ slotProps.item.name }}
         </template>
       </NovaAutocomplete>
     </div>
@@ -115,7 +115,7 @@ export default {
       cityStartActiveIndex: 0
     };
   },
-  mounted() {
+  created() {
     this.loadAll();
   },
   methods: {
@@ -290,7 +290,7 @@ export default {
   }
 }
 
-.city-pane {
+.city-panel {
   display: none;
 
   &.active {

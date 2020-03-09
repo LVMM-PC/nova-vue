@@ -59,6 +59,13 @@ Radio 不可用。
 | change   | 选中 radio 时，调用此函数                 | function\(checked) |
 | update   | 不使用 v-model 时，调用此函数更新 checked | function\(checked)   |
 
+### Radio Methods
+
+| 方法名称 | 说明     | 参数 |
+| -------- | -------- | ---- |
+| focus\() | 获取焦点 | -    |
+| blur\()  | 移除焦点 | -    |
+
 ### RadioGroup props
 
 | 参数            | 说明                 | 类型                        | 默认值 |

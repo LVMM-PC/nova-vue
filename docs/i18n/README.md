@@ -22,6 +22,8 @@ NovaLocale 使用 Vue 的[依赖注入](https://cn.vuejs.org/v2/guide/components
 
 ## API
 
+### props
+
 | 参数    | 说明                                                                                                                                  | 类型   | 默认值  |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------ | ------- |
 | locale  | 语言包配置，语言包可到 [nova-vue/src/locales/lang](https://github.com/LVMM-PC/nova-vue/tree/master/src/locales/lang) 目录下寻找       | object | `zhCN`  |

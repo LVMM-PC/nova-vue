@@ -25,7 +25,7 @@
             :date="dateMoment.toDate()"
             :index="dateMomentIndex"
             :offset="offset"
-            :paneDate="getShowMoment().toDate()"
+            :panelDate="getShowMoment().toDate()"
           >
             <div class="nova-calendar-date-number">
               {{ dateMoment.date() }}
@@ -85,7 +85,7 @@ export default {
       momentList: []
     };
   },
-  mounted() {
+  created() {
     this.init();
   },
   methods: {
@@ -95,11 +95,11 @@ export default {
     refreshDateList() {
       let firstMomentOfMonth = this.getShowMoment();
       let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPane = firstMomentOfMonth.subtract(dayOfWeek, 'days');
+      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'days');
 
       let momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
-        return firstMomentOfPane.add(index, 'days');
+        return firstMomentOfPanel.add(index, 'days');
       });
     },
     getCalendarTitle() {
@@ -110,17 +110,17 @@ export default {
         .replace(' ', '<br>');
     },
     getShowMoment() {
-      return this.NovaCalendar.paneMoment.add(this.offset, 'month');
+      return this.NovaCalendar.panelMoment.add(this.offset, 'month');
     },
     getMomentClassName(dateMoment) {
-      let paneMoment = this.getShowMoment();
+      let panelMoment = this.getShowMoment();
       let isDisabled = this.isDisabled(dateMoment);
 
       let isPrev = false;
       let isNext = false;
       if (dateMoment) {
-        isPrev = paneMoment.isAfter(dateMoment, 'month');
-        isNext = paneMoment.isBefore(dateMoment, 'month');
+        isPrev = panelMoment.isAfter(dateMoment, 'month');
+        isNext = panelMoment.isBefore(dateMoment, 'month');
       }
 
       return {
@@ -140,16 +140,16 @@ export default {
         return;
       }
 
-      let paneMoment = this.NovaCalendar.paneMoment.add(-1, 'month');
-      this.NovaCalendar.updateShowDate(paneMoment.toDate());
+      let panelMoment = this.NovaCalendar.panelMoment.add(-1, 'month');
+      this.NovaCalendar.updateShowDate(panelMoment.toDate());
     },
     nextMonthClick() {
       if (this.isDisabledMonthNext()) {
         return;
       }
 
-      let paneMoment = this.NovaCalendar.paneMoment.add(1, 'month');
-      this.NovaCalendar.updateShowDate(paneMoment.toDate());
+      let panelMoment = this.NovaCalendar.panelMoment.add(1, 'month');
+      this.NovaCalendar.updateShowDate(panelMoment.toDate());
     },
     isDisabledMonthPrev() {
       return this.NovaCalendar.disabledMonthPrev.call(
@@ -310,7 +310,6 @@ export default {
   color: #666;
   padding: 5px 5px 5px 5px;
   box-sizing: border-box;
-  user-select: none;
 }
 
 .@{calendar}-title-support {
@@ -360,7 +359,6 @@ export default {
 }
 
 .@{calendar}-dates {
-  user-select: none;
   padding: 1px 0 0 1px;
   margin: -1px;
 }
@@ -390,7 +388,6 @@ export default {
   position: absolute;
   top: 10px;
   left: 10px;
-  width: 100px;
   height: 12px;
   line-height: 12px;
 }

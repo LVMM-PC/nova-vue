@@ -16,7 +16,7 @@ exports[`NovaDatePicker.vue disabled date 1`] = `
                 上个月
               </div>
               <div class="nova-date-picker-title">
-                2020年 1月
+                2000年 1月
               </div>
               <div title="下个月" class="nova-date-picker-next">
                 下个月
@@ -33,6 +33,21 @@ exports[`NovaDatePicker.vue disabled date 1`] = `
                 <div class="nova-date-picker-week nova-date-picker-sat">六</div>
               </div>
               <div class="nova-date-picker-dates">
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    26
+                  </div>
+                </div>
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    27
+                  </div>
+                </div>
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    28
+                  </div>
+                </div>
                 <div class="nova-date-picker-date is-prev">
                   <div class="nova-date-picker-date-inner">
                     29
@@ -226,21 +241,6 @@ exports[`NovaDatePicker.vue disabled date 1`] = `
                 <div class="nova-date-picker-date is-next is-disabled">
                   <div class="nova-date-picker-date-inner">
                     5
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    8
                   </div>
                 </div>
               </div>
@@ -272,7 +272,7 @@ exports[`NovaDatePicker.vue prop locale should works 1`] = `
                 上個月
               </div>
               <div class="nova-date-picker-title">
-                2020年 1月
+                2000年 1月
               </div>
               <div title="下個月" class="nova-date-picker-next">
                 下個月
@@ -289,6 +289,21 @@ exports[`NovaDatePicker.vue prop locale should works 1`] = `
                 <div class="nova-date-picker-week nova-date-picker-sat">六</div>
               </div>
               <div class="nova-date-picker-dates">
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    26
+                  </div>
+                </div>
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    27
+                  </div>
+                </div>
+                <div class="nova-date-picker-date is-prev">
+                  <div class="nova-date-picker-date-inner">
+                    28
+                  </div>
+                </div>
                 <div class="nova-date-picker-date is-prev">
                   <div class="nova-date-picker-date-inner">
                     29
@@ -482,21 +497,6 @@ exports[`NovaDatePicker.vue prop locale should works 1`] = `
                 <div class="nova-date-picker-date is-next">
                   <div class="nova-date-picker-date-inner">
                     5
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
-                </div>
-                <div class="nova-date-picker-date is-next">
-                  <div class="nova-date-picker-date-inner">
-                    8
                   </div>
                 </div>
               </div>

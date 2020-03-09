@@ -39,7 +39,7 @@ export default {
       };
     }
   },
-  mounted() {
+  created() {
     this.NovaSelect.addMultipleOption({
       label: this.label,
       value: this.value

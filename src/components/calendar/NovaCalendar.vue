@@ -8,13 +8,13 @@
         :offset="monthIndex"
         :key="monthIndex"
       >
-        <template slot="dateCellRender" slot-scope="scope">
+        <template v-slot:dateCellRender="slotProps">
           <slot
             name="dateCellRender"
-            :date="scope.date"
-            :index="scope.index"
-            :offset="scope.offset"
-            :paneDate="scope.paneDate"
+            :date="slotProps.date"
+            :index="slotProps.index"
+            :offset="slotProps.offset"
+            :panelDate="slotProps.panelDate"
           ></slot>
         </template>
       </Month>
@@ -76,7 +76,7 @@ export default {
     this.$emit('update', first.toDate());
     return {
       weeks: Calendar.weeks,
-      paneMoment: first,
+      panelMoment: first,
       defaultFormat: Calendar.defaultFormat
     };
   },
@@ -91,12 +91,12 @@ export default {
         return;
       }
       if (dayjs(date).isValid()) {
-        this.paneMoment = Calendar.getFirstDateMomentOfMonth(date);
+        this.panelMoment = Calendar.getFirstDateMomentOfMonth(date);
       }
 
       this.refreshDateList();
-      this.$emit('update', this.paneMoment.toDate());
-      this.$emit('panelChange', this.paneMoment.toDate());
+      this.$emit('update', this.panelMoment.toDate());
+      this.$emit('panelChange', this.panelMoment.toDate());
     },
     refreshDateList() {
       let monthRef = this.$refs['monthRef'];
