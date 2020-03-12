@@ -24,10 +24,7 @@ describe('NovaCheckboxGroup.vue', () => {
         });
 
         return (
-          <NovaCheckboxGroup
-            vModel={this.value}
-            onChange={onChange}
-          >
+          <NovaCheckboxGroup vModel={this.value} onChange={onChange}>
             {checkboxItems}
           </NovaCheckboxGroup>
         );
@@ -145,10 +142,7 @@ describe('NovaCheckboxGroup.vue', () => {
         });
 
         return (
-          <NovaCheckboxGroup
-            vModel={this.value}
-            onChange={onGroupChange}
-          >
+          <NovaCheckboxGroup vModel={this.value} onChange={onGroupChange}>
             {checkboxItems}
           </NovaCheckboxGroup>
         );

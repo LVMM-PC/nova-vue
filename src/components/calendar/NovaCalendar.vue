@@ -26,7 +26,7 @@
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
-import Month from './Month';
+import Month from './Month.vue';
 
 export default {
   name: 'NovaCalendar',
@@ -110,15 +110,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-@import '../../styles/var';
-
-@calendar: @{prefixed}-calendar;
-
-.@{calendar} {
-  font-family: @font-family;
-  font-size: 12px;
-  color: @font-color;
-}
-</style>

@@ -1,0 +1,75 @@
+@import 'group';
+@import '../../../styles/var';
+
+@radio: ~'@{prefixed}-radio';
+
+.@{radio} {
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 12px;
+  font-family: @font-family;
+  color: @font-color;
+
+  &:focus {
+    outline: none;
+
+    &:not(.is-disabled) {
+      .@{radio}-input {
+        border: 1px solid #ee3388;
+      }
+    }
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(.is-disabled) {
+    .@{radio}-input {
+      border: 1px solid #ee3388;
+    }
+  }
+
+  &.is-checked {
+    .@{radio}-input {
+      border: 1px solid #ee3388;
+    }
+
+    .@{radio}-inner {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.@{radio}-input {
+  display: inline-block;
+  vertical-align: top;
+  width: 14px;
+  height: 14px;
+  margin-top: 8px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: @component-background;
+}
+
+.@{radio}-inner {
+  opacity: 0;
+  width: 8px;
+  height: 8px;
+  transform: scale(0);
+  transition: transform @fast-motion @ease-in-out-circular;
+  background-color: #ee3388;
+  border-radius: 50%;
+  margin: 2px;
+}
+
+.@{radio}-label {
+  display: inline-block;
+  vertical-align: top;
+  padding: 5px;
+}

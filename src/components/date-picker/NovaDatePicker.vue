@@ -109,8 +109,8 @@ import dayjs from 'dayjs';
 import Utils from '@/utils/utils';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
-import NovaDropdown from '@/components/dropdown/NovaDropdown';
-import Month from './Month';
+import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
+import Month from './Month.vue';
 
 export default {
   name: 'NovaDatePicker',
@@ -700,108 +700,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-@import '../../styles/var';
-
-@date-picket: @{prefixed}-date-picker;
-
-.@{date-picket} {
-  vertical-align: top;
-  display: inline-block;
-  font-size: 14px;
-  line-height: 20px;
-  font-family: @font-family;
-  color: @font-color;
-}
-
-.@{date-picket}-toggle {
-  box-sizing: border-box;
-  width: 200px;
-}
-
-.@{date-picket}-inner {
-  position: relative;
-  display: block;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  height: 30px;
-
-  &.is-disabled {
-    opacity: 0.5;
-  }
-}
-
-.@{date-picket}-input {
-  font-size: 14px;
-  line-height: 20px;
-  box-sizing: border-box;
-  border: none;
-  width: 100%;
-  height: 100%;
-  padding: 4px 28px 4px 10px;
-  outline: none;
-  cursor: default;
-  color: @font-color;
-
-  &[disabled] {
-    background-color: #eeeeee;
-  }
-}
-
-.@{date-picket}-icon {
-  float: right;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 16px;
-  height: 16px;
-  margin: 6px;
-  pointer-events: none;
-  background-image: url(../../assets/icons/icon-calendar.svg);
-}
-
-.@{date-picket}-months {
-  white-space: nowrap;
-}
-
-.@{date-picket}-tooltip {
-  position: absolute;
-  color: #666666;
-  border: 1px solid #cccccc;
-  padding: 5px 10px;
-  pointer-events: none;
-  background-color: #fff;
-  line-height: 20px;
-  text-align: center;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-  white-space: nowrap;
-  margin-top: 10px;
-  margin-left: 15px;
-  transform: translate(-50%, 0);
-
-  &:before,
-  &:after {
-    width: 0;
-    height: 0;
-    border-style: solid;
-    content: '';
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-  }
-
-  &:before {
-    top: -7px;
-    border-width: 0 7px 7px 7px;
-    border-color: transparent transparent #cccccc transparent;
-  }
-
-  &:after {
-    top: -5.5px;
-    border-width: 0 6px 6px 6px;
-    border-color: transparent transparent #ffffff transparent;
-  }
-}
-</style>

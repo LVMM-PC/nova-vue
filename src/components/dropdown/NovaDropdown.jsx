@@ -1,4 +1,3 @@
-<script lang="jsx">
 import Utils from '@/utils/utils';
 
 export default {
@@ -24,10 +23,7 @@ export default {
     }
   },
   render() {
-    let className = [
-      'nova-dropdown',
-      this.popoverClass
-    ];
+    let className = ['nova-dropdown', this.popoverClass];
     let {
       appendToBody,
       opened,
@@ -41,12 +37,13 @@ export default {
 
     let dropdownContent = (
       <transition name="nova-slide-up">
-        <div ref="dropdownDom"
-             class={className}
-             v-show={opened}
-             style={dropdownStyle()}
-             props={$attrs}
-             on={$listeners}
+        <div
+          ref="dropdownDom"
+          class={className}
+          v-show={opened}
+          style={dropdownStyle()}
+          props={$attrs}
+          on={$listeners}
         >
           {children}
         </div>
@@ -62,7 +59,7 @@ export default {
         </ClientOnly>
       );
     } else {
-      return (dropdownContent);
+      return dropdownContent;
     }
   },
   methods: {
@@ -85,27 +82,3 @@ export default {
     }
   }
 };
-</script>
-
-<style lang="less">
-@import '../../styles/var';
-
-.@{prefixed}-dropdown {
-  box-sizing: border-box;
-  margin-top: -1px;
-  font-size: 14px;
-  line-height: 20px;
-  position: absolute;
-  background-color: #fff;
-  color: @font-color;
-  border: 1px solid #cccccc;
-  font-family: @font-family;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
-}
-
-.@{prefixed}-select-dropdown {
-  width: 200px;
-  max-height: 302px;
-  overflow: auto;
-}
-</style>

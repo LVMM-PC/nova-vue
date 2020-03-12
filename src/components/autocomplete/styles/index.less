@@ -1,0 +1,96 @@
+@import '../../../styles/var';
+
+@autocomplete: ~'@{prefixed}-autocomplete';
+
+.@{autocomplete} {
+  vertical-align: top;
+  display: inline-block;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: @font-family;
+  color: @font-color;
+
+  &.is-disabled {
+    opacity: 0.5;
+  }
+}
+
+.@{autocomplete}-toggle {
+  box-sizing: border-box;
+  width: 200px;
+  height: 30px;
+}
+
+.@{autocomplete}-input {
+  font-size: 14px;
+  line-height: 20px;
+  height: 30px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  width: 100%;
+  padding: 4px 10px;
+  outline: none;
+
+  &[disabled] {
+    background-color: #eeeeee;
+  }
+}
+
+.@{autocomplete}-overlay {
+  color: #999;
+  display: block;
+  margin-top: -30px;
+  position: relative;
+  pointer-events: none;
+}
+
+.@{autocomplete}-prefix,
+.@{autocomplete}-suffix {
+  padding: 5px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.@{autocomplete}-prefix {
+  float: left;
+}
+
+.@{autocomplete}-suffix {
+  float: right;
+}
+
+.@{autocomplete}-item {
+  cursor: pointer;
+  padding: 5px 10px;
+
+  &:hover:not(.is-disabled) {
+    color: #ee3388;
+    background-color: #fef2f9;
+  }
+
+  &.is-selected {
+    background-color: #fef2f9;
+  }
+
+  &.is-disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+}
+
+.@{autocomplete}-empty {
+  .nova-alert {
+    padding-left: 30px;
+    padding-right: 10px;
+  }
+}
+
+.@{autocomplete}-start {
+  width: 198px;
+}
+
+.@{autocomplete}-groups {
+  width: 198px;
+  max-height: 300px;
+  overflow: auto;
+}

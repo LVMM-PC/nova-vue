@@ -80,29 +80,3 @@ export default {
   }
 };
 </script>
-
-<style lang="less">
-@import '../../styles/var';
-
-@select: @{prefixed}-select;
-
-.@{select}-option {
-  cursor: pointer;
-  padding: 5px 10px;
-  color: @font-color;
-
-  &:hover:not(.is-disabled) {
-    color: #ee3388;
-    background-color: #fef2f9;
-  }
-
-  &.is-selected {
-    color: #ee3388;
-  }
-
-  &.is-disabled {
-    opacity: 0.5;
-    cursor: default;
-  }
-}
-</style>
