@@ -336,16 +336,12 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <ul class="events">
                 <li>
                   <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
-                    <!----> This is warning event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>This is warning event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-success"></div>
-                    <!----> This is success event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>This is success event.
                   </div>
                 </li>
               </ul>
@@ -363,23 +359,17 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <ul class="events">
                 <li>
                   <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
-                    <!----> This is warning event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>This is warning event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-success"></div>
-                    <!----> This is success event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>This is success event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event.
                   </div>
                 </li>
               </ul>
@@ -415,44 +405,32 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <ul class="events">
                 <li>
                   <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
-                    <!----> This is warning event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>This is warning event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-success"></div>
-                    <!----> This is very long usual event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>This is very long usual event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event 1.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event 1.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event 2.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event 2.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event 3.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event 3.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event 4.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event 4.
                   </div>
                 </li>
               </ul>
@@ -602,16 +580,12 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <ul class="events">
                 <li>
                   <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
-                    <!----> This is warning event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>This is warning event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-success"></div>
-                    <!----> This is success event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>This is success event.
                   </div>
                 </li>
               </ul>
@@ -629,23 +603,17 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <ul class="events">
                 <li>
                   <div class="nova-alert nova-alert-warning nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-warning"></div>
-                    <!----> This is warning event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-warning"></div>This is warning event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-success nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-success"></div>
-                    <!----> This is success event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-success"></div>This is success event.
                   </div>
                 </li>
                 <li>
                   <div class="nova-alert nova-alert-error nova-alert-placement-bottom">
-                    <div class="nova-alert-icon nova-alert-icon-error"></div>
-                    <!----> This is error event.
-                    <!---->
+                    <div class="nova-alert-icon nova-alert-icon-error"></div>This is error event.
                   </div>
                 </li>
               </ul>

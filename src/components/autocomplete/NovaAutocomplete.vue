@@ -104,7 +104,7 @@ import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
-import NovaAlert from '@/components/alert/NovaAlert.vue';
+import NovaAlert from '@/components/alert/NovaAlert.jsx';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',

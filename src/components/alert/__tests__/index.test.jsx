@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
 import NovaAlert from '@/components/alert/NovaAlert';
 
-describe('NovaAlert.vue', () => {
+describe('NovaAlert', () => {
   it('could be closed', () => {
     const onClose = jest.fn();
     const wrapper = mount({
