@@ -2,16 +2,16 @@
   <div>
     <div class="box">
       <NovaAutocomplete
+        ref="my-autocomplete"
         v-model="city"
         :fetch-suggestions="querySearch"
-        @select="handleSelect"
         popover-class="my-autocomplete-dropdown"
         placeholder="请选择城市"
         show-prefix
         show-suffix
-        ref="my-autocomplete"
         class="my-autocomplete"
         auto-select
+        @select="handleSelect"
         @click="handleClick"
       >
         <template v-slot:prefix>
@@ -28,24 +28,24 @@
               </div>
               <div class="city-list">
                 <div
+                  v-for="(cityHot, cityHotIndex) in cityAreaHot.children"
+                  :key="'CITY_' + cityHotIndex"
                   class="city-item"
-                  :class="{ hidden: !city.title }"
-                  v-for="(city, cityIndex) in cityAreaHot.children"
-                  :key="'CITY_' + cityIndex"
-                  @click="handleCitySelect(city)"
+                  :class="{ hidden: !cityHot.title }"
+                  @click="handleCitySelect(cityHot)"
                 >
-                  <template v-if="city.title">{{ city.title }}</template>
+                  <template v-if="cityHot.title">{{ cityHot.title }}</template>
                 </div>
               </div>
             </div>
             <div class="city-tabs">
               <div
+                v-for="(list, listIndex) in cityAreaList"
+                :key="'TAB' + listIndex"
                 class="city-tab"
                 :class="{
                   active: cityStartActiveIndex === listIndex
                 }"
-                v-for="(list, listIndex) in cityAreaList"
-                :key="'TAB' + listIndex"
                 @click="handleCityIndexSwitch(listIndex)"
               >
                 <div class="city-tab-text">{{ list.name }}</div>
@@ -53,28 +53,30 @@
             </div>
 
             <div
+              v-for="(list, listIndex) in cityAreaList"
+              :key="'PANE' + listIndex"
               class="city-panel"
               :class="{
                 active: cityStartActiveIndex === listIndex
               }"
-              v-for="(list, listIndex) in cityAreaList"
-              :key="'PANE' + listIndex"
             >
               <div
-                class="city-line"
-                :class="{ hidden: !list.children }"
                 v-for="(sub, subIndex) in list.children"
                 :key="'LETTER_' + subIndex"
+                class="city-line"
+                :class="{ hidden: !list.children }"
               >
-                <div class="city-sub-title" v-if="sub.name">{{ sub.name }}</div>
+                <div v-if="sub.name" class="city-sub-title">{{ sub.name }}</div>
                 <div v-if="sub.children" class="city-list">
                   <div
+                    v-for="(cityItem, cityItemIndex) in sub.children"
+                    :key="'CITY_' + cityItemIndex"
                     class="city-item"
-                    v-for="(city, cityIndex) in sub.children"
-                    :key="'CITY_' + cityIndex"
-                    @click="handleCitySelect(city)"
+                    @click="handleCitySelect(cityItem)"
                   >
-                    <template v-if="city.title">{{ city.title }}</template>
+                    <template v-if="cityItem.title">
+                      {{ cityItem.title }}
+                    </template>
                   </div>
                 </div>
               </div>

@@ -10,7 +10,7 @@ describe('NovaCalendar.vue', () => {
   it('Calendar should support locale', function() {
     const wrapper = mount({
       data() {
-        return { date: dayjs('2000-01-01') };
+        return { date: dayjs('2000-01-01').toDate() };
       },
       render() {
         return <NovaCalendar vModel={this.date} locale={zhTW} />;
@@ -23,7 +23,7 @@ describe('NovaCalendar.vue', () => {
     const onPanelChange = jest.fn();
     const wrapper = mount({
       data() {
-        return { date: dayjs('2000-01-01') };
+        return { date: dayjs('2000-01-01').toDate() };
       },
       render() {
         return <NovaCalendar onPanelChange={onPanelChange}></NovaCalendar>;

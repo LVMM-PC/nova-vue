@@ -247,7 +247,8 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/basic.vue correctly 1
         <div title="上个月" class="nova-calendar-prev">
           上个月
         </div>
-        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年<br>3月</span></div>
+        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年
+3月</span></div>
         <div title="下个月" class="nova-calendar-next">
           下个月
         </div>
@@ -631,7 +632,8 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
         <div title="上个月" class="nova-calendar-prev">
           上个月
         </div>
-        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年<br>3月</span></div>
+        <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span> <span class="nova-calendar-title-text">2020年
+3月</span></div>
         <div title="下个月" class="nova-calendar-next">
           下个月
         </div>

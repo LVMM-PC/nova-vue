@@ -3,10 +3,10 @@
     ref="radio"
     class="nova-radio"
     v-bind="$attrs"
-    v-on="$listeners"
-    @click="handleRadioClick"
     :class="classList"
     :tabindex="!isDisabled ? 0 : -1"
+    v-on="$listeners"
+    @click="handleRadioClick"
   >
     <div class="nova-radio-input">
       <div class="nova-radio-inner"></div>
@@ -38,7 +38,10 @@ export default {
       type: Boolean,
       default: false
     },
-    value: {},
+    value: {
+      type: [Number, Boolean, String],
+      default: null
+    },
     label: {
       type: [Number, Boolean, String],
       default: ''
@@ -68,28 +71,6 @@ export default {
       }
     }
   },
-  methods: {
-    inGroupClick() {
-      this.NovaRadioGroup.setChecked(this.value, true);
-    },
-    handleRadioClick() {
-      if (this.isDisabled) {
-        return;
-      }
-
-      if (this.isChecked) {
-        return;
-      }
-
-      this.$emit('change', true);
-
-      if (this.NovaRadioGroup) {
-        this.inGroupClick();
-      } else {
-        this.$emit('update', true);
-      }
-    }
-  },
   watch: {
     isChecked(newValue, oldValue) {
       if (newValue === oldValue) {
@@ -114,6 +95,28 @@ export default {
         if (isChecked) {
           this.NovaRadioGroup.setChecked(null, false);
         }
+      }
+    }
+  },
+  methods: {
+    inGroupClick() {
+      this.NovaRadioGroup.setChecked(this.value, true);
+    },
+    handleRadioClick() {
+      if (this.isDisabled) {
+        return;
+      }
+
+      if (this.isChecked) {
+        return;
+      }
+
+      this.$emit('change', true);
+
+      if (this.NovaRadioGroup) {
+        this.inGroupClick();
+      } else {
+        this.$emit('update', true);
       }
     }
   }

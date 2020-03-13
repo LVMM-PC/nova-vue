@@ -3,7 +3,7 @@
     <NovaAutocomplete
       v-model="keyword"
       :fetch-suggestions="querySearch"
-      focusSearch
+      focus-search
     >
       <template v-slot:start>Hot</template>
       <template v-slot:default="slotProps">

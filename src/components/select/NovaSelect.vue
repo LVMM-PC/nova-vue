@@ -4,27 +4,27 @@
     class="nova-select"
     :class="selectClass"
     v-bind="$attrs"
-    v-on="$listeners"
     :tabindex="!disabled ? 0 : -1"
+    v-on="$listeners"
   >
     <div class="nova-select-toggle" @click="handleToggleClick">
       <span class="nova-select-arrow"></span>
       <ClientOnly>
         <template v-if="multiple === false">
           <span
-            class="nova-select-text nova-select-placeholder"
             v-if="!hasValue()"
+            class="nova-select-text nova-select-placeholder"
           >
             {{ getPlaceholder() }}
           </span>
-          <span class="nova-select-text" v-if="hasValue()">
+          <span v-if="hasValue()" class="nova-select-text">
             {{ displayedLabel() || value }}
           </span>
         </template>
         <template v-if="multiple === true && value">
           <span
-            class="nova-select-text nova-select-placeholder"
             v-if="!value.length"
+            class="nova-select-text nova-select-placeholder"
           >
             {{ getPlaceholder() }}
           </span>
@@ -34,7 +34,7 @@
               @after-leave="handleTransitionFinished"
               @enter="handleTransitionFinished"
             >
-              <span class="nova-select-label" v-for="v in value" :key="v">
+              <span v-for="v in value" :key="v" class="nova-select-label">
                 <span>{{ valueToLabel(v) || v }}</span>
                 <span
                   class="nova-select-label-delete"
@@ -90,9 +90,13 @@ export default {
       default: true
     },
     placeholder: {
-      type: String
+      type: String,
+      default: null
     },
-    value: {},
+    value: {
+      type: [String, Number, Boolean, Array],
+      default: null
+    },
     popoverClass: {
       type: String,
       default: null

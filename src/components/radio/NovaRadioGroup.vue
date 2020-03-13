@@ -21,7 +21,10 @@ export default {
     event: 'update'
   },
   props: {
-    value: {},
+    value: {
+      type: [Number, Boolean, String],
+      default: null
+    },
     disabled: {
       type: Boolean,
       default: false

@@ -1,8 +1,8 @@
 <template>
   <div class="nova-select-option-group" v-bind="$attrs" v-on="$listeners">
     <div
+      v-if="NovaSelect.dropdownLoaded"
       class="nova-select-option-group-label"
-      v-if="this.NovaSelect.dropdownLoaded"
     >
       <slot name="label">
         {{ label }}
@@ -20,7 +20,8 @@ export default {
   inject: ['NovaSelect'],
   props: {
     label: {
-      type: String
+      type: String,
+      default: ''
     }
   }
 };

@@ -2,11 +2,11 @@
   <div class="nova-calendar" v-bind="$attrs" v-on="$listeners">
     <div class="nova-calendar-months">
       <Month
-        ref="monthRef"
-        :nova-locale="novaLocale"
         v-for="(month, monthIndex) in showMonthSize"
-        :offset="monthIndex"
+        ref="monthRef"
         :key="monthIndex"
+        :nova-locale="novaLocale"
+        :offset="monthIndex"
       >
         <template v-slot:dateCellRender="slotProps">
           <slot
@@ -30,12 +30,12 @@ import Month from './Month.vue';
 
 export default {
   name: 'NovaCalendar',
+  components: {
+    Month
+  },
   mixins: [locale],
   model: {
     event: 'update'
-  },
-  components: {
-    Month
   },
   provide() {
     return {
@@ -43,7 +43,10 @@ export default {
     };
   },
   props: {
-    value: {},
+    value: {
+      type: Date,
+      default: null
+    },
     disabledDate: {
       type: Function,
       default: () => {

@@ -1,10 +1,10 @@
 <template>
   <div
-    v-if="this.NovaSelect.dropdownLoaded"
+    v-if="NovaSelect.dropdownLoaded"
     class="nova-select-option"
     :class="optionClasses"
-    @click="handleClick"
     v-bind="$attrs"
+    @click="handleClick"
     v-on="$listeners"
   >
     <slot>

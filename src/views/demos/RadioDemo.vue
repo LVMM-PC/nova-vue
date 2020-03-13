@@ -5,8 +5,8 @@
       <dd>
         <NovaRadio
           v-model="isRead1"
-          @change="handleReadChange"
           value="READ"
+          @change="handleReadChange"
           @click="handleClick"
           >我已阅读
         </NovaRadio>
@@ -17,8 +17,8 @@
       <dd>
         <NovaRadioGroup v-model="lensValue1" @change="handleLensChange">
           <NovaRadio
-            value="ULTRA_WIDE_ANGLE"
             v-model="isChecked"
+            value="ULTRA_WIDE_ANGLE"
             @change="handleLenChange"
           >
             超广角
@@ -98,7 +98,7 @@
     <dl>
       <dt>镜头：</dt>
       <dd>
-        <NovaRadioGroup disabled v-model="lensValue3">
+        <NovaRadioGroup v-model="lensValue3" disabled>
           <NovaRadio value="ULTRA_WIDE_ANGLE">超广角</NovaRadio>
           <NovaRadio value="WIDE_ANGLE" disabled>广角</NovaRadio>
           <NovaRadio value="STANDARD">标准</NovaRadio>
@@ -113,27 +113,27 @@
         <label>
           <input
             type="radio"
-            @change="handleNativeChange(1)"
             name="test"
             value="1"
+            @change="handleNativeChange(1)"
           />
           Apple
         </label>
         <label>
           <input
             type="radio"
-            @change="handleNativeChange(2)"
             name="test"
             value="2"
+            @change="handleNativeChange(2)"
           />
           Pear
         </label>
         <label>
           <input
             type="radio"
-            @change="handleNativeChange(3)"
             name="test"
             value="3"
+            @change="handleNativeChange(3)"
           />
           Orange
         </label>

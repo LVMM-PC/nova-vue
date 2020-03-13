@@ -3,10 +3,10 @@
     <div class="nova-calendar-header">
       <div class="nova-calendar-weeks">
         <div
-          class="nova-calendar-week"
-          :class="'nova-calendar-' + weeks[titleIndex]"
           v-for="(title, titleIndex) in weeks"
           :key="titleIndex"
+          class="nova-calendar-week"
+          :class="'nova-calendar-' + weeks[titleIndex]"
         >
           {{ novaLocale.datePicker.weeksShort[title] }}
         </div>
@@ -15,10 +15,10 @@
     <div class="nova-calendar-content">
       <div class="nova-calendar-dates">
         <div
-          class="nova-calendar-date"
-          :class="getMomentClassName(dateMoment)"
           v-for="(dateMoment, dateMomentIndex) in momentList"
           :key="dateMoment.format(defaultFormat)"
+          class="nova-calendar-date"
+          :class="getMomentClassName(dateMoment)"
         >
           <slot
             name="dateCellRender"
@@ -38,24 +38,21 @@
       <div
         class="nova-calendar-prev"
         :class="getMonthPrevClass()"
-        @click="prevMonthClick"
         :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
+        @click="prevMonthClick"
       >
         {{ novaLocale.datePicker.prevMonth }}
       </div>
       <div class="nova-calendar-title">
         <span class="nova-calendar-title-support"></span>
-        <span
-          class="nova-calendar-title-text"
-          v-html="getCalendarTitle()"
-        ></span>
+        <span class="nova-calendar-title-text">{{ getCalendarTitle() }}</span>
       </div>
 
       <div
         class="nova-calendar-next"
         :class="getMonthNextClass()"
-        @click="nextMonthClick"
         :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
+        @click="nextMonthClick"
       >
         {{ novaLocale.datePicker.nextMonth }}
       </div>
@@ -73,7 +70,8 @@ export default {
       default: 0
     },
     novaLocale: {
-      type: Object
+      type: Object,
+      default: null
     }
   },
   data() {
@@ -106,8 +104,7 @@ export default {
       let showMoment = this.getShowMoment();
       return this.novaLocale.datePicker
         .yearAndMonth(showMoment.year(), showMoment.month())
-        .toString()
-        .replace(' ', '<br>');
+        .replace(' ', '\n');
     },
     getShowMoment() {
       return this.NovaCalendar.panelMoment.add(this.offset, 'month');

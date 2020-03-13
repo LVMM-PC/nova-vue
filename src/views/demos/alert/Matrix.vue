@@ -52,10 +52,13 @@ import NovaAlert from '@/components/alert/NovaAlert';
 
 export default {
   name: 'Matrix',
+  components: { NovaAlert },
   props: {
-    type: String
-  },
-  components: { NovaAlert }
+    type: {
+      type: String,
+      default: null
+    }
+  }
 };
 </script>
 

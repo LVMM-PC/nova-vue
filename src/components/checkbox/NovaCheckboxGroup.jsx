@@ -1,15 +1,3 @@
-<template>
-  <div
-    ref="checkbox-group"
-    class="nova-checkbox-group"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <slot />
-  </div>
-</template>
-
-<script>
 export default {
   name: 'NovaCheckboxGroup',
   provide() {
@@ -21,7 +9,10 @@ export default {
     event: 'update'
   },
   props: {
-    value: {},
+    value: {
+      type: Array,
+      default: () => []
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -54,6 +45,23 @@ export default {
         this.$emit('change', newValue);
       }
     }
+  },
+  render() {
+    const { $attrs, $listeners, $slots } = this;
+
+    const children = $slots.default;
+
+    const groupProps = {
+      class: 'nova-checkbox-group',
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      },
+      ref: 'checkbox-group'
+    };
+
+    return <div {...groupProps}>{children}</div>;
   }
 };
-</script>

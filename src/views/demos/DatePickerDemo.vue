@@ -3,41 +3,41 @@
     <div class="box">
       <NovaLocale :block="false">
         <NovaDatePicker
+          ref="my-date-picker"
           v-model="emptyDate"
+          :disabled-date="disabledDateBefore"
+          popover-class="test"
+          placeholder="请选择日期"
           @open="handleOpen"
           @close="handleClose"
           @change="handleChange"
           @click="handleClick"
-          :disabledDate="disabledDateBefore"
-          popover-class="test"
           @focus="handleInputFocus"
           @blur="handleInputBlur"
-          placeholder="请选择日期"
-          ref="my-date-picker"
         ></NovaDatePicker>
       </NovaLocale>
       <NovaLocale :locale="en" :holiday="hideHoliday" :block="false">
         <NovaDatePicker
           v-model="emptyDate"
+          :disabled-date="disabledDateAfter"
+          :disabled-month-prev="disabledMonthPrev"
+          :disabled-month-next="disabledMonthNext"
+          :locale="customEnglish"
+          :month-size="2"
           @open="handleOpen"
           @close="handleClose"
           @change="handleChange"
-          :disabledDate="disabledDateAfter"
-          :disabledMonthPrev="disabledMonthPrev"
-          :disabledMonthNext="disabledMonthNext"
-          :locale="customEnglish"
-          :month-size="2"
         ></NovaDatePicker>
       </NovaLocale>
       <NovaLocale :locale="zhCN" :block="false">
         <NovaDatePicker
           v-model="emptyDate"
+          :disabled-date="disabledDateAfter"
+          :locale="customChinese"
+          :month-size="2"
           @open="handleOpen"
           @close="handleClose"
           @change="handleChange"
-          :disabledDate="disabledDateAfter"
-          :locale="customChinese"
-          :month-size="2"
         ></NovaDatePicker>
       </NovaLocale>
     </div>
@@ -60,13 +60,13 @@
     <div class="box">
       <NovaLocale :locale="en" :holiday="hideHoliday">
         <NovaDatePicker
+          ref="my-range-date-picker"
           v-model="emptyDateRange"
           type="range"
           :show-suffix="true"
           @focus="handleRangeFocus"
           @blur="handleRangeBlur"
           @click="handleRangeClick"
-          ref="my-range-date-picker"
         ></NovaDatePicker>
       </NovaLocale>
       <NovaDatePicker
@@ -96,35 +96,35 @@
         v-model="someDateRange"
         :show-suffix="true"
         type="range"
+        :disabled-date="disabledRange"
+        :locale="customChinese"
         @open="handleOpen"
         @close="handleClose"
         @change="handleRangeChange"
-        :disabled-date="disabledRange"
-        :locale="customChinese"
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="someDateRange"
         :show-suffix="true"
         type="range"
-        @open="handleOpen"
-        @close="handleClose"
-        @change="handleRangeChange"
         :disabled="[false, true]"
         :disabled-date="disabledRange"
         :locale="customChinese"
         :placeholder="['START', 'END']"
+        @open="handleOpen"
+        @close="handleClose"
+        @change="handleRangeChange"
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="someDateRange"
         :show-suffix="true"
         type="range"
-        @open="handleOpen"
-        @close="handleClose"
-        @change="handleRangeChange"
         :disabled="[true, false]"
         :disabled-date="disabledRange"
         :locale="customChinese"
         :placeholder="['请选择开始日期', '请选择结束日期']"
+        @open="handleOpen"
+        @close="handleClose"
+        @change="handleRangeChange"
       ></NovaDatePicker>
     </div>
     <div class="box">

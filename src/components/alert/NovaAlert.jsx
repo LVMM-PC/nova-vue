@@ -1,14 +1,9 @@
+import Storage from '@/utils/storage';
 import Icon from './Icon.jsx';
 
 export default {
   name: 'NovaAlert',
   components: { Icon },
-  data() {
-    return {
-      visible: true,
-      closing: false
-    };
-  },
   props: {
     type: {
       type: String,
@@ -34,98 +29,43 @@ export default {
       type: String,
       default: 'bottom',
       validator(value) {
-        return (
-          [
-            'top',
-            'top-start',
-            'top-end',
-            'bottom',
-            'bottom-start',
-            'bottom-end',
-            'left',
-            'left-start',
-            'left-end',
-            'right',
-            'right-start',
-            'right-end'
-          ].indexOf(value) !== -1
-        );
+        return Storage.placement.indexOf(value) !== -1;
       }
     }
   },
+  data() {
+    return {
+      visible: true,
+      closing: false
+    };
+  },
   computed: {
-    classNameList() {
-      let border = this.border;
-      let type = this.type || 'normal';
-      let block = this.block;
-      let closable = this.closable;
-      let visibleArrow = this.visibleArrow;
-      let placement = this.placement;
-      let closing = this.closing;
+    classList() {
+      const {
+        block,
+        border,
+        closable,
+        closing,
+        placement,
+        type,
+        visibleArrow
+      } = this;
+
+      const alertType = type || 'normal';
+
       return [
-        `nova-alert-${type}`,
+        'nova-alert',
+        `nova-alert-${alertType}`,
         `nova-alert-placement-${placement}`,
         {
-          'nova-alert-border': border,
           'nova-alert-block': block,
-          'nova-alert-closing': closing,
+          'nova-alert-border': border,
           'nova-alert-closable': border && closable,
+          'nova-alert-closing': closing,
           'nova-alert-has-arrow': border && visibleArrow
         }
       ];
     }
-  },
-  render() {
-    let {
-      $attrs,
-      $listeners,
-      $slots,
-      border,
-      classNameList,
-      closable,
-      handleAfterLeave,
-      handleCloseClick,
-      type,
-      visibleArrow
-    } = this;
-    let classList = [
-      'nova-alert',
-      ...classNameList
-    ];
-
-    let close;
-    if (border && closable) {
-      close = <div
-        class="nova-alert-close"
-        onClick={handleCloseClick}
-      >
-        <div class="nova-alert-close-icon"></div>
-      </div>;
-    }
-
-    let children = $slots.default;
-
-    let arrow;
-    if (visibleArrow) {
-      arrow = <div class="nova-alert-arrow"></div>;
-    }
-
-    return (
-      <transition name="nova-alert-slide-up" onAfterLeave={handleAfterLeave}>
-        <div
-          v-show="visible"
-          props={$attrs}
-          on={$listeners}
-          class={classList}
-          ref="alert"
-        >
-          <Icon type={type}></Icon>
-          {close}
-          {children}
-          {arrow}
-        </div>
-      </transition>
-    );
   },
   methods: {
     open() {
@@ -154,5 +94,57 @@ export default {
       $alert.style.height = null;
       this.$emit('afterClose');
     }
+  },
+  render() {
+    const {
+      $attrs,
+      $listeners,
+      $slots,
+      border,
+      classList,
+      closable,
+      handleAfterLeave,
+      handleCloseClick,
+      type,
+      visibleArrow
+    } = this;
+
+    let close;
+    if (border && closable) {
+      close = (
+        <div class="nova-alert-close" onClick={handleCloseClick}>
+          <div class="nova-alert-close-icon"></div>
+        </div>
+      );
+    }
+
+    const children = $slots.default;
+
+    let arrow;
+    if (visibleArrow) {
+      arrow = <div class="nova-alert-arrow"></div>;
+    }
+
+    const alertProps = {
+      class: classList,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      },
+      ref: 'alert'
+    };
+
+    return (
+      <transition name="nova-alert-slide-up" onAfterLeave={handleAfterLeave}>
+        <div v-show="visible" {...alertProps}>
+          <Icon type={type}></Icon>
+          {close}
+          {children}
+          {arrow}
+        </div>
+      </transition>
+    );
   }
 };

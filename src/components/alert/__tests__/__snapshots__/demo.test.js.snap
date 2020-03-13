@@ -62,7 +62,7 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
 `;
 
 exports[`renders ./docs/.vuepress/components/demo/alert/basic.vue correctly 1`] = `
-<div class="nova-alert nova-alert-success nova-alert-placement-bottom nova-alert-border nova-alert-block">
+<div class="nova-alert nova-alert-success nova-alert-placement-bottom nova-alert-block nova-alert-border">
   <div class="nova-alert-icon nova-alert-icon-success"></div>Success Text
 </div>
 `;
@@ -109,14 +109,14 @@ exports[`renders ./docs/.vuepress/components/demo/alert/border.vue correctly 1`]
 
 exports[`renders ./docs/.vuepress/components/demo/alert/closable.vue correctly 1`] = `
 <section>
-  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom nova-alert-border nova-alert-block nova-alert-closable">
+  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom nova-alert-block nova-alert-border nova-alert-closable">
     <div class="nova-alert-icon nova-alert-icon-warning"></div>
     <div class="nova-alert-close">
       <div class="nova-alert-close-icon"></div>
     </div>Warning Text Warning Text Warning Text Warning Text Warning Text Warning
     TextWarning Text
   </div>
-  <div class="nova-alert nova-alert-error nova-alert-placement-bottom nova-alert-border nova-alert-block nova-alert-closable">
+  <div class="nova-alert nova-alert-error nova-alert-placement-bottom nova-alert-block nova-alert-border nova-alert-closable">
     <div class="nova-alert-icon nova-alert-icon-error"></div>
     <div class="nova-alert-close">
       <div class="nova-alert-close-icon"></div>
@@ -128,19 +128,19 @@ exports[`renders ./docs/.vuepress/components/demo/alert/closable.vue correctly 1
 
 exports[`renders ./docs/.vuepress/components/demo/alert/style.vue correctly 1`] = `
 <section>
-  <div class="nova-alert nova-alert-success nova-alert-placement-bottom nova-alert-border nova-alert-block">
+  <div class="nova-alert nova-alert-success nova-alert-placement-bottom nova-alert-block nova-alert-border">
     <div class="nova-alert-icon nova-alert-icon-success"></div>Success Text
   </div>
-  <div class="nova-alert nova-alert-info nova-alert-placement-bottom nova-alert-border nova-alert-block">
+  <div class="nova-alert nova-alert-info nova-alert-placement-bottom nova-alert-block nova-alert-border">
     <div class="nova-alert-icon nova-alert-icon-info"></div>Info Text
   </div>
-  <div class="nova-alert nova-alert-help nova-alert-placement-bottom nova-alert-border nova-alert-block">
+  <div class="nova-alert nova-alert-help nova-alert-placement-bottom nova-alert-block nova-alert-border">
     <div class="nova-alert-icon nova-alert-icon-help"></div>Help Text
   </div>
-  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom nova-alert-border nova-alert-block">
+  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom nova-alert-block nova-alert-border">
     <div class="nova-alert-icon nova-alert-icon-warning"></div>Warning Text
   </div>
-  <div class="nova-alert nova-alert-error nova-alert-placement-bottom nova-alert-border nova-alert-block">
+  <div class="nova-alert nova-alert-error nova-alert-placement-bottom nova-alert-block nova-alert-border">
     <div class="nova-alert-icon nova-alert-icon-error"></div>Error Text
   </div>
 </section>

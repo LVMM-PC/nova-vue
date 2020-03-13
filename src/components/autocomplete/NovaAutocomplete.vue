@@ -1,16 +1,16 @@
 <template>
   <div
+    ref="autocomplete"
     class="nova-autocomplete"
     :class="autocompleteClass"
     v-bind="$attrs"
     v-on="$listeners"
-    ref="autocomplete"
   >
     <div class="nova-autocomplete-toggle">
       <div class="nova-autocomplete-inner">
         <input
-          autocomplete="off"
           ref="input"
+          autocomplete="off"
           class="nova-autocomplete-input"
           type="text"
           :value.prop="valueModel"
@@ -22,22 +22,22 @@
           @keydown="handleKeydown"
         />
         <span
-          class="nova-autocomplete-overlay nova-autocomplete-prefix"
           v-if="showPrefix"
+          class="nova-autocomplete-overlay nova-autocomplete-prefix"
         >
           <slot name="prefix"></slot>
         </span>
         <span
-          class="nova-autocomplete-overlay nova-autocomplete-suffix"
           v-if="showSuffix"
+          class="nova-autocomplete-overlay nova-autocomplete-suffix"
         >
           <slot name="suffix"></slot>
         </span>
       </div>
     </div>
     <NovaDropdown
-      ref="start-dropdown"
       v-if="start.dropdownLoaded"
+      ref="start-dropdown"
       :opened="start.opened"
       :append-to-body="appendToBody"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
@@ -47,36 +47,36 @@
       </div>
     </NovaDropdown>
     <NovaDropdown
-      ref="list-dropdown"
       v-if="list.dropdownLoaded"
+      ref="list-dropdown"
       :opened="list.opened"
       :append-to-body="appendToBody"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
     >
       <div
-        class="nova-autocomplete-groups"
-        ref="groups"
         v-if="list.groups.length"
+        ref="groups"
+        class="nova-autocomplete-groups"
       >
         <div
-          class="nova-autocomplete-group"
           v-for="(group, groupIndex) in list.groups"
           :key="groupIndex"
+          class="nova-autocomplete-group"
         >
           <div class="nova-autocomplete-label">
             <slot name="group-label" :group="group"></slot>
           </div>
-          <div class="nova-autocomplete-list" v-if="group.children.length">
+          <div v-if="group.children.length" class="nova-autocomplete-list">
             <div
+              v-for="item in group.children"
+              :key="item.index"
+              ref="items"
               class="nova-autocomplete-item"
               :class="{
                 'is-selected': item.index === list.activeIndex,
                 'is-disabled': item.disabled
               }"
-              v-for="item in group.children"
-              :key="item.index"
               @click="handleItemClick(item)"
-              ref="items"
             >
               <slot :item="item">
                 {{ item.value }}
@@ -119,7 +119,10 @@ export default {
     event: 'update'
   },
   props: {
-    value: {},
+    value: {
+      type: String,
+      default: null
+    },
     placeholder: {
       type: String,
       default: ''
@@ -161,6 +164,25 @@ export default {
       default: false
     }
   },
+  data() {
+    let searchDebounce = debounce(this.searchImplement, this.debounce);
+    return {
+      searchDebounce: searchDebounce,
+      queryString: '',
+      start: {
+        dropdownLoaded: false,
+        opened: false
+      },
+      list: {
+        dropdownLoaded: false,
+        opened: false,
+        data: [],
+        groups: [],
+        activeIndex: -1
+      },
+      autoSelectTimer: null
+    };
+  },
   computed: {
     valueModel: {
       get() {
@@ -196,25 +218,6 @@ export default {
       }
       return null;
     }
-  },
-  data() {
-    let searchDebounce = debounce(this.searchImplement, this.debounce);
-    return {
-      searchDebounce: searchDebounce,
-      queryString: '',
-      start: {
-        dropdownLoaded: false,
-        opened: false
-      },
-      list: {
-        dropdownLoaded: false,
-        opened: false,
-        data: [],
-        groups: [],
-        activeIndex: -1
-      },
-      autoSelectTimer: null
-    };
   },
   destroyed() {
     this.closeStartDropdown();

@@ -4,7 +4,7 @@ import mountTest from '../../../../tests/shared/mountTest';
 import NovaCheckbox from '@/components/checkbox/NovaCheckbox';
 import NovaCheckboxGroup from '@/components/checkbox/NovaCheckboxGroup';
 
-describe('NovaCheckboxGroup.vue', () => {
+describe('NovaCheckboxGroup', () => {
   mountTest(NovaCheckboxGroup);
 
   it('should work basically', async () => {

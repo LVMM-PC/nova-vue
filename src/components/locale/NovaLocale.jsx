@@ -27,14 +27,22 @@ export default {
     }
   },
   render() {
-    let { block, $attrs, $slots, $listeners } = this;
-    let classList = { 'nova-locale': true, 'nova-locale-block': block };
-    let children = $slots.default;
+    const { block, $attrs, $slots, $listeners } = this;
 
-    return (
-      <div class={classList} props={$attrs} on={$listeners}>
-        {children}
-      </div>
-    );
+    const classList = { 'nova-locale': true, 'nova-locale-block': block };
+
+    const children = $slots.default;
+
+    const localeProps = {
+      class: classList,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      }
+    };
+
+    return <div {...localeProps}>{children}</div>;
   }
 };

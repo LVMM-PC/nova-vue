@@ -14,8 +14,6 @@ Vue.component('ClientOnly', ClientOnly);
 
 export NovaAutocomplete from './components/autocomplete/NovaAutocomplete.vue';
 export NovaCalendar from './components/calendar/NovaCalendar.vue';
-export NovaCheckbox from './components/checkbox/NovaCheckbox.vue';
-export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.vue';
 export NovaDatePicker from './components/date-picker/NovaDatePicker.vue';
 export NovaOptGroup from './components/select/NovaOptGroup.vue';
 export NovaOption from './components/select/NovaOption.vue';
@@ -24,6 +22,8 @@ export NovaRadioGroup from './components/radio/NovaRadioGroup.vue';
 export NovaSelect from './components/select/NovaSelect.vue';
 
 export NovaAlert from './components/alert/NovaAlert.jsx';
+export NovaCheckbox from './components/checkbox/NovaCheckbox.jsx';
+export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.jsx';
 export NovaDropdown from './components/dropdown/NovaDropdown.jsx';
 export NovaLocale from './components/locale/NovaLocale.jsx';
 

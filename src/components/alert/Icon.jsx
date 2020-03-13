@@ -1,12 +1,25 @@
 export default {
   name: 'Icon',
   props: {
-    type: String
+    type: {
+      type: String,
+      default: ''
+    }
   },
   render() {
-    let { type, $listeners, $attrs } = this;
-    let classList = ['nova-alert-icon', `nova-alert-icon-${type}`];
+    const { $attrs, $listeners, type } = this;
+    const classList = ['nova-alert-icon', `nova-alert-icon-${type}`];
 
-    return <div class={classList} props={$attrs} on={$listeners}></div>;
+    const iconProps = {
+      class: classList,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      }
+    };
+
+    return <div {...iconProps}></div>;
   }
 };

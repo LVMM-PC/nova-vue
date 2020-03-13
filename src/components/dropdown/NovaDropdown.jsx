@@ -2,14 +2,6 @@ import Utils from '@/utils/utils';
 
 export default {
   name: 'NovaDropdown',
-  data() {
-    return {
-      offset: {
-        left: 0,
-        top: 0
-      }
-    };
-  },
   props: {
     appendToBody: {
       type: Boolean
@@ -22,29 +14,65 @@ export default {
       default: null
     }
   },
+  data() {
+    return {
+      offset: {
+        left: 0,
+        top: 0
+      }
+    };
+  },
+  computed: {
+    dropdownStyle() {
+      if (!this.appendToBody) {
+        return {};
+      }
+      return this.offset;
+    }
+  },
+  methods: {
+    setPosition(select) {
+      let selectHeight = select.offsetHeight;
+
+      let offset = Utils.getElementOffset(select);
+
+      this.offset.left = `${offset.left}px`;
+      this.offset.top = `${offset.top + selectHeight}px`;
+    },
+    getDom() {
+      return this.$refs['dropdownDom'];
+    }
+  },
   render() {
-    let className = ['nova-dropdown', this.popoverClass];
-    let {
+    const {
       appendToBody,
       opened,
       $attrs,
       $listeners,
       $slots,
-      dropdownStyle
+      dropdownStyle,
+      popoverClass
     } = this;
 
-    let children = $slots.default;
+    const classList = ['nova-dropdown', popoverClass];
 
-    let dropdownContent = (
+    const children = $slots.default;
+
+    const dropdownProps = {
+      class: classList,
+      style: dropdownStyle,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      },
+      ref: 'dropdownDom'
+    };
+
+    const dropdownContent = (
       <transition name="nova-slide-up">
-        <div
-          ref="dropdownDom"
-          class={className}
-          v-show={opened}
-          style={dropdownStyle()}
-          props={$attrs}
-          on={$listeners}
-        >
+        <div v-show={opened} {...dropdownProps}>
           {children}
         </div>
       </transition>
@@ -60,25 +88,6 @@ export default {
       );
     } else {
       return dropdownContent;
-    }
-  },
-  methods: {
-    dropdownStyle() {
-      if (!this.appendToBody) {
-        return {};
-      }
-      return this.offset;
-    },
-    setPosition(select) {
-      let selectHeight = select.offsetHeight;
-
-      let offset = Utils.getElementOffset(select);
-
-      this.offset.left = `${offset.left}px`;
-      this.offset.top = `${offset.top + selectHeight}px`;
-    },
-    getDom() {
-      return this.$refs['dropdownDom'];
     }
   }
 };

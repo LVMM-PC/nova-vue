@@ -8,8 +8,8 @@
       <div
         class="nova-date-picker-prev"
         :class="getMonthPrevClass()"
-        @click="prevMonthClick"
         :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
+        @click="prevMonthClick"
       >
         {{ novaLocale.datePicker.prevMonth }}
       </div>
@@ -24,8 +24,8 @@
       <div
         class="nova-date-picker-next"
         :class="getMonthNextClass()"
-        @click="nextMonthClick"
         :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
+        @click="nextMonthClick"
       >
         {{ novaLocale.datePicker.nextMonth }}
       </div>
@@ -33,20 +33,20 @@
     <div class="nova-date-picker-body">
       <div class="nova-date-picker-weeks">
         <div
-          class="nova-date-picker-week"
-          :class="'nova-date-picker-' + weeks[titleIndex]"
           v-for="(title, titleIndex) in weeks"
           :key="titleIndex"
+          class="nova-date-picker-week"
+          :class="'nova-date-picker-' + weeks[titleIndex]"
         >
           <template>{{ novaLocale.datePicker.weeksShort[title] }}</template>
         </div>
       </div>
-      <div class="nova-date-picker-dates" ref="datesRef">
+      <div ref="datesRef" class="nova-date-picker-dates">
         <div
-          class="nova-date-picker-date"
-          :class="getMomentClassName(dateMoment)"
           v-for="dateMoment in momentList"
           :key="dateMoment.format(defaultFormat)"
+          class="nova-date-picker-date"
+          :class="getMomentClassName(dateMoment)"
           @click="handleMomentSelect(dateMoment)"
           @mouseenter="handleDateMouseEnter(dateMoment, $event)"
           @mouseleave="handleDateMouseLeave"
@@ -73,10 +73,12 @@ export default {
       default: 0
     },
     novaLocale: {
-      type: Object
+      type: Object,
+      default: null
     },
     novaHoliday: {
-      type: Object
+      type: Object,
+      default: null
     }
   },
   data() {

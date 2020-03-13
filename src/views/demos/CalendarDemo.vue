@@ -3,11 +3,11 @@
     <div class="calendar-box">
       <div class="calendar-title">日历</div>
       <NovaCalendar
-        :month-size="2"
         v-model="calendarDate"
-        :disabledDate="disabledDateBefore"
-        :disabledMonthPrev="disabledMonthPrev"
-        :disabledMonthNext="disabledMonthNext"
+        :month-size="2"
+        :disabled-date="disabledDateBefore"
+        :disabled-month-prev="disabledMonthPrev"
+        :disabled-month-next="disabledMonthNext"
         @panelChange="handlePanelChange"
       >
         <template v-slot:dateCellRender="slotProps">
@@ -20,8 +20,8 @@
             </div>
             <div class="calendar-labels">
               <div
-                class="calendar-label calendar-rest"
                 v-if="getHoliday(slotProps.date)"
+                class="calendar-label calendar-rest"
                 :title="getHoliday(slotProps.date).title"
               >
                 休
