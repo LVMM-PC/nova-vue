@@ -2,14 +2,14 @@
   <div>
     <div class="box">
       <NovaAutocomplete
-        :fetch-suggestions="querySearch"
         ref="my-autocomplete"
+        v-model="city"
+        :fetch-suggestions="querySearch"
         auto-select
         class="my-autocomplete"
         placeholder="请选择城市"
         popover-class="my-autocomplete-dropdown"
         show-prefix
-        v-model="city"
         show-suffix
         @click="handleClick"
         @select="handleSelect"

@@ -3,10 +3,10 @@
     <div class="box">
       <NovaLocale :block="false">
         <NovaDatePicker
-          :disabled-date="disabledDateBefore"
           ref="my-date-picker"
-          placeholder="请选择日期"
           v-model="emptyDate"
+          :disabled-date="disabledDateBefore"
+          placeholder="请选择日期"
           popover-class="test"
           @blur="handleInputBlur"
           @change="handleChange"
