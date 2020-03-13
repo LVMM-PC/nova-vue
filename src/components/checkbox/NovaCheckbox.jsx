@@ -1,3 +1,5 @@
+import Storage from '@/utils/storage';
+
 export default {
   name: 'NovaCheckbox',
   inject: {
@@ -10,6 +12,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-checkbox`
+    },
     checked: {
       type: Boolean,
       default: false
@@ -29,10 +35,10 @@ export default {
   },
   computed: {
     classList() {
-      const { isChecked, isDisabled } = this;
+      const { isChecked, isDisabled, prefixedClass } = this;
 
       return [
-        'nova-checkbox',
+        `${prefixedClass}`,
         {
           'is-checked': isChecked,
           'is-disabled': isDisabled
@@ -102,18 +108,19 @@ export default {
   },
   render() {
     const {
-      handleCheckboxClick,
       $attrs,
       $listeners,
       $slots,
       classList,
+      handleCheckboxClick,
       isDisabled,
-      label
+      label,
+      prefixedClass
     } = this;
 
     const tabIndex = isDisabled ? -1 : 0;
 
-    const children = $slots.default;
+    const children = $slots.default || label;
 
     const checkboxProps = {
       class: classList,
@@ -130,10 +137,10 @@ export default {
 
     return (
       <div {...checkboxProps}>
-        <div class="nova-checkbox-input">
-          <div class="nova-checkbox-inner"></div>
+        <div class={`${prefixedClass}-input`}>
+          <div class={`${prefixedClass}-inner`}></div>
         </div>
-        <div class="nova-checkbox-label">{children || label}</div>
+        <div class={`${prefixedClass}-label`}>{children}</div>
       </div>
     );
   }

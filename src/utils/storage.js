@@ -1,4 +1,6 @@
 export default class Storage {
+  static prefix = 'nova';
+
   static placement = [
     'top',
     'top-start',

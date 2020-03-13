@@ -1,3 +1,5 @@
+import Storage from '@/utils/storage';
+
 export default {
   name: 'NovaCheckboxGroup',
   provide() {
@@ -9,6 +11,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-checkbox`
+    },
     value: {
       type: Array,
       default: () => []
@@ -21,7 +27,7 @@ export default {
   methods: {
     setChecked(checkedValue, checked, trigger) {
       let newValue;
-      let found = this.value.find(item => {
+      const found = this.value.find(item => {
         return item === checkedValue;
       });
 
@@ -47,12 +53,12 @@ export default {
     }
   },
   render() {
-    const { $attrs, $listeners, $slots } = this;
+    const { $attrs, $listeners, $slots, prefixedClass } = this;
 
     const children = $slots.default;
 
     const groupProps = {
-      class: 'nova-checkbox-group',
+      class: `${prefixedClass}-group`,
       attrs: {
         ...$attrs
       },

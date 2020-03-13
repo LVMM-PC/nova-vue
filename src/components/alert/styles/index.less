@@ -1,7 +1,7 @@
 @import 'icon';
 @import '../../../styles/var';
 
-@alert: ~'@{prefixed}-alert';
+@alert: ~'@{prefix}-alert';
 
 @default-border-color: #dddddd;
 @default-background-color: #f6f6f6;
@@ -331,6 +331,7 @@
 
 .@{alert}-closing {
   height: 0 !important;
+  overflow: hidden;
 }
 
 .@{alert}-border {

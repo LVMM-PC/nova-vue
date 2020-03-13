@@ -5,6 +5,10 @@ export default {
   name: 'NovaAlert',
   components: { Icon },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-alert`
+    },
     type: {
       type: String,
       default: ''
@@ -48,21 +52,22 @@ export default {
         closing,
         placement,
         type,
-        visibleArrow
+        visibleArrow,
+        prefixedClass
       } = this;
 
       const alertType = type || 'normal';
 
       return [
-        'nova-alert',
-        `nova-alert-${alertType}`,
-        `nova-alert-placement-${placement}`,
+        prefixedClass,
+        `${prefixedClass}-${alertType}`,
+        `${prefixedClass}-placement-${placement}`,
         {
-          'nova-alert-block': block,
-          'nova-alert-border': border,
-          'nova-alert-closable': border && closable,
-          'nova-alert-closing': closing,
-          'nova-alert-has-arrow': border && visibleArrow
+          [`${prefixedClass}-block`]: block,
+          [`${prefixedClass}-border`]: border,
+          [`${prefixedClass}-closable`]: border && closable,
+          [`${prefixedClass}-closing`]: closing,
+          [`${prefixedClass}-has-arrow`]: border && visibleArrow
         }
       ];
     }
@@ -76,12 +81,18 @@ export default {
       this.visible = false;
       this.$emit('close');
 
-      let $alert = this.$refs['alert'];
+      const $alert = this.$refs['alert'];
 
-      $alert.style.height = `${$alert.offsetHeight}px`;
-      // Magic code
-      // We can only set twice that the height can right
-      $alert.style.height = `${$alert.offsetHeight}px`;
+      function setHeight() {
+        $alert.style.height = `${$alert.offsetHeight}px`;
+      }
+
+      /**
+       * Magic code
+       * We can only set twice that the height can right
+       */
+      setHeight();
+      setHeight();
 
       this.closing = true;
     },
@@ -90,7 +101,7 @@ export default {
     },
     handleAfterLeave() {
       this.closing = false;
-      let $alert = this.$refs['alert'];
+      const $alert = this.$refs['alert'];
       $alert.style.height = null;
       this.$emit('afterClose');
     }
@@ -106,14 +117,16 @@ export default {
       handleAfterLeave,
       handleCloseClick,
       type,
-      visibleArrow
+      visible,
+      visibleArrow,
+      prefixedClass
     } = this;
 
     let close;
     if (border && closable) {
       close = (
-        <div class="nova-alert-close" onClick={handleCloseClick}>
-          <div class="nova-alert-close-icon"></div>
+        <div class={`${prefixedClass}-close`} onClick={handleCloseClick}>
+          <div class={`${prefixedClass}-close-icon`}></div>
         </div>
       );
     }
@@ -122,7 +135,7 @@ export default {
 
     let arrow;
     if (visibleArrow) {
-      arrow = <div class="nova-alert-arrow"></div>;
+      arrow = <div class={`${prefixedClass}-arrow`}></div>;
     }
 
     const alertProps = {
@@ -137,8 +150,11 @@ export default {
     };
 
     return (
-      <transition name="nova-alert-slide-up" onAfterLeave={handleAfterLeave}>
-        <div v-show="visible" {...alertProps}>
+      <transition
+        name={`${prefixedClass}-slide-up`}
+        onAfterLeave={handleAfterLeave}
+      >
+        <div v-show={visible} {...alertProps}>
           <Icon type={type}></Icon>
           {close}
           {children}
