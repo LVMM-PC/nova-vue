@@ -5,8 +5,8 @@
         <div
           v-for="(title, titleIndex) in weeks"
           :key="titleIndex"
-          class="nova-calendar-week"
           :class="'nova-calendar-' + weeks[titleIndex]"
+          class="nova-calendar-week"
         >
           {{ novaLocale.datePicker.weeksShort[title] }}
         </div>
@@ -17,15 +17,15 @@
         <div
           v-for="(dateMoment, dateMomentIndex) in momentList"
           :key="dateMoment.format(defaultFormat)"
-          class="nova-calendar-date"
           :class="getMomentClassName(dateMoment)"
+          class="nova-calendar-date"
         >
           <slot
-            name="dateCellRender"
             :date="dateMoment.toDate()"
             :index="dateMomentIndex"
             :offset="offset"
             :panelDate="getShowMoment().toDate()"
+            name="dateCellRender"
           >
             <div class="nova-calendar-date-number">
               {{ dateMoment.date() }}
@@ -36,9 +36,9 @@
     </div>
     <div class="nova-calendar-sidebar">
       <div
-        class="nova-calendar-prev"
         :class="getMonthPrevClass()"
         :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
+        class="nova-calendar-prev"
         @click="prevMonthClick"
       >
         {{ novaLocale.datePicker.prevMonth }}
@@ -49,9 +49,9 @@
       </div>
 
       <div
-        class="nova-calendar-next"
         :class="getMonthNextClass()"
         :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
+        class="nova-calendar-next"
         @click="nextMonthClick"
       >
         {{ novaLocale.datePicker.nextMonth }}

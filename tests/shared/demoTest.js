@@ -2,19 +2,19 @@ import Vue from 'vue';
 import glob from 'glob';
 import { mount } from '@vue/test-utils';
 import {
-  NovaLocale,
-  NovaSelect,
-  NovaOptGroup,
-  NovaOption,
-  NovaDropdown,
-  NovaDatePicker,
-  NovaCalendar,
   NovaAlert,
   NovaAutocomplete,
+  NovaCalendar,
+  NovaCheckbox,
+  NovaCheckboxGroup,
+  NovaDatePicker,
+  NovaDropdown,
+  NovaLocale,
+  NovaOptGroup,
+  NovaOption,
   NovaRadio,
   NovaRadioGroup,
-  NovaCheckbox,
-  NovaCheckboxGroup
+  NovaSelect
 } from '../../src/index';
 
 Vue.component('NovaLocale', NovaLocale);

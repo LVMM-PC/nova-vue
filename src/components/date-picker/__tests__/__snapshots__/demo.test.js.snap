@@ -3,7 +3,7 @@
 exports[`renders ./docs/.vuepress/components/demo/date-picker/basic.vue correctly 1`] = `
 <div class="nova-date-picker">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner"><input autocomplete="off" type="text" readonly="readonly" placeholder="请选择日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner"><input placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <!---->
   <!---->
@@ -14,7 +14,7 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/disabled.vue corre
 <section>
   <div class="nova-date-picker">
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner is-disabled"><input autocomplete="off" type="text" readonly="readonly" disabled="disabled" placeholder="请选择日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner is-disabled"><input disabled="disabled" placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
     <!---->
@@ -22,16 +22,16 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/disabled.vue corre
   <div class="nova-date-picker nova-date-picker-range">
     <!---->
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner nova-date-picker-range-start is-disabled"><input autocomplete="off" type="text" readonly="readonly" disabled="disabled" placeholder="开始日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
-      <div class="nova-date-picker-inner nova-date-picker-range-end is-disabled"><input autocomplete="off" type="text" readonly="readonly" disabled="disabled" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-start is-disabled"><input disabled="disabled" placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-end is-disabled"><input disabled="disabled" placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
   </div>
   <div class="nova-date-picker nova-date-picker-range">
     <!---->
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner nova-date-picker-range-start"><input autocomplete="off" type="text" readonly="readonly" placeholder="开始日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
-      <div class="nova-date-picker-inner nova-date-picker-range-end is-disabled"><input autocomplete="off" type="text" readonly="readonly" disabled="disabled" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-end is-disabled"><input disabled="disabled" placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
   </div>
@@ -42,7 +42,7 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/disabled-date.vue 
 <section>
   <div class="nova-date-picker">
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner"><input autocomplete="off" type="text" readonly="readonly" placeholder="请选择日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner"><input placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
     <!---->
@@ -50,8 +50,8 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/disabled-date.vue 
   <div class="nova-date-picker nova-date-picker-range">
     <!---->
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner nova-date-picker-range-start"><input autocomplete="off" type="text" readonly="readonly" placeholder="开始日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
-      <div class="nova-date-picker-inner nova-date-picker-range-end"><input autocomplete="off" type="text" readonly="readonly" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
   </div>
@@ -62,7 +62,7 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/format.vue correct
 <section>
   <div class="nova-date-picker">
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner"><input autocomplete="off" type="text" readonly="readonly" placeholder="Select date" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner"><input placeholder="Select date" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
     <!---->
@@ -70,8 +70,8 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/format.vue correct
   <div class="nova-date-picker nova-date-picker-range">
     <!---->
     <div class="nova-date-picker-toggle">
-      <div class="nova-date-picker-inner nova-date-picker-range-start"><input autocomplete="off" type="text" readonly="readonly" placeholder="开始日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
-      <div class="nova-date-picker-inner nova-date-picker-range-end"><input autocomplete="off" type="text" readonly="readonly" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+      <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
     </div>
     <!---->
   </div>
@@ -82,8 +82,8 @@ exports[`renders ./docs/.vuepress/components/demo/date-picker/range.vue correctl
 <div class="nova-date-picker nova-date-picker-range">
   <!---->
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner nova-date-picker-range-start"><input autocomplete="off" type="text" readonly="readonly" placeholder="开始日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
-    <div class="nova-date-picker-inner nova-date-picker-range-end"><input autocomplete="off" type="text" readonly="readonly" placeholder="结束日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <!---->
 </div>

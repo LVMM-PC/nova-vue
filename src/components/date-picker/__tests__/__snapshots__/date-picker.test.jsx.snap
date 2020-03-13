@@ -3,7 +3,7 @@
 exports[`NovaDatePicker.vue disabled date 1`] = `
 <div class="nova-date-picker is-open">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner"><input autocomplete="off" type="text" readonly="readonly" placeholder="请选择日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner"><input placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <!---->
   <div data-mock="client-only">
@@ -259,7 +259,7 @@ exports[`NovaDatePicker.vue disabled date 1`] = `
 exports[`NovaDatePicker.vue prop locale should works 1`] = `
 <div class="nova-date-picker is-open">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner"><input autocomplete="off" type="text" readonly="readonly" placeholder="請選擇日期" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner"><input placeholder="請選擇日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
   </div>
   <!---->
   <div data-mock="client-only">

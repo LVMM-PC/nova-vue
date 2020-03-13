@@ -1,14 +1,14 @@
 <template>
   <div
-    class="nova-date-picker-month"
     :data-month-offset="offset"
     :data-range-index="rangeIndex"
+    class="nova-date-picker-month"
   >
     <div class="nova-date-picker-header">
       <div
-        class="nova-date-picker-prev"
         :class="getMonthPrevClass()"
         :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
+        class="nova-date-picker-prev"
         @click="prevMonthClick"
       >
         {{ novaLocale.datePicker.prevMonth }}
@@ -22,9 +22,9 @@
         }}
       </div>
       <div
-        class="nova-date-picker-next"
         :class="getMonthNextClass()"
         :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
+        class="nova-date-picker-next"
         @click="nextMonthClick"
       >
         {{ novaLocale.datePicker.nextMonth }}
@@ -35,8 +35,8 @@
         <div
           v-for="(title, titleIndex) in weeks"
           :key="titleIndex"
-          class="nova-date-picker-week"
           :class="'nova-date-picker-' + weeks[titleIndex]"
+          class="nova-date-picker-week"
         >
           <template>{{ novaLocale.datePicker.weeksShort[title] }}</template>
         </div>
@@ -45,8 +45,8 @@
         <div
           v-for="dateMoment in momentList"
           :key="dateMoment.format(defaultFormat)"
-          class="nova-date-picker-date"
           :class="getMomentClassName(dateMoment)"
+          class="nova-date-picker-date"
           @click="handleMomentSelect(dateMoment)"
           @mouseenter="handleDateMouseEnter(dateMoment, $event)"
           @mouseleave="handleDateMouseLeave"

@@ -1,8 +1,8 @@
 <template>
   <div
     ref="autocomplete"
-    class="nova-autocomplete"
     :class="autocompleteClass"
+    class="nova-autocomplete"
     v-bind="$attrs"
     v-on="$listeners"
   >
@@ -10,15 +10,15 @@
       <div class="nova-autocomplete-inner">
         <input
           ref="input"
+          :disabled="disabled"
+          :placeholder="placeholder"
+          :value.prop="valueModel"
           autocomplete="off"
           class="nova-autocomplete-input"
           type="text"
-          :value.prop="valueModel"
-          :placeholder="placeholder"
-          :disabled="disabled"
-          @input="handleInput"
-          @focus="handleFocus"
           @blur="handleBlur"
+          @focus="handleFocus"
+          @input="handleInput"
           @keydown="handleKeydown"
         />
         <span
@@ -38,8 +38,8 @@
     <NovaDropdown
       v-if="start.dropdownLoaded"
       ref="start-dropdown"
-      :opened="start.opened"
       :append-to-body="appendToBody"
+      :opened="start.opened"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
     >
       <div class="nova-autocomplete-start">
@@ -49,8 +49,8 @@
     <NovaDropdown
       v-if="list.dropdownLoaded"
       ref="list-dropdown"
-      :opened="list.opened"
       :append-to-body="appendToBody"
+      :opened="list.opened"
       :popover-class="['nova-autocomplete-dropdown', popoverClass]"
     >
       <div
@@ -64,18 +64,18 @@
           class="nova-autocomplete-group"
         >
           <div class="nova-autocomplete-label">
-            <slot name="group-label" :group="group"></slot>
+            <slot :group="group" name="group-label"></slot>
           </div>
           <div v-if="group.children.length" class="nova-autocomplete-list">
             <div
               v-for="item in group.children"
               :key="item.index"
               ref="items"
-              class="nova-autocomplete-item"
               :class="{
                 'is-selected': item.index === list.activeIndex,
                 'is-disabled': item.disabled
               }"
+              class="nova-autocomplete-item"
               @click="handleItemClick(item)"
             >
               <slot :item="item">

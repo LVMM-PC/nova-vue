@@ -196,7 +196,10 @@ export default {
     handleOtherClick(e) {
       const $select = this.$refs['select'];
       const stopToggle = Utils.isParentsOrSelf(e.target, $select);
-      const stopDropdown = Utils.isParentsOrSelf(e.target, this.getDropdownDom());
+      const stopDropdown = Utils.isParentsOrSelf(
+        e.target,
+        this.getDropdownDom()
+      );
 
       if (!(stopToggle || stopDropdown)) {
         this.opened = false;

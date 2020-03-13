@@ -1,29 +1,29 @@
 <template>
   <div
     ref="date-picker"
-    class="nova-date-picker"
     :class="datePickerClass"
+    class="nova-date-picker"
     v-bind="$attrs"
     v-on="$listeners"
   >
     <div v-if="!isRange" class="nova-date-picker-toggle">
       <div
         ref="inner"
-        class="nova-date-picker-inner"
         :class="{ 'is-disabled': isDisabled }"
+        class="nova-date-picker-inner"
       >
         <input
           ref="input"
-          autocomplete="off"
-          class="nova-date-picker-input"
-          type="text"
-          :value="displayedDate"
-          readonly
           :disabled="disabled"
           :placeholder="datePlaceholder"
-          @focus="handleInputFocus"
+          :value="displayedDate"
+          autocomplete="off"
+          class="nova-date-picker-input"
+          readonly
+          type="text"
           @blur="handleInputBlur"
           @click="handleInputClick"
+          @focus="handleInputFocus"
         />
         <span v-if="showIcon" class="nova-date-picker-icon"></span>
       </div>
@@ -31,43 +31,43 @@
     <div v-if="isRange" class="nova-date-picker-toggle">
       <div
         ref="start"
-        class="nova-date-picker-inner nova-date-picker-range-start"
         :class="{
           'is-disabled': startDisabled
         }"
+        class="nova-date-picker-inner nova-date-picker-range-start"
       >
         <input
           ref="startInput"
-          autocomplete="off"
-          class="nova-date-picker-input"
-          type="text"
-          :value="displayedRange.start"
-          readonly
           :disabled="startDisabled"
           :placeholder="startPlaceholder"
-          @focus="handleStartFocus"
+          :value="displayedRange.start"
+          autocomplete="off"
+          class="nova-date-picker-input"
+          readonly
+          type="text"
           @blur="handleStartBlur"
+          @focus="handleStartFocus"
         />
         <span v-if="showIcon" class="nova-date-picker-icon"></span>
       </div>
       <div
         ref="end"
-        class="nova-date-picker-inner nova-date-picker-range-end"
         :class="{
           'is-disabled': endDisabled
         }"
+        class="nova-date-picker-inner nova-date-picker-range-end"
       >
         <input
           ref="endInput"
-          autocomplete="off"
-          class="nova-date-picker-input"
-          type="text"
-          :value="displayedRange.end"
-          readonly
           :disabled="endDisabled"
           :placeholder="endPlaceholder"
-          @focus="handleEndFocus"
+          :value="displayedRange.end"
+          autocomplete="off"
+          class="nova-date-picker-input"
+          readonly
+          type="text"
           @blur="handleEndBlur"
+          @focus="handleEndFocus"
         />
         <span v-if="showIcon" class="nova-date-picker-icon"></span>
       </div>
@@ -75,8 +75,8 @@
     <NovaDropdown
       v-if="dropdownLoaded"
       ref="dropdown"
-      :opened="opened"
       :append-to-body="appendToBody"
+      :opened="opened"
       :popover-class="['nova-date-picker-dropdown', popoverClass]"
     >
       <div
@@ -86,17 +86,17 @@
       >
         <Month
           v-for="(month, monthIndex) in showMonthSize"
-          ref="monthRef"
           :key="monthIndex"
-          :offset="monthIndex"
-          :nova-locale="novaLocale"
+          ref="monthRef"
           :nova-holiday="novaHoliday"
+          :nova-locale="novaLocale"
+          :offset="monthIndex"
         ></Month>
       </div>
       <div
         v-show="tooltip.visible && showTooltip"
-        class="nova-date-picker-tooltip"
         :style="tooltipStyle()"
+        class="nova-date-picker-tooltip"
       >
         {{ tooltip.text }}
       </div>

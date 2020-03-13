@@ -3,18 +3,18 @@
     <div class="nova-calendar-months">
       <Month
         v-for="(month, monthIndex) in showMonthSize"
-        ref="monthRef"
         :key="monthIndex"
+        ref="monthRef"
         :nova-locale="novaLocale"
         :offset="monthIndex"
       >
         <template v-slot:dateCellRender="slotProps">
           <slot
-            name="dateCellRender"
             :date="slotProps.date"
             :index="slotProps.index"
             :offset="slotProps.offset"
             :panelDate="slotProps.panelDate"
+            name="dateCellRender"
           ></slot>
         </template>
       </Month>
