@@ -6,18 +6,18 @@
 }
 
 //region slide-up
-.nova-slide-up-enter-active {
+.@{prefix}-slide-up-enter-active {
   transition: opacity @normal-motion, transform @normal-motion @ease-out-quintic;
   transform-origin: 0 0;
 }
 
-.nova-slide-up-leave-active {
+.@{prefix}-slide-up-leave-active {
   transition: opacity @normal-motion, transform @normal-motion @ease-in-quintic;
   transform-origin: 0 0;
 }
 
-.nova-slide-up-enter,
-.nova-slide-up-leave-to {
+.@{prefix}-slide-up-enter,
+.@{prefix}-slide-up-leave-to {
   transform: scaleY(0.75);
   transform-origin: 0 0;
   opacity: 0;
@@ -26,22 +26,22 @@
 //endregion
 
 //region alert-slide-up
-.nova-alert-slide-up-enter-active {
+.@{prefix}-alert-slide-up-enter-active {
   transition: opacity @normal-motion,
     height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
-.nova-alert-slide-up-leave-active {
+.@{prefix}-alert-slide-up-leave-active {
   transition: opacity @normal-motion,
     height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
-.nova-alert-slide-up-enter,
-.nova-alert-slide-up-leave-to {
+.@{prefix}-alert-slide-up-enter,
+.@{prefix}-alert-slide-up-leave-to {
   transform: scaleY(0);
   transform-origin: 0 0;
   opacity: 0;
@@ -50,17 +50,17 @@
 //endregion
 
 //region zoom
-.nova-zoom-enter-active {
+.@{prefix}-zoom-enter-active {
   transition: opacity @normal-motion,
     transform @normal-motion @ease-out-backward;
 }
 
-.nova-zoom-leave-active {
+.@{prefix}-zoom-leave-active {
   transition: opacity @normal-motion, transform @normal-motion @ease-in-backward;
 }
 
-.nova-zoom-enter,
-.nova-zoom-leave-to {
+.@{prefix}-zoom-enter,
+.@{prefix}-zoom-leave-to {
   transform: scale(0);
   opacity: 0;
 }

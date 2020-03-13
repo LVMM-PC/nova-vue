@@ -20,11 +20,11 @@ export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.jsx';
 export NovaDatePicker from './components/date-picker/NovaDatePicker.vue';
 export NovaDropdown from './components/dropdown/NovaDropdown.jsx';
 export NovaLocale from './components/locale/NovaLocale.jsx';
-export NovaOptGroup from './components/select/NovaOptGroup.vue';
-export NovaOption from './components/select/NovaOption.vue';
+export NovaOptGroup from './components/select/NovaOptGroup.jsx';
+export NovaOption from './components/select/NovaOption.jsx';
 export NovaRadio from './components/radio/NovaRadio.jsx';
 export NovaRadioGroup from './components/radio/NovaRadioGroup.jsx';
-export NovaSelect from './components/select/NovaSelect.vue';
+export NovaSelect from './components/select/NovaSelect.jsx';
 
 export default {
   version,
