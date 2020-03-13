@@ -55,8 +55,6 @@ export default {
   render() {
     const { $attrs, $listeners, $slots, prefixedClass } = this;
 
-    const children = $slots.default;
-
     const groupProps = {
       class: `${prefixedClass}-group`,
       attrs: {
@@ -67,6 +65,8 @@ export default {
       },
       ref: 'checkbox-group'
     };
+
+    const children = $slots.default;
 
     return <div {...groupProps}>{children}</div>;
   }

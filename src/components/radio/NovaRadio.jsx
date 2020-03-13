@@ -1,23 +1,5 @@
-<template>
-  <div
-    ref="radio"
-    class="nova-radio"
-    v-bind="$attrs"
-    :class="classList"
-    :tabindex="!isDisabled ? 0 : -1"
-    v-on="$listeners"
-    @click="handleRadioClick"
-  >
-    <div class="nova-radio-input">
-      <div class="nova-radio-inner"></div>
-    </div>
-    <div class="nova-radio-label">
-      <slot>{{ label }}</slot>
-    </div>
-  </div>
-</template>
+import Storage from '@/utils/storage';
 
-<script>
 export default {
   name: 'NovaRadio',
   inject: {
@@ -30,6 +12,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-radio`
+    },
     checked: {
       type: Boolean,
       default: false
@@ -49,10 +35,15 @@ export default {
   },
   computed: {
     classList() {
-      return {
-        'is-checked': this.isChecked,
-        'is-disabled': this.isDisabled
-      };
+      const { isChecked, isDisabled, prefixedClass } = this;
+
+      return [
+        prefixedClass,
+        {
+          'is-checked': isChecked,
+          'is-disabled': isDisabled
+        }
+      ];
     },
     isDisabled() {
       return this.disabled || this.groupDisabled;
@@ -91,7 +82,7 @@ export default {
       if (newValue) {
         this.NovaRadioGroup.setChecked(this.value, false);
       } else {
-        let isChecked = this.value === this.NovaRadioGroup.getChecked();
+        const isChecked = this.value === this.NovaRadioGroup.getChecked();
         if (isChecked) {
           this.NovaRadioGroup.setChecked(null, false);
         }
@@ -119,6 +110,43 @@ export default {
         this.$emit('update', true);
       }
     }
+  },
+  render() {
+    const {
+      $attrs,
+      $listeners,
+      $slots,
+      classList,
+      handleRadioClick,
+      isDisabled,
+      label,
+      prefixedClass
+    } = this;
+
+    const tabIndex = isDisabled ? -1 : 0;
+
+    const radioProps = {
+      class: classList,
+      attrs: {
+        ...$attrs,
+        tabindex: tabIndex
+      },
+      on: {
+        ...$listeners,
+        click: handleRadioClick
+      },
+      ref: 'radio'
+    };
+
+    const children = $slots.default || label;
+
+    return (
+      <div {...radioProps}>
+        <div class={`${prefixedClass}-input`}>
+          <div class={`${prefixedClass}-inner`}></div>
+        </div>
+        <div class={`${prefixedClass}-label`}>{children}</div>
+      </div>
+    );
   }
 };
-</script>

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NovaRadio.vue should render correctly 1`] = `
+exports[`NovaRadio should render correctly 1`] = `
 <div tabindex="0" class="nova-radio customized">
   <div class="nova-radio-input">
     <div class="nova-radio-inner"></div>

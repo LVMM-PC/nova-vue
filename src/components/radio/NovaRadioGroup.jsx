@@ -1,15 +1,5 @@
-<template>
-  <div
-    ref="radio-group"
-    class="nova-radio-group"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <slot />
-  </div>
-</template>
+import Storage from '@/utils/storage';
 
-<script>
 export default {
   name: 'NovaRadioGroup',
   provide() {
@@ -21,6 +11,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-radio`
+    },
     value: {
       type: [Number, Boolean, String],
       default: null
@@ -44,6 +38,23 @@ export default {
     getChecked() {
       return this.value;
     }
+  },
+  render() {
+    const { $attrs, $listeners, $slots, prefixedClass } = this;
+
+    const groupProps = {
+      class: `${prefixedClass}-group`,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      },
+      ref: 'radio-group'
+    };
+
+    const children = $slots.default;
+
+    return <div {...groupProps}>{children}</div>;
   }
 };
-</script>

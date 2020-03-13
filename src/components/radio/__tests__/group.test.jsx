@@ -4,7 +4,7 @@ import NovaRadio from '@/components/radio/NovaRadio';
 import { mount } from '@vue/test-utils';
 import flushPromises from 'flush-promises';
 
-describe('NovaRadioGroup.vue', () => {
+describe('NovaRadioGroup', () => {
   mountTest(NovaRadioGroup);
 
   function createRadioGroup(groupProps, options = null) {

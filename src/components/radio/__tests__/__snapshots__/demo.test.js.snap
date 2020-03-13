@@ -56,7 +56,7 @@ exports[`renders ./docs/.vuepress/components/demo/radio/group.vue correctly 1`] 
 `;
 
 exports[`renders ./docs/.vuepress/components/demo/radio/group-more.vue correctly 1`] = `
-<div class="nova-radio-group group-more">
+<div class="group-more nova-radio-group">
   <div tabindex="0" class="nova-radio is-checked">
     <div class="nova-radio-input">
       <div class="nova-radio-inner"></div>

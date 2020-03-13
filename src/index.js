@@ -12,20 +12,19 @@ import china from './locales/holiday/china';
 Vue.use(PortalVue);
 Vue.component('ClientOnly', ClientOnly);
 
+export NovaAlert from './components/alert/NovaAlert.jsx';
 export NovaAutocomplete from './components/autocomplete/NovaAutocomplete.vue';
 export NovaCalendar from './components/calendar/NovaCalendar.vue';
-export NovaDatePicker from './components/date-picker/NovaDatePicker.vue';
-export NovaOptGroup from './components/select/NovaOptGroup.vue';
-export NovaOption from './components/select/NovaOption.vue';
-export NovaRadio from './components/radio/NovaRadio.vue';
-export NovaRadioGroup from './components/radio/NovaRadioGroup.vue';
-export NovaSelect from './components/select/NovaSelect.vue';
-
-export NovaAlert from './components/alert/NovaAlert.jsx';
 export NovaCheckbox from './components/checkbox/NovaCheckbox.jsx';
 export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.jsx';
+export NovaDatePicker from './components/date-picker/NovaDatePicker.vue';
 export NovaDropdown from './components/dropdown/NovaDropdown.jsx';
 export NovaLocale from './components/locale/NovaLocale.jsx';
+export NovaOptGroup from './components/select/NovaOptGroup.vue';
+export NovaOption from './components/select/NovaOption.vue';
+export NovaRadio from './components/radio/NovaRadio.jsx';
+export NovaRadioGroup from './components/radio/NovaRadioGroup.jsx';
+export NovaSelect from './components/select/NovaSelect.vue';
 
 export default {
   version,

@@ -8,6 +8,7 @@ export default {
   },
   render() {
     const { $attrs, $listeners, type } = this;
+
     const classList = ['nova-alert-icon', `nova-alert-icon-${type}`];
 
     const iconProps = {

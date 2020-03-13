@@ -38,7 +38,7 @@ export default {
       const { isChecked, isDisabled, prefixedClass } = this;
 
       return [
-        `${prefixedClass}`,
+        prefixedClass,
         {
           'is-checked': isChecked,
           'is-disabled': isDisabled
@@ -120,8 +120,6 @@ export default {
 
     const tabIndex = isDisabled ? -1 : 0;
 
-    const children = $slots.default || label;
-
     const checkboxProps = {
       class: classList,
       attrs: {
@@ -134,6 +132,8 @@ export default {
       },
       ref: 'checkbox'
     };
+
+    const children = $slots.default || label;
 
     return (
       <div {...checkboxProps}>

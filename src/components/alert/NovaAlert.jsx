@@ -116,11 +116,22 @@ export default {
       closable,
       handleAfterLeave,
       handleCloseClick,
+      prefixedClass,
       type,
       visible,
-      visibleArrow,
-      prefixedClass
+      visibleArrow
     } = this;
+
+    const alertProps = {
+      class: classList,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      },
+      ref: 'alert'
+    };
 
     let close;
     if (border && closable) {
@@ -137,17 +148,6 @@ export default {
     if (visibleArrow) {
       arrow = <div class={`${prefixedClass}-arrow`}></div>;
     }
-
-    const alertProps = {
-      class: classList,
-      attrs: {
-        ...$attrs
-      },
-      on: {
-        ...$listeners
-      },
-      ref: 'alert'
-    };
 
     return (
       <transition
