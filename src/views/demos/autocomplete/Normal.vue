@@ -2,17 +2,17 @@
   <div>
     <div class="box">
       <NovaAutocomplete
-        ref="my-autocomplete"
-        v-model="city"
         :fetch-suggestions="querySearch"
-        popover-class="my-autocomplete-dropdown"
-        placeholder="请选择城市"
-        show-prefix
-        show-suffix
-        class="my-autocomplete"
+        ref="my-autocomplete"
         auto-select
-        @select="handleSelect"
+        class="my-autocomplete"
+        placeholder="请选择城市"
+        popover-class="my-autocomplete-dropdown"
+        show-prefix
+        v-model="city"
+        show-suffix
         @click="handleClick"
+        @select="handleSelect"
       >
         <template v-slot:prefix>
           出发地：
@@ -30,8 +30,8 @@
                 <div
                   v-for="(cityHot, cityHotIndex) in cityAreaHot.children"
                   :key="'CITY_' + cityHotIndex"
-                  class="city-item"
                   :class="{ hidden: !cityHot.title }"
+                  class="city-item"
                   @click="handleCitySelect(cityHot)"
                 >
                   <template v-if="cityHot.title">{{ cityHot.title }}</template>
@@ -42,10 +42,10 @@
               <div
                 v-for="(list, listIndex) in cityAreaList"
                 :key="'TAB' + listIndex"
-                class="city-tab"
                 :class="{
                   active: cityStartActiveIndex === listIndex
                 }"
+                class="city-tab"
                 @click="handleCityIndexSwitch(listIndex)"
               >
                 <div class="city-tab-text">{{ list.name }}</div>
@@ -55,16 +55,16 @@
             <div
               v-for="(list, listIndex) in cityAreaList"
               :key="'PANE' + listIndex"
-              class="city-panel"
               :class="{
                 active: cityStartActiveIndex === listIndex
               }"
+              class="city-panel"
             >
               <div
                 v-for="(sub, subIndex) in list.children"
                 :key="'LETTER_' + subIndex"
-                class="city-line"
                 :class="{ hidden: !list.children }"
+                class="city-line"
               >
                 <div v-if="sub.name" class="city-sub-title">{{ sub.name }}</div>
                 <div v-if="sub.children" class="city-list">

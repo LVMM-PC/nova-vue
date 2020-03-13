@@ -1,7 +1,7 @@
 <template>
   <section>
     <NovaDatePicker v-model="date"></NovaDatePicker>
-    <NovaAlert type="info" border>First Component</NovaAlert>
+    <NovaAlert border type="info">First Component</NovaAlert>
   </section>
 </template>
 

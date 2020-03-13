@@ -1,14 +1,14 @@
 <template>
   <section>
     <NovaDatePicker
-      v-model="date"
       :disabled-date="disabledDate"
+      v-model="date"
     ></NovaDatePicker>
     <NovaDatePicker
-      v-model="dates"
-      type="range"
       :disabled-date="disabledDateRange"
       @change="handleRangeChange"
+      type="range"
+      v-model="dates"
     ></NovaDatePicker>
   </section>
 </template>

@@ -1,9 +1,9 @@
 <template>
   <section>
-    <NovaAlert type="success" block>Success Text</NovaAlert>
-    <NovaAlert type="info" block>Info Text</NovaAlert>
-    <NovaAlert type="help" block>Help Text</NovaAlert>
-    <NovaAlert type="warning" block>Warning Text</NovaAlert>
-    <NovaAlert type="error" block>Error Text</NovaAlert>
+    <NovaAlert block type="success">Success Text</NovaAlert>
+    <NovaAlert block type="info">Info Text</NovaAlert>
+    <NovaAlert block type="help">Help Text</NovaAlert>
+    <NovaAlert block type="warning">Warning Text</NovaAlert>
+    <NovaAlert block type="error">Error Text</NovaAlert>
   </section>
 </template>

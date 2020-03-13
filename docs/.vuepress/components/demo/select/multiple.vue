@@ -1,9 +1,9 @@
 <template>
-  <NovaSelect v-model="selectedItems" multiple>
+  <NovaSelect multiple v-model="selectedItems">
     <NovaOption
-      v-for="option in options"
-      :value="option.value"
       :label="option.label"
+      :value="option.value"
+      v-for="option in options"
     ></NovaOption>
   </NovaSelect>
 </template>

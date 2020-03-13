@@ -5,9 +5,9 @@
         v-model="selectValue1"
         popover-class="test"
         @change="handleChange"
-        @open="handleOpen"
-        @close="handleClose"
         @click="handleClick"
+        @close="handleClose"
+        @open="handleOpen"
       >
         <NovaOption
           v-for="option in selectOptions"
@@ -16,13 +16,13 @@
           :value="option.value"
         ></NovaOption>
       </NovaSelect>
-      <NovaLocale :locale="en" :block="false">
+      <NovaLocale :block="false" :locale="en">
         <NovaSelect
           v-model="selectValue1"
           :append-to-body="false"
           @change="handleChange"
-          @open="handleOpen"
           @close="handleClose"
+          @open="handleOpen"
         >
           <NovaOption
             v-for="option in selectOptions"
@@ -37,8 +37,8 @@
         :append-to-body="true"
         :disabled="true"
         @change="handleChange"
-        @open="handleOpen"
         @close="handleClose"
+        @open="handleOpen"
       >
         <NovaOption
           v-for="option in selectOptions"
@@ -54,8 +54,8 @@
         v-model="selectValue2"
         :multiple="true"
         @change="handleChange"
-        @open="handleOpen"
         @close="handleClose"
+        @open="handleOpen"
       >
         <NovaOption
           v-for="option in selectOptions"
@@ -64,14 +64,14 @@
           :value="option.value"
         ></NovaOption>
       </NovaSelect>
-      <NovaLocale :locale="en" :block="false">
+      <NovaLocale :block="false" :locale="en">
         <NovaSelect
           v-model="selectValue2"
-          :multiple="true"
           :append-to-body="false"
+          :multiple="true"
           @change="handleChange"
-          @open="handleOpen"
           @close="handleClose"
+          @open="handleOpen"
         >
           <NovaOption
             v-for="option in selectOptions"
@@ -83,11 +83,11 @@
       </NovaLocale>
       <NovaSelect
         v-model="selectValue2"
-        :multiple="true"
         :disabled="true"
+        :multiple="true"
         @change="handleChange"
-        @open="handleOpen"
         @close="handleClose"
+        @open="handleOpen"
       >
         <NovaOption
           v-for="option in selectOptions"
@@ -126,24 +126,24 @@
       >
         <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
           <NovaOption
-            value="apple"
             label="元素表示一个控件，提供一个选项菜单"
+            value="apple"
           ></NovaOption>
         </NovaOptGroup>
       </NovaSelect>
       <NovaSelect
         v-model="selectValue5"
-        placeholder="元素表示一个控件，提供一个选项菜单"
         multiple
+        placeholder="元素表示一个控件，提供一个选项菜单"
       >
         <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
           <NovaOption
-            value="apple"
             label="元素表示一个控件，提供一个选项菜单"
+            value="apple"
           ></NovaOption>
           <NovaOption
-            value="banana"
             label="元素表示一个控件，提供一个选项菜单"
+            value="banana"
           ></NovaOption>
         </NovaOptGroup>
       </NovaSelect>
@@ -156,13 +156,13 @@
             <div class="large-icon">❤</div>
           </template>
           <template>
-            <NovaOption value="apple" label="苹果">
+            <NovaOption label="苹果" value="apple">
               <div class="large-icon">🍎</div>
             </NovaOption>
-            <NovaOption value="orange" label="橘子">
+            <NovaOption label="橘子" value="orange">
               <div class="large-icon">🍊</div>
             </NovaOption>
-            <NovaOption value="banana" label="香蕉">
+            <NovaOption label="香蕉" value="banana">
               <div class="large-icon">🍌</div>
             </NovaOption>
           </template>

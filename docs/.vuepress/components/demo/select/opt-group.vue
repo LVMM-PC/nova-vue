@@ -1,12 +1,12 @@
 <template>
   <NovaSelect v-model="selectedItem">
     <NovaOptGroup label="Municipality directly under the Central Government">
-      <NovaOption value="beijing" label="Beijing"></NovaOption>
-      <NovaOption value="shanghai" label="Shanghai"></NovaOption>
+      <NovaOption label="Beijing" value="beijing"></NovaOption>
+      <NovaOption label="Shanghai" value="shanghai"></NovaOption>
     </NovaOptGroup>
     <NovaOptGroup label="Special Administrative Region">
-      <NovaOption value="hongkong" label="Hong Kong"></NovaOption>
-      <NovaOption value="macao" label="Macao"></NovaOption>
+      <NovaOption label="Hong Kong" value="hongkong"></NovaOption>
+      <NovaOption label="Macao" value="macao"></NovaOption>
     </NovaOptGroup>
   </NovaSelect>
 </template>

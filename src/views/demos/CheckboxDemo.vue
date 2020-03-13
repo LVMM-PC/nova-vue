@@ -72,7 +72,7 @@
       <dd>
         <NovaCheckboxGroup v-model="orientations">
           <NovaCheckbox value="EAST">东</NovaCheckbox>
-          <NovaCheckbox value="SOUTH" disabled>南</NovaCheckbox>
+          <NovaCheckbox disabled value="SOUTH">南</NovaCheckbox>
           <NovaCheckbox value="WEST">西</NovaCheckbox>
           <NovaCheckbox value="NORTH">北</NovaCheckbox>
         </NovaCheckboxGroup>
@@ -83,7 +83,7 @@
       <dd>
         <NovaCheckboxGroup v-model="orientations" disabled>
           <NovaCheckbox value="EAST">东</NovaCheckbox>
-          <NovaCheckbox value="SOUTH" disabled>南</NovaCheckbox>
+          <NovaCheckbox disabled value="SOUTH">南</NovaCheckbox>
           <NovaCheckbox value="WEST">西</NovaCheckbox>
           <NovaCheckbox value="NORTH">北</NovaCheckbox>
         </NovaCheckboxGroup>

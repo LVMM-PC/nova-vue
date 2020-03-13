@@ -37,6 +37,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
     &:hover {
       background-color: rgba(66, 185, 131, 0.1);
     }

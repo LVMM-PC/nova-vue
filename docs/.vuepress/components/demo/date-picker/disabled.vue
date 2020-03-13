@@ -1,11 +1,11 @@
 <template>
   <section>
-    <NovaDatePicker v-model="date" disabled></NovaDatePicker>
-    <NovaDatePicker v-model="dates" type="range" disabled></NovaDatePicker>
+    <NovaDatePicker disabled v-model="date"></NovaDatePicker>
+    <NovaDatePicker disabled type="range" v-model="dates"></NovaDatePicker>
     <NovaDatePicker
-      v-model="dates"
-      type="range"
       :disabled="[false, true]"
+      type="range"
+      v-model="dates"
     ></NovaDatePicker>
   </section>
 </template>

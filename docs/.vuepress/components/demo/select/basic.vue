@@ -1,12 +1,12 @@
 <template>
   <section>
     <NovaSelect v-model="selectedItem">
-      <NovaOption value="beijing" label="Beijing"></NovaOption>
-      <NovaOption value="shanghai" label="Shanghai"></NovaOption>
-      <NovaOption value="disabled" label="Disabled" disabled></NovaOption>
+      <NovaOption label="Beijing" value="beijing"></NovaOption>
+      <NovaOption label="Shanghai" value="shanghai"></NovaOption>
+      <NovaOption disabled label="Disabled" value="disabled"></NovaOption>
     </NovaSelect>
-    <NovaSelect value="shanghai" disabled>
-      <NovaOption value="shanghai" label="Shanghai"></NovaOption>
+    <NovaSelect disabled value="shanghai">
+      <NovaOption label="Shanghai" value="shanghai"></NovaOption>
     </NovaSelect>
   </section>
 </template>

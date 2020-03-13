@@ -80,7 +80,7 @@
     <dl>
       <dt>协议：</dt>
       <dd>
-        <NovaRadio v-model="isRead7" value="READ" disabled>我已阅读</NovaRadio>
+        <NovaRadio v-model="isRead7" disabled value="READ">我已阅读</NovaRadio>
       </dd>
     </dl>
     <dl>
@@ -88,7 +88,7 @@
       <dd>
         <NovaRadioGroup v-model="lensValue3">
           <NovaRadio value="ULTRA_WIDE_ANGLE">超广角</NovaRadio>
-          <NovaRadio value="WIDE_ANGLE" disabled>广角</NovaRadio>
+          <NovaRadio disabled value="WIDE_ANGLE">广角</NovaRadio>
           <NovaRadio value="STANDARD">标准</NovaRadio>
           <NovaRadio value="TELEPHOTO">长焦</NovaRadio>
           <NovaRadio value="MACRO">微距</NovaRadio>
@@ -100,7 +100,7 @@
       <dd>
         <NovaRadioGroup v-model="lensValue3" disabled>
           <NovaRadio value="ULTRA_WIDE_ANGLE">超广角</NovaRadio>
-          <NovaRadio value="WIDE_ANGLE" disabled>广角</NovaRadio>
+          <NovaRadio disabled value="WIDE_ANGLE">广角</NovaRadio>
           <NovaRadio value="STANDARD">标准</NovaRadio>
           <NovaRadio value="TELEPHOTO">长焦</NovaRadio>
           <NovaRadio value="MACRO">微距</NovaRadio>
@@ -112,8 +112,8 @@
       <dd>
         <label>
           <input
-            type="radio"
             name="test"
+            type="radio"
             value="1"
             @change="handleNativeChange(1)"
           />
@@ -121,8 +121,8 @@
         </label>
         <label>
           <input
-            type="radio"
             name="test"
+            type="radio"
             value="2"
             @change="handleNativeChange(2)"
           />
@@ -130,8 +130,8 @@
         </label>
         <label>
           <input
-            type="radio"
             name="test"
+            type="radio"
             value="3"
             @change="handleNativeChange(3)"
           />

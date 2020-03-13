@@ -1,17 +1,17 @@
 import nova, {
-  NovaLocale,
-  NovaSelect,
-  NovaOptGroup,
-  NovaOption,
-  NovaDropdown,
-  NovaDatePicker,
-  NovaCalendar,
   NovaAlert,
   NovaAutocomplete,
+  NovaCalendar,
+  NovaCheckbox,
+  NovaCheckboxGroup,
+  NovaDatePicker,
+  NovaDropdown,
+  NovaLocale,
+  NovaOptGroup,
+  NovaOption,
   NovaRadio,
   NovaRadioGroup,
-  NovaCheckbox,
-  NovaCheckboxGroup
+  NovaSelect
 } from '../..';
 import '../../dist/nova.css';
 
@@ -22,17 +22,17 @@ export default ({ Vue }) => {
     global.nova = nova;
   }
 
-  Vue.component('NovaLocale', NovaLocale);
-  Vue.component('NovaSelect', NovaSelect);
-  Vue.component('NovaOptGroup', NovaOptGroup);
-  Vue.component('NovaOption', NovaOption);
-  Vue.component('NovaDropdown', NovaDropdown);
-  Vue.component('NovaDatePicker', NovaDatePicker);
-  Vue.component('NovaCalendar', NovaCalendar);
   Vue.component('NovaAlert', NovaAlert);
   Vue.component('NovaAutocomplete', NovaAutocomplete);
-  Vue.component('NovaRadio', NovaRadio);
-  Vue.component('NovaRadioGroup', NovaRadioGroup);
+  Vue.component('NovaCalendar', NovaCalendar);
   Vue.component('NovaCheckbox', NovaCheckbox);
   Vue.component('NovaCheckboxGroup', NovaCheckboxGroup);
+  Vue.component('NovaDatePicker', NovaDatePicker);
+  Vue.component('NovaDropdown', NovaDropdown);
+  Vue.component('NovaLocale', NovaLocale);
+  Vue.component('NovaOptGroup', NovaOptGroup);
+  Vue.component('NovaOption', NovaOption);
+  Vue.component('NovaRadio', NovaRadio);
+  Vue.component('NovaRadioGroup', NovaRadioGroup);
+  Vue.component('NovaSelect', NovaSelect);
 };

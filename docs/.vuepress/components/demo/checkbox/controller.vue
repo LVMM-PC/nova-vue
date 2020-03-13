@@ -1,7 +1,7 @@
 <template>
   <section>
     <p>
-      <NovaCheckbox v-model="checked" :disabled="disabled">
+      <NovaCheckbox :disabled="disabled" v-model="checked">
         {{ checked ? 'Checked' : 'Unchecked' }}
         -
         {{ disabled ? 'Disabled' : 'Enabled' }}

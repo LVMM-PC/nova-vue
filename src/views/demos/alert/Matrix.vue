@@ -1,46 +1,46 @@
 <template>
   <div class="matrix">
     <div class="top">
-      <NovaAlert visible-arrow placement="top-start" border :type="type">
+      <NovaAlert :type="type" border placement="top-start" visible-arrow>
         <span>上左</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="top" border :type="type">
+      <NovaAlert :type="type" border placement="top" visible-arrow>
         <span>上</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="top-end" border :type="type">
+      <NovaAlert :type="type" border placement="top-end" visible-arrow>
         <span>上右</span>
       </NovaAlert>
     </div>
     <div class="left">
-      <NovaAlert visible-arrow placement="left-start" border :type="type">
+      <NovaAlert :type="type" border placement="left-start" visible-arrow>
         <span>左上</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="left" border :type="type">
+      <NovaAlert :type="type" border placement="left" visible-arrow>
         <span>左</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="left-end" border :type="type">
+      <NovaAlert :type="type" border placement="left-end" visible-arrow>
         <span>左下</span>
       </NovaAlert>
     </div>
     <div class="right">
-      <NovaAlert visible-arrow placement="right-start" border :type="type">
+      <NovaAlert :type="type" border placement="right-start" visible-arrow>
         <span>右上</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="right" border :type="type">
+      <NovaAlert :type="type" border placement="right" visible-arrow>
         <span>右</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="right-end" border :type="type">
+      <NovaAlert :type="type" border placement="right-end" visible-arrow>
         <span>右下</span>
       </NovaAlert>
     </div>
     <div class="bottom">
-      <NovaAlert visible-arrow placement="bottom-start" border :type="type">
+      <NovaAlert :type="type" border placement="bottom-start" visible-arrow>
         <span>下左</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="bottom" border :type="type">
+      <NovaAlert :type="type" border placement="bottom" visible-arrow>
         <span>下</span>
       </NovaAlert>
-      <NovaAlert visible-arrow placement="bottom-end" border :type="type">
+      <NovaAlert :type="type" border placement="bottom-end" visible-arrow>
         <span>下右</span>
       </NovaAlert>
     </div>

@@ -1,10 +1,10 @@
 <template>
-  <NovaRadioGroup v-model="value" class="group-more">
+  <NovaRadioGroup class="group-more" v-model="value">
     <NovaRadio value="apple">Apple</NovaRadio>
     <NovaRadio value="peach">Peach</NovaRadio>
     <NovaRadio value="orange">Orange</NovaRadio>
     <NovaRadio value="more"
-      >More... <input v-if="value === 'more'" type="text" class="more-input"
+      >More... <input class="more-input" type="text" v-if="value === 'more'"
     /></NovaRadio>
   </NovaRadioGroup>
 </template>

@@ -1,3 +1,3 @@
 <template>
-  <NovaAlert type="success" block border>Success Text</NovaAlert>
+  <NovaAlert block border type="success">Success Text</NovaAlert>
 </template>

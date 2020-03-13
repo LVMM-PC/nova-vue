@@ -4,10 +4,10 @@
       <div class="calendar-title">日历</div>
       <NovaCalendar
         v-model="calendarDate"
-        :month-size="2"
         :disabled-date="disabledDateBefore"
-        :disabled-month-prev="disabledMonthPrev"
         :disabled-month-next="disabledMonthNext"
+        :disabled-month-prev="disabledMonthPrev"
+        :month-size="2"
         @panelChange="handlePanelChange"
       >
         <template v-slot:dateCellRender="slotProps">
@@ -21,8 +21,8 @@
             <div class="calendar-labels">
               <div
                 v-if="getHoliday(slotProps.date)"
-                class="calendar-label calendar-rest"
                 :title="getHoliday(slotProps.date).title"
+                class="calendar-label calendar-rest"
               >
                 休
               </div>
@@ -32,7 +32,7 @@
       </NovaCalendar>
 
       <div class="calendar-footer">
-        <a href="" class="calendar-more">
+        <a class="calendar-more" href="">
           <template>{{ dayjs(calendarDate).format('YYYY-MM') }}</template>
           <template>{{ '更多' }}</template>
         </a>

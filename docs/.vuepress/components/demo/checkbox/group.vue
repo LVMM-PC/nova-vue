@@ -1,19 +1,19 @@
 <template>
   <section>
     <NovaCheckboxGroup v-model="someValue">
-      <NovaCheckbox v-for="option in options" :value="option.value">
+      <NovaCheckbox :value="option.value" v-for="option in options">
         {{ option.label }}
       </NovaCheckbox>
     </NovaCheckboxGroup>
 
     <NovaCheckboxGroup v-model="anotherValue">
-      <NovaCheckbox v-for="option in options" :value="option.value">
+      <NovaCheckbox :value="option.value" v-for="option in options">
         {{ option.label }}
       </NovaCheckbox>
     </NovaCheckboxGroup>
 
-    <NovaCheckboxGroup v-model="thirdValue" disabled>
-      <NovaCheckbox v-for="option in options" :value="option.value">
+    <NovaCheckboxGroup disabled v-model="thirdValue">
+      <NovaCheckbox :value="option.value" v-for="option in options">
         {{ option.label }}
       </NovaCheckbox>
     </NovaCheckboxGroup>
