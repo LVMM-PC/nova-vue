@@ -1,8 +1,8 @@
 <template>
   <section>
-    <NovaRadio :disabled="disabled" v-model="someValue">Disabled</NovaRadio>
+    <NovaRadio v-model="someValue" :disabled="disabled">Disabled</NovaRadio>
     <br />
-    <NovaRadio :disabled="disabled" v-model="anotherValue">Disabled</NovaRadio>
+    <NovaRadio v-model="anotherValue" :disabled="disabled">Disabled</NovaRadio>
     <br />
     <button @click="toggleDisabled">Toggle Disabled</button>
   </section>

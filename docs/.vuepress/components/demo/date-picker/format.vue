@@ -1,14 +1,14 @@
 <template>
   <section>
     <NovaDatePicker
+      v-model="date"
       :locale="en"
       format="ddd MMM DD YYYY"
-      v-model="date"
     ></NovaDatePicker>
     <NovaDatePicker
+      v-model="dates"
       format="YYYY年 M月 D日"
       type="range"
-      v-model="dates"
     ></NovaDatePicker>
   </section>
 </template>

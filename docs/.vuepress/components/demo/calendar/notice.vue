@@ -5,8 +5,8 @@
         <div class="date-num">{{ getDate(slotProps.date) }}</div>
         <ul class="events">
           <li
-            :key="eventIndex"
             v-for="(event, eventIndex) in getListData(slotProps.date)"
+            :key="eventIndex"
           >
             <NovaAlert :type="event.type">{{ event.content }}</NovaAlert>
           </li>
@@ -50,7 +50,7 @@ function getListData(date) {
 }
 
 export default {
-  name: 'notice',
+  name: 'Notice',
   methods: {
     getListData,
     getDate(date) {

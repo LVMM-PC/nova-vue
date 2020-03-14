@@ -1,5 +1,5 @@
 <template>
-  <NovaDatePicker @change="onChange" type="range" v-model="date" />
+  <NovaDatePicker v-model="date" type="range" @change="onChange" />
 </template>
 
 <script>
