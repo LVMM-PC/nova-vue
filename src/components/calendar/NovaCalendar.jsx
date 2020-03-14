@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
-import Month from './Month.vue';
+import Month from './Month.jsx';
 import Storage from '@/utils/storage';
 
 export default {
@@ -111,15 +111,14 @@ export default {
       }
     };
 
-    const monthScopedSlots = {
-      dateCellRender: slotProps => {
-        if (!$scopedSlots.dateCellRender) {
-          return null;
+    let monthScopedSlots = {};
+    if ($scopedSlots.dateCellRender) {
+      monthScopedSlots = {
+        dateCellRender: slotProps => {
+          return $scopedSlots.dateCellRender(slotProps);
         }
-
-        return $scopedSlots.dateCellRender(slotProps);
-      }
-    };
+      };
+    }
 
     const monthList = Array(showMonthSize)
       .fill(null)

@@ -1,66 +1,3 @@
-<template>
-  <div class="nova-calendar-month">
-    <div class="nova-calendar-header">
-      <div class="nova-calendar-weeks">
-        <div
-          v-for="(title, titleIndex) in weeks"
-          :key="titleIndex"
-          :class="'nova-calendar-' + weeks[titleIndex]"
-          class="nova-calendar-week"
-        >
-          {{ novaLocale.datePicker.weeksShort[title] }}
-        </div>
-      </div>
-    </div>
-    <div class="nova-calendar-content">
-      <div class="nova-calendar-dates">
-        <div
-          v-for="(dateMoment, dateMomentIndex) in momentList"
-          :key="dateMoment.format(defaultFormat)"
-          :class="getMomentClassName(dateMoment)"
-          class="nova-calendar-date"
-        >
-          <slot
-            :date="dateMoment.toDate()"
-            :index="dateMomentIndex"
-            :offset="offset"
-            :panelDate="getShowMoment().toDate()"
-            name="dateCellRender"
-          >
-            <div class="nova-calendar-date-number">
-              {{ dateMoment.date() }}
-            </div>
-          </slot>
-        </div>
-      </div>
-    </div>
-    <div class="nova-calendar-sidebar">
-      <div
-        :class="getMonthPrevClass()"
-        :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
-        class="nova-calendar-prev"
-        @click="prevMonthClick"
-      >
-        {{ novaLocale.datePicker.prevMonth }}
-      </div>
-      <div class="nova-calendar-title">
-        <span class="nova-calendar-title-support"></span>
-        <span class="nova-calendar-title-text">{{ getCalendarTitle() }}</span>
-      </div>
-
-      <div
-        :class="getMonthNextClass()"
-        :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
-        class="nova-calendar-next"
-        @click="nextMonthClick"
-      >
-        {{ novaLocale.datePicker.nextMonth }}
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
 export default {
   name: 'Month',
   inject: ['NovaCalendar'],
@@ -176,6 +113,102 @@ export default {
         'is-hidden': this.offset !== this.showMonthSize - 1
       };
     }
+  },
+  render() {
+    let {
+      weeks,
+      novaLocale,
+      momentList,
+      defaultFormat,
+      getMomentClassName,
+      $scopedSlots,
+      offset,
+      getShowMoment,
+      isDisabledMonthPrev,
+      getMonthPrevClass,
+      prevMonthClick,
+      isDisabledMonthNext,
+      getMonthNextClass,
+      nextMonthClick,
+      getCalendarTitle
+    } = this;
+
+    const weekList = weeks.map((week, index) => {
+      const weekProps = {
+        class: [`nova-calendar-week`, `nova-calendar-${weeks[index]}`],
+        key: index
+      };
+
+      const weekTitle = novaLocale.datePicker.weeksShort[week];
+
+      return <div {...weekProps}>{weekTitle}</div>;
+    });
+
+    const dateList = momentList.map((dateMoment, index) => {
+      const dateProps = {
+        class: [`nova-calendar-date`, getMomentClassName(dateMoment)],
+        key: dateMoment.format(defaultFormat)
+      };
+      const slotProps = {
+        date: dateMoment.toDate(),
+        index,
+        offset,
+        panelDate: getShowMoment().toDate()
+      };
+      const defaultDateCell = (
+        <div class="nova-calendar-date-number">{dateMoment.date()}</div>
+      );
+      const dateCellRender = $scopedSlots.dateCellRender
+        ? $scopedSlots.dateCellRender(slotProps)
+        : defaultDateCell;
+      return <div {...dateProps}>{dateCellRender}</div>;
+    });
+
+    const prevMonthTitle = novaLocale.datePicker.prevMonth;
+    const prevProps = {
+      class: [`nova-calendar-prev`, getMonthPrevClass()],
+      attrs: {
+        title: !isDisabledMonthPrev() ? prevMonthTitle : ''
+      },
+      on: {
+        click: prevMonthClick
+      }
+    };
+    const prevNode = <div {...prevProps}>{prevMonthTitle}</div>;
+
+    const titleNode = (
+      <div class="nova-calendar-title">
+        <span class="nova-calendar-title-support"></span>
+        <span class="nova-calendar-title-text">{getCalendarTitle()}</span>
+      </div>
+    );
+
+    const nextMonthTitle = novaLocale.datePicker.nextMonth;
+    const nextProps = {
+      class: [`nova-calendar-next`, getMonthNextClass()],
+      attrs: {
+        title: !isDisabledMonthNext() ? nextMonthTitle : ''
+      },
+      on: {
+        click: nextMonthClick
+      }
+    };
+    const nextNode = <div {...nextProps}>{nextMonthTitle}</div>;
+
+    return (
+      <div class="nova-calendar-month">
+        <div class="nova-calendar-header">
+          <div class="nova-calendar-weeks">{weekList}</div>
+        </div>
+        <div class="nova-calendar-content">
+          <div class="nova-calendar-dates">{dateList}</div>
+        </div>
+        <div class="nova-calendar-sidebar">
+          {prevNode}
+          {titleNode}
+          {nextNode}
+        </div>
+      </div>
+    );
   }
 };
-</script>
