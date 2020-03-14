@@ -1,7 +1,13 @@
+import Storage from '@/utils/storage';
+
 export default {
   name: 'Month',
   inject: ['NovaCalendar'],
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-calendar`
+    },
     offset: {
       type: Number,
       default: 0
@@ -12,7 +18,7 @@ export default {
     }
   },
   data() {
-    let NovaCalendar = this.NovaCalendar;
+    const NovaCalendar = this.NovaCalendar;
     return {
       weeks: NovaCalendar.weeks,
       defaultFormat: NovaCalendar.defaultFormat,
@@ -28,17 +34,17 @@ export default {
       this.refreshDateList();
     },
     refreshDateList() {
-      let firstMomentOfMonth = this.getShowMoment();
-      let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'days');
+      const firstMomentOfMonth = this.getShowMoment();
+      const dayOfWeek = firstMomentOfMonth.day();
+      const firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'day');
 
-      let momentList = new Array(7 * 6).fill(null);
+      const momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
-        return firstMomentOfPanel.add(index, 'days');
+        return firstMomentOfPanel.add(index, 'day');
       });
     },
     getCalendarTitle() {
-      let showMoment = this.getShowMoment();
+      const showMoment = this.getShowMoment();
       return this.novaLocale.datePicker
         .yearAndMonth(showMoment.year(), showMoment.month())
         .replace(' ', '\n');
@@ -47,8 +53,8 @@ export default {
       return this.NovaCalendar.panelMoment.add(this.offset, 'month');
     },
     getMomentClassName(dateMoment) {
-      let panelMoment = this.getShowMoment();
-      let isDisabled = this.isDisabled(dateMoment);
+      const panelMoment = this.getShowMoment();
+      const isDisabled = this.isDisabled(dateMoment);
 
       let isPrev = false;
       let isNext = false;
@@ -74,7 +80,7 @@ export default {
         return;
       }
 
-      let panelMoment = this.NovaCalendar.panelMoment.add(-1, 'month');
+      const panelMoment = this.NovaCalendar.panelMoment.add(-1, 'month');
       this.NovaCalendar.updateShowDate(panelMoment.toDate());
     },
     nextMonthClick() {
@@ -82,7 +88,7 @@ export default {
         return;
       }
 
-      let panelMoment = this.NovaCalendar.panelMoment.add(1, 'month');
+      const panelMoment = this.NovaCalendar.panelMoment.add(1, 'month');
       this.NovaCalendar.updateShowDate(panelMoment.toDate());
     },
     isDisabledMonthPrev() {
@@ -92,7 +98,7 @@ export default {
       );
     },
     getMonthPrevClass() {
-      let isDisabled = this.isDisabledMonthPrev();
+      const isDisabled = this.isDisabledMonthPrev();
 
       return {
         'is-disabled': isDisabled,
@@ -106,7 +112,7 @@ export default {
       );
     },
     getMonthNextClass() {
-      let isDisabled = this.isDisabledMonthNext();
+      const isDisabled = this.isDisabledMonthNext();
 
       return {
         'is-disabled': isDisabled,
@@ -115,27 +121,28 @@ export default {
     }
   },
   render() {
-    let {
-      weeks,
-      novaLocale,
-      momentList,
-      defaultFormat,
-      getMomentClassName,
+    const {
       $scopedSlots,
-      offset,
-      getShowMoment,
-      isDisabledMonthPrev,
-      getMonthPrevClass,
-      prevMonthClick,
-      isDisabledMonthNext,
+      defaultFormat,
+      getCalendarTitle,
+      getMomentClassName,
       getMonthNextClass,
+      getMonthPrevClass,
+      getShowMoment,
+      isDisabledMonthNext,
+      isDisabledMonthPrev,
+      momentList,
       nextMonthClick,
-      getCalendarTitle
+      novaLocale,
+      offset,
+      prefixedClass,
+      prevMonthClick,
+      weeks
     } = this;
 
     const weekList = weeks.map((week, index) => {
       const weekProps = {
-        class: [`nova-calendar-week`, `nova-calendar-${weeks[index]}`],
+        class: [`${prefixedClass}-week`, `${prefixedClass}-${weeks[index]}`],
         key: index
       };
 
@@ -146,7 +153,7 @@ export default {
 
     const dateList = momentList.map((dateMoment, index) => {
       const dateProps = {
-        class: [`nova-calendar-date`, getMomentClassName(dateMoment)],
+        class: [`${prefixedClass}-date`, getMomentClassName(dateMoment)],
         key: dateMoment.format(defaultFormat)
       };
       const slotProps = {
@@ -156,7 +163,7 @@ export default {
         panelDate: getShowMoment().toDate()
       };
       const defaultDateCell = (
-        <div class="nova-calendar-date-number">{dateMoment.date()}</div>
+        <div class={`${prefixedClass}-date-number`}>{dateMoment.date()}</div>
       );
       const dateCellRender = $scopedSlots.dateCellRender
         ? $scopedSlots.dateCellRender(slotProps)
@@ -166,7 +173,7 @@ export default {
 
     const prevMonthTitle = novaLocale.datePicker.prevMonth;
     const prevProps = {
-      class: [`nova-calendar-prev`, getMonthPrevClass()],
+      class: [`${prefixedClass}-prev`, getMonthPrevClass()],
       attrs: {
         title: !isDisabledMonthPrev() ? prevMonthTitle : ''
       },
@@ -177,15 +184,15 @@ export default {
     const prevNode = <div {...prevProps}>{prevMonthTitle}</div>;
 
     const titleNode = (
-      <div class="nova-calendar-title">
-        <span class="nova-calendar-title-support"></span>
-        <span class="nova-calendar-title-text">{getCalendarTitle()}</span>
+      <div class={`${prefixedClass}-title`}>
+        <span class={`${prefixedClass}-title-support`}></span>
+        <span class={`${prefixedClass}-title-text`}>{getCalendarTitle()}</span>
       </div>
     );
 
     const nextMonthTitle = novaLocale.datePicker.nextMonth;
     const nextProps = {
-      class: [`nova-calendar-next`, getMonthNextClass()],
+      class: [`${prefixedClass}-next`, getMonthNextClass()],
       attrs: {
         title: !isDisabledMonthNext() ? nextMonthTitle : ''
       },
@@ -196,14 +203,14 @@ export default {
     const nextNode = <div {...nextProps}>{nextMonthTitle}</div>;
 
     return (
-      <div class="nova-calendar-month">
-        <div class="nova-calendar-header">
-          <div class="nova-calendar-weeks">{weekList}</div>
+      <div class={`${prefixedClass}-month`}>
+        <div class={`${prefixedClass}-header`}>
+          <div class={`${prefixedClass}-weeks`}>{weekList}</div>
         </div>
-        <div class="nova-calendar-content">
-          <div class="nova-calendar-dates">{dateList}</div>
+        <div class={`${prefixedClass}-content`}>
+          <div class={`${prefixedClass}-dates`}>{dateList}</div>
         </div>
-        <div class="nova-calendar-sidebar">
+        <div class={`${prefixedClass}-sidebar`}>
           {prevNode}
           {titleNode}
           {nextNode}

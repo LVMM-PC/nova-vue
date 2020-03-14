@@ -17,8 +17,8 @@ export default {
     }
   },
   data() {
-    let novaLocale = this.getNovaLocale();
-    let novaHoliday = this.getNovaHoliday();
+    const novaLocale = this.getNovaLocale();
+    const novaHoliday = this.getNovaHoliday();
     return {
       novaLocale: novaLocale,
       novaHoliday: novaHoliday
@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     getNovaLocale() {
-      let novaLocale = Utils.mergeOptions({}, zhCN);
+      const novaLocale = Utils.mergeOptions({}, zhCN);
       if (this.NovaLocale) {
         Utils.mergeOptions(novaLocale, this.NovaLocale.locale);
       }
@@ -37,7 +37,7 @@ export default {
       return novaLocale;
     },
     getNovaHoliday() {
-      let novaHoliday = Utils.mergeOptions({}, holiday);
+      const novaHoliday = Utils.mergeOptions({}, holiday);
       if (this.NovaLocale) {
         return this.NovaLocale.holiday;
       }

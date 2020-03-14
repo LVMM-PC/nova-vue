@@ -1,8 +1,13 @@
 import Utils from '@/utils/utils';
+import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaDropdown',
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-dropdown`
+    },
     appendToBody: {
       type: Boolean
     },
@@ -45,16 +50,17 @@ export default {
   },
   render() {
     const {
-      appendToBody,
-      opened,
       $attrs,
       $listeners,
       $slots,
+      appendToBody,
       dropdownStyle,
-      popoverClass
+      opened,
+      popoverClass,
+      prefixedClass
     } = this;
 
-    const classList = ['nova-dropdown', popoverClass];
+    const classList = [prefixedClass, popoverClass];
 
     const children = $slots.default;
 
@@ -71,7 +77,7 @@ export default {
     };
 
     const dropdownContent = (
-      <transition name="nova-slide-up">
+      <transition name={`${Storage.prefix}-slide-up`}>
         <div v-show={opened} {...dropdownProps}>
           {children}
         </div>

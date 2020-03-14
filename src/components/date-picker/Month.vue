@@ -127,7 +127,7 @@ export default {
 
       let selectedMoment = this.NovaDatePicker.valueMoment;
       if (selectedMoment[0]) {
-        let diff = date.diff(selectedMoment[0], 'days');
+        let diff = date.diff(selectedMoment[0], 'day');
 
         this.NovaDatePicker.updateHoverDate(date.toDate());
         let night = this.novaLocale.datePicker.night;
@@ -152,11 +152,11 @@ export default {
       let firstMomentOfMonth = this.getShowMoment();
 
       let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'days');
+      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'day');
 
       let momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
-        return firstMomentOfPanel.add(index, 'days');
+        return firstMomentOfPanel.add(index, 'day');
       });
 
       this.openDefaultTooltip(true);
@@ -178,7 +178,7 @@ export default {
                 return;
               }
 
-              let diff = endDate.diff(startDate, 'days');
+              let diff = endDate.diff(startDate, 'day');
               let night = this.novaLocale.datePicker.night;
               let tooltip = diff + ' ' + night;
               if (this.NovaDatePicker.customTooltip) {

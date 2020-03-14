@@ -63,7 +63,7 @@ export default class Utils {
       return false;
     }
 
-    let targetClassName = ele.getAttribute('class');
+    const targetClassName = ele.getAttribute('class');
     if (!targetClassName) {
       return false;
     }

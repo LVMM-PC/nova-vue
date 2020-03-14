@@ -1,4 +1,4 @@
-let en = {
+const en = {
   select: {
     placeholder: 'Select'
   },

@@ -1,5 +1,6 @@
 import zhCN from '@/locales/lang/zh-CN';
 import holiday from '@/locales/holiday/china';
+import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaLocale',
@@ -9,6 +10,10 @@ export default {
     };
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-locale`
+    },
     block: {
       type: Boolean,
       default: true
@@ -27,9 +32,9 @@ export default {
     }
   },
   render() {
-    const { block, $attrs, $slots, $listeners } = this;
+    const { $attrs, $listeners, $slots, block, prefixedClass } = this;
 
-    const classList = { 'nova-locale': true, 'nova-locale-block': block };
+    const classList = [prefixedClass, { [`${prefixedClass}-block`]: block }];
 
     const children = $slots.default;
 

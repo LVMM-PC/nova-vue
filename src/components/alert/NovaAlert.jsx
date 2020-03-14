@@ -51,9 +51,9 @@ export default {
         closable,
         closing,
         placement,
+        prefixedClass,
         type,
-        visibleArrow,
-        prefixedClass
+        visibleArrow
       } = this;
 
       const alertType = type || 'normal';

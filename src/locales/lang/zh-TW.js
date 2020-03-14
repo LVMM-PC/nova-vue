@@ -1,4 +1,4 @@
-let zhTW = {
+const zhTW = {
   select: {
     placeholder: '請選擇'
   },

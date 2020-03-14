@@ -18,9 +18,9 @@ import dayjs from 'dayjs';
 
 export default {
   data() {
-    let now = dayjs().toDate();
-    let start = dayjs().toDate();
-    let end = dayjs()
+    const now = dayjs().toDate();
+    const start = dayjs().toDate();
+    const end = dayjs()
       .add(1, 'month')
       .toDate();
     return {

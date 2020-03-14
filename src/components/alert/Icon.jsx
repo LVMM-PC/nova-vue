@@ -1,15 +1,24 @@
+import Storage from '@/utils/storage';
+
 export default {
   name: 'Icon',
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-alert`
+    },
     type: {
       type: String,
       default: ''
     }
   },
   render() {
-    const { $attrs, $listeners, type } = this;
+    const { $attrs, $listeners, prefixedClass, type } = this;
 
-    const classList = ['nova-alert-icon', `nova-alert-icon-${type}`];
+    const classList = [
+      `${prefixedClass}-icon`,
+      `${prefixedClass}-icon-${type}`
+    ];
 
     const iconProps = {
       class: classList,

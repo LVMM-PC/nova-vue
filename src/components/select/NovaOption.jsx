@@ -79,11 +79,10 @@ export default {
       $attrs,
       $listeners,
       $slots,
-      label,
-      // value,
       classList,
-      NovaSelect,
-      handleClick
+      handleClick,
+      label,
+      NovaSelect
     } = this;
 
     const children = $slots.default || label || null?.toString();

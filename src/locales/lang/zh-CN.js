@@ -1,4 +1,4 @@
-let zhCN = {
+const zhCN = {
   select: {
     placeholder: '请选择'
   },
