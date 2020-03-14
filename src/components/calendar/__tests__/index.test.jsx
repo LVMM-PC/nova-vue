@@ -4,7 +4,7 @@ import { mount } from '@vue/test-utils';
 import zhTW from '@/locales/lang/zh-TW';
 import dayjs from 'dayjs';
 
-describe('NovaCalendar.vue', () => {
+describe('NovaCalendar.jsx', () => {
   mountTest(NovaCalendar);
 
   it('Calendar should support locale', function() {

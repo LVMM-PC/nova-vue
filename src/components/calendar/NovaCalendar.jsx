@@ -1,32 +1,8 @@
-<template>
-  <div class="nova-calendar" v-bind="$attrs" v-on="$listeners">
-    <div class="nova-calendar-months">
-      <Month
-        v-for="(month, monthIndex) in showMonthSize"
-        :key="monthIndex"
-        ref="monthRef"
-        :nova-locale="novaLocale"
-        :offset="monthIndex"
-      >
-        <template v-slot:dateCellRender="slotProps">
-          <slot
-            :date="slotProps.date"
-            :index="slotProps.index"
-            :offset="slotProps.offset"
-            :panelDate="slotProps.panelDate"
-            name="dateCellRender"
-          ></slot>
-        </template>
-      </Month>
-    </div>
-  </div>
-</template>
-
-<script>
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import Month from './Month.vue';
+import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaCalendar',
@@ -43,6 +19,10 @@ export default {
     };
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-calendar`
+    },
     value: {
       type: Date,
       default: null
@@ -75,7 +55,7 @@ export default {
     if (this.value) {
       defaultDate = dayjs(this.value);
     }
-    let first = Calendar.getFirstDateMomentOfMonth(defaultDate);
+    const first = Calendar.getFirstDateMomentOfMonth(defaultDate);
     this.$emit('update', first.toDate());
     return {
       weeks: Calendar.weeks,
@@ -102,7 +82,7 @@ export default {
       this.$emit('panelChange', this.panelMoment.toDate());
     },
     refreshDateList() {
-      let monthRef = this.$refs['monthRef'];
+      const monthRef = this.$refs['monthRef'];
       if (!monthRef) {
         return;
       }
@@ -110,6 +90,57 @@ export default {
         $month.refreshDateList();
       });
     }
+  },
+  render() {
+    const {
+      $attrs,
+      $listeners,
+      $scopedSlots,
+      novaLocale,
+      prefixedClass,
+      showMonthSize
+    } = this;
+
+    const calendarProps = {
+      class: prefixedClass,
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listeners
+      }
+    };
+
+    const monthScopedSlots = {
+      dateCellRender: slotProps => {
+        if (!$scopedSlots.dateCellRender) {
+          return null;
+        }
+
+        return $scopedSlots.dateCellRender(slotProps);
+      }
+    };
+
+    const monthList = Array(showMonthSize)
+      .fill(null)
+      .map((empty, index) => {
+        const monthProps = {
+          key: index,
+          props: {
+            novaLocale: novaLocale,
+            offset: index,
+            ref: 'monthRef'
+          },
+          scopedSlots: monthScopedSlots
+        };
+
+        return <Month {...monthProps}></Month>;
+      });
+
+    return (
+      <div {...calendarProps}>
+        <div class={`${prefixedClass}-months`}>{monthList}</div>
+      </div>
+    );
   }
 };
-</script>

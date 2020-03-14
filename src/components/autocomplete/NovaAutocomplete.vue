@@ -220,7 +220,7 @@ export default {
     }
   },
   destroyed() {
-    this.closeStartDropdown();
+    this.closeDropdown();
   },
   methods: {
     handleInput(e) {
