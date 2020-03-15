@@ -128,8 +128,9 @@ export default {
           props: {
             novaLocale: novaLocale,
             offset: index,
-            ref: 'monthRef'
           },
+          ref: 'monthRef',
+          refInFor: true,
           scopedSlots: monthScopedSlots
         };
 
