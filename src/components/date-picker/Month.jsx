@@ -1,10 +1,15 @@
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
+import Storage from '@/utils/storage';
 
 export default {
   name: 'Month',
   inject: ['NovaDatePicker'],
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-date-picker`
+    },
     offset: {
       type: Number,
       default: 0
@@ -19,7 +24,7 @@ export default {
     }
   },
   data() {
-    let NovaDatePicker = this.NovaDatePicker;
+    const NovaDatePicker = this.NovaDatePicker;
     return {
       momentList: [],
       showMonthSize: NovaDatePicker.showMonthSize,
@@ -62,12 +67,12 @@ export default {
         return;
       }
 
-      let selectedMoment = this.NovaDatePicker.valueMoment;
+      const selectedMoment = this.NovaDatePicker.valueMoment;
       if (selectedMoment[0]) {
-        let diff = date.diff(selectedMoment[0], 'day');
+        const diff = date.diff(selectedMoment[0], 'day');
 
         this.NovaDatePicker.updateHoverDate(date.toDate());
-        let night = this.novaLocale.datePicker.night;
+        const night = this.novaLocale.datePicker.night;
         let tooltipText = diff + ' ' + night;
 
         if (this.NovaDatePicker.customTooltip) {
@@ -86,12 +91,12 @@ export default {
       this.NovaDatePicker.openDefaultTooltip();
     },
     refreshDateList() {
-      let firstMomentOfMonth = this.getShowMoment();
+      const firstMomentOfMonth = this.getShowMoment();
 
-      let dayOfWeek = firstMomentOfMonth.day();
-      let firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'day');
+      const dayOfWeek = firstMomentOfMonth.day();
+      const firstMomentOfPanel = firstMomentOfMonth.subtract(dayOfWeek, 'day');
 
-      let momentList = new Array(7 * 6).fill(null);
+      const momentList = new Array(7 * 6).fill(null);
       this.momentList = momentList.map((d, index) => {
         return firstMomentOfPanel.add(index, 'day');
       });
@@ -101,22 +106,22 @@ export default {
     openDefaultTooltip(first) {
       this.momentList.forEach((dateMoment, index) => {
         if (this.isRange) {
-          let selectedMoment = this.NovaDatePicker.valueMoment;
+          const selectedMoment = this.NovaDatePicker.valueMoment;
 
           if (this.rangeIndex === 1) {
-            let startDate = selectedMoment[0];
-            let endDate = selectedMoment[1];
+            const startDate = selectedMoment[0];
+            const endDate = selectedMoment[1];
 
-            let isEndDate = dateMoment.isSame(endDate, 'day');
+            const isEndDate = dateMoment.isSame(endDate, 'day');
             if (startDate && endDate && isEndDate) {
-              let isSameMonth = this.getShowMoment().isSame(endDate, 'month');
+              const isSameMonth = this.getShowMoment().isSame(endDate, 'month');
 
               if (!isSameMonth) {
                 return;
               }
 
-              let diff = endDate.diff(startDate, 'day');
-              let night = this.novaLocale.datePicker.night;
+              const diff = endDate.diff(startDate, 'day');
+              const night = this.novaLocale.datePicker.night;
               let tooltip = diff + ' ' + night;
               if (this.NovaDatePicker.customTooltip) {
                 tooltip = this.NovaDatePicker.customTooltip.call(
@@ -131,9 +136,11 @@ export default {
       });
     },
     showDefaultTooltip(first, index, text) {
+      let { prefixedClass } = this;
+
       function run() {
-        let $ref = this.$refs['datesRef'];
-        let $endDate = $ref.querySelectorAll('.nova-date-picker-date')[index];
+        const $ref = this.$refs['datesRef'];
+        const $endDate = $ref.querySelectorAll(`.${prefixedClass}-date`)[index];
 
         this.NovaDatePicker.defaultEndTooltip = $endDate;
         if ($endDate) {
@@ -155,10 +162,10 @@ export default {
       return this.NovaDatePicker.panelMoment.add(this.offset, 'month');
     },
     getMomentClassName(dateMoment) {
-      let panelMoment = this.getShowMoment();
-      let selectedMoment = this.NovaDatePicker.valueMoment;
+      const panelMoment = this.getShowMoment();
+      const selectedMoment = this.NovaDatePicker.valueMoment;
 
-      let isDisabled = this.isDisabled(dateMoment);
+      const isDisabled = this.isDisabled(dateMoment);
       let isSelected = false;
       let isInRange = false;
       let isRangeHoverStart = false;
@@ -172,12 +179,12 @@ export default {
       let isRangeEndSingle = false;
 
       if (this.NovaDatePicker.isRange) {
-        let startMoment = selectedMoment[0];
-        let endMoment = selectedMoment[1];
+        const startMoment = selectedMoment[0];
+        const endMoment = selectedMoment[1];
 
         isRangeStart = this.isSameDateMoment(startMoment, dateMoment);
         isRangeEnd = this.isSameDateMoment(endMoment, dateMoment);
-        let isEndPanel = this.rangeIndex === 1;
+        const isEndPanel = this.rangeIndex === 1;
 
         if (startMoment && !endMoment) {
           isRangeStartSingle = true;
@@ -198,9 +205,9 @@ export default {
           }
         }
         if (isEndPanel && !isDisabled) {
-          let hoverDate = this.NovaDatePicker.hoverDate;
+          const hoverDate = this.NovaDatePicker.hoverDate;
           if (hoverDate) {
-            let hoverMoment = dayjs(hoverDate);
+            const hoverMoment = dayjs(hoverDate);
             isRangeHoverEnd = hoverMoment.isSame(dateMoment);
             if (
               startMoment &&
@@ -225,8 +232,8 @@ export default {
         isNext = panelMoment.isBefore(dateMoment, 'month');
       }
 
-      let isSpecial = !!this.NovaDatePicker.getSpecialText(dateMoment);
-      let isToday = this.NovaDatePicker.isToday(dateMoment);
+      const isSpecial = !!this.NovaDatePicker.getSpecialText(dateMoment);
+      const isToday = this.NovaDatePicker.isToday(dateMoment);
 
       return {
         'is-prev': isPrev,
@@ -253,13 +260,13 @@ export default {
         this.rangeIndex === 1 &&
         this.NovaDatePicker.valueMoment
       ) {
-        let startMoment = this.NovaDatePicker.valueMoment[0];
+        const startMoment = this.NovaDatePicker.valueMoment[0];
         if (startMoment) {
           rangeDisabled = startMoment.isAfter(dateMoment);
         }
       }
 
-      let userDisabled = this.NovaDatePicker.disabledDate.call(
+      const userDisabled = this.NovaDatePicker.disabledDate.call(
         undefined,
         dateMoment.toDate(),
         this.rangeName
@@ -276,11 +283,11 @@ export default {
       return a.isSame(b, 'day');
     },
     prevMonthClick() {
-      let panelMoment = this.NovaDatePicker.panelMoment.add(-1, 'month');
+      const panelMoment = this.NovaDatePicker.panelMoment.add(-1, 'month');
       this.NovaDatePicker.updateShowDate(panelMoment.toDate());
     },
     nextMonthClick() {
-      let panelMoment = this.NovaDatePicker.panelMoment.add(1, 'month');
+      const panelMoment = this.NovaDatePicker.panelMoment.add(1, 'month');
       this.NovaDatePicker.updateShowDate(panelMoment.toDate());
     },
     isDisabledMonthPrev() {
@@ -290,7 +297,7 @@ export default {
       );
     },
     getMonthPrevClass() {
-      let isDisabled = this.isDisabledMonthPrev();
+      const isDisabled = this.isDisabledMonthPrev();
 
       return {
         'is-disabled': isDisabled,
@@ -304,7 +311,7 @@ export default {
       );
     },
     getMonthNextClass() {
-      let isDisabled = this.isDisabledMonthNext();
+      const isDisabled = this.isDisabledMonthNext();
 
       return {
         'is-disabled': isDisabled,
@@ -312,7 +319,7 @@ export default {
       };
     },
     getDateDisplay(dateMoment) {
-      let specialText = this.NovaDatePicker.getSpecialText(dateMoment);
+      const specialText = this.NovaDatePicker.getSpecialText(dateMoment);
       if (specialText) {
         return specialText;
       }
@@ -322,28 +329,29 @@ export default {
   },
   render() {
     const {
-      offset,
-      rangeIndex,
-      novaLocale,
-      getMonthPrevClass,
-      isDisabledMonthPrev,
-      prevMonthClick,
-      getMonthNextClass,
-      isDisabledMonthNext,
-      nextMonthClick,
-      getShowMoment,
-      weeks,
-      momentList,
-      getDateDisplay,
       defaultFormat,
+      getDateDisplay,
       getMomentClassName,
-      handleMomentSelect,
+      getMonthNextClass,
+      getMonthPrevClass,
+      getShowMoment,
       handleDateMouseEnter,
-      handleDateMouseLeave
+      handleDateMouseLeave,
+      handleMomentSelect,
+      isDisabledMonthNext,
+      isDisabledMonthPrev,
+      momentList,
+      nextMonthClick,
+      novaLocale,
+      offset,
+      prefixedClass,
+      prevMonthClick,
+      rangeIndex,
+      weeks
     } = this;
 
     const monthProps = {
-      class: `nova-date-picker-month`,
+      class: `${prefixedClass}-month`,
       attrs: {
         'data-month-offset': offset,
         'data-range-index': rangeIndex
@@ -351,8 +359,8 @@ export default {
     };
 
     const prevMonthText = novaLocale.datePicker.prevMonth;
-    let prevProps = {
-      class: [`nova-date-picker-prev`, getMonthPrevClass()],
+    const prevProps = {
+      class: [`${prefixedClass}-prev`, getMonthPrevClass()],
       attrs: {
         title: !isDisabledMonthPrev() ? prevMonthText : ''
       },
@@ -360,10 +368,10 @@ export default {
         click: prevMonthClick
       }
     };
-    let prevNode = <div {...prevProps}>{prevMonthText}</div>;
+    const prevNode = <div {...prevProps}>{prevMonthText}</div>;
     const showMoment = getShowMoment();
-    let titleNode = (
-      <div class={`nova-date-picker-title`}>
+    const titleNode = (
+      <div class={`${prefixedClass}-title`}>
         {novaLocale.datePicker.yearAndMonth(
           showMoment.year(),
           showMoment.month()
@@ -372,8 +380,8 @@ export default {
     );
 
     const nextMonthText = novaLocale.datePicker.nextMonth;
-    let nextProps = {
-      class: [`nova-date-picker-next`, getMonthNextClass()],
+    const nextProps = {
+      class: [`${prefixedClass}-next`, getMonthNextClass()],
       attrs: {
         title: !isDisabledMonthNext() ? nextMonthText : ''
       },
@@ -381,28 +389,28 @@ export default {
         click: nextMonthClick
       }
     };
-    let nextNode = <div {...nextProps}>{nextMonthText}</div>;
-    let headerNode = (
-      <div class={`nova-date-picker-header`}>
+    const nextNode = <div {...nextProps}>{nextMonthText}</div>;
+    const headerNode = (
+      <div class={`${prefixedClass}-header`}>
         {prevNode}
         {titleNode}
         {nextNode}
       </div>
     );
 
-    let weekList = weeks.map((week, index) => {
-      let weekProps = {
+    const weekList = weeks.map((week, index) => {
+      const weekProps = {
         key: index,
-        class: [`nova-date-picker-week`, `nova-date-picker-${weeks[index]}`]
+        class: [`${prefixedClass}-week`, `${prefixedClass}-${weeks[index]}`]
       };
       return <div {...weekProps}>{novaLocale.datePicker.weeksShort[week]}</div>;
     });
-    let weeksNode = <div class={`nova-date-picker-weeks`}>{weekList}</div>;
+    const weeksNode = <div class={`${prefixedClass}-weeks`}>{weekList}</div>;
 
-    let dateList = momentList.map(dateMoment => {
-      let dateProps = {
+    const dateList = momentList.map(dateMoment => {
+      const dateProps = {
         key: dateMoment.format(defaultFormat),
-        class: [`nova-date-picker-date`, getMomentClassName(dateMoment)],
+        class: [`${prefixedClass}-date`, getMomentClassName(dateMoment)],
         on: {
           click() {
             handleMomentSelect(dateMoment);
@@ -415,20 +423,20 @@ export default {
       };
       return (
         <div {...dateProps}>
-          <div class={`nova-date-picker-date-inner`}>
+          <div class={`${prefixedClass}-date-inner`}>
             {getDateDisplay(dateMoment)}
           </div>
         </div>
       );
     });
-    let datesNode = (
-      <div class={`nova-date-picker-dates`} ref="datesRef">
+    const datesNode = (
+      <div class={`${prefixedClass}-dates`} ref="datesRef">
         {dateList}
       </div>
     );
 
-    let bodyNode = (
-      <div class={`nova-date-picker-body`}>
+    const bodyNode = (
+      <div class={`${prefixedClass}-body`}>
         {weeksNode}
         {datesNode}
       </div>

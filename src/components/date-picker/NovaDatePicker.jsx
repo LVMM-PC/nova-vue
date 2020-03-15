@@ -4,6 +4,7 @@ import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import Month from './Month.jsx';
+import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaDatePicker',
@@ -21,6 +22,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-date-picker`
+    },
     value: {
       type: [Date, Array],
       default: null
@@ -85,7 +90,7 @@ export default {
     }
   },
   data() {
-    let first = Calendar.getFirstDateMomentOfMonth(dayjs());
+    const first = Calendar.getFirstDateMomentOfMonth(dayjs());
     return {
       blurTimer: null,
       startBlurTimer: null,
@@ -109,30 +114,32 @@ export default {
   },
   computed: {
     datePickerClass() {
+      let { prefixedClass } = this;
+
       return {
         'is-open': this.opened,
-        'nova-date-picker-range': this.isRange
+        [`${prefixedClass}-range`]: this.isRange
       };
     },
     isDisabled() {
-      let disabled = this.disabled;
-      let isArray = Array.isArray(disabled);
+      const disabled = this.disabled;
+      const isArray = Array.isArray(disabled);
       if (!isArray) {
         return disabled;
       }
       return false;
     },
     startDisabled() {
-      let disabled = this.disabled;
-      let isArray = Array.isArray(disabled);
+      const disabled = this.disabled;
+      const isArray = Array.isArray(disabled);
       if (!isArray) {
         return disabled;
       }
       return disabled[0];
     },
     endDisabled() {
-      let disabled = this.disabled;
-      let isArray = Array.isArray(disabled);
+      const disabled = this.disabled;
+      const isArray = Array.isArray(disabled);
       if (!isArray) {
         return disabled;
       }
@@ -165,7 +172,7 @@ export default {
       }
     },
     displayedDate() {
-      let date = this.value;
+      const date = this.value;
 
       return this.dateFormat(date);
     },
@@ -174,17 +181,17 @@ export default {
       if (!value) {
         return;
       }
-      let startDate = value[0];
-      let endDate = value[1];
-      let startText = this.dateFormat(startDate);
-      let endText = this.dateFormat(endDate);
+      const startDate = value[0];
+      const endDate = value[1];
+      const startText = this.dateFormat(startDate);
+      const endText = this.dateFormat(endDate);
       return {
         start: startText,
         end: endText
       };
     },
     valueMoment() {
-      let date = this.value;
+      const date = this.value;
       if (this.isRange) {
         return [this.dateToMoment(date[0]), this.dateToMoment(date[1])];
       } else {
@@ -192,18 +199,18 @@ export default {
       }
     },
     datePlaceholder() {
-      let novaLocale = this.novaLocale;
+      const novaLocale = this.novaLocale;
 
-      let placeholder = this.placeholder;
+      const placeholder = this.placeholder;
       if (placeholder === undefined) {
         return novaLocale.datePicker.placeholder;
       }
       return placeholder;
     },
     startPlaceholder() {
-      let novaLocale = this.novaLocale;
+      const novaLocale = this.novaLocale;
 
-      let placeholder = this.placeholder;
+      const placeholder = this.placeholder;
       if (
         placeholder === undefined ||
         (placeholder && placeholder[0] === undefined)
@@ -211,16 +218,16 @@ export default {
         return novaLocale.datePicker.rangePlaceholder[0];
       }
 
-      let isArray = Array.isArray(placeholder);
+      const isArray = Array.isArray(placeholder);
       if (isArray) {
         return placeholder[0];
       }
       return placeholder;
     },
     endPlaceholder() {
-      let novaLocale = this.novaLocale;
+      const novaLocale = this.novaLocale;
 
-      let placeholder = this.placeholder;
+      const placeholder = this.placeholder;
       if (
         placeholder === undefined ||
         (placeholder && placeholder[1] === undefined)
@@ -228,7 +235,7 @@ export default {
         return novaLocale.datePicker.rangePlaceholder[1];
       }
 
-      let isArray = Array.isArray(placeholder);
+      const isArray = Array.isArray(placeholder);
       if (isArray) {
         return placeholder[1];
       }
@@ -246,15 +253,15 @@ export default {
       this.refreshDateList();
     },
     isToday(dateMoment) {
-      let now = dayjs();
+      const now = dayjs();
       return dateMoment.isSame(now, 'date');
     },
     getSpecialText(dateMoment) {
-      let ymd = dateMoment.format(Calendar.defaultFormat);
+      const ymd = dateMoment.format(Calendar.defaultFormat);
 
-      let holiday = this.novaHoliday;
+      const holiday = this.novaHoliday;
       if (holiday) {
-        let holidayDetail = holiday[ymd];
+        const holidayDetail = holiday[ymd];
         if (holidayDetail && holidayDetail.isMain) {
           return holidayDetail.shortTitle;
         }
@@ -263,16 +270,16 @@ export default {
       return null;
     },
     getWeekTitle(date) {
-      let novaLocale = this.novaLocale;
+      const novaLocale = this.novaLocale;
       if (!date) {
         return;
       }
-      let day = dayjs(date).day();
+      const day = dayjs(date).day();
       return novaLocale.datePicker.weeksLong[this.weeks[day]];
     },
     getSuffixText(date) {
-      let dateMoment = dayjs(date);
-      let specialText = this.getSpecialText(dateMoment);
+      const dateMoment = dayjs(date);
+      const specialText = this.getSpecialText(dateMoment);
       if (specialText) {
         return specialText;
       }
@@ -299,7 +306,7 @@ export default {
       }
 
       this.opened = true;
-      let inner = this.$refs['inner'];
+      const inner = this.$refs['inner'];
       this.updateShowDate(this.value);
       this.openDropdown(inner);
     },
@@ -335,7 +342,7 @@ export default {
 
       this.rangeIndex = 0;
       this.opened = true;
-      let start = this.$refs['start'];
+      const start = this.$refs['start'];
       this.updateShowDate(this.value[0]);
       this.openDropdown(start);
     },
@@ -364,7 +371,7 @@ export default {
       }
       this.rangeIndex = 1;
       this.opened = true;
-      let end = this.$refs['end'];
+      const end = this.$refs['end'];
       this.updateShowDate(this.value[1]);
       this.openDropdown(end);
     },
@@ -405,7 +412,7 @@ export default {
       document.addEventListener('click', this.handleOtherClick);
       this.$emit('open', this.rangeName);
       if (this.appendToBody) {
-        let dropdown = this.$refs['dropdown'];
+        const dropdown = this.$refs['dropdown'];
         dropdown.setPosition(inner);
       }
     },
@@ -422,11 +429,11 @@ export default {
       this.$emit('close', this.rangeName);
     },
     handleOtherClick(e) {
-      let $datePicker = this.$refs['date-picker'];
+      const $datePicker = this.$refs['date-picker'];
 
-      let target = e.target;
-      let stopToggle = Utils.isParentsOrSelf(target, $datePicker);
-      let stopDropdown = Utils.isParentsOrSelf(target, this.getDropdownDom());
+      const target = e.target;
+      const stopToggle = Utils.isParentsOrSelf(target, $datePicker);
+      const stopDropdown = Utils.isParentsOrSelf(target, this.getDropdownDom());
 
       if (!(stopToggle || stopDropdown)) {
         this.opened = false;
@@ -453,7 +460,7 @@ export default {
     refreshDateList() {
       this.defaultEndTooltip = null;
       this.closeTooltip();
-      let monthRef = this.$refs['monthRef'];
+      const monthRef = this.$refs['monthRef'];
       if (!monthRef) {
         return;
       }
@@ -469,15 +476,15 @@ export default {
       }, 50);
     },
     handleRangeSelect(dateMoment) {
-      let rangeIndex = this.rangeIndex;
+      const rangeIndex = this.rangeIndex;
 
-      let oldStartDate = this.value[0];
-      let oldEndDate = this.value[1];
+      const oldStartDate = this.value[0];
+      const oldEndDate = this.value[1];
 
-      let dateRange = [oldStartDate, oldEndDate];
+      const dateRange = [oldStartDate, oldEndDate];
       dateRange[rangeIndex] = dateMoment.toDate();
 
-      let newStartDate = dateRange[0];
+      const newStartDate = dateRange[0];
 
       if (rangeIndex === 0 && oldEndDate) {
         if (dayjs(oldEndDate).isBefore(dayjs(newStartDate))) {
@@ -486,8 +493,8 @@ export default {
       }
 
       this.$emit('update', dateRange);
-      let rangeStart = newStartDate ? new Date(newStartDate) : null;
-      let rangeEnd = dateRange[1] ? new Date(dateRange[1]) : null;
+      const rangeStart = newStartDate ? new Date(newStartDate) : null;
+      const rangeEnd = dateRange[1] ? new Date(dateRange[1]) : null;
 
       this.$emit('change', [rangeStart, rangeEnd], this.rangeName);
 
@@ -520,7 +527,7 @@ export default {
     },
     openTooltip(dom, text) {
       if (this.appendToBody) {
-        let offset = Utils.getElementOffset(dom, this.getDropdownDom());
+        const offset = Utils.getElementOffset(dom, this.getDropdownDom());
         this.tooltip.offset.left = `${offset.left}px`;
         this.tooltip.offset.top = `${offset.top + dom.clientHeight}px`;
       }
@@ -532,7 +539,7 @@ export default {
       this.tooltip.visible = false;
     },
     openDefaultTooltip() {
-      let monthRef = this.$refs['monthRef'];
+      const monthRef = this.$refs['monthRef'];
       if (!monthRef) {
         return;
       }
@@ -600,45 +607,46 @@ export default {
     }
   },
   render() {
-    let {
+    const {
       $attrs,
       $listeners,
+      appendToBody,
       datePickerClass,
-      isDisabled,
-      showIcon,
-      disabled,
       datePlaceholder,
+      disabled,
       displayedDate,
+      displayedRange,
+      dropdownLoaded,
+      endDisabled,
+      endPlaceholder,
+      handleDropdownMousedown,
+      handleEndBlur,
+      handleEndFocus,
       handleInputBlur,
       handleInputClick,
       handleInputFocus,
-      isRange,
-      startDisabled,
-      endDisabled,
-      startPlaceholder,
-      displayedRange,
       handleStartBlur,
       handleStartFocus,
-      endPlaceholder,
-      handleEndBlur,
-      handleEndFocus,
-      dropdownLoaded,
-      appendToBody,
-      opened,
-      popoverClass,
-      handleDropdownMousedown,
-      showMonthSize,
+      isDisabled,
+      isRange,
       novaHoliday,
       novaLocale,
-      tooltip,
+      opened,
+      popoverClass,
+      prefixedClass,
+      showIcon,
+      showMonthSize,
       showTooltip,
+      startDisabled,
+      startPlaceholder,
+      tooltip,
       tooltipStyle
     } = this;
 
-    let dateProps = {
+    const dateProps = {
       ref: 'inner',
       class: [
-        `nova-date-picker-inner`,
+        `${prefixedClass}-inner`,
         {
           'is-disabled': isDisabled
         }
@@ -646,11 +654,10 @@ export default {
     };
 
     const dateIcon = showIcon ? (
-      <span class={`nova-date-picker-icon`}></span>
+      <span class={`${prefixedClass}-icon`}></span>
     ) : null;
 
     let dateNode;
-
     if (!isRange) {
       const dateInputProps = {
         ref: 'input',
@@ -664,7 +671,7 @@ export default {
         domProps: {
           value: displayedDate
         },
-        class: `nova-date-picker-input`,
+        class: `${prefixedClass}-input`,
         on: {
           blur: handleInputBlur,
           click: handleInputClick,
@@ -684,8 +691,8 @@ export default {
       const startProps = {
         ref: 'start',
         class: [
-          `nova-date-picker-inner`,
-          `nova-date-picker-range-start`,
+          `${prefixedClass}-inner`,
+          `${prefixedClass}-range-start`,
           {
             'is-disabled': startDisabled
           }
@@ -701,7 +708,7 @@ export default {
           readonly: true,
           type: 'text'
         },
-        class: `nova-date-picker-input`,
+        class: `${prefixedClass}-input`,
         on: {
           blur: handleStartBlur,
           focus: handleStartFocus
@@ -717,8 +724,8 @@ export default {
       const endProps = {
         ref: 'end',
         class: [
-          `nova-date-picker-inner`,
-          `nova-date-picker-range-end`,
+          `${prefixedClass}-inner`,
+          `${prefixedClass}-range-end`,
           {
             'is-disabled': endDisabled
           }
@@ -734,7 +741,7 @@ export default {
           readonly: true,
           type: 'text'
         },
-        class: `nova-date-picker-input`,
+        class: `${prefixedClass}-input`,
         on: {
           blur: handleEndBlur,
           focus: handleEndFocus
@@ -750,29 +757,28 @@ export default {
     }
 
     let dropdownNode;
-
     if (dropdownLoaded) {
-      let dropdownProps = {
+      const dropdownProps = {
         ref: 'dropdown',
         props: {
           appendToBody: appendToBody,
           opened: opened,
-          popoverClass: [`nova-date-picker-dropdown`, popoverClass]
+          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
         }
       };
 
-      let monthsProps = {
+      const monthsProps = {
         ref: 'months',
-        class: `nova-date-picker-months`,
+        class: `${prefixedClass}-months`,
         on: {
           mousedown: handleDropdownMousedown
         }
       };
 
-      let monthList = Array(showMonthSize)
+      const monthList = Array(showMonthSize)
         .fill(null)
         .map((empty, index) => {
-          let monthProps = {
+          const monthProps = {
             key: index,
             ref: 'monthRef',
             refInFor: true,
@@ -784,13 +790,13 @@ export default {
           };
           return <Month {...monthProps}></Month>;
         });
-      let monthsNode = <div {...monthsProps}>{monthList}</div>;
+      const monthsNode = <div {...monthsProps}>{monthList}</div>;
 
-      let tooltipProps = {
-        class: `nova-date-picker-tooltip`,
+      const tooltipProps = {
+        class: `${prefixedClass}-tooltip`,
         style: tooltipStyle()
       };
-      let tooltipNode = (
+      const tooltipNode = (
         <div {...tooltipProps} vShow={tooltip.visible && showTooltip}>
           {tooltip.text}
         </div>
@@ -803,8 +809,8 @@ export default {
       );
     }
 
-    let datePickerProps = {
-      class: [`nova-date-picker`, datePickerClass],
+    const datePickerProps = {
+      class: [prefixedClass, datePickerClass],
       attrs: {
         ...$attrs
       },
@@ -815,7 +821,7 @@ export default {
     };
     return (
       <div {...datePickerProps}>
-        <div class={`nova-date-picker-toggle`}>
+        <div class={`${prefixedClass}-toggle`}>
           {dateNode}
           {rangeNode}
         </div>
