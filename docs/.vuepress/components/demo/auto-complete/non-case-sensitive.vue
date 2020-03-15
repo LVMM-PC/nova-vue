@@ -1,19 +1,18 @@
 <template>
   <NovaAutoComplete
     v-model="value"
-    placeholder="Input here"
-    @select="onSelect"
+    placeholder="Try to type `b`"
     focus-search
     :fetch-suggestions="querySearch"
   ></NovaAutoComplete>
 </template>
 
 <script>
-function mockValue(text, times = 1) {
-  return {
-    value: text.repeat(times)
-  };
-}
+const options = [
+  { value: 'Burns Bay Road' },
+  { value: 'Downing Street' },
+  { value: 'Wall Street' }
+];
 
 export default {
   data() {
@@ -28,17 +27,14 @@ export default {
       if (!searchText) {
         result = [];
       } else {
-        result = [
-          mockValue(searchText),
-          mockValue(searchText, 2),
-          mockValue(searchText, 3)
-        ];
+        result = options.filter(option => {
+          return (
+            option.value.toLowerCase().indexOf(searchText.toLowerCase()) !== -1
+          );
+        });
       }
 
       setResult(result);
-    },
-    onSelect(data) {
-      console.log(data);
     }
   }
 };

@@ -47,7 +47,8 @@ const zhCN = {
     ]
   },
   autoComplete: {
-    noData: '未找到匹配数据'
+    noData: '未找到匹配数据',
+    noInput: '请输入内容'
   }
 };
 

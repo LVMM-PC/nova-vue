@@ -20,6 +20,7 @@
           @focus="handleFocus"
           @input="handleInput"
           @keydown="handleKeydown"
+          @select="handleSelect"
         />
         <span
           v-if="showPrefix"
@@ -43,7 +44,13 @@
       :popover-class="['nova-auto-complete-dropdown', popoverClass]"
     >
       <div class="nova-auto-complete-start">
-        <slot name="start"></slot>
+        <slot name="start">
+          <div class="nova-auto-complete-empty">
+            <NovaAlert type="info">
+              <span>{{ novaLocale.autoComplete.noInput }}</span>
+            </NovaAlert>
+          </div>
+        </slot>
       </div>
     </NovaDropdown>
     <NovaDropdown
@@ -259,6 +266,9 @@ export default {
         }, 100);
       }
     },
+    handleSelect(e) {
+      e.stopPropagation();
+    },
     handleKeydown(e) {
       switch (e.key) {
         case 'Down': // IE/Edge
@@ -456,7 +466,15 @@ export default {
           this.queryString,
           (result, groups) => {
             result = result.map((item, index) => {
-              return Object.assign({ index: index }, item);
+              let itemObject;
+              if (typeof item !== 'object') {
+                itemObject = {
+                  value: item
+                };
+              } else {
+                itemObject = item;
+              }
+              return Object.assign({ index: index }, itemObject);
             });
 
             if (!groups) {

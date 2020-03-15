@@ -8,7 +8,7 @@
       v-model="dates"
       :disabled-date="disabledDateRange"
       type="range"
-      @change="handleRangeChange"
+      @change="onRangeChange"
     ></NovaDatePicker>
   </section>
 </template>
@@ -46,7 +46,7 @@ export default {
           return false;
       }
     },
-    handleRangeChange(dates, rangeName) {
+    onRangeChange(dates, rangeName) {
       const startDate = dates[0];
       const endDate = dates[1];
       if (rangeName === 'start' && startDate && endDate) {
