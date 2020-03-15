@@ -17,7 +17,7 @@ export NovaAutocomplete from './components/autocomplete/NovaAutocomplete.vue';
 export NovaCalendar from './components/calendar/NovaCalendar.jsx';
 export NovaCheckbox from './components/checkbox/NovaCheckbox.jsx';
 export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.jsx';
-export NovaDatePicker from './components/date-picker/NovaDatePicker.vue';
+export NovaDatePicker from './components/date-picker/NovaDatePicker.jsx';
 export NovaDropdown from './components/dropdown/NovaDropdown.jsx';
 export NovaLocale from './components/locale/NovaLocale.jsx';
 export NovaOptGroup from './components/select/NovaOptGroup.jsx';

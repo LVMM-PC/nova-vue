@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NovaDatePicker.vue disabled date 1`] = `
+exports[`NovaDatePicker disabled date 1`] = `
 <div class="nova-date-picker is-open">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner"><input placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner"><input placeholder="请选择日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
   </div>
-  <!---->
   <div data-mock="client-only">
     <div data-mock="mounting-portal" mountto="body" append="true">
       <div class="nova-dropdown nova-date-picker-dropdown nova-slide-up-enter nova-slide-up-enter-active" style="left: 0px; top: 0px;">
@@ -157,21 +156,18 @@ exports[`NovaDatePicker.vue disabled date 1`] = `
             </div>
           </div>
         </div>
-        <div class="nova-date-picker-tooltip" style="left: 0px; top: 0px; display: none;">
-
-        </div>
+        <div class="nova-date-picker-tooltip" style="left: 0px; top: 0px; display: none;"></div>
       </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`NovaDatePicker.vue prop locale should works 1`] = `
+exports[`NovaDatePicker prop locale should works 1`] = `
 <div class="nova-date-picker is-open">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner"><input placeholder="請選擇日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"> <span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner"><input placeholder="請選擇日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
   </div>
-  <!---->
   <div data-mock="client-only">
     <div data-mock="mounting-portal" mountto="body" append="true">
       <div class="nova-dropdown nova-date-picker-dropdown nova-slide-up-enter nova-slide-up-enter-active" style="left: 0px; top: 0px;">
@@ -323,9 +319,7 @@ exports[`NovaDatePicker.vue prop locale should works 1`] = `
             </div>
           </div>
         </div>
-        <div class="nova-date-picker-tooltip" style="left: 0px; top: 0px; display: none;">
-
-        </div>
+        <div class="nova-date-picker-tooltip" style="left: 0px; top: 0px; display: none;"></div>
       </div>
     </div>
   </div>

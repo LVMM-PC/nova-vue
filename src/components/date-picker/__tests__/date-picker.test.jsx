@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import flushPromises from 'flush-promises';
 import zhTW from '@/locales/lang/zh-TW';
 
-describe('NovaDatePicker.vue', () => {
+describe('NovaDatePicker', () => {
   it('prop locale should works', async () => {
     const wrapper = mount({
       data() {
