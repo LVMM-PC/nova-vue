@@ -13,15 +13,9 @@ exports[`NovaDatePicker.vue type:range disabled date 1`] = `
         <div class="nova-date-picker-months">
           <div data-month-offset="0" data-range-index="0" class="nova-date-picker-month">
             <div class="nova-date-picker-header">
-              <div title="上个月" class="nova-date-picker-prev">
-                上个月
-              </div>
-              <div class="nova-date-picker-title">
-                2000年 1月
-              </div>
-              <div title="下个月" class="nova-date-picker-next is-hidden">
-                下个月
-              </div>
+              <div title="上个月" class="nova-date-picker-prev">上个月</div>
+              <div class="nova-date-picker-title">2000年 1月</div>
+              <div title="下个月" class="nova-date-picker-next is-hidden">下个月</div>
             </div>
             <div class="nova-date-picker-body">
               <div class="nova-date-picker-weeks">
@@ -35,229 +29,139 @@ exports[`NovaDatePicker.vue type:range disabled date 1`] = `
               </div>
               <div class="nova-date-picker-dates">
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-range-start is-selected">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    12
-                  </div>
+                  <div class="nova-date-picker-date-inner">12</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    13
-                  </div>
+                  <div class="nova-date-picker-date-inner">13</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    14
-                  </div>
+                  <div class="nova-date-picker-date-inner">14</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    15
-                  </div>
+                  <div class="nova-date-picker-date-inner">15</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    16
-                  </div>
+                  <div class="nova-date-picker-date-inner">16</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    17
-                  </div>
+                  <div class="nova-date-picker-date-inner">17</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    18
-                  </div>
+                  <div class="nova-date-picker-date-inner">18</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    19
-                  </div>
+                  <div class="nova-date-picker-date-inner">19</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    20
-                  </div>
+                  <div class="nova-date-picker-date-inner">20</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    21
-                  </div>
+                  <div class="nova-date-picker-date-inner">21</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    22
-                  </div>
+                  <div class="nova-date-picker-date-inner">22</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    23
-                  </div>
+                  <div class="nova-date-picker-date-inner">23</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    24
-                  </div>
+                  <div class="nova-date-picker-date-inner">24</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    25
-                  </div>
+                  <div class="nova-date-picker-date-inner">25</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
               </div>
             </div>
           </div>
           <div data-month-offset="1" data-range-index="0" class="nova-date-picker-month">
             <div class="nova-date-picker-header">
-              <div title="上个月" class="nova-date-picker-prev is-hidden">
-                上个月
-              </div>
-              <div class="nova-date-picker-title">
-                2000年 2月
-              </div>
-              <div title="下个月" class="nova-date-picker-next">
-                下个月
-              </div>
+              <div title="上个月" class="nova-date-picker-prev is-hidden">上个月</div>
+              <div class="nova-date-picker-title">2000年 2月</div>
+              <div title="下个月" class="nova-date-picker-next">下个月</div>
             </div>
             <div class="nova-date-picker-body">
               <div class="nova-date-picker-weeks">
@@ -271,214 +175,130 @@ exports[`NovaDatePicker.vue type:range disabled date 1`] = `
               </div>
               <div class="nova-date-picker-dates">
                 <div class="nova-date-picker-date is-prev is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-prev is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    12
-                  </div>
+                  <div class="nova-date-picker-date-inner">12</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    13
-                  </div>
+                  <div class="nova-date-picker-date-inner">13</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    14
-                  </div>
+                  <div class="nova-date-picker-date-inner">14</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    15
-                  </div>
+                  <div class="nova-date-picker-date-inner">15</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    16
-                  </div>
+                  <div class="nova-date-picker-date-inner">16</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    17
-                  </div>
+                  <div class="nova-date-picker-date-inner">17</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    18
-                  </div>
+                  <div class="nova-date-picker-date-inner">18</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    19
-                  </div>
+                  <div class="nova-date-picker-date-inner">19</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    20
-                  </div>
+                  <div class="nova-date-picker-date-inner">20</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    21
-                  </div>
+                  <div class="nova-date-picker-date-inner">21</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    22
-                  </div>
+                  <div class="nova-date-picker-date-inner">22</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    23
-                  </div>
+                  <div class="nova-date-picker-date-inner">23</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    24
-                  </div>
+                  <div class="nova-date-picker-date-inner">24</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    25
-                  </div>
+                  <div class="nova-date-picker-date-inner">25</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range is-disabled">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
               </div>
             </div>
@@ -506,15 +326,9 @@ exports[`NovaDatePicker.vue type:range prop locale should works 1`] = `
         <div class="nova-date-picker-months">
           <div data-month-offset="0" data-range-index="0" class="nova-date-picker-month">
             <div class="nova-date-picker-header">
-              <div title="上個月" class="nova-date-picker-prev">
-                上個月
-              </div>
-              <div class="nova-date-picker-title">
-                2000年 1月
-              </div>
-              <div title="下個月" class="nova-date-picker-next is-hidden">
-                下個月
-              </div>
+              <div title="上個月" class="nova-date-picker-prev">上個月</div>
+              <div class="nova-date-picker-title">2000年 1月</div>
+              <div title="下個月" class="nova-date-picker-next is-hidden">下個月</div>
             </div>
             <div class="nova-date-picker-body">
               <div class="nova-date-picker-weeks">
@@ -528,229 +342,139 @@ exports[`NovaDatePicker.vue type:range prop locale should works 1`] = `
               </div>
               <div class="nova-date-picker-dates">
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-prev">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-range-start is-selected">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    12
-                  </div>
+                  <div class="nova-date-picker-date-inner">12</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    13
-                  </div>
+                  <div class="nova-date-picker-date-inner">13</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    14
-                  </div>
+                  <div class="nova-date-picker-date-inner">14</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    15
-                  </div>
+                  <div class="nova-date-picker-date-inner">15</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    16
-                  </div>
+                  <div class="nova-date-picker-date-inner">16</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    17
-                  </div>
+                  <div class="nova-date-picker-date-inner">17</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    18
-                  </div>
+                  <div class="nova-date-picker-date-inner">18</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    19
-                  </div>
+                  <div class="nova-date-picker-date-inner">19</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    20
-                  </div>
+                  <div class="nova-date-picker-date-inner">20</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    21
-                  </div>
+                  <div class="nova-date-picker-date-inner">21</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    22
-                  </div>
+                  <div class="nova-date-picker-date-inner">22</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    23
-                  </div>
+                  <div class="nova-date-picker-date-inner">23</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    24
-                  </div>
+                  <div class="nova-date-picker-date-inner">24</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    25
-                  </div>
+                  <div class="nova-date-picker-date-inner">25</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
               </div>
             </div>
           </div>
           <div data-month-offset="1" data-range-index="0" class="nova-date-picker-month">
             <div class="nova-date-picker-header">
-              <div title="上個月" class="nova-date-picker-prev is-hidden">
-                上個月
-              </div>
-              <div class="nova-date-picker-title">
-                2000年 2月
-              </div>
-              <div title="下個月" class="nova-date-picker-next">
-                下個月
-              </div>
+              <div title="上個月" class="nova-date-picker-prev is-hidden">上個月</div>
+              <div class="nova-date-picker-title">2000年 2月</div>
+              <div title="下個月" class="nova-date-picker-next">下個月</div>
             </div>
             <div class="nova-date-picker-body">
               <div class="nova-date-picker-weeks">
@@ -764,214 +488,130 @@ exports[`NovaDatePicker.vue type:range prop locale should works 1`] = `
               </div>
               <div class="nova-date-picker-dates">
                 <div class="nova-date-picker-date is-prev is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    30
-                  </div>
+                  <div class="nova-date-picker-date-inner">30</div>
                 </div>
                 <div class="nova-date-picker-date is-prev is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    31
-                  </div>
+                  <div class="nova-date-picker-date-inner">31</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    12
-                  </div>
+                  <div class="nova-date-picker-date-inner">12</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    13
-                  </div>
+                  <div class="nova-date-picker-date-inner">13</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    14
-                  </div>
+                  <div class="nova-date-picker-date-inner">14</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    15
-                  </div>
+                  <div class="nova-date-picker-date-inner">15</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    16
-                  </div>
+                  <div class="nova-date-picker-date-inner">16</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    17
-                  </div>
+                  <div class="nova-date-picker-date-inner">17</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    18
-                  </div>
+                  <div class="nova-date-picker-date-inner">18</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    19
-                  </div>
+                  <div class="nova-date-picker-date-inner">19</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    20
-                  </div>
+                  <div class="nova-date-picker-date-inner">20</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    21
-                  </div>
+                  <div class="nova-date-picker-date-inner">21</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    22
-                  </div>
+                  <div class="nova-date-picker-date-inner">22</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    23
-                  </div>
+                  <div class="nova-date-picker-date-inner">23</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    24
-                  </div>
+                  <div class="nova-date-picker-date-inner">24</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    25
-                  </div>
+                  <div class="nova-date-picker-date-inner">25</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    26
-                  </div>
+                  <div class="nova-date-picker-date-inner">26</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    27
-                  </div>
+                  <div class="nova-date-picker-date-inner">27</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    28
-                  </div>
+                  <div class="nova-date-picker-date-inner">28</div>
                 </div>
                 <div class="nova-date-picker-date is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    29
-                  </div>
+                  <div class="nova-date-picker-date-inner">29</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    1
-                  </div>
+                  <div class="nova-date-picker-date-inner">1</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    2
-                  </div>
+                  <div class="nova-date-picker-date-inner">2</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    3
-                  </div>
+                  <div class="nova-date-picker-date-inner">3</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    4
-                  </div>
+                  <div class="nova-date-picker-date-inner">4</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    5
-                  </div>
+                  <div class="nova-date-picker-date-inner">5</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    6
-                  </div>
+                  <div class="nova-date-picker-date-inner">6</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    7
-                  </div>
+                  <div class="nova-date-picker-date-inner">7</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    8
-                  </div>
+                  <div class="nova-date-picker-date-inner">8</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    9
-                  </div>
+                  <div class="nova-date-picker-date-inner">9</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    10
-                  </div>
+                  <div class="nova-date-picker-date-inner">10</div>
                 </div>
                 <div class="nova-date-picker-date is-next is-in-range">
-                  <div class="nova-date-picker-date-inner">
-                    11
-                  </div>
+                  <div class="nova-date-picker-date-inner">11</div>
                 </div>
               </div>
             </div>

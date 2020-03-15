@@ -110,7 +110,7 @@ import Utils from '@/utils/utils';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
-import Month from './Month.vue';
+import Month from './Month.jsx';
 
 export default {
   name: 'NovaDatePicker',

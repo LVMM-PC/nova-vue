@@ -1,66 +1,3 @@
-<template>
-  <div
-    :data-month-offset="offset"
-    :data-range-index="rangeIndex"
-    class="nova-date-picker-month"
-  >
-    <div class="nova-date-picker-header">
-      <div
-        :class="getMonthPrevClass()"
-        :title="!isDisabledMonthPrev() ? novaLocale.datePicker.prevMonth : ''"
-        class="nova-date-picker-prev"
-        @click="prevMonthClick"
-      >
-        {{ novaLocale.datePicker.prevMonth }}
-      </div>
-      <div class="nova-date-picker-title">
-        {{
-          novaLocale.datePicker.yearAndMonth(
-            getShowMoment().year(),
-            getShowMoment().month()
-          )
-        }}
-      </div>
-      <div
-        :class="getMonthNextClass()"
-        :title="!isDisabledMonthNext() ? novaLocale.datePicker.nextMonth : ''"
-        class="nova-date-picker-next"
-        @click="nextMonthClick"
-      >
-        {{ novaLocale.datePicker.nextMonth }}
-      </div>
-    </div>
-    <div class="nova-date-picker-body">
-      <div class="nova-date-picker-weeks">
-        <div
-          v-for="(title, titleIndex) in weeks"
-          :key="titleIndex"
-          :class="'nova-date-picker-' + weeks[titleIndex]"
-          class="nova-date-picker-week"
-        >
-          <template>{{ novaLocale.datePicker.weeksShort[title] }}</template>
-        </div>
-      </div>
-      <div ref="datesRef" class="nova-date-picker-dates">
-        <div
-          v-for="dateMoment in momentList"
-          :key="dateMoment.format(defaultFormat)"
-          :class="getMomentClassName(dateMoment)"
-          class="nova-date-picker-date"
-          @click="handleMomentSelect(dateMoment)"
-          @mouseenter="handleDateMouseEnter(dateMoment, $event)"
-          @mouseleave="handleDateMouseLeave"
-        >
-          <div class="nova-date-picker-date-inner">
-            {{ getDateDisplay(dateMoment) }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
-<script>
 import dayjs from 'dayjs';
 import Calendar from '@/utils/calendar';
 
@@ -382,6 +319,126 @@ export default {
 
       return dateMoment.date();
     }
+  },
+  render() {
+    const {
+      offset,
+      rangeIndex,
+      novaLocale,
+      getMonthPrevClass,
+      isDisabledMonthPrev,
+      prevMonthClick,
+      getMonthNextClass,
+      isDisabledMonthNext,
+      nextMonthClick,
+      getShowMoment,
+      weeks,
+      momentList,
+      getDateDisplay,
+      defaultFormat,
+      getMomentClassName,
+      handleMomentSelect,
+      handleDateMouseEnter,
+      handleDateMouseLeave
+    } = this;
+
+    const monthProps = {
+      class: `nova-date-picker-month`,
+      attrs: {
+        'data-month-offset': offset,
+        'data-range-index': rangeIndex
+      }
+    };
+
+    const prevMonthText = novaLocale.datePicker.prevMonth;
+    let prevProps = {
+      class: [`nova-date-picker-prev`, getMonthPrevClass()],
+      attrs: {
+        title: !isDisabledMonthPrev() ? prevMonthText : ''
+      },
+      on: {
+        click: prevMonthClick
+      }
+    };
+    let prevNode = <div {...prevProps}>{prevMonthText}</div>;
+    const showMoment = getShowMoment();
+    let titleNode = (
+      <div class={`nova-date-picker-title`}>
+        {novaLocale.datePicker.yearAndMonth(
+          showMoment.year(),
+          showMoment.month()
+        )}
+      </div>
+    );
+
+    const nextMonthText = novaLocale.datePicker.nextMonth;
+    let nextProps = {
+      class: [`nova-date-picker-next`, getMonthNextClass()],
+      attrs: {
+        title: !isDisabledMonthNext() ? nextMonthText : ''
+      },
+      on: {
+        click: nextMonthClick
+      }
+    };
+    let nextNode = <div {...nextProps}>{nextMonthText}</div>;
+    let headerNode = (
+      <div class={`nova-date-picker-header`}>
+        {prevNode}
+        {titleNode}
+        {nextNode}
+      </div>
+    );
+
+    let weekList = weeks.map((week, index) => {
+      let weekProps = {
+        key: index,
+        class: [`nova-date-picker-week`, `nova-date-picker-${weeks[index]}`]
+      };
+      return <div {...weekProps}>{novaLocale.datePicker.weeksShort[week]}</div>;
+    });
+    let weeksNode = <div class={`nova-date-picker-weeks`}>{weekList}</div>;
+
+    let dateList = momentList.map(dateMoment => {
+      let dateProps = {
+        key: dateMoment.format(defaultFormat),
+        class: [`nova-date-picker-date`, getMomentClassName(dateMoment)],
+        on: {
+          click() {
+            handleMomentSelect(dateMoment);
+          },
+          mouseenter(e) {
+            handleDateMouseEnter(dateMoment, e);
+          },
+          mouseleave: handleDateMouseLeave
+        }
+      };
+      return (
+        <div {...dateProps}>
+          <div class={`nova-date-picker-date-inner`}>
+            {getDateDisplay(dateMoment)}
+          </div>
+        </div>
+      );
+    });
+    let datesNode = (
+      <div class={`nova-date-picker-dates`} ref="datesRef">
+        {dateList}
+      </div>
+    );
+
+    let bodyNode = (
+      <div class={`nova-date-picker-body`}>
+        {weeksNode}
+        {datesNode}
+      </div>
+    );
+
+    return (
+      <div {...monthProps}>
+        {headerNode}
+        {bodyNode}
+      </div>
+    );
   }
 };
-</script>
