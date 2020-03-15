@@ -1,8 +1,8 @@
 @import '../../../styles/var';
 
-@autocomplete: ~'@{prefix}-autocomplete';
+@auto-complete: ~'@{prefix}-auto-complete';
 
-.@{autocomplete} {
+.@{auto-complete} {
   vertical-align: top;
   display: inline-block;
   font-size: 14px;
@@ -15,13 +15,13 @@
   }
 }
 
-.@{autocomplete}-toggle {
+.@{auto-complete}-toggle {
   box-sizing: border-box;
   width: 200px;
   height: 30px;
 }
 
-.@{autocomplete}-input {
+.@{auto-complete}-input {
   font-size: 14px;
   line-height: 20px;
   height: 30px;
@@ -36,7 +36,7 @@
   }
 }
 
-.@{autocomplete}-overlay {
+.@{auto-complete}-overlay {
   color: #999;
   display: block;
   margin-top: -30px;
@@ -44,22 +44,22 @@
   pointer-events: none;
 }
 
-.@{autocomplete}-prefix,
-.@{autocomplete}-suffix {
+.@{auto-complete}-prefix,
+.@{auto-complete}-suffix {
   padding: 5px;
   vertical-align: top;
   display: inline-block;
 }
 
-.@{autocomplete}-prefix {
+.@{auto-complete}-prefix {
   float: left;
 }
 
-.@{autocomplete}-suffix {
+.@{auto-complete}-suffix {
   float: right;
 }
 
-.@{autocomplete}-item {
+.@{auto-complete}-item {
   cursor: pointer;
   padding: 5px 10px;
 
@@ -78,18 +78,18 @@
   }
 }
 
-.@{autocomplete}-empty {
+.@{auto-complete}-empty {
   .@{prefix}-alert {
     padding-left: 30px;
     padding-right: 10px;
   }
 }
 
-.@{autocomplete}-start {
+.@{auto-complete}-start {
   width: 198px;
 }
 
-.@{autocomplete}-groups {
+.@{auto-complete}-groups {
   width: 198px;
   max-height: 300px;
   overflow: auto;

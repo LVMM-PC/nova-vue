@@ -1,20 +1,20 @@
 <template>
   <div
-    ref="autocomplete"
-    :class="autocompleteClass"
-    class="nova-autocomplete"
+    ref="auto-complete"
+    :class="autoCompleteClass"
+    class="nova-auto-complete"
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <div class="nova-autocomplete-toggle">
-      <div class="nova-autocomplete-inner">
+    <div class="nova-auto-complete-toggle">
+      <div class="nova-auto-complete-inner">
         <input
           ref="input"
           :disabled="disabled"
           :placeholder="placeholder"
           :value.prop="valueModel"
           autocomplete="off"
-          class="nova-autocomplete-input"
+          class="nova-auto-complete-input"
           type="text"
           @blur="handleBlur"
           @focus="handleFocus"
@@ -23,13 +23,13 @@
         />
         <span
           v-if="showPrefix"
-          class="nova-autocomplete-overlay nova-autocomplete-prefix"
+          class="nova-auto-complete-overlay nova-auto-complete-prefix"
         >
           <slot name="prefix"></slot>
         </span>
         <span
           v-if="showSuffix"
-          class="nova-autocomplete-overlay nova-autocomplete-suffix"
+          class="nova-auto-complete-overlay nova-auto-complete-suffix"
         >
           <slot name="suffix"></slot>
         </span>
@@ -40,9 +40,9 @@
       ref="start-dropdown"
       :append-to-body="appendToBody"
       :opened="start.opened"
-      :popover-class="['nova-autocomplete-dropdown', popoverClass]"
+      :popover-class="['nova-auto-complete-dropdown', popoverClass]"
     >
-      <div class="nova-autocomplete-start">
+      <div class="nova-auto-complete-start">
         <slot name="start"></slot>
       </div>
     </NovaDropdown>
@@ -51,22 +51,22 @@
       ref="list-dropdown"
       :append-to-body="appendToBody"
       :opened="list.opened"
-      :popover-class="['nova-autocomplete-dropdown', popoverClass]"
+      :popover-class="['nova-auto-complete-dropdown', popoverClass]"
     >
       <div
         v-if="list.groups.length"
         ref="groups"
-        class="nova-autocomplete-groups"
+        class="nova-auto-complete-groups"
       >
         <div
           v-for="(group, groupIndex) in list.groups"
           :key="groupIndex"
-          class="nova-autocomplete-group"
+          class="nova-auto-complete-group"
         >
-          <div class="nova-autocomplete-label">
+          <div class="nova-auto-complete-label">
             <slot :group="group" name="group-label"></slot>
           </div>
-          <div v-if="group.children.length" class="nova-autocomplete-list">
+          <div v-if="group.children.length" class="nova-auto-complete-list">
             <div
               v-for="item in group.children"
               :key="item.index"
@@ -75,7 +75,7 @@
                 'is-selected': item.index === list.activeIndex,
                 'is-disabled': item.disabled
               }"
-              class="nova-autocomplete-item"
+              class="nova-auto-complete-item"
               @click="handleItemClick(item)"
             >
               <slot :item="item">
@@ -88,9 +88,9 @@
 
       <template v-if="!list.data.length">
         <slot name="empty">
-          <div class="nova-autocomplete-empty">
+          <div class="nova-auto-complete-empty">
             <NovaAlert type="info">
-              <span>{{ novaLocale.autocomplete.noData }}</span>
+              <span>{{ novaLocale.autoComplete.noData }}</span>
             </NovaAlert>
           </div>
         </slot>
@@ -112,7 +112,7 @@ const POSITION = {
 };
 
 export default {
-  name: 'NovaAutocomplete',
+  name: 'NovaAutoComplete',
   components: { NovaAlert, NovaDropdown },
   mixins: [locale],
   model: {
@@ -192,7 +192,7 @@ export default {
         this.$emit('update', value);
       }
     },
-    autocompleteClass() {
+    autoCompleteClass() {
       return {
         'is-open': this.opened,
         'is-disabled': this.disabled
@@ -324,10 +324,10 @@ export default {
       document.removeEventListener('click', this.startOtherClick);
     },
     startOtherClick(e) {
-      let $autocomplete = this.$refs['autocomplete'];
+      let $autoComplete = this.$refs['auto-complete'];
 
       let target = e.target;
-      let stopToggle = Utils.isParentsOrSelf(target, $autocomplete);
+      let stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
       let stopDropdown = Utils.isParentsOrSelf(
         target,
         this.getStartDropdownDom()
@@ -493,10 +493,10 @@ export default {
       $listDropdown.setPosition($input);
     },
     listOtherClick(e) {
-      let $autocomplete = this.$refs['autocomplete'];
+      let $autoComplete = this.$refs['auto-complete'];
 
       let target = e.target;
-      let stopToggle = Utils.isParentsOrSelf(target, $autocomplete);
+      let stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
       let stopDropdown = Utils.isParentsOrSelf(
         target,
         this.getListDropdownDom()

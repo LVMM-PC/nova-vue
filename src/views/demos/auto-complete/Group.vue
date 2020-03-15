@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <NovaAutocomplete
+    <NovaAutoComplete
       v-model="keyword"
       :fetch-suggestions="querySearch"
       focus-search
@@ -14,18 +14,18 @@
           {{ slotProps.group.type }}
         </div>
       </template>
-    </NovaAutocomplete>
+    </NovaAutoComplete>
   </div>
 </template>
 
 <script>
 import groupBy from 'lodash/groupBy';
-import NovaAutocomplete from '@/components/autocomplete/NovaAutocomplete';
+import NovaAutoComplete from '@/components/auto-complete/NovaAutoComplete';
 import globalHotelList from '@/views/data/global-hotel-list';
 
 export default {
   name: 'Group',
-  components: { NovaAutocomplete },
+  components: { NovaAutoComplete },
   data() {
     return {
       keyword: ''

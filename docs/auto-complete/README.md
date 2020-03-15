@@ -12,8 +12,8 @@
 
 基本使用。通过 options 设置自动完成的数据源
 
-<demo-autocomplete-basic/>
+<demo-auto-complete-basic/>
 
-<<< @/docs/.vuepress/components/demo/autocomplete/basic.vue
+<<< @/docs/.vuepress/components/demo/auto-complete/basic.vue
 
 ## API

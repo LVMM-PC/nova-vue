@@ -15,7 +15,7 @@
       |
       <router-link to="/alert">Alert</router-link>
       |
-      <router-link to="/autocomplete">Autocomplete</router-link>
+      <router-link to="/auto-complete">AutoComplete</router-link>
     </div>
     <router-view />
   </div>

@@ -46,7 +46,7 @@ const en = {
       'December'
     ]
   },
-  autocomplete: {
+  autoComplete: {
     noData: 'No matching data found'
   }
 };

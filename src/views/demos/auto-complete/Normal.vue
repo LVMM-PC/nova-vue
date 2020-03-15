@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="box">
-      <NovaAutocomplete
-        ref="my-autocomplete"
+      <NovaAutoComplete
+        ref="my-auto-complete"
         v-model="city"
         :fetch-suggestions="querySearch"
         auto-select
-        class="my-autocomplete"
+        class="my-auto-complete"
         placeholder="请选择城市"
-        popover-class="my-autocomplete-dropdown"
+        popover-class="my-auto-complete-dropdown"
         show-prefix
         show-suffix
         @click="handleClick"
@@ -86,7 +86,7 @@
         <template v-slot:default="slotProps">
           {{ slotProps.item.name }}
         </template>
-      </NovaAutocomplete>
+      </NovaAutoComplete>
     </div>
     <div class="box">
       <button @click="triggerFocus">Focus</button>
@@ -101,13 +101,13 @@
 </template>
 
 <script>
-import NovaAutocomplete from '@/components/autocomplete/NovaAutocomplete';
+import NovaAutoComplete from '@/components/auto-complete/NovaAutoComplete';
 import cityList from '@/views/data/city-list';
 import cityArea from '@/views/data/city-area';
 
 export default {
   name: 'Normal',
-  components: { NovaAutocomplete },
+  components: { NovaAutoComplete },
   data() {
     return {
       city: '',
@@ -160,46 +160,46 @@ export default {
     },
     handleCitySelect(city) {
       this.city = city.title;
-      this.$refs['my-autocomplete'].closeDropdown();
+      this.$refs['my-auto-complete'].closeDropdown();
     },
     triggerFocus() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
       setTimeout(() => {
-        $myAutocomplete.focus();
+        $myAutoComplete.focus();
       }, 1);
     },
     triggerBlur() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
 
       setTimeout(() => {
         this.triggerFocus();
       }, 1);
 
       setTimeout(() => {
-        $myAutocomplete.blur();
+        $myAutoComplete.blur();
       }, 1000);
     },
     triggerOpenStart() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
       setTimeout(() => {
-        $myAutocomplete.openStart();
+        $myAutoComplete.openStart();
       }, 1);
     },
     triggerOpenList() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
       setTimeout(() => {
-        $myAutocomplete.openList();
+        $myAutoComplete.openList();
       }, 1);
     },
     triggerCloseStart() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
 
       setTimeout(() => {
         this.triggerOpenStart();
       }, 1);
 
       setTimeout(() => {
-        $myAutocomplete.closeStart();
+        $myAutoComplete.closeStart();
       }, 1000);
     },
     triggerCloseList() {
@@ -207,13 +207,13 @@ export default {
         this.triggerOpenList();
       }, 1);
 
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
       setTimeout(() => {
-        $myAutocomplete.closeList();
+        $myAutoComplete.closeList();
       }, 1000);
     },
     triggerClose() {
-      let $myAutocomplete = this.$refs['my-autocomplete'];
+      let $myAutoComplete = this.$refs['my-auto-complete'];
 
       setTimeout(() => {
         this.triggerOpenStart();
@@ -223,7 +223,7 @@ export default {
       }, 500);
 
       setTimeout(() => {
-        $myAutocomplete.close();
+        $myAutoComplete.close();
       }, 1000);
 
       setTimeout(() => {
@@ -234,7 +234,7 @@ export default {
       }, 2000);
 
       setTimeout(() => {
-        $myAutocomplete.close();
+        $myAutoComplete.close();
       }, 2500);
     }
   }
@@ -242,8 +242,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.my-autocomplete {
-  /deep/ .nova-autocomplete-input {
+.my-auto-complete {
+  /deep/ .nova-auto-complete-input {
     padding-left: 60px;
   }
 }
@@ -320,8 +320,8 @@ export default {
 </style>
 
 <style lang="less">
-.my-autocomplete-dropdown {
-  .nova-autocomplete-start {
+.my-auto-complete-dropdown {
+  .nova-auto-complete-start {
     width: 400px;
   }
 }

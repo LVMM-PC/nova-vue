@@ -46,7 +46,7 @@ const zhTW = {
       '12月'
     ]
   },
-  autocomplete: {
+  autoComplete: {
     noData: '未找到匹配數據'
   }
 };

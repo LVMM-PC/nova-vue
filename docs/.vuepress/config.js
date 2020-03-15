@@ -20,7 +20,7 @@ module.exports = {
         title: '数据录入',
         collapsable: false,
         children: [
-          '/autocomplete/',
+          '/auto-complete/',
           '/checkbox/',
           '/date-picker/',
           '/radio/',

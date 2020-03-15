@@ -53,11 +53,11 @@ const routes = [
       )
   },
   {
-    path: '/autocomplete',
+    path: '/auto-complete',
     name: 'Autocomplete',
     component: () =>
       import(
-        /* webpackChunkName: "autocomplete" */ '../views/demos/AutocompleteDemo.vue'
+        /* webpackChunkName: "auto-complete" */ '../views/demos/AutoCompleteDemo.vue'
       )
   },
   {

@@ -1,6 +1,6 @@
 import nova, {
   NovaAlert,
-  NovaAutocomplete,
+  NovaAutoComplete,
   NovaCalendar,
   NovaCheckbox,
   NovaCheckboxGroup,
@@ -23,7 +23,7 @@ export default ({ Vue }) => {
   }
 
   Vue.component('NovaAlert', NovaAlert);
-  Vue.component('NovaAutocomplete', NovaAutocomplete);
+  Vue.component('NovaAutoComplete', NovaAutoComplete);
   Vue.component('NovaCalendar', NovaCalendar);
   Vue.component('NovaCheckbox', NovaCheckbox);
   Vue.component('NovaCheckboxGroup', NovaCheckboxGroup);

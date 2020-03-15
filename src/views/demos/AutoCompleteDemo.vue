@@ -6,11 +6,11 @@
 </template>
 
 <script>
-import Normal from '@/views/demos/autocomplete/Normal';
-import Group from './autocomplete/Group';
+import Normal from '@/views/demos/auto-complete/Normal';
+import Group from './auto-complete/Group';
 
 export default {
-  name: 'AutocompleteDemo',
+  name: 'AutoCompleteDemo',
   components: { Group, Normal }
 };
 </script>

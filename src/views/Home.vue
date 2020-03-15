@@ -7,7 +7,7 @@
       <router-link to="/date-picker">DatePicker</router-link>
       <router-link to="/calendar">Calendar</router-link>
       <router-link to="/alert">Alert</router-link>
-      <router-link to="/autocomplete">Autocomplete</router-link>
+      <router-link to="/auto-complete">AutoComplete</router-link>
     </div>
   </div>
 </template>

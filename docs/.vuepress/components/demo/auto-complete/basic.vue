@@ -1,0 +1,3 @@
+<template>
+  <NovaAutoComplete></NovaAutoComplete>
+</template>

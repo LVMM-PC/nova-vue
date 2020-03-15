@@ -5,7 +5,7 @@ import MockDate from 'mockdate';
 import { mount } from '@vue/test-utils';
 import {
   NovaAlert,
-  NovaAutocomplete,
+  NovaAutoComplete,
   NovaCalendar,
   NovaCheckbox,
   NovaCheckboxGroup,
@@ -27,7 +27,7 @@ Vue.component('NovaDropdown', NovaDropdown);
 Vue.component('NovaDatePicker', NovaDatePicker);
 Vue.component('NovaCalendar', NovaCalendar);
 Vue.component('NovaAlert', NovaAlert);
-Vue.component('NovaAutocomplete', NovaAutocomplete);
+Vue.component('NovaAutoComplete', NovaAutoComplete);
 Vue.component('NovaRadio', NovaRadio);
 Vue.component('NovaRadioGroup', NovaRadioGroup);
 Vue.component('NovaCheckbox', NovaCheckbox);
