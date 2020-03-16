@@ -1,94 +1,3 @@
-<template>
-  <div
-    ref="auto-complete"
-    :class="autoCompleteClass"
-    class="nova-auto-complete"
-    v-bind="$attrs"
-    v-on="$listeners"
-  >
-    <div class="nova-auto-complete-toggle">
-      <div class="nova-auto-complete-inner">
-        <input
-          ref="input"
-          :disabled="disabled"
-          :placeholder="placeholder"
-          :value.prop="valueModel"
-          autocomplete="off"
-          class="nova-auto-complete-input"
-          type="text"
-          @blur="handleBlur"
-          @focus="handleFocus"
-          @input="handleInput"
-          @keydown="handleKeydown"
-          @select="handleSelect"
-        />
-      </div>
-    </div>
-    <NovaDropdown
-      v-if="start.dropdownLoaded"
-      ref="start-dropdown"
-      :append-to-body="appendToBody"
-      :opened="start.opened"
-      :popover-class="['nova-auto-complete-dropdown', popoverClass]"
-    >
-      <div class="nova-auto-complete-start">
-        <slot name="start"></slot>
-      </div>
-    </NovaDropdown>
-    <NovaDropdown
-      v-if="list.dropdownLoaded"
-      ref="list-dropdown"
-      :append-to-body="appendToBody"
-      :opened="list.opened"
-      :popover-class="['nova-auto-complete-dropdown', popoverClass]"
-    >
-      <div
-        v-if="list.groups.length"
-        ref="groups"
-        class="nova-auto-complete-groups"
-      >
-        <div
-          v-for="(group, groupIndex) in list.groups"
-          :key="groupIndex"
-          class="nova-auto-complete-group"
-        >
-          <div class="nova-auto-complete-label">
-            <slot :group="group" name="groupLabel">{{ group.label }}</slot>
-          </div>
-          <div v-if="group.children.length" class="nova-auto-complete-list">
-            <div
-              v-for="item in group.children"
-              :key="item.index"
-              ref="items"
-              :class="{
-                'is-selected': item.index === list.activeIndex,
-                'is-disabled': item.disabled
-              }"
-              class="nova-auto-complete-item"
-              @click="handleItemClick(item)"
-            >
-              <slot :item="item">
-                {{ item.value }}
-              </slot>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <template v-if="!list.data.length && queryString">
-        <slot name="empty">
-          <div class="nova-auto-complete-empty">
-            <NovaAlert type="info">
-              <span>{{ novaLocale.autoComplete.noData }}</span>
-            </NovaAlert>
-          </div>
-        </slot>
-      </template>
-    </NovaDropdown>
-  </div>
-</template>
-
-<script>
 import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
 import locale from '@/mixin/locale';
@@ -146,7 +55,7 @@ export default {
     }
   },
   data() {
-    let searchDebounce = debounce(this.searchImplement, this.debounce);
+    const searchDebounce = debounce(this.searchImplement, this.debounce);
     return {
       searchDebounce: searchDebounce,
       queryString: '',
@@ -180,19 +89,19 @@ export default {
       };
     },
     activeItem() {
-      let list = this.list;
-      let index = list.activeIndex;
-      let data = list.data;
+      const list = this.list;
+      const index = list.activeIndex;
+      const data = list.data;
 
-      let size = data.length;
+      const size = data.length;
       if (index < 0 || index >= size) {
         return null;
       }
       return data[index];
     },
     firstItem() {
-      let list = this.list;
-      let data = list.data;
+      const list = this.list;
+      const data = list.data;
 
       if (data && data.length && data[0]) {
         return data[0];
@@ -205,8 +114,8 @@ export default {
   },
   methods: {
     handleInput(e) {
-      let activeElement = document.activeElement;
-      let $input = this.$refs['input'];
+      const activeElement = document.activeElement;
+      const $input = this.$refs['input'];
 
       //IE BUG
       if ($input !== activeElement) {
@@ -218,7 +127,7 @@ export default {
       this.$emit('input', e);
     },
     handleFocus(e) {
-      let queryString = this.valueModel;
+      const queryString = this.valueModel;
 
       if (queryString && this.focusSearch) {
         this.search();
@@ -231,8 +140,8 @@ export default {
     handleBlur(e) {
       this.$emit('blur', e);
 
-      let firstItemIndex = this.skipDisabled(0, 1);
-      let item = this.activeItem || this.list.data[firstItemIndex];
+      const firstItemIndex = this.skipDisabled(0, 1);
+      const item = this.activeItem || this.list.data[firstItemIndex];
 
       if (this.autoSelect) {
         this.autoSelectTimer = setTimeout(() => {
@@ -291,8 +200,8 @@ export default {
 
       this.listInit();
 
-      let $startDropdown = this.$refs['start-dropdown'];
-      let $input = this.$refs['input'];
+      const $startDropdown = this.$refs['start-dropdown'];
+      const $input = this.$refs['input'];
       $startDropdown.setPosition($input);
     },
     listInit() {
@@ -313,11 +222,11 @@ export default {
       }
     },
     startOtherClick(e) {
-      let $autoComplete = this.$refs['auto-complete'];
+      const $autoComplete = this.$refs['auto-complete'];
 
-      let target = e.target;
-      let stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
-      let stopDropdown = Utils.isParentsOrSelf(
+      const target = e.target;
+      const stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
+      const stopDropdown = Utils.isParentsOrSelf(
         target,
         this.getStartDropdownDom()
       );
@@ -327,27 +236,27 @@ export default {
       }
     },
     getStartDropdownDom() {
-      let $startDropdown = this.$refs['start-dropdown'];
+      const $startDropdown = this.$refs['start-dropdown'];
       if (typeof $startDropdown.getDom === 'function') {
         return $startDropdown.getDom();
       }
       return null;
     },
     getListDropdownDom() {
-      let $listDropdown = this.$refs['list-dropdown'];
+      const $listDropdown = this.$refs['list-dropdown'];
       if ($listDropdown && typeof $listDropdown.getDom === 'function') {
         return $listDropdown.getDom();
       }
       return null;
     },
     skipDisabled(newIndex, step) {
-      let size = this.list.data.length;
+      const size = this.list.data.length;
 
       if (this.list.data[newIndex]?.disabled) {
         let disabledCount = 0;
         for (let i = 0; i < size; i++) {
-          let offset = i * step;
-          let tempIndex = newIndex + offset;
+          const offset = i * step;
+          const tempIndex = newIndex + offset;
           if (this.list.data[tempIndex]?.disabled) {
             disabledCount++;
           } else {
@@ -369,12 +278,12 @@ export default {
       }
     },
     moveDown() {
-      let size = this.list.data.length;
+      const size = this.list.data.length;
       if (size === 0) {
         return;
       }
 
-      let oldIndex = this.list.activeIndex;
+      const oldIndex = this.list.activeIndex;
       let newIndex = oldIndex + 1;
       if (newIndex >= size) {
         newIndex = -1;
@@ -389,17 +298,17 @@ export default {
     },
     refreshItemScrollTop(index, position) {
       if (this.activeItem) {
-        let $items = this.$refs['items'];
-        let $groups = this.$refs['groups'];
-        let $activeItem = $items[index];
+        const $items = this.$refs['items'];
+        const $groups = this.$refs['groups'];
+        const $activeItem = $items[index];
         if ($activeItem) {
-          let scrollTop = $groups.scrollTop;
-          let listHeight = $groups.clientHeight;
-          let offsetTop = $activeItem.offsetTop;
-          let itemHeight = $activeItem.clientHeight;
+          const scrollTop = $groups.scrollTop;
+          const listHeight = $groups.clientHeight;
+          const offsetTop = $activeItem.offsetTop;
+          const itemHeight = $activeItem.clientHeight;
 
-          let underTop = offsetTop >= scrollTop;
-          let aboveBottom = offsetTop <= scrollTop + listHeight - itemHeight;
+          const underTop = offsetTop >= scrollTop;
+          const aboveBottom = offsetTop <= scrollTop + listHeight - itemHeight;
           if (!(underTop && aboveBottom)) {
             if (position === POSITION.BOTTOM) {
               $groups.scrollTo(0, offsetTop - listHeight + itemHeight);
@@ -412,11 +321,11 @@ export default {
       }
     },
     moveUp() {
-      let size = this.list.data.length;
+      const size = this.list.data.length;
       if (size === 0) {
         return;
       }
-      let oldIndex = this.list.activeIndex;
+      const oldIndex = this.list.activeIndex;
       let newIndex = oldIndex - 1;
       if (newIndex === -2) {
         newIndex = size - 1;
@@ -454,7 +363,7 @@ export default {
           }
 
           if (result?.length) {
-            let list = [];
+            const list = [];
             let index = 0;
             groups.forEach(group => {
               group.children.forEach(child => {
@@ -489,16 +398,16 @@ export default {
       this.start.opened = false;
       this.$emit('open', 'list');
 
-      let $input = this.$refs['input'];
-      let $listDropdown = this.$refs['list-dropdown'];
+      const $input = this.$refs['input'];
+      const $listDropdown = this.$refs['list-dropdown'];
       $listDropdown.setPosition($input);
     },
     listOtherClick(e) {
-      let $autoComplete = this.$refs['auto-complete'];
+      const $autoComplete = this.$refs['auto-complete'];
 
-      let target = e.target;
-      let stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
-      let stopDropdown = Utils.isParentsOrSelf(
+      const target = e.target;
+      const stopToggle = Utils.isParentsOrSelf(target, $autoComplete);
+      const stopDropdown = Utils.isParentsOrSelf(
         target,
         this.getListDropdownDom()
       );
@@ -522,7 +431,7 @@ export default {
         this.$emit('select', item?.value, item);
         return;
       }
-      let queryString = item.value;
+      const queryString = item.value;
       this.queryString = queryString;
       this.$emit('update', queryString);
       this.$emit('select', item?.value, item);
@@ -533,7 +442,7 @@ export default {
       if (item.disabled) {
         return;
       }
-      let queryString = item.value;
+      const queryString = item.value;
       this.queryString = queryString;
       this.$emit('update', queryString);
       this.$emit('select', item?.value, item);
@@ -543,11 +452,11 @@ export default {
       clearTimeout(this.autoSelectTimer);
     },
     focus() {
-      let $input = this.$refs['input'];
+      const $input = this.$refs['input'];
       $input.focus();
     },
     blur() {
-      let $input = this.$refs['input'];
+      const $input = this.$refs['input'];
       $input.blur();
     },
     openStart() {
@@ -565,6 +474,193 @@ export default {
     close() {
       this.closeDropdown();
     }
+  },
+  render() {
+    const {
+      $attrs,
+      $listenrs,
+      $scopedSlots,
+      $slots,
+      appendToBody,
+      autoCompleteClass,
+      disabled,
+      handleBlur,
+      handleFocus,
+      handleInput,
+      handleItemClick,
+      handleKeydown,
+      handleSelect,
+      list,
+      novaLocale,
+      placeholder,
+      popoverClass,
+      queryString,
+      start,
+      valueModel
+    } = this;
+
+    const inputProps = {
+      ref: 'input',
+      class: `nova-auto-complete-input`,
+      attrs: {
+        disabled: disabled,
+        placeholder: placeholder,
+        autocomplete: 'off',
+        type: 'text'
+      },
+      domProps: {
+        value: valueModel
+      },
+      on: {
+        blur: handleBlur,
+        focus: handleFocus,
+        input: handleInput,
+        keydown: handleKeydown,
+        select: handleSelect
+      }
+    };
+    const toggleNode = (
+      <div class="nova-auto-complete-toggle">
+        <div class="nova-auto-complete-inner">
+          <input {...inputProps} />
+        </div>
+      </div>
+    );
+
+    let startNode;
+    if (start.dropdownLoaded) {
+      const startDropdownProps = {
+        ref: 'start-dropdown',
+        props: {
+          appendToBody: appendToBody,
+          opened: start.opened,
+          popoverClass: ['nova-auto-complete-dropdown', popoverClass]
+        }
+      };
+
+      startNode = (
+        <NovaDropdown {...startDropdownProps}>
+          <div class="nova-auto-complete-start">{$slots.start}</div>
+        </NovaDropdown>
+      );
+    }
+
+    let listNode;
+    if (list.dropdownLoaded) {
+      const listDropdownProps = {
+        ref: 'list-dropdown',
+        props: {
+          appendToBody: appendToBody,
+          opened: list.opened,
+          popoverClass: ['nova-auto-complete-dropdown', popoverClass]
+        }
+      };
+
+      let groupsNode;
+      if (list.dropdownLoaded) {
+        const groupList = list.groups.map((group, groupIndex) => {
+          const groupLabelSlotProps = {
+            group
+          };
+          const groupLabel = $scopedSlots.groupLabel
+            ? $scopedSlots.groupLabel(groupLabelSlotProps)
+            : group.label;
+
+          const labelNode = (
+            <div class={`nova-auto-complete-label`}>{groupLabel}</div>
+          );
+
+          let childrenNode;
+          if (group.children.length) {
+            const itemList = group.children.map(item => {
+              const itemProps = {
+                key: item.index,
+                ref: 'items',
+                refInFor: true,
+                class: [
+                  `nova-auto-complete-item`,
+                  {
+                    'is-selected': item.index === list.activeIndex,
+                    'is-disabled': item.disabled
+                  }
+                ],
+                on: {
+                  click() {
+                    handleItemClick(item);
+                  }
+                }
+              };
+
+              const itemSlotProps = {
+                item
+              };
+              const itemSlot = $scopedSlots.default
+                ? $scopedSlots.default(itemSlotProps)
+                : item.value;
+
+              return <div {...itemProps}>{itemSlot}</div>;
+            });
+
+            childrenNode = (
+              <div class={`nova-auto-complete-list`}>{itemList}</div>
+            );
+          }
+
+          const groupProps = {
+            key: groupIndex,
+            class: `nova-auto-complete-group`
+          };
+          return (
+            <div {...groupProps}>
+              {labelNode}
+              {childrenNode}
+            </div>
+          );
+        });
+
+        const groupProps = {
+          ref: 'groups',
+          class: `nova-auto-complete-groups`
+        };
+        groupsNode = <div {...groupProps}>{groupList}</div>;
+      }
+
+      let emptyNode;
+      if (!list.data.length && queryString) {
+        const defaultEmptyNode = (
+          <div class={`nova-auto-complete-empty`}>
+            <NovaAlert type="info">
+              <span>{novaLocale.autoComplete.noData}</span>
+            </NovaAlert>
+          </div>
+        );
+        emptyNode = $slots.empty || defaultEmptyNode;
+      }
+
+      listNode = (
+        <NovaDropdown {...listDropdownProps}>
+          {groupsNode}
+          {emptyNode}
+        </NovaDropdown>
+      );
+    }
+
+    const autoCompleteProps = {
+      ref: 'auto-complete',
+      class: [`nova-auto-complete`, autoCompleteClass],
+      attrs: {
+        ...$attrs
+      },
+      on: {
+        ...$listenrs
+      }
+    };
+    return (
+      <div {...autoCompleteProps}>
+        {toggleNode}
+        {startNode}
+        {listNode}
+      </div>
+    );
   }
 };
-</script>

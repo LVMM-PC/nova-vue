@@ -5,8 +5,6 @@ exports[`renders ./docs/.vuepress/components/demo/auto-complete/basic.vue correc
   <div class="nova-auto-complete-toggle">
     <div class="nova-auto-complete-inner"><input placeholder="Input here" autocomplete="off" type="text" class="nova-auto-complete-input"></div>
   </div>
-  <!---->
-  <!---->
 </div>
 `;
 
@@ -15,8 +13,6 @@ exports[`renders ./docs/.vuepress/components/demo/auto-complete/certain-category
   <div class="nova-auto-complete-toggle">
     <div class="nova-auto-complete-inner"><input placeholder="Input here" autocomplete="off" type="text" class="nova-auto-complete-input"></div>
   </div>
-  <!---->
-  <!---->
 </div>
 `;
 
@@ -25,8 +21,6 @@ exports[`renders ./docs/.vuepress/components/demo/auto-complete/custom.vue corre
   <div class="nova-auto-complete-toggle">
     <div class="nova-auto-complete-inner"><input placeholder="Input email" autocomplete="off" type="text" class="nova-auto-complete-input"></div>
   </div>
-  <!---->
-  <!---->
 </div>
 `;
 
@@ -35,8 +29,6 @@ exports[`renders ./docs/.vuepress/components/demo/auto-complete/non-case-sensiti
   <div class="nova-auto-complete-toggle">
     <div class="nova-auto-complete-inner"><input placeholder="Try to type \`b\`" autocomplete="off" type="text" class="nova-auto-complete-input"></div>
   </div>
-  <!---->
-  <!---->
 </div>
 `;
 
@@ -45,7 +37,5 @@ exports[`renders ./docs/.vuepress/components/demo/auto-complete/uncertain-catego
   <div class="nova-auto-complete-toggle">
     <div class="nova-auto-complete-inner"><input placeholder="Input here" autocomplete="off" type="text" class="nova-auto-complete-input"></div>
   </div>
-  <!---->
-  <!---->
 </div>
 `;

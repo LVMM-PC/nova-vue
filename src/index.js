@@ -13,7 +13,7 @@ Vue.use(PortalVue);
 Vue.component('ClientOnly', ClientOnly);
 
 export NovaAlert from './components/alert/NovaAlert.jsx';
-export NovaAutoComplete from './components/auto-complete/NovaAutoComplete.vue';
+export NovaAutoComplete from './components/auto-complete/NovaAutoComplete.jsx';
 export NovaCalendar from './components/calendar/NovaCalendar.jsx';
 export NovaCheckbox from './components/checkbox/NovaCheckbox.jsx';
 export NovaCheckboxGroup from './components/checkbox/NovaCheckboxGroup.jsx';
