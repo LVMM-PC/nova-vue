@@ -37,8 +37,8 @@ export default {
 
       setResult(result);
     },
-    onSelect(data) {
-      console.log(data);
+    onSelect(value, item) {
+      console.log(value, item);
     }
   }
 };

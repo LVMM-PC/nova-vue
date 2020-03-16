@@ -284,7 +284,9 @@ export default {
         );
       } else {
         textNode = (
-          <span class={textClassName}>{displayedLabel() || value}</span>
+          <span class={textClassName}>
+            {displayedLabel() || value?.toString()}
+          </span>
         );
       }
 

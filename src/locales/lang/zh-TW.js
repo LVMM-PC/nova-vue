@@ -47,8 +47,7 @@ const zhTW = {
     ]
   },
   autoComplete: {
-    noData: '未找到匹配數據',
-    noInput: '請輸入内容'
+    noData: '未找到匹配數據'
   }
 };
 

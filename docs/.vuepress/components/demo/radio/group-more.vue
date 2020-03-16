@@ -19,11 +19,9 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-.group-more {
-  .nova-radio {
-    display: block;
-  }
+<style scoped>
+.group-more .nova-radio {
+  display: block;
 }
 
 .more-input {

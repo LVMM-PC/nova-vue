@@ -3,6 +3,7 @@
     v-model="value"
     placeholder="Try to type `b`"
     focus-search
+    @select="onSelect"
     :fetch-suggestions="querySearch"
   ></NovaAutoComplete>
 </template>
@@ -35,6 +36,9 @@ export default {
       }
 
       setResult(result);
+    },
+    onSelect(value, item) {
+      console.log(value, item);
     }
   }
 };

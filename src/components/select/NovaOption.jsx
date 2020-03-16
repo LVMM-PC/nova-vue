@@ -82,10 +82,11 @@ export default {
       classList,
       handleClick,
       label,
-      NovaSelect
+      NovaSelect,
+      value
     } = this;
 
-    const children = $slots.default || label || null?.toString();
+    const children = $slots.default || label || value?.toString();
 
     const optionProps = {
       class: classList,

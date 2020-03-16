@@ -44,13 +44,7 @@
       :popover-class="['nova-auto-complete-dropdown', popoverClass]"
     >
       <div class="nova-auto-complete-start">
-        <slot name="start">
-          <div class="nova-auto-complete-empty">
-            <NovaAlert type="info">
-              <span>{{ novaLocale.autoComplete.noInput }}</span>
-            </NovaAlert>
-          </div>
-        </slot>
+        <slot name="start"></slot>
       </div>
     </NovaDropdown>
     <NovaDropdown
@@ -71,7 +65,7 @@
           class="nova-auto-complete-group"
         >
           <div class="nova-auto-complete-label">
-            <slot :group="group" name="group-label"></slot>
+            <slot :group="group" name="groupLabel">{{ group.label }}</slot>
           </div>
           <div v-if="group.children.length" class="nova-auto-complete-list">
             <div
@@ -93,7 +87,7 @@
         </div>
       </div>
 
-      <template v-if="!list.data.length">
+      <template v-if="!list.data.length && queryString">
         <slot name="empty">
           <div class="nova-auto-complete-empty">
             <NovaAlert type="info">
@@ -380,6 +374,10 @@ export default {
           newIndex = -1;
         }
 
+        if (newIndex >= size) {
+          newIndex = -1;
+        }
+
         return newIndex;
       } else {
         return newIndex;
@@ -461,37 +459,35 @@ export default {
       if (this.queryString === '') {
         this.openStartDropdown();
       } else {
-        this.fetchSuggestions.call(
-          undefined,
-          this.queryString,
-          (result, groups) => {
-            result = result.map((item, index) => {
-              let itemObject;
-              if (typeof item !== 'object') {
-                itemObject = {
-                  value: item
-                };
-              } else {
-                itemObject = item;
-              }
-              return Object.assign({ index: index }, itemObject);
+        this.fetchSuggestions.call(undefined, this.queryString, result => {
+          let groups;
+
+          if (result?.[0]?.children) {
+            groups = result;
+          } else {
+            groups = [{ type: 'default', children: result }];
+          }
+
+          if (result?.length) {
+            let list = [];
+            let index = 0;
+            groups.forEach(group => {
+              group.children.forEach(child => {
+                Object.assign(child, { index: index });
+                list.push(child);
+                index++;
+              });
             });
 
-            if (!groups) {
-              groups = [{ type: 'default', children: result }];
-            }
-
-            if (result && result.length) {
-              this.list.data = result;
-              this.list.groups = groups;
-            } else {
-              this.list.data = [];
-              this.list.groups = [];
-            }
-            this.list.activeIndex = -1;
-            this.openListDropdown();
+            this.list.data = list;
+            this.list.groups = groups;
+          } else {
+            this.list.data = [];
+            this.list.groups = [];
           }
-        );
+          this.list.activeIndex = -1;
+          this.openListDropdown();
+        });
       }
     },
     openListDropdown() {
@@ -525,20 +521,20 @@ export default {
       }
     },
     closeListDropdown() {
-      this.listInit();
+      this.list.opened = false;
       document.removeEventListener('click', this.listOtherClick);
     },
     update(item) {
       this.clearAutoSelect();
 
       if (item === null || typeof item === 'undefined') {
-        this.$emit('select', item);
+        this.$emit('select', item?.value, item);
         return;
       }
       let queryString = item.value;
       this.queryString = queryString;
       this.$emit('update', queryString);
-      this.$emit('select', item);
+      this.$emit('select', item?.value, item);
     },
     handleItemClick(item) {
       this.clearAutoSelect();
@@ -549,7 +545,7 @@ export default {
       let queryString = item.value;
       this.queryString = queryString;
       this.$emit('update', queryString);
-      this.$emit('select', item);
+      this.$emit('select', item?.value, item);
       this.closeListDropdown();
     },
     clearAutoSelect() {

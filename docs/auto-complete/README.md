@@ -32,4 +32,57 @@
 
 <<< @/docs/.vuepress/components/demo/auto-complete/non-case-sensitive.vue
 
+### 查询模式 - 确定类目
+
+可以控制选项按确定类目分组展示。
+
+<demo-auto-complete-certain-category/>
+
+<<< @/docs/.vuepress/components/demo/auto-complete/certain-category.vue
+
+### 查询模式 - 不确定类目
+
+不确定类目示例。
+
+<demo-auto-complete-uncertain-category/>
+
+<<< @/docs/.vuepress/components/demo/auto-complete/uncertain-category.vue
+
 ## API
+
+| 参数            | 说明                                 | 类型    | 默认值 |
+| --------------- | ------------------------------------ | ------- | ------ |
+| appendToBody    | 是否渲染到 body 上                   | boolean | true   |
+| autoSelect      | 失去焦点时，是否自动选中当前高亮选项 | boolean | false  |
+| disabled        | 是否禁用                             | boolean | false  |
+| focusSearch     | 输入框有内容时获得焦点，是否显示选项 | boolean | false  |
+| placeholder     | 输入框提示                           | string  | -      |
+| popoverClass    | 下拉菜单的 className 属性            | string  | -      |
+| value / v-model | 指定当前选中的条目                   | string  | -      |
+
+### Slots
+
+| 参数       | 说明           |
+| ---------- | -------------- |
+| -          | 选项           |
+| empty      | 未找到匹配选项 |
+| groupLabel | 当前选项组标签 |
+
+#### default slot props
+
+| 参数 | 说明     | 类型               |
+| ---- | -------- | ------------------ |
+| item | 当前选项 | { value: string; } |
+
+#### groupLabel slot props
+
+| 参数  | 说明       | 类型                               |
+| ----- | ---------- | ---------------------------------- |
+| group | 当前选项组 | {label: string; children: {}\[]; } |
+
+### Events
+
+| 事件名称 | 说明                                    | 类型                                       |
+| -------- | --------------------------------------- | ------------------------------------------ |
+| select   | 选项发生变化的回调                      | function\(value, item: { value: string; }) |
+| update   | 不使用 v-model 时，调用此函数更新 value | function\(value)                           |

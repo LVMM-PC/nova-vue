@@ -4,57 +4,57 @@ exports[`renders ./docs/.vuepress/components/demo/alert/arrow.vue correctly 1`] 
 <section class="box">
   <div class="top">
     <div class="nova-alert nova-alert-success nova-alert-placement-top-start nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>上左</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Top start</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-top nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>上</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Top</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-top-end nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>上右</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Top end</span>
       <div class="nova-alert-arrow"></div>
     </div>
   </div>
   <div class="left">
     <div class="nova-alert nova-alert-success nova-alert-placement-left-start nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>左<br>上</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Left start</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-left nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>左</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Left</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-left-end nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>左<br>下</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Left end</span>
       <div class="nova-alert-arrow"></div>
     </div>
   </div>
   <div class="right">
     <div class="nova-alert nova-alert-success nova-alert-placement-right-start nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>右<br>上</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Right start</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-right nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>右</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Right</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-right-end nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>右<br>下</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Right end</span>
       <div class="nova-alert-arrow"></div>
     </div>
   </div>
   <div class="bottom">
     <div class="nova-alert nova-alert-success nova-alert-placement-bottom-start nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>下左</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Bottom start</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-bottom nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>下</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Bottom</span>
       <div class="nova-alert-arrow"></div>
     </div>
     <div class="nova-alert nova-alert-success nova-alert-placement-bottom-end nova-alert-border nova-alert-has-arrow">
-      <div class="nova-alert-icon nova-alert-icon-success"></div><span>下右</span>
+      <div class="nova-alert-icon nova-alert-icon-success"></div><span>Bottom end</span>
       <div class="nova-alert-arrow"></div>
     </div>
   </div>

@@ -1,10 +1,10 @@
 <template>
   <section>
-    <NovaLocale :holiday="china" :locale="zhCN">
-      <NovaDatePicker v-model="date" placeholder="选择日期"></NovaDatePicker>
-    </NovaLocale>
     <NovaLocale :holiday="hideHoliday" :locale="en">
       <NovaDatePicker v-model="date" placeholder="Select date"></NovaDatePicker>
+    </NovaLocale>
+    <NovaLocale :holiday="china" :locale="zhCN">
+      <NovaDatePicker v-model="date" placeholder="选择日期"></NovaDatePicker>
     </NovaLocale>
   </section>
 </template>

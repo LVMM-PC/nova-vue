@@ -2,81 +2,83 @@
   <section class="box">
     <div class="top">
       <NovaAlert border placement="top-start" type="success" visible-arrow>
-        <span>上左</span>
+        <span>Top start</span>
       </NovaAlert>
       <NovaAlert border placement="top" type="success" visible-arrow>
-        <span>上</span>
+        <span>Top</span>
       </NovaAlert>
       <NovaAlert border placement="top-end" type="success" visible-arrow>
-        <span>上右</span>
+        <span>Top end</span>
       </NovaAlert>
     </div>
     <div class="left">
       <NovaAlert border placement="left-start" type="success" visible-arrow>
-        <span>左<br />上</span>
+        <span>Left start</span>
       </NovaAlert>
       <NovaAlert border placement="left" type="success" visible-arrow>
-        <span>左</span>
+        <span>Left</span>
       </NovaAlert>
       <NovaAlert border placement="left-end" type="success" visible-arrow>
-        <span>左<br />下</span>
+        <span>Left end</span>
       </NovaAlert>
     </div>
     <div class="right">
       <NovaAlert border placement="right-start" type="success" visible-arrow>
-        <span>右<br />上</span>
+        <span>Right start</span>
       </NovaAlert>
       <NovaAlert border placement="right" type="success" visible-arrow>
-        <span>右</span>
+        <span>Right</span>
       </NovaAlert>
       <NovaAlert border placement="right-end" type="success" visible-arrow>
-        <span>右<br />下</span>
+        <span>Right end</span>
       </NovaAlert>
     </div>
     <div class="bottom">
       <NovaAlert border placement="bottom-start" type="success" visible-arrow>
-        <span>下左</span>
+        <span>Bottom start</span>
       </NovaAlert>
       <NovaAlert border placement="bottom" type="success" visible-arrow>
-        <span>下</span>
+        <span>Bottom</span>
       </NovaAlert>
       <NovaAlert border placement="bottom-end" type="success" visible-arrow>
-        <span>下右</span>
+        <span>Bottom end</span>
       </NovaAlert>
     </div>
   </section>
 </template>
 
-<style lang="less" scoped>
+<style scoped>
 .nova-alert {
-  margin-bottom: 10px;
-  margin-right: 10px;
+  margin: 5px;
 }
 
 .box {
   display: inline-block;
   vertical-align: top;
   width: 320px;
+}
 
-  .top,
-  .bottom {
-    display: flex;
-    padding-left: 70px;
-  }
+.top,
+.bottom {
+  display: flex;
+  justify-content: center;
+}
 
-  .left {
-    width: 70px;
-    float: left;
-    text-align: right;
-  }
+.left,
+.right {
+  white-space: pre-line;
+  width: 75px;
+}
 
-  .right {
-    width: 60px;
-    float: right;
-  }
+.left {
+  float: left;
+}
 
-  .bottom {
-    clear: both;
-  }
+.right {
+  float: right;
+}
+
+.bottom {
+  clear: both;
 }
 </style>

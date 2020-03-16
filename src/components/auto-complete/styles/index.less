@@ -59,9 +59,25 @@
   float: right;
 }
 
+.@{auto-complete}-label {
+  opacity: 0.5;
+  padding: 5px 10px;
+  word-break: break-all;
+
+  &:empty {
+    display: none;
+
+    & + .@{auto-complete}-list {
+      .@{auto-complete}-item {
+        padding-left: 10px;
+      }
+    }
+  }
+}
+
 .@{auto-complete}-item {
   cursor: pointer;
-  padding: 5px 10px;
+  padding: 5px 10px 5px 20px;
   word-break: break-all;
 
   &:hover:not(.is-disabled) {
@@ -84,14 +100,18 @@
     padding-left: 30px;
     padding-right: 10px;
   }
+
+  &:empty {
+    display: none;
+  }
 }
 
 .@{auto-complete}-start {
-  width: 198px;
+  width: 200px;
 }
 
 .@{auto-complete}-groups {
-  width: 198px;
+  width: 200px;
   max-height: 300px;
   overflow: auto;
 }

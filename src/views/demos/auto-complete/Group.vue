@@ -5,11 +5,10 @@
       :fetch-suggestions="querySearch"
       focus-search
     >
-      <template v-slot:start>Hot</template>
       <template v-slot:default="slotProps">
         {{ slotProps.item.trueDistrictAlias }}
       </template>
-      <template v-slot:group-label="slotProps">
+      <template v-slot:groupLabel="slotProps">
         <div>
           {{ slotProps.group.type }}
         </div>
@@ -33,10 +32,9 @@ export default {
   },
   methods: {
     querySearch(queryString, cb) {
-      let matchList = globalHotelList.matchList.map((matchItem, index) => {
+      let matchList = globalHotelList.matchList.map(matchItem => {
         let ret = {
-          value: matchItem.name,
-          index: index
+          value: matchItem.name
         };
         return Object.assign(ret, matchItem);
       });
@@ -59,7 +57,7 @@ export default {
 
       console.log(matchGroups);
 
-      cb(matchList, matchGroups);
+      cb(matchGroups);
     }
   }
 };

@@ -47,8 +47,7 @@ const en = {
     ]
   },
   autoComplete: {
-    noData: 'No matching data found',
-    noInput: 'No input'
+    noData: 'No matching data found'
   }
 };
 

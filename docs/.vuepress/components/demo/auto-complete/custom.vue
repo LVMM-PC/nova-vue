@@ -41,8 +41,8 @@ export default {
 
       setResult(result);
     },
-    onSelect(data) {
-      console.log(data);
+    onSelect(value, item) {
+      console.log(value, item);
     }
   }
 };
@@ -59,11 +59,7 @@ export default {
   font-size: 14px;
 }
 
-.at {
+.username {
   color: #e38;
-}
-
-.domain {
-  color: #999;
 }
 </style>
