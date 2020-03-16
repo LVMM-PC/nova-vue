@@ -49,12 +49,8 @@
       <button @click="triggerClose">Close</button>
     </div>
     <div class="box">
-      <NovaDatePicker v-model="someDate" :show-suffix="true"></NovaDatePicker>
-      <NovaDatePicker
-        v-model="someDate"
-        :disabled="true"
-        :show-suffix="true"
-      ></NovaDatePicker>
+      <NovaDatePicker v-model="someDate"></NovaDatePicker>
+      <NovaDatePicker v-model="someDate" :disabled="true"></NovaDatePicker>
       <button @click="handleSelectToday">今天</button>
     </div>
     <div class="box">
@@ -62,7 +58,6 @@
         <NovaDatePicker
           ref="my-range-date-picker"
           v-model="emptyDateRange"
-          :show-suffix="true"
           type="range"
           @blur="handleRangeBlur"
           @click="handleRangeClick"
@@ -73,7 +68,6 @@
         v-model="emptyDateRange"
         :disabled="true"
         placeholder="提示"
-        show-prefix
         type="range"
       >
       </NovaDatePicker>
@@ -82,21 +76,18 @@
         v-model="emptyDateRange"
         :custom-tooltip="customTooltip"
         :placeholder="['YYYY-MM-DD', null]"
-        show-suffix
         type="range"
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="emptyDateRange"
         :placeholder="[null, 'EMPTY']"
         :show-tooltip="false"
-        show-suffix
         type="range"
       ></NovaDatePicker>
       <NovaDatePicker
         v-model="someDateRange"
         :disabled-date="disabledRange"
         :locale="customChinese"
-        :show-suffix="true"
         type="range"
         @change="handleRangeChange"
         @close="handleClose"
@@ -108,7 +99,6 @@
         :disabled-date="disabledRange"
         :locale="customChinese"
         :placeholder="['START', 'END']"
-        :show-suffix="true"
         type="range"
         @change="handleRangeChange"
         @close="handleClose"
@@ -120,7 +110,6 @@
         :disabled-date="disabledRange"
         :locale="customChinese"
         :placeholder="['请选择开始日期', '请选择结束日期']"
-        :show-suffix="true"
         type="range"
         @change="handleRangeChange"
         @close="handleClose"

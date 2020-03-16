@@ -6,21 +6,12 @@
         v-model="city"
         :fetch-suggestions="querySearch"
         auto-select
-        class="my-auto-complete"
         placeholder="请选择城市"
         popover-class="my-auto-complete-dropdown"
-        show-prefix
-        show-suffix
         @click="handleClick"
         @select="handleSelect"
       >
-        <template v-slot:prefix>
-          出发地：
-        </template>
-        <template v-slot:suffix>
-          🚝
-        </template>
-        <template v-slot:start>
+        <template slot="start">
           <div class="city-area">
             <div class="city-hot">
               <div class="city-hot-title">
@@ -242,12 +233,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.my-auto-complete {
-  /deep/ .nova-auto-complete-input {
-    padding-left: 60px;
-  }
-}
-
 .hot {
   padding: 10px;
 }

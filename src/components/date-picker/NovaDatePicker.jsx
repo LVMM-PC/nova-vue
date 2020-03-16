@@ -246,7 +246,7 @@ export default {
     this.init();
   },
   destroyed() {
-    this.closeDropdown();
+    this.closeDropdown(true);
   },
   methods: {
     init() {
@@ -424,9 +424,12 @@ export default {
       this.opened = false;
       this.closeDropdown();
     },
-    closeDropdown() {
+    closeDropdown(notEmit) {
       document.removeEventListener('click', this.handleOtherClick);
-      this.$emit('close', this.rangeName);
+
+      if (!notEmit) {
+        this.$emit('close', this.rangeName);
+      }
     },
     handleOtherClick(e) {
       const $datePicker = this.$refs['date-picker'];

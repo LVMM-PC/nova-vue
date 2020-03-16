@@ -74,7 +74,7 @@ export default {
     }
   },
   destroyed() {
-    this.closeDropdown();
+    this.closeDropdown(true);
   },
   methods: {
     hasValue() {
@@ -189,9 +189,12 @@ export default {
     handleTransitionFinished() {
       this.refreshDropdown();
     },
-    closeDropdown() {
+    closeDropdown(notEmit) {
       document.removeEventListener('click', this.handleOtherClick);
-      this.$emit('close');
+
+      if (!notEmit) {
+        this.$emit('close');
+      }
     },
     handleOtherClick(e) {
       const $select = this.$refs['select'];

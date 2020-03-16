@@ -22,18 +22,6 @@
           @keydown="handleKeydown"
           @select="handleSelect"
         />
-        <span
-          v-if="showPrefix"
-          class="nova-auto-complete-overlay nova-auto-complete-prefix"
-        >
-          <slot name="prefix"></slot>
-        </span>
-        <span
-          v-if="showSuffix"
-          class="nova-auto-complete-overlay nova-auto-complete-suffix"
-        >
-          <slot name="suffix"></slot>
-        </span>
       </div>
     </div>
     <NovaDropdown
@@ -132,14 +120,6 @@ export default {
       type: Boolean,
       default: false
     },
-    showPrefix: {
-      type: Boolean,
-      default: false
-    },
-    showSuffix: {
-      type: Boolean,
-      default: false
-    },
     debounce: {
       type: Number,
       default: 150
@@ -221,7 +201,7 @@ export default {
     }
   },
   destroyed() {
-    this.closeDropdown();
+    this.closeDropdown(true);
   },
   methods: {
     handleInput(e) {
@@ -307,6 +287,7 @@ export default {
 
       document.addEventListener('click', this.startOtherClick);
       this.start.opened = true;
+      this.$emit('open', 'start');
 
       this.listInit();
 
@@ -323,9 +304,13 @@ export default {
         this.list.activeIndex = -1;
       });
     },
-    closeStartDropdown() {
+    closeStartDropdown(notEmit) {
       this.start.opened = false;
       document.removeEventListener('click', this.startOtherClick);
+
+      if (!notEmit) {
+        this.$emit('close', 'start');
+      }
     },
     startOtherClick(e) {
       let $autoComplete = this.$refs['auto-complete'];
@@ -442,9 +427,9 @@ export default {
       this.refreshItemScrollTop(newIndex, POSITION.TOP);
     },
     select() {},
-    closeDropdown() {
-      this.closeStartDropdown();
-      this.closeListDropdown();
+    closeDropdown(notEmit) {
+      this.closeStartDropdown(notEmit);
+      this.closeListDropdown(notEmit);
     },
     cancelSearch() {
       this.closeDropdown();
@@ -502,6 +487,8 @@ export default {
       document.addEventListener('click', this.listOtherClick);
       this.list.opened = true;
       this.start.opened = false;
+      this.$emit('open', 'list');
+
       let $input = this.$refs['input'];
       let $listDropdown = this.$refs['list-dropdown'];
       $listDropdown.setPosition($input);
@@ -520,9 +507,13 @@ export default {
         this.closeListDropdown();
       }
     },
-    closeListDropdown() {
+    closeListDropdown(notEmit) {
       this.list.opened = false;
       document.removeEventListener('click', this.listOtherClick);
+
+      if (!notEmit) {
+        this.$emit('close', 'list');
+      }
     },
     update(item) {
       this.clearAutoSelect();

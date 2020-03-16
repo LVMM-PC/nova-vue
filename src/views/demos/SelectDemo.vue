@@ -152,7 +152,7 @@
     <div class="box">
       <NovaSelect v-model="emojiSelect">
         <NovaOptGroup>
-          <template v-slot:label>
+          <template slot="label">
             <div class="large-icon">❤</div>
           </template>
           <template>
