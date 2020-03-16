@@ -1,9 +1,9 @@
 <template>
   <NovaAutoComplete
     v-model="value"
+    :fetch-suggestions="querySearch"
     focus-search
     placeholder="Input here"
-    :fetch-suggestions="querySearch"
     popover-class="uncertain-category-search-dropdown"
     @select="onSelect"
   >
@@ -11,7 +11,7 @@
       <div class="item">
         <span>
           {{ `Found ${item.query} on ` }}
-          <a target="_blank" href="https://www.npmjs.com/search?q=nova-vue">
+          <a href="https://www.npmjs.com/search?q=nova-vue" target="_blank">
             {{ item.category }}
           </a>
         </span>

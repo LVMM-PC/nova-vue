@@ -1,10 +1,10 @@
 <template>
   <NovaAutoComplete
     v-model="value"
+    :fetch-suggestions="querySearch"
+    focus-search
     placeholder="Input email"
     @select="onSelect"
-    focus-search
-    :fetch-suggestions="querySearch"
   >
     <template v-slot="{ item }">
       <span class="email">

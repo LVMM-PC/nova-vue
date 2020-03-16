@@ -50,15 +50,16 @@
 
 ## API
 
-| 参数            | 说明                                 | 类型    | 默认值 |
-| --------------- | ------------------------------------ | ------- | ------ |
-| appendToBody    | 是否渲染到 body 上                   | boolean | true   |
-| autoSelect      | 失去焦点时，是否自动选中当前高亮选项 | boolean | false  |
-| disabled        | 是否禁用                             | boolean | false  |
-| focusSearch     | 输入框有内容时获得焦点，是否显示选项 | boolean | false  |
-| placeholder     | 输入框提示                           | string  | -      |
-| popoverClass    | 下拉菜单的 className 属性            | string  | -      |
-| value / v-model | 指定当前选中的条目                   | string  | -      |
+| 参数             | 说明                                 | 类型                             | 默认值 |
+| ---------------- | ------------------------------------ | -------------------------------- | ------ |
+| appendToBody     | 是否渲染到 body 上                   | boolean                          | true   |
+| autoSelect       | 失去焦点时，是否自动选中当前高亮选项 | boolean                          | false  |
+| disabled         | 是否禁用                             | boolean                          | false  |
+| fetchSuggestions | 获取自动完成菜单内容                 | function\(searchText, setResult) | -      |
+| focusSearch      | 输入框有内容时获得焦点，是否显示选项 | boolean                          | false  |
+| placeholder      | 输入框提示                           | string                           | -      |
+| popoverClass     | 下拉菜单的 className 属性            | string                           | -      |
+| value / v-model  | 指定当前选中的条目                   | string                           | -      |
 
 ### Slots
 
