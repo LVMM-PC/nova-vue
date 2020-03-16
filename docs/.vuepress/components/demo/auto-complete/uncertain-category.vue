@@ -42,7 +42,7 @@ export default {
         const category = `${searchText}-${index}`;
         return {
           value: category,
-          category: category,
+          category,
           query: searchText
         };
       });

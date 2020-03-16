@@ -147,8 +147,8 @@ export default {
       .toDate();
 
     return {
-      en: en,
-      zhCN: zhCN,
+      en,
+      zhCN,
       customEnglish: {
         datePicker: {}
       },
@@ -167,7 +167,7 @@ export default {
       },
       hideHoliday: null,
       emptyDate: null,
-      someDate: someDate,
+      someDate,
       emptyDateRange: [null, null],
       someDateRange: [someDate, anotherDate]
     };

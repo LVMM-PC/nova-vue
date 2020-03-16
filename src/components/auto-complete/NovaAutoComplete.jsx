@@ -3,6 +3,7 @@ import Utils from '@/utils/utils';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';
+import Storage from '@/utils/storage';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',
@@ -17,6 +18,10 @@ export default {
     event: 'update'
   },
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-auto-complete`
+    },
     value: {
       type: String,
       default: null
@@ -57,7 +62,7 @@ export default {
   data() {
     const searchDebounce = debounce(this.searchImplement, this.debounce);
     return {
-      searchDebounce: searchDebounce,
+      searchDebounce,
       queryString: '',
       start: {
         dropdownLoaded: false,
@@ -367,7 +372,7 @@ export default {
             let index = 0;
             groups.forEach(group => {
               group.children.forEach(child => {
-                Object.assign(child, { index: index });
+                Object.assign(child, { index });
                 list.push(child);
                 index++;
               });
@@ -494,6 +499,7 @@ export default {
       novaLocale,
       placeholder,
       popoverClass,
+      prefixedClass,
       queryString,
       start,
       valueModel
@@ -501,10 +507,10 @@ export default {
 
     const inputProps = {
       ref: 'input',
-      class: `nova-auto-complete-input`,
+      class: `${prefixedClass}-input`,
       attrs: {
-        disabled: disabled,
-        placeholder: placeholder,
+        disabled,
+        placeholder,
         autocomplete: 'off',
         type: 'text'
       },
@@ -520,8 +526,8 @@ export default {
       }
     };
     const toggleNode = (
-      <div class="nova-auto-complete-toggle">
-        <div class="nova-auto-complete-inner">
+      <div class={`${prefixedClass}-toggle`}>
+        <div class={`${prefixedClass}-inner`}>
           <input {...inputProps} />
         </div>
       </div>
@@ -532,15 +538,15 @@ export default {
       const startDropdownProps = {
         ref: 'start-dropdown',
         props: {
-          appendToBody: appendToBody,
+          appendToBody,
           opened: start.opened,
-          popoverClass: ['nova-auto-complete-dropdown', popoverClass]
+          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
         }
       };
 
       startNode = (
         <NovaDropdown {...startDropdownProps}>
-          <div class="nova-auto-complete-start">{$slots.start}</div>
+          <div class={`${prefixedClass}-start`}>{$slots.start}</div>
         </NovaDropdown>
       );
     }
@@ -550,9 +556,9 @@ export default {
       const listDropdownProps = {
         ref: 'list-dropdown',
         props: {
-          appendToBody: appendToBody,
+          appendToBody,
           opened: list.opened,
-          popoverClass: ['nova-auto-complete-dropdown', popoverClass]
+          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
         }
       };
 
@@ -567,7 +573,7 @@ export default {
             : group.label;
 
           const labelNode = (
-            <div class={`nova-auto-complete-label`}>{groupLabel}</div>
+            <div class={`${prefixedClass}-label`}>{groupLabel}</div>
           );
 
           let childrenNode;
@@ -578,7 +584,7 @@ export default {
                 ref: 'items',
                 refInFor: true,
                 class: [
-                  `nova-auto-complete-item`,
+                  `${prefixedClass}-item`,
                   {
                     'is-selected': item.index === list.activeIndex,
                     'is-disabled': item.disabled
@@ -602,13 +608,13 @@ export default {
             });
 
             childrenNode = (
-              <div class={`nova-auto-complete-list`}>{itemList}</div>
+              <div class={`${prefixedClass}-list`}>{itemList}</div>
             );
           }
 
           const groupProps = {
             key: groupIndex,
-            class: `nova-auto-complete-group`
+            class: `${prefixedClass}-group`
           };
           return (
             <div {...groupProps}>
@@ -620,7 +626,7 @@ export default {
 
         const groupProps = {
           ref: 'groups',
-          class: `nova-auto-complete-groups`
+          class: `${prefixedClass}-groups`
         };
         groupsNode = <div {...groupProps}>{groupList}</div>;
       }
@@ -628,7 +634,7 @@ export default {
       let emptyNode;
       if (!list.data.length && queryString) {
         const defaultEmptyNode = (
-          <div class={`nova-auto-complete-empty`}>
+          <div class={`${prefixedClass}-empty`}>
             <NovaAlert type="info">
               <span>{novaLocale.autoComplete.noData}</span>
             </NovaAlert>
@@ -647,7 +653,7 @@ export default {
 
     const autoCompleteProps = {
       ref: 'auto-complete',
-      class: [`nova-auto-complete`, autoCompleteClass],
+      class: [prefixedClass, autoCompleteClass],
       attrs: {
         ...$attrs
       },

@@ -20,8 +20,8 @@ export default {
     const novaLocale = this.getNovaLocale();
     const novaHoliday = this.getNovaHoliday();
     return {
-      novaLocale: novaLocale,
-      novaHoliday: novaHoliday
+      novaLocale,
+      novaHoliday
     };
   },
   methods: {

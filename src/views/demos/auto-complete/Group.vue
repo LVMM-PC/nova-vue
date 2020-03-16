@@ -50,7 +50,7 @@ export default {
         }
         let group = listGroups[type];
         matchGroups.push({
-          type: type,
+          type,
           children: group
         });
       }

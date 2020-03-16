@@ -126,7 +126,7 @@ export default {
         const monthProps = {
           key: index,
           props: {
-            novaLocale: novaLocale,
+            novaLocale,
             offset: index
           },
           ref: 'monthRef',

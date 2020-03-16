@@ -665,7 +665,7 @@ export default {
       const dateInputProps = {
         ref: 'input',
         attrs: {
-          disabled: disabled,
+          disabled,
           placeholder: datePlaceholder,
           autocomplete: 'off',
           readonly: true,
@@ -764,8 +764,8 @@ export default {
       const dropdownProps = {
         ref: 'dropdown',
         props: {
-          appendToBody: appendToBody,
-          opened: opened,
+          appendToBody,
+          opened,
           popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
         }
       };
@@ -786,8 +786,8 @@ export default {
             ref: 'monthRef',
             refInFor: true,
             props: {
-              novaHoliday: novaHoliday,
-              novaLocale: novaLocale,
+              novaHoliday,
+              novaLocale,
               offset: index
             }
           };

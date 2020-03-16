@@ -34,7 +34,7 @@ export default {
           return {
             value: `${searchText}@${domain}`,
             username: searchText,
-            domain: domain
+            domain
           };
         });
       }

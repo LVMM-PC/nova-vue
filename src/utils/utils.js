@@ -18,8 +18,8 @@ export default class Utils {
     }
 
     return {
-      left: left,
-      top: top
+      left,
+      top
     };
   }
 

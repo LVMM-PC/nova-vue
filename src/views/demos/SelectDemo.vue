@@ -202,7 +202,7 @@ export default {
   components: { NovaOptGroup, NovaLocale, NovaOption, NovaSelect },
   data() {
     return {
-      en: en,
+      en,
       emojiSelect: 'apple',
       selectOptions: [
         {
