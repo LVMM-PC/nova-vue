@@ -12,6 +12,10 @@
     background-color: #fef2f9;
   }
 
+  &.is-active {
+    background-color: #fef2f9;
+  }
+
   &.is-selected {
     color: #ee3388;
   }
@@ -19,5 +23,41 @@
   &.is-disabled {
     opacity: 0.5;
     cursor: default;
+  }
+}
+
+.@{select}-multiple-dropdown {
+  width: 200px;
+  max-height: 300px;
+  overflow: auto;
+
+  .@{select}-option {
+    padding-right: 30px;
+
+    &:before {
+      right: 10px;
+      top: 50%;
+      position: absolute;
+      opacity: 0;
+      box-sizing: border-box;
+      width: @checkWidth;
+      height: @checkHeight;
+      content: '';
+      display: block;
+      border: 2px solid #ee3388;
+      border-top: none;
+      border-left: none;
+      transform: translate(0, -50%) rotate(45deg) scale(0);
+      transition: transform @normal-motion @ease-out-backward;
+    }
+
+    &.is-selected {
+      position: relative;
+
+      &:before {
+        transform: translate(0, -50%) rotate(45deg) scale(1);
+        opacity: 1;
+      }
+    }
   }
 }

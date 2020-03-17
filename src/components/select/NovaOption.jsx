@@ -21,13 +21,21 @@ export default {
       default: null
     }
   },
+  data() {
+    return {
+      optionId: null
+    };
+  },
   computed: {
     classList() {
       const { isSelected, disabled, prefixedClass } = this;
 
+      const activeOption = this.NovaSelect.getActiveOption();
+
       return [
         `${prefixedClass}-option`,
         {
+          'is-active': activeOption?.optionId === this.optionId,
           'is-selected': isSelected,
           'is-disabled': disabled
         }
@@ -55,10 +63,18 @@ export default {
     }
   },
   created() {
-    this.NovaSelect.addMultipleOption({
-      label: this.label,
-      value: this.value
+    const { disabled, label, value } = this;
+
+    this.optionId = this.NovaSelect.addMultipleOption({
+      component: this,
+      disabled,
+      label,
+      value
     });
+  },
+  destroyed() {
+    const optionId = this.optionId;
+    this.NovaSelect.removeMultipleOption(optionId);
   },
   methods: {
     handleClick(...args) {
@@ -89,6 +105,7 @@ export default {
     const children = $slots.default || label || value?.toString();
 
     const optionProps = {
+      ref: 'option',
       class: classList,
       attrs: {
         ...$attrs

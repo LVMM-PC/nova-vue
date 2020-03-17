@@ -30,7 +30,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 
       <div class="nova-select-labels"><span><span class="nova-select-label"><span>beijing</span><span class="nova-select-label-delete"></span></span><span class="nova-select-label"><span>shanghai</span><span class="nova-select-label-delete"></span></span></span></div>
     </div>
   </div>
-  <div class="nova-dropdown nova-select-dropdown" style="display: none;">
+  <div class="nova-dropdown nova-select-dropdown nova-select-multiple-dropdown" style="display: none;">
     <!---->
     <!---->
     <!---->

@@ -15,7 +15,7 @@
             {{ item.category }}
           </a>
         </span>
-        <span class="result">{{ getRandomInt(100, 201) }} result</span>
+        <span class="result">{{ item.count }} result</span>
       </div>
     </template>
   </NovaAutoComplete>
@@ -33,7 +33,6 @@ export default {
     };
   },
   methods: {
-    getRandomInt,
     querySearch(searchText, setResult) {
       const size = getRandomInt(1, 6);
       const sequence = Object.keys(new Array(size).fill(null));
@@ -43,7 +42,8 @@ export default {
         return {
           value: category,
           category,
-          query: searchText
+          query: searchText,
+          count: getRandomInt(100, 201)
         };
       });
 

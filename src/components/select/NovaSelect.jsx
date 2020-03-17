@@ -3,6 +3,11 @@ import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 
+const POSITION = {
+  BOTTOM: 'BOTTOM',
+  TOP: 'TOP'
+};
+
 export default {
   name: 'NovaSelect',
   components: { NovaDropdown },
@@ -49,8 +54,9 @@ export default {
     return {
       dropdownLoaded: false,
       opened: false,
-      currentChild: null,
-      multipleOptions: []
+      multipleOptions: [],
+      optionSerial: 0,
+      activeIndex: -1
     };
   },
   computed: {
@@ -91,6 +97,122 @@ export default {
           return null !== value;
         default:
           return !!value;
+      }
+    },
+    getActiveOption() {
+      if (this.activeIndex === -1) {
+        return null;
+      }
+      return this.multipleOptions[this.activeIndex];
+    },
+    moveDown() {
+      if (!this.opened) {
+        this.handleInput();
+        return;
+      }
+
+      let newActiveIndex = this.activeIndex;
+      const multipleOptions = this.multipleOptions;
+      const size = multipleOptions.length;
+      for (let i = 0; i < size; i++) {
+        newActiveIndex++;
+        if (!multipleOptions[newActiveIndex]) {
+          break;
+        }
+        if (multipleOptions[newActiveIndex].disabled) {
+          continue;
+        }
+        break;
+      }
+
+      if (newActiveIndex >= size) {
+        newActiveIndex = -1;
+      }
+      this.activeIndex = newActiveIndex;
+      this.refreshItemScrollTop(newActiveIndex, POSITION.BOTTOM);
+    },
+    moveUp() {
+      if (!this.opened) {
+        this.handleInput();
+        return;
+      }
+
+      let newActiveIndex = this.activeIndex;
+      const multipleOptions = this.multipleOptions;
+      const size = multipleOptions.length;
+      for (let i = 0; i < size; i++) {
+        newActiveIndex--;
+        if (newActiveIndex < -1) {
+          newActiveIndex = size - 1;
+        }
+        if (!multipleOptions[newActiveIndex]) {
+          break;
+        }
+        if (multipleOptions[newActiveIndex].disabled) {
+          continue;
+        }
+        break;
+      }
+
+      this.activeIndex = newActiveIndex;
+      this.refreshItemScrollTop(newActiveIndex, POSITION.TOP);
+    },
+    handleInput() {
+      if (this.opened) {
+        return;
+      }
+
+      const $toggle = this.$refs['toggle'];
+      this.handleToggleClick($toggle);
+    },
+    handleEnter() {
+      if (!this.opened) {
+        const $toggle = this.$refs['toggle'];
+        this.handleToggleClick($toggle);
+        return;
+      }
+
+      const activeOption = this.getActiveOption();
+
+      const closeSingle = () => {
+        if (!this.multiple) {
+          this.close();
+        }
+      };
+
+      if (!activeOption) {
+        closeSingle();
+        return;
+      }
+
+      this.setSelected(activeOption.value);
+      closeSingle();
+    },
+    refreshItemScrollTop(index, position) {
+      const component = this.getActiveOption()?.component;
+      const $option = component?.$refs['option'];
+      if (!$option) {
+        return;
+      }
+
+      const $dropdown = this.getDropdownDom();
+
+      const scrollTop = $dropdown.scrollTop;
+      const listHeight = $dropdown.clientHeight;
+
+      const offsetTop = $option.offsetTop;
+      const itemHeight = $option.clientHeight;
+
+      const underTop = offsetTop >= scrollTop;
+      const aboveBottom = offsetTop <= scrollTop + listHeight - itemHeight;
+
+      if (!(underTop && aboveBottom)) {
+        if (position === POSITION.BOTTOM) {
+          $dropdown.scrollTo(0, offsetTop - listHeight + itemHeight);
+        }
+        if (position === POSITION.TOP) {
+          $dropdown.scrollTo(0, offsetTop);
+        }
       }
     },
     displayedLabel() {
@@ -135,6 +257,13 @@ export default {
           this.$emit('change', value);
         }
       }
+
+      this.$refs['select'].focus();
+    },
+    getSingleSelectedIndex() {
+      return this.multipleOptions.findIndex(option => {
+        return option.value === this.value;
+      });
     },
     getValue() {
       return this.value;
@@ -143,13 +272,13 @@ export default {
       this.opened = false;
       this.closeDropdown();
     },
-    handleToggleClick(e) {
+    handleToggleClick(target) {
       const { prefixedClass } = this;
 
       if (!this.dropdownLoaded) {
         this.dropdownLoaded = true;
         this.$nextTick(() => {
-          this.handleToggleClick(e);
+          this.handleToggleClick(target);
         });
         return;
       }
@@ -158,7 +287,6 @@ export default {
         return;
       }
 
-      const target = e.target;
       const isDelete = Utils.hasClassName(
         target,
         `${prefixedClass}-label-delete`
@@ -177,6 +305,13 @@ export default {
     openDropdown() {
       document.addEventListener('click', this.handleOtherClick);
       this.$emit('open');
+
+      if (!this.multiple) {
+        this.activeIndex = this.getSingleSelectedIndex();
+      } else {
+        this.activeIndex = -1;
+      }
+
       this.refreshDropdown();
     },
     refreshDropdown() {
@@ -211,7 +346,19 @@ export default {
       }
     },
     addMultipleOption(option) {
-      this.multipleOptions.push(option);
+      const optionSerial = this.optionSerial;
+
+      this.multipleOptions.push(
+        Object.assign({ optionId: optionSerial }, option)
+      );
+
+      this.optionSerial++;
+      return optionSerial;
+    },
+    removeMultipleOption(optionId) {
+      this.multipleOptions = this.multipleOptions.filter(option => {
+        return option.optionId !== optionId;
+      });
     },
     handleDeleteClick(value) {
       if (this.disabled) {
@@ -222,6 +369,38 @@ export default {
     },
     getDropdownDom() {
       return this.$refs['dropdown'].getDom();
+    },
+    handleKeydown(e) {
+      switch (e.key) {
+        case 'Down': // IE/Edge
+        case 'ArrowDown':
+          e.preventDefault();
+          this.moveDown();
+          break;
+        case 'Up': // IE/Edge
+        case 'ArrowUp':
+          e.preventDefault();
+          this.moveUp();
+          break;
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          this.handleEnter();
+          e.preventDefault();
+          break;
+        case 'Enter':
+          this.handleEnter();
+          e.preventDefault();
+          break;
+        case 'Tab':
+          this.close();
+          break;
+        case 'Esc': // IE/Edge
+        case 'Escape':
+          this.close();
+          break;
+        default:
+          this.handleInput();
+      }
     }
   },
   render() {
@@ -236,6 +415,7 @@ export default {
       dropdownLoaded,
       getPlaceholder,
       handleDeleteClick,
+      handleKeydown,
       handleToggleClick,
       handleTransitionFinished,
       hasValue,
@@ -254,7 +434,8 @@ export default {
         tabindex: !disabled ? 0 : -1
       },
       on: {
-        ...$listeners
+        ...$listeners,
+        keydown: handleKeydown
       },
       ref: 'select'
     };
@@ -263,7 +444,11 @@ export default {
       props: {
         opened,
         appendToBody: appendToBody && dropdownLoaded,
-        popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
+        popoverClass: [
+          `${prefixedClass}-dropdown`,
+          { [`${prefixedClass}-multiple-dropdown`]: multiple },
+          popoverClass
+        ]
       },
       ref: 'dropdown'
     };
@@ -343,7 +528,13 @@ export default {
 
     return (
       <div {...selectProps}>
-        <div class={`${prefixedClass}-toggle`} onClick={handleToggleClick}>
+        <div
+          class={`${prefixedClass}-toggle`}
+          onClick={e => {
+            handleToggleClick(e.target);
+          }}
+          ref="toggle"
+        >
           <span class={`${prefixedClass}-arrow`}></span>
           <ClientOnly>
             {singleNode}

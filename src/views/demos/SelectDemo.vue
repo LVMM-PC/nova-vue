@@ -1,6 +1,13 @@
 <template>
   <div class="box">
     <div class="box">
+      <select>
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="cherry">Cherry</option>
+      </select>
+    </div>
+    <div class="box">
       <NovaSelect
         v-model="selectValue1"
         popover-class="test"
