@@ -4,6 +4,13 @@ export default {
   name: 'NovaOption',
   inject: ['NovaSelect'],
   props: {
+    isSelectOption: {
+      type: Boolean,
+      default: true,
+      validator(value) {
+        return value === true;
+      }
+    },
     prefixedClass: {
       type: String,
       default: `${Storage.prefix}-select`
@@ -35,7 +42,7 @@ export default {
       return [
         `${prefixedClass}-option`,
         {
-          'is-active': activeOption?.optionId === this.optionId,
+          'is-active': activeOption?.value === this.value,
           'is-selected': isSelected,
           'is-disabled': disabled
         }
@@ -94,8 +101,18 @@ export default {
         return;
       }
 
-      const optionId = this.optionId;
-      this.NovaSelect.setActiveIndex(optionId);
+      this.NovaSelect.setActiveIndex(
+        this.NovaSelect.getIndexOfValue(this.value)
+      );
+    },
+    getOptionData() {
+      const { disabled, label, value } = this;
+      return {
+        component: this,
+        disabled,
+        label,
+        value
+      };
     }
   },
   render() {

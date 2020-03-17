@@ -103,13 +103,71 @@ export default {
       if (this.activeIndex === -1) {
         return null;
       }
-      return this.multipleOptions[this.activeIndex];
+      return this.getOptionOfIndex(this.activeIndex);
     },
-    setActiveIndex(optionId) {
-      const newIndex = this.multipleOptions.findIndex(option => {
-        return option.optionId === optionId;
-      });
-      this.activeIndex = newIndex;
+    getOptionOfIndex(index) {
+      const children = this.$slots.default;
+
+      let currentIndex = 0;
+
+      for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child?.componentInstance?.isSelectOption) {
+          if (currentIndex === index) {
+            return child?.getOptionData();
+          }
+
+          currentIndex++;
+        } else {
+          const subOptions = child?.componentInstance?.$slots?.default;
+
+          if (!subOptions) {
+            continue;
+          }
+          for (let j = 0; j < subOptions.length; j++) {
+            let subOption = subOptions[j]?.componentInstance;
+
+            if (subOption && currentIndex === index) {
+              return subOption?.getOptionData();
+            }
+
+            currentIndex++;
+          }
+        }
+      }
+    },
+    getIndexOfValue(value) {
+      const children = this.$slots.default;
+      let currentIndex = 0;
+
+      for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child?.componentInstance?.isSelectOption) {
+          if (child?.componentInstance?.value === value) {
+            return currentIndex;
+          }
+
+          currentIndex++;
+        } else {
+          const subOptions = child?.componentInstance?.$slots?.default;
+
+          if (!subOptions) {
+            continue;
+          }
+          for (let j = 0; j < subOptions.length; j++) {
+            let subOption = subOptions[j]?.componentInstance;
+
+            if (subOption && subOption.value === value) {
+              return currentIndex;
+            }
+
+            currentIndex++;
+          }
+        }
+      }
+    },
+    setActiveIndex(index) {
+      this.activeIndex = index;
     },
     moveDown() {
       if (!this.opened) {
@@ -122,10 +180,10 @@ export default {
       const size = multipleOptions.length;
       newActiveIndex++;
       for (let i = 0; i < size; i++) {
-        if (!multipleOptions[newActiveIndex]) {
+        if (!this.getOptionOfIndex(newActiveIndex)) {
           break;
         }
-        if (multipleOptions[newActiveIndex].disabled) {
+        if (this.getOptionOfIndex(newActiveIndex).disabled) {
           newActiveIndex++;
           continue;
         }
@@ -152,10 +210,10 @@ export default {
         if (newActiveIndex < -1) {
           newActiveIndex = size - 1;
         }
-        if (!multipleOptions[newActiveIndex]) {
+        if (!this.getOptionOfIndex(newActiveIndex)) {
           break;
         }
-        if (multipleOptions[newActiveIndex].disabled) {
+        if (this.getOptionOfIndex(newActiveIndex).disabled) {
           newActiveIndex--;
           continue;
         }
@@ -269,9 +327,7 @@ export default {
       this.$refs['select'].focus();
     },
     getSingleSelectedIndex() {
-      return this.multipleOptions.findIndex(option => {
-        return option.value === this.value;
-      });
+      return this.getIndexOfValue(this.value);
     },
     getValue() {
       return this.value;
