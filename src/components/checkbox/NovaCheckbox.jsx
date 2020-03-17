@@ -97,12 +97,32 @@ export default {
         return;
       }
 
+      this.setChecked();
+    },
+    setChecked() {
       this.$emit('change', !this.isChecked);
 
       if (this.NovaCheckboxGroup) {
         this.inGroupClick();
       } else {
         this.$emit('update', !this.isChecked);
+      }
+    },
+    handleKeydown(e) {
+      if (this.isDisabled) {
+        return;
+      }
+
+      switch (e.key) {
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          e.preventDefault();
+          this.setChecked();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          this.setChecked();
+          break;
       }
     }
   },
@@ -113,6 +133,7 @@ export default {
       $slots,
       classList,
       handleCheckboxClick,
+      handleKeydown,
       isDisabled,
       label,
       prefixedClass
@@ -128,7 +149,8 @@ export default {
       },
       on: {
         ...$listeners,
-        click: handleCheckboxClick
+        click: handleCheckboxClick,
+        keydown: handleKeydown
       },
       ref: 'checkbox'
     };

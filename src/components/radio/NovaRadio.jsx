@@ -98,6 +98,9 @@ export default {
         return;
       }
 
+      this.setChecked();
+    },
+    setChecked() {
       if (this.isChecked) {
         return;
       }
@@ -109,6 +112,23 @@ export default {
       } else {
         this.$emit('update', true);
       }
+    },
+    handleKeydown(e) {
+      if (this.isDisabled) {
+        return;
+      }
+
+      switch (e.key) {
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          e.preventDefault();
+          this.setChecked();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          this.setChecked();
+          break;
+      }
     }
   },
   render() {
@@ -117,6 +137,7 @@ export default {
       $listeners,
       $slots,
       classList,
+      handleKeydown,
       handleRadioClick,
       isDisabled,
       label,
@@ -133,7 +154,8 @@ export default {
       },
       on: {
         ...$listeners,
-        click: handleRadioClick
+        click: handleRadioClick,
+        keydown: handleKeydown
       },
       ref: 'radio'
     };

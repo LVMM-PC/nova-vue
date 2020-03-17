@@ -354,6 +354,12 @@ export default {
 
       this.$emit('focus', e, 'start');
     },
+    handleStartClick() {
+      if (this.startDisabled) {
+        return;
+      }
+      this.openStartImplement();
+    },
     openEndImplement: function() {
       if (!this.dropdownLoaded) {
         this.dropdownLoaded = true;
@@ -382,6 +388,12 @@ export default {
       this.openEndImplement();
 
       this.$emit('focus', e, 'end');
+    },
+    handleEndClick() {
+      if (this.endDisabled) {
+        return;
+      }
+      this.openEndImplement();
     },
     handleInputBlur(e) {
       clearTimeout(this.blurTimer);
@@ -625,11 +637,13 @@ export default {
       handleDropdownMousedown,
       handleEndBlur,
       handleEndFocus,
+      handleEndClick,
       handleInputBlur,
       handleInputClick,
       handleInputFocus,
       handleStartBlur,
       handleStartFocus,
+      handleStartClick,
       isDisabled,
       isRange,
       novaHoliday,
@@ -706,14 +720,17 @@ export default {
         attrs: {
           disabled: startDisabled,
           placeholder: startPlaceholder,
-          value: displayedRange.start,
           autocomplete: 'off',
           readonly: true,
           type: 'text'
         },
+        domProps: {
+          value: displayedRange.start
+        },
         class: `${prefixedClass}-input`,
         on: {
           blur: handleStartBlur,
+          click: handleStartClick,
           focus: handleStartFocus
         }
       };
@@ -739,14 +756,17 @@ export default {
         attrs: {
           disabled: endDisabled,
           placeholder: endPlaceholder,
-          value: displayedRange.start,
           autocomplete: 'off',
           readonly: true,
           type: 'text'
         },
+        domProps: {
+          value: displayedRange.end
+        },
         class: `${prefixedClass}-input`,
         on: {
           blur: handleEndBlur,
+          click: handleEndClick,
           focus: handleEndFocus
         }
       };

@@ -17,7 +17,8 @@
 
     &:not(.is-disabled) {
       .@{checkbox}-input {
-        border: 1px solid #ee3388;
+        border: 1px solid @primary-color;
+        box-shadow: @focus-shadow;
       }
     }
   }
@@ -29,13 +30,13 @@
 
   &:hover:not(.is-disabled) {
     .@{checkbox}-input {
-      border: 1px solid #ee3388;
+      border: 1px solid @primary-color;
     }
   }
 
   &.is-checked {
     .@{checkbox}-input {
-      border: 1px solid #ee3388;
+      border: 1px solid @primary-color;
     }
 
     .@{checkbox}-inner {
@@ -53,7 +54,7 @@
   width: 14px;
   height: 14px;
   margin-top: 8px;
-  border: 1px solid #cccccc;
+  border: 1px solid @border-color;
   box-sizing: border-box;
   position: relative;
   background-color: @component-background;
@@ -69,7 +70,7 @@
     height: @checkHeight;
     content: '';
     display: block;
-    border: 2px solid #ee3388;
+    border: 2px solid @primary-color;
     border-top: none;
     border-left: none;
     transform: rotate(45deg) scale(0);

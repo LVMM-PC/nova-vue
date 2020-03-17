@@ -161,13 +161,13 @@ export default {
       switch (e.key) {
         case 'Down': // IE/Edge
         case 'ArrowDown':
-          this.moveDown();
           e.preventDefault();
+          this.moveDown();
           break;
         case 'Up': // IE/Edge
         case 'ArrowUp':
-          this.moveUp();
           e.preventDefault();
+          this.moveUp();
           break;
         case 'Left': // IE/Edge
         case 'ArrowLeft':
@@ -453,6 +453,13 @@ export default {
       this.$emit('select', item?.value, item);
       this.closeListDropdown();
     },
+    handleItemMouseenter(item) {
+      if (item.disabled) {
+        return;
+      }
+
+      this.list.activeIndex = item.index;
+    },
     clearAutoSelect() {
       clearTimeout(this.autoSelectTimer);
     },
@@ -493,6 +500,7 @@ export default {
       handleFocus,
       handleInput,
       handleItemClick,
+      handleItemMouseenter,
       handleKeydown,
       handleSelect,
       list,
@@ -593,6 +601,9 @@ export default {
                 on: {
                   click() {
                     handleItemClick(item);
+                  },
+                  mouseenter() {
+                    handleItemMouseenter(item);
                   }
                 }
               };

@@ -3,8 +3,8 @@
 exports[`NovaDatePicker type:range disabled date 1`] = `
 <div class="nova-date-picker is-open nova-date-picker-range">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" value="2000-01-01" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
-    <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="结束日期" value="2000-01-01" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="开始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="结束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
   </div>
   <div data-mock="client-only">
     <div data-mock="mounting-portal" mountto="body" append="true">
@@ -313,8 +313,8 @@ exports[`NovaDatePicker type:range disabled date 1`] = `
 exports[`NovaDatePicker type:range prop locale should works 1`] = `
 <div class="nova-date-picker is-open nova-date-picker-range">
   <div class="nova-date-picker-toggle">
-    <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="開始日期" value="2000-01-01" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
-    <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="結束日期" value="2000-01-01" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-start"><input placeholder="開始日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
+    <div class="nova-date-picker-inner nova-date-picker-range-end"><input placeholder="結束日期" autocomplete="off" readonly="readonly" type="text" class="nova-date-picker-input"><span class="nova-date-picker-icon"></span></div>
   </div>
   <div data-mock="client-only">
     <div data-mock="mounting-portal" mountto="body" append="true">

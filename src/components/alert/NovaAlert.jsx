@@ -99,6 +99,19 @@ export default {
     handleCloseClick() {
       this.close();
     },
+    handleCloseKeydown(e) {
+      switch (e.key) {
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          e.preventDefault();
+          this.close();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          this.close();
+          break;
+      }
+    },
     handleAfterLeave() {
       this.closing = false;
       const $alert = this.$refs['alert'];
@@ -116,6 +129,7 @@ export default {
       closable,
       handleAfterLeave,
       handleCloseClick,
+      handleCloseKeydown,
       prefixedClass,
       type,
       visible,
@@ -135,8 +149,18 @@ export default {
 
     let close;
     if (border && closable) {
+      const closeProps = {
+        class: [`${prefixedClass}-close`],
+        attrs: {
+          tabindex: 0
+        },
+        on: {
+          click: handleCloseClick,
+          keydown: handleCloseKeydown
+        }
+      };
       close = (
-        <div class={`${prefixedClass}-close`} onClick={handleCloseClick}>
+        <div {...closeProps}>
           <div class={`${prefixedClass}-close-icon`}></div>
         </div>
       );

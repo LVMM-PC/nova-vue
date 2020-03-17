@@ -8,7 +8,7 @@
   color: @font-color;
 
   &:hover:not(.is-disabled) {
-    color: #ee3388;
+    color: @primary-color;
     background-color: #fef2f9;
   }
 
@@ -17,7 +17,7 @@
   }
 
   &.is-selected {
-    color: #ee3388;
+    color: @primary-color;
   }
 
   &.is-disabled {
@@ -44,7 +44,7 @@
       height: @checkHeight;
       content: '';
       display: block;
-      border: 2px solid #ee3388;
+      border: 2px solid @primary-color;
       border-top: none;
       border-left: none;
       transform: translate(0, -50%) rotate(45deg) scale(0);

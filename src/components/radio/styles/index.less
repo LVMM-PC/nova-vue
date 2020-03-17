@@ -17,7 +17,8 @@
 
     &:not(.is-disabled) {
       .@{radio}-input {
-        border: 1px solid #ee3388;
+        border: 1px solid @primary-color;
+        box-shadow: @focus-shadow;
       }
     }
   }
@@ -29,13 +30,13 @@
 
   &:hover:not(.is-disabled) {
     .@{radio}-input {
-      border: 1px solid #ee3388;
+      border: 1px solid @primary-color;
     }
   }
 
   &.is-checked {
     .@{radio}-input {
-      border: 1px solid #ee3388;
+      border: 1px solid @primary-color;
     }
 
     .@{radio}-inner {
@@ -51,7 +52,7 @@
   width: 14px;
   height: 14px;
   margin-top: 8px;
-  border: 1px solid #cccccc;
+  border: 1px solid @border-color;
   box-sizing: border-box;
   border-radius: 50%;
   background-color: @component-background;
@@ -63,7 +64,7 @@
   height: 8px;
   transform: scale(0);
   transition: transform @fast-motion @ease-in-out-circular;
-  background-color: #ee3388;
+  background-color: @primary-color;
   border-radius: 50%;
   margin: 2px;
 }

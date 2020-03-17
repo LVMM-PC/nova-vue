@@ -102,7 +102,7 @@
   height: 28px;
   margin: -1px -1px 0 -1px;
   color: #fff;
-  background-color: #ee3388;
+  background-color: @primary-color;
 }
 
 .@{date-picket}-prev,
@@ -181,7 +181,7 @@
 
   &.@{date-picket}-sun,
   &.@{date-picket}-sat {
-    color: #ee3388;
+    color: @primary-color;
   }
 }
 
@@ -193,14 +193,14 @@
 
   &.is-special {
     .@{date-picket}-date-inner {
-      color: #ee3388;
+      color: @primary-color;
     }
   }
 
   &.is-today {
     .@{date-picket}-date-inner {
-      color: #ee3388;
-      border: 1px solid #ee3388;
+      color: @primary-color;
+      border: 1px solid @primary-color;
       padding: 2px 0;
     }
   }
@@ -208,7 +208,7 @@
   &:hover:not(.is-disabled):not(.is-selected) {
     .@{date-picket}-date-inner {
       background-color: #fef2f9;
-      color: #ee3388;
+      color: @primary-color;
     }
   }
 

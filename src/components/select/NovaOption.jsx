@@ -88,6 +88,14 @@ export default {
       if (!this.NovaSelect.multiple) {
         this.NovaSelect.close();
       }
+    },
+    handleMouseenter() {
+      if (this.disabled) {
+        return;
+      }
+
+      const optionId = this.optionId;
+      this.NovaSelect.setActiveIndex(optionId);
     }
   },
   render() {
@@ -97,6 +105,7 @@ export default {
       $slots,
       classList,
       handleClick,
+      handleMouseenter,
       label,
       NovaSelect,
       value
@@ -112,7 +121,8 @@ export default {
       },
       on: {
         ...$listeners,
-        click: handleClick
+        click: handleClick,
+        mouseenter: handleMouseenter
       }
     };
 

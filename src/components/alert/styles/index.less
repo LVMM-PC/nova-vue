@@ -360,19 +360,26 @@
       background-color: @background-color;
       border: 1px solid @border-color;
 
+      .@{alert}-close {
+        &:focus {
+          box-shadow: 0 0 0 2px @close-color;
+        }
+
+        &:focus,
+        &:hover {
+          .@{alert}-close-icon {
+            &:before,
+            &:after {
+              background-color: @border-color;
+            }
+          }
+        }
+      }
+
       .@{alert}-close-icon {
         &:before,
         &:after {
           background-color: @close-color;
-        }
-      }
-
-      .@{alert}-close:hover {
-        .@{alert}-close-icon {
-          &:before,
-          &:after {
-            background-color: @border-color;
-          }
         }
       }
     }
@@ -405,6 +412,10 @@
   margin: 3px -21px 0 0;
   display: block;
   cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
 
   &:after {
     margin-top: -17px;

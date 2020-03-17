@@ -105,6 +105,12 @@ export default {
       }
       return this.multipleOptions[this.activeIndex];
     },
+    setActiveIndex(optionId) {
+      const newIndex = this.multipleOptions.findIndex(option => {
+        return option.optionId === optionId;
+      });
+      this.activeIndex = newIndex;
+    },
     moveDown() {
       if (!this.opened) {
         this.handleInput();
@@ -114,12 +120,13 @@ export default {
       let newActiveIndex = this.activeIndex;
       const multipleOptions = this.multipleOptions;
       const size = multipleOptions.length;
+      newActiveIndex++;
       for (let i = 0; i < size; i++) {
-        newActiveIndex++;
         if (!multipleOptions[newActiveIndex]) {
           break;
         }
         if (multipleOptions[newActiveIndex].disabled) {
+          newActiveIndex++;
           continue;
         }
         break;
@@ -140,8 +147,8 @@ export default {
       let newActiveIndex = this.activeIndex;
       const multipleOptions = this.multipleOptions;
       const size = multipleOptions.length;
+      newActiveIndex--;
       for (let i = 0; i < size; i++) {
-        newActiveIndex--;
         if (newActiveIndex < -1) {
           newActiveIndex = size - 1;
         }
@@ -149,6 +156,7 @@ export default {
           break;
         }
         if (multipleOptions[newActiveIndex].disabled) {
+          newActiveIndex--;
           continue;
         }
         break;
@@ -371,6 +379,10 @@ export default {
       return this.$refs['dropdown'].getDom();
     },
     handleKeydown(e) {
+      if (this.disabled) {
+        return;
+      }
+
       switch (e.key) {
         case 'Down': // IE/Edge
         case 'ArrowDown':
@@ -384,12 +396,12 @@ export default {
           break;
         case 'Spacebar': // IE/Edge
         case ' ':
-          this.handleEnter();
           e.preventDefault();
+          this.handleEnter();
           break;
         case 'Enter':
-          this.handleEnter();
           e.preventDefault();
+          this.handleEnter();
           break;
         case 'Tab':
           this.close();

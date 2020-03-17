@@ -10,6 +10,14 @@
   line-height: 20px;
   font-family: @font-family;
   color: @font-color;
+
+  &:focus,
+  &.is-open {
+    .@{date-picket}-inner {
+      border: 1px solid @primary-color;
+      box-shadow: @focus-shadow;
+    }
+  }
 }
 
 .@{date-picket}-toggle {
@@ -21,8 +29,13 @@
   position: relative;
   display: block;
   box-sizing: border-box;
-  border: 1px solid #ccc;
+  border: 1px solid @border-color;
   height: 30px;
+  transition: border @normal-motion, box-shadow @normal-motion;
+
+  &:hover:not(.is-disabled) {
+    border: 1px solid @primary-color;
+  }
 
   &.is-disabled {
     opacity: 0.5;
@@ -66,7 +79,7 @@
 .@{date-picket}-tooltip {
   position: absolute;
   color: #666666;
-  border: 1px solid #cccccc;
+  border: 1px solid @border-color;
   padding: 5px 10px;
   pointer-events: none;
   background-color: #fff;
