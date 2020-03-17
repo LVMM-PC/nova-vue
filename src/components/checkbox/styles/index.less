@@ -35,6 +35,15 @@
       }
     }
   }
+
+  &:not(.is-disabled) {
+    .@{checkbox}-input {
+      &:focus {
+        border: 1px solid @primary-color;
+        box-shadow: @focus-shadow;
+      }
+    }
+  }
 }
 
 .@{checkbox}-input {
@@ -50,11 +59,6 @@
 
   &:focus {
     outline: none;
-
-    &:not(.is-disabled) {
-      border: 1px solid @primary-color;
-      box-shadow: @focus-shadow;
-    }
   }
 }
 

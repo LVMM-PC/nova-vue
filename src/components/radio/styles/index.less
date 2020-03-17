@@ -33,6 +33,16 @@
       transform: scale(1);
     }
   }
+
+
+  &:not(.is-disabled) {
+    .@{radio}-input {
+      &:focus {
+        border: 1px solid @primary-color;
+        box-shadow: @focus-shadow;
+      }
+    }
+  }
 }
 
 .@{radio}-input {
@@ -49,16 +59,11 @@
   &:focus {
     outline: none;
 
-    &:not(.is-disabled) {
-      border: 1px solid @primary-color;
-      box-shadow: @focus-shadow;
-    }
   }
 
   &:after {
     content: '';
     display: block;
-
     opacity: 0;
     width: 8px;
     height: 8px;
