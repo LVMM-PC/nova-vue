@@ -11,10 +11,7 @@
         @panelChange="handlePanelChange"
       >
         <template v-slot:dateCellRender="slotProps">
-          <div
-            class="date-cell"
-            @mouseenter="handleCellEnter($event, slotProps)"
-          >
+          <div class="date-cell">
             <div class="calendar-num">
               {{ getDayOfMonth(slotProps.date) }}
             </div>
@@ -94,9 +91,6 @@ export default {
     },
     handlePanelChange(date) {
       console.log(dayjs(date).format('YYYY-MM-DD'));
-    },
-    handleCellEnter(e, slotProps) {
-      console.log(slotProps);
     }
   }
 };

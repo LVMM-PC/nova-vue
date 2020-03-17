@@ -244,7 +244,6 @@ export default {
       }
     },
     customTooltip(date) {
-      // console.log(date);
       let today = dayjs().startOf('day');
       let dateMoment = dayjs(date);
       return dateMoment.diff(today, 'day');

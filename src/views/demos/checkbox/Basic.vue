@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     onUpdate(value) {
-      console.log(value);
       this.value = value;
     }
   },

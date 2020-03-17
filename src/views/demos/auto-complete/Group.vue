@@ -55,8 +55,6 @@ export default {
         });
       }
 
-      console.log(matchGroups);
-
       cb(matchGroups);
     }
   }
