@@ -12,17 +12,6 @@
   font-family: @font-family;
   color: @font-color;
 
-  &:focus {
-    outline: none;
-
-    &:not(.is-disabled) {
-      .@{radio}-input {
-        border: 1px solid @primary-color;
-        box-shadow: @focus-shadow;
-      }
-    }
-  }
-
   &.is-disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -39,7 +28,7 @@
       border: 1px solid @primary-color;
     }
 
-    .@{radio}-inner {
+    .@{radio}-input:after {
       opacity: 1;
       transform: scale(1);
     }
@@ -56,17 +45,29 @@
   box-sizing: border-box;
   border-radius: 50%;
   background-color: @component-background;
-}
 
-.@{radio}-inner {
-  opacity: 0;
-  width: 8px;
-  height: 8px;
-  transform: scale(0);
-  transition: transform @fast-motion @ease-in-out-circular;
-  background-color: @primary-color;
-  border-radius: 50%;
-  margin: 2px;
+  &:focus {
+    outline: none;
+
+    &:not(.is-disabled) {
+      border: 1px solid @primary-color;
+      box-shadow: @focus-shadow;
+    }
+  }
+
+  &:after {
+    content: '';
+    display: block;
+
+    opacity: 0;
+    width: 8px;
+    height: 8px;
+    transform: scale(0);
+    transition: transform @fast-motion @ease-in-out-circular;
+    background-color: @primary-color;
+    border-radius: 50%;
+    margin: 2px;
+  }
 }
 
 .@{radio}-label {

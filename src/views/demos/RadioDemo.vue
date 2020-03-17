@@ -50,17 +50,21 @@
         <NovaRadioGroup v-model="isReadGroup">
           <NovaRadio v-model="isRead3" value="LISTENING"
             >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+            <input type="text" />
           </NovaRadio>
           <NovaRadio v-model="isRead4" value="SPEAKING"
             >input 的 radio
             类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
+            <textarea cols="30" rows="10"></textarea>
           </NovaRadio>
           <NovaRadio v-model="isRead5" value="READING"
             >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+            <div contenteditable="true">Content editable</div>
           </NovaRadio>
           <NovaRadio v-model="isRead6" value="WRITING"
             >input 的 radio
             类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
+            <input type="text" />
           </NovaRadio>
         </NovaRadioGroup>
       </dd>
@@ -118,6 +122,7 @@
             @change="handleNativeChange(1)"
           />
           Apple
+          <input type="text" />
         </label>
         <label>
           <input
@@ -127,6 +132,7 @@
             @change="handleNativeChange(2)"
           />
           Pear
+          <textarea cols="30" rows="10"></textarea>
         </label>
         <label>
           <input
@@ -136,6 +142,7 @@
             @change="handleNativeChange(3)"
           />
           Orange
+          <div contenteditable="true">Content editable</div>
         </label>
       </dd>
     </dl>

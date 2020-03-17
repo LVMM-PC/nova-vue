@@ -1,10 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders ./docs/.vuepress/components/demo/checkbox/basic.vue correctly 1`] = `
-<div tabindex="0" class="nova-checkbox">
-  <div class="nova-checkbox-input">
-    <div class="nova-checkbox-inner"></div>
-  </div>
+<div class="nova-checkbox">
+  <div tabindex="0" class="nova-checkbox-input"></div>
   <div class="nova-checkbox-label">Checkbox</div>
 </div>
 `;
@@ -12,10 +10,8 @@ exports[`renders ./docs/.vuepress/components/demo/checkbox/basic.vue correctly 1
 exports[`renders ./docs/.vuepress/components/demo/checkbox/controller.vue correctly 1`] = `
 <section>
   <p>
-    <div tabindex="0" class="nova-checkbox is-checked">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox is-checked">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Checked
         -
@@ -33,16 +29,12 @@ exports[`renders ./docs/.vuepress/components/demo/checkbox/controller.vue correc
 
 exports[`renders ./docs/.vuepress/components/demo/checkbox/disabled.vue correctly 1`] = `
 <section>
-  <div tabindex="-1" class="nova-checkbox is-disabled">
-    <div class="nova-checkbox-input">
-      <div class="nova-checkbox-inner"></div>
-    </div>
+  <div class="nova-checkbox is-disabled">
+    <div tabindex="-1" class="nova-checkbox-input"></div>
     <div class="nova-checkbox-label"></div>
   </div> <br>
-  <div tabindex="-1" class="nova-checkbox is-checked is-disabled">
-    <div class="nova-checkbox-input">
-      <div class="nova-checkbox-inner"></div>
-    </div>
+  <div class="nova-checkbox is-checked is-disabled">
+    <div tabindex="-1" class="nova-checkbox-input"></div>
     <div class="nova-checkbox-label"></div>
   </div> <br> <button>Toggle Disabled</button>
 </section>
@@ -51,102 +43,78 @@ exports[`renders ./docs/.vuepress/components/demo/checkbox/disabled.vue correctl
 exports[`renders ./docs/.vuepress/components/demo/checkbox/group.vue correctly 1`] = `
 <section>
   <div class="nova-checkbox-group">
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Apple
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Peach
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Orange
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Cherry
       </div>
     </div>
   </div>
   <div class="nova-checkbox-group">
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Apple
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Peach
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Orange
       </div>
     </div>
-    <div tabindex="0" class="nova-checkbox">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox">
+      <div tabindex="0" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Cherry
       </div>
     </div>
   </div>
   <div class="nova-checkbox-group">
-    <div tabindex="-1" class="nova-checkbox is-checked is-disabled">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox is-checked is-disabled">
+      <div tabindex="-1" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Apple
       </div>
     </div>
-    <div tabindex="-1" class="nova-checkbox is-disabled">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox is-disabled">
+      <div tabindex="-1" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Peach
       </div>
     </div>
-    <div tabindex="-1" class="nova-checkbox is-disabled">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox is-disabled">
+      <div tabindex="-1" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Orange
       </div>
     </div>
-    <div tabindex="-1" class="nova-checkbox is-disabled">
-      <div class="nova-checkbox-input">
-        <div class="nova-checkbox-inner"></div>
-      </div>
+    <div class="nova-checkbox is-disabled">
+      <div tabindex="-1" class="nova-checkbox-input"></div>
       <div class="nova-checkbox-label">
         Cherry
       </div>

@@ -88,9 +88,11 @@ export default {
       }
     },
     autoCompleteClass() {
+      const { disabled, list, start } = this;
+
       return {
-        'is-open': this.opened,
-        'is-disabled': this.disabled
+        'is-open': start.opened || list.opened,
+        'is-disabled': disabled
       };
     },
     activeItem() {
@@ -206,8 +208,8 @@ export default {
       this.listInit();
 
       const $startDropdown = this.$refs['start-dropdown'];
-      const $input = this.$refs['input'];
-      $startDropdown.setPosition($input);
+      const $toggle = this.$refs['toggle'];
+      $startDropdown.setPosition($toggle);
     },
     listInit() {
       this.list.opened = false;
@@ -403,9 +405,9 @@ export default {
       this.start.opened = false;
       this.$emit('open', 'list');
 
-      const $input = this.$refs['input'];
+      const $toggle = this.$refs['toggle'];
       const $listDropdown = this.$refs['list-dropdown'];
-      $listDropdown.setPosition($input);
+      $listDropdown.setPosition($toggle);
     },
     listOtherClick(e) {
       const $autoComplete = this.$refs['auto-complete'];
@@ -534,10 +536,8 @@ export default {
       }
     };
     const toggleNode = (
-      <div class={`${prefixedClass}-toggle`}>
-        <div class={`${prefixedClass}-inner`}>
-          <input {...inputProps} />
-        </div>
+      <div class={`${prefixedClass}-toggle`} ref="toggle">
+        <input {...inputProps} />
       </div>
     );
 

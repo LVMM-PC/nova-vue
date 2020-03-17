@@ -13,20 +13,34 @@
   &.is-disabled {
     opacity: 0.5;
   }
+
+  &:hover,
+  &.is-open {
+    .@{auto-complete}-toggle {
+      border: 1px solid @primary-color;
+    }
+  }
+
+  &.is-open {
+    .@{auto-complete}-toggle {
+      box-shadow: @focus-shadow;
+    }
+  }
 }
 
 .@{auto-complete}-toggle {
   box-sizing: border-box;
   width: 200px;
   height: 30px;
+  border: 1px solid @border-color;
 }
 
 .@{auto-complete}-input {
   font-size: 14px;
   line-height: 20px;
-  height: 30px;
+  height: 28px;
   box-sizing: border-box;
-  border: 1px solid @border-color;
+  border: none;
   width: 100%;
   padding: 4px 10px;
   outline: none;

@@ -26,14 +26,17 @@
           <NovaCheckbox v-model="isRead3" value="LISTENING">
             HTML input元素 &lt;input type="checkbox"&gt;
             允许你为表单中（或不在表单中）的提交项选择一个单一值。
+            <input type="text" />
           </NovaCheckbox>
           <NovaCheckbox v-model="isRead4" value="SPEAKING">
             当type属性的值为checkbox时,
             这个属性的存在表示input是否默认被选中。你可以将该属性设置为checked="checked"，或更简单地只设置为checked。
+            <textarea cols="30" rows="10"></textarea>
           </NovaCheckbox>
           <NovaCheckbox v-model="isRead5" value="READING">
             HTML input元素 &lt;input type="checkbox"&gt;
             允许你为表单中（或不在表单中）的提交项选择一个单一值。
+            <div contenteditable="true">Content editable</div>
           </NovaCheckbox>
           <NovaCheckbox v-model="isRead6" value="WRITING">
             当type属性的值为checkbox时,
@@ -93,6 +96,26 @@
       <dt></dt>
       <dd>
         <Basic></Basic>
+      </dd>
+    </dl>
+    <dl>
+      <dt></dt>
+      <dd>
+        <label>
+          <input type="checkbox" />
+          apple
+          <input type="text" />
+        </label>
+        <label>
+          <input type="checkbox" />
+          banana
+          <textarea cols="30" rows="10"></textarea>
+        </label>
+        <label>
+          <input type="checkbox" />
+          cheery
+          <div contenteditable="true">Content editable</div>
+        </label>
       </dd>
     </dl>
   </div>

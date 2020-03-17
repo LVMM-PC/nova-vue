@@ -92,12 +92,20 @@ export default {
     inGroupClick() {
       this.NovaCheckboxGroup.setChecked(this.value, !this.isChecked, true);
     },
-    handleCheckboxClick() {
+    handleCheckboxClick(e) {
       if (this.isDisabled) {
         return;
       }
 
-      this.setChecked();
+      const target = e.target;
+
+      const targetIsInput = target instanceof HTMLInputElement;
+      const targetIsTextArea = target instanceof HTMLTextAreaElement;
+
+      if (!(targetIsInput || targetIsTextArea)) {
+        this.$refs['input']?.focus();
+        this.setChecked();
+      }
     },
     setChecked() {
       this.$emit('change', !this.isChecked);
@@ -144,24 +152,31 @@ export default {
     const checkboxProps = {
       class: classList,
       attrs: {
-        ...$attrs,
-        tabindex: tabIndex
+        ...$attrs
       },
       on: {
         ...$listeners,
-        click: handleCheckboxClick,
-        keydown: handleKeydown
+        click: handleCheckboxClick
       },
       ref: 'checkbox'
+    };
+
+    const inputProps = {
+      class: [`${prefixedClass}-input`],
+      attrs: {
+        tabindex: tabIndex
+      },
+      on: {
+        keydown: handleKeydown
+      },
+      ref: 'input'
     };
 
     const children = $slots.default || label;
 
     return (
       <div {...checkboxProps}>
-        <div class={`${prefixedClass}-input`}>
-          <div class={`${prefixedClass}-inner`}></div>
-        </div>
+        <div {...inputProps}></div>
         <div class={`${prefixedClass}-label`}>{children}</div>
       </div>
     );

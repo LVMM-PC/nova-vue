@@ -12,17 +12,6 @@
   font-family: @font-family;
   color: @font-color;
 
-  &:focus {
-    outline: none;
-
-    &:not(.is-disabled) {
-      .@{checkbox}-input {
-        border: 1px solid @primary-color;
-        box-shadow: @focus-shadow;
-      }
-    }
-  }
-
   &.is-disabled {
     opacity: 0.5;
     cursor: not-allowed;
@@ -39,7 +28,7 @@
       border: 1px solid @primary-color;
     }
 
-    .@{checkbox}-inner {
+    .@{checkbox}-input {
       &:before {
         transform: rotate(45deg) scale(1);
         opacity: 1;
@@ -58,9 +47,18 @@
   box-sizing: border-box;
   position: relative;
   background-color: @component-background;
+
+  &:focus {
+    outline: none;
+
+    &:not(.is-disabled) {
+      border: 1px solid @primary-color;
+      box-shadow: @focus-shadow;
+    }
+  }
 }
 
-.@{checkbox}-inner {
+.@{checkbox}-input {
   &:before {
     opacity: 0;
     margin-top: (12 - @checkHeight) / 2 - @checkTop / 2;
