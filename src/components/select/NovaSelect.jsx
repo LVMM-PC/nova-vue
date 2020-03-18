@@ -2,7 +2,7 @@ import locale from '@/mixin/locale';
 import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
-import OptionTree from '@/components/select/OptionTree';
+import OptionTree from '@/components/select/OptionTree.jsx';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',
