@@ -3,6 +3,7 @@ import Storage from '@/utils/storage';
 export default {
   name: 'NovaOption',
   inject: ['NovaSelect'],
+  isSelectOption: true,
   props: {
     isSelectOption: {
       type: Boolean,
@@ -42,7 +43,8 @@ export default {
       return [
         `${prefixedClass}-option`,
         {
-          'is-active': activeOption?.componentInstance?.value === this.value,
+          'is-active':
+            activeOption?.componentOptions?.propsData?.value === this.value,
           'is-selected': isSelected,
           'is-disabled': disabled
         }

@@ -111,13 +111,10 @@ export default {
       }
       for (let i = 0; i < children.length; i++) {
         let child = children[i];
-        if (child?.componentInstance?.isSelectOption) {
+        if (child.componentOptions?.Ctor?.options?.isSelectOption) {
           options.push(child);
         } else {
-          this.getOptionsFromChildren(
-            child?.componentInstance?.$slots?.default,
-            options
-          );
+          this.getOptionsFromChildren(child.componentOptions.children, options);
         }
       }
       return options;
@@ -126,14 +123,14 @@ export default {
       const children = this.$slots.default;
       return this.getOptionsFromChildren(children);
     },
-
     getOptionOfIndex(index) {
-      return this.getOptions()[index];
+      const options = this.getOptions();
+      return options[index];
     },
     getIndexOfValue(value) {
       const options = this.getOptions();
       return options.findIndex(option => {
-        return option.componentInstance.value === value;
+        return option?.componentOptions?.propsData?.value === value;
       });
     },
     setActiveIndex(index) {
@@ -165,7 +162,7 @@ export default {
         newActiveIndex = -1;
       }
       this.activeIndex = newActiveIndex;
-      this.refreshItemScrollTop(newActiveIndex, POSITION.BOTTOM);
+      this.refreshScroll(newActiveIndex, POSITION.BOTTOM);
     },
     moveUp() {
       if (!this.opened) {
@@ -193,7 +190,7 @@ export default {
       }
 
       this.activeIndex = newActiveIndex;
-      this.refreshItemScrollTop(newActiveIndex, POSITION.TOP);
+      this.refreshScroll(newActiveIndex, POSITION.TOP);
     },
     handleInput() {
       if (this.opened) {
@@ -223,12 +220,11 @@ export default {
         return;
       }
 
-      this.setSelected(activeOption.componentInstance.value);
+      this.setSelected(activeOption?.componentOptions?.propsData?.value);
       closeSingle();
     },
-    refreshItemScrollTop(index, position) {
-      const component = this.getActiveOption()?.componentInstance;
-      const $option = component?.$refs['option'];
+    refreshScrollImplement: function(position) {
+      const $option = this.getActiveOption()?.elm;
       if (!$option) {
         return;
       }
@@ -252,6 +248,11 @@ export default {
           $dropdown.scrollTo(0, offsetTop);
         }
       }
+    },
+    refreshScroll(index, position) {
+      setTimeout(() => {
+        this.refreshScrollImplement(position);
+      }, 0);
     },
     displayedLabel() {
       const value = this.value;
@@ -343,7 +344,10 @@ export default {
       this.$emit('open');
 
       if (!this.multiple) {
-        this.activeIndex = this.getSingleSelectedIndex();
+        const singleSelectedIndex = this.getSingleSelectedIndex();
+        this.activeIndex = singleSelectedIndex;
+
+        this.refreshScroll(singleSelectedIndex, POSITION.TOP);
       } else {
         this.activeIndex = -1;
       }
