@@ -191,10 +191,10 @@ export default {
           break;
         }
 
-        if (
-          this.getOptionOfIndex(newActiveIndex)?.componentOptions?.propsData
-            ?.disabled
-        ) {
+        const propsData = this.getOptionOfIndex(newActiveIndex)
+          ?.componentOptions?.propsData;
+
+        if (Utils.isDisabled(propsData?.disabled)) {
           newActiveIndex++;
           continue;
         }
@@ -228,10 +228,10 @@ export default {
           break;
         }
 
-        if (
-          this.getOptionOfIndex(newActiveIndex)?.componentOptions?.propsData
-            ?.disabled
-        ) {
+        const propsData = this.getOptionOfIndex(newActiveIndex)
+          ?.componentOptions?.propsData;
+
+        if (Utils.isDisabled(propsData?.disabled)) {
           newActiveIndex--;
           continue;
         }

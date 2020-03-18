@@ -1,6 +1,9 @@
 <template>
   <div class="box">
     <div class="box">
+      <Basic></Basic>
+    </div>
+    <div class="box">
       <Dynamic></Dynamic>
     </div>
     <div class="box">
@@ -213,10 +216,18 @@ import NovaLocale from '@/components/locale/NovaLocale';
 import en from '@/locales/lang/en';
 import NovaOptGroup from '@/components/select/NovaOptGroup';
 import Dynamic from '@/views/demos/select/Dynamic';
+import Basic from '@/views/demos/select/Basic';
 
 export default {
   name: 'SelectDemo',
-  components: { NovaOptGroup, NovaLocale, NovaOption, NovaSelect, Dynamic },
+  components: {
+    NovaOptGroup,
+    NovaLocale,
+    NovaOption,
+    NovaSelect,
+    Dynamic,
+    Basic
+  },
   data() {
     return {
       en,

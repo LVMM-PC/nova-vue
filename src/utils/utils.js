@@ -72,4 +72,13 @@ export default class Utils {
       .split(' ')
       .some(singleClassName => singleClassName === className);
   }
+
+  static isDisabled(disabled) {
+    switch (typeof disabled) {
+      case 'string':
+        return true;
+      default:
+        return !!disabled;
+    }
+  }
 }
