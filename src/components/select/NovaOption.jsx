@@ -42,7 +42,7 @@ export default {
       return [
         `${prefixedClass}-option`,
         {
-          'is-active': activeOption?.value === this.value,
+          'is-active': activeOption?.componentInstance?.value === this.value,
           'is-selected': isSelected,
           'is-disabled': disabled
         }

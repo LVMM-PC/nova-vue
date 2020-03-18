@@ -105,66 +105,36 @@ export default {
       }
       return this.getOptionOfIndex(this.activeIndex);
     },
-    getOptionOfIndex(index) {
-      const children = this.$slots.default;
-
-      let currentIndex = 0;
-
+    getOptionsFromChildren(children, options = []) {
+      if (!children) {
+        return;
+      }
       for (let i = 0; i < children.length; i++) {
         let child = children[i];
         if (child?.componentInstance?.isSelectOption) {
-          if (currentIndex === index) {
-            return child?.getOptionData();
-          }
-
-          currentIndex++;
+          options.push(child);
         } else {
-          const subOptions = child?.componentInstance?.$slots?.default;
-
-          if (!subOptions) {
-            continue;
-          }
-          for (let j = 0; j < subOptions.length; j++) {
-            let subOption = subOptions[j]?.componentInstance;
-
-            if (subOption && currentIndex === index) {
-              return subOption?.getOptionData();
-            }
-
-            currentIndex++;
-          }
+          this.getOptionsFromChildren(
+            child?.componentInstance?.$slots?.default,
+            options
+          );
         }
       }
+      return options;
+    },
+    getOptions() {
+      const children = this.$slots.default;
+      return this.getOptionsFromChildren(children);
+    },
+
+    getOptionOfIndex(index) {
+      return this.getOptions()[index];
     },
     getIndexOfValue(value) {
-      const children = this.$slots.default;
-      let currentIndex = 0;
-
-      for (let i = 0; i < children.length; i++) {
-        let child = children[i];
-        if (child?.componentInstance?.isSelectOption) {
-          if (child?.componentInstance?.value === value) {
-            return currentIndex;
-          }
-
-          currentIndex++;
-        } else {
-          const subOptions = child?.componentInstance?.$slots?.default;
-
-          if (!subOptions) {
-            continue;
-          }
-          for (let j = 0; j < subOptions.length; j++) {
-            let subOption = subOptions[j]?.componentInstance;
-
-            if (subOption && subOption.value === value) {
-              return currentIndex;
-            }
-
-            currentIndex++;
-          }
-        }
-      }
+      const options = this.getOptions();
+      return options.findIndex(option => {
+        return option.componentInstance.value === value;
+      });
     },
     setActiveIndex(index) {
       this.activeIndex = index;
@@ -176,8 +146,9 @@ export default {
       }
 
       let newActiveIndex = this.activeIndex;
-      const multipleOptions = this.multipleOptions;
-      const size = multipleOptions.length;
+      const options = this.getOptions();
+      const size = options.length;
+
       newActiveIndex++;
       for (let i = 0; i < size; i++) {
         if (!this.getOptionOfIndex(newActiveIndex)) {
@@ -203,8 +174,9 @@ export default {
       }
 
       let newActiveIndex = this.activeIndex;
-      const multipleOptions = this.multipleOptions;
-      const size = multipleOptions.length;
+      const options = this.getOptions();
+      const size = options.length;
+
       newActiveIndex--;
       for (let i = 0; i < size; i++) {
         if (newActiveIndex < -1) {
@@ -251,11 +223,11 @@ export default {
         return;
       }
 
-      this.setSelected(activeOption.value);
+      this.setSelected(activeOption.componentInstance.value);
       closeSingle();
     },
     refreshItemScrollTop(index, position) {
-      const component = this.getActiveOption()?.component;
+      const component = this.getActiveOption()?.componentInstance;
       const $option = component?.$refs['option'];
       if (!$option) {
         return;

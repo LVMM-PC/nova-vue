@@ -1,18 +1,30 @@
 <template>
   <div>
-    <NovaSelect v-model="value" :append-to-body="true">
+    <NovaSelect ref="select" v-model="value" :append-to-body="true">
+      <NovaOptGroup v-for="i in 3" :key="i">
+        <NovaOption
+          v-for="(option, optionIndex) in options"
+          :key="optionIndex"
+          :value="`${i}-${option.value}`"
+          :label="`${i}-${option.label}`"
+        >
+        </NovaOption>
+      </NovaOptGroup>
+    </NovaSelect>
+    <NovaSelect v-model="list" :append-to-body="true" multiple>
       <NovaOptGroup v-for="i in 3" :key="i">
         <NovaOption
           v-for="option in options"
           :key="option.value"
           :value="`${i}-${option.value}`"
-          :label="option.label"
+          :label="`${i}-${option.label}`"
         >
         </NovaOption>
       </NovaOptGroup>
     </NovaSelect>
     <button @click="handleAddOption">Add option</button>
     <button @click="handleDeleteOption">Delete option</button>
+    <button @click="handleTest">TEST</button>
   </div>
 </template>
 
@@ -35,6 +47,7 @@ export default {
   data() {
     return {
       value: '',
+      list: [],
       options: [
         { value: 'apple', label: 'Apple' },
         { value: 'banana', label: 'Banana' },
@@ -61,6 +74,10 @@ export default {
     handleDeleteOption() {
       this.options.pop();
       this.options.shift();
+    },
+    handleTest() {
+      const options = this.$refs['select'].getOptions();
+      console.log(options);
     }
   }
 };
