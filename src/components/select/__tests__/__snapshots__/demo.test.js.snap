@@ -6,19 +6,17 @@ exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`]
     <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
       <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
     </div>
-    <div class="nova-dropdown nova-select-dropdown" style="display: none;">
-      <!---->
-      <!---->
-      <!---->
-    </div>
+    <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
+    <!---->
+    <!---->
+    <!---->
   </div>
   <div tabindex="-1" class="nova-select is-disabled">
     <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
       <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
     </div>
-    <div class="nova-dropdown nova-select-dropdown" style="display: none;">
-      <!---->
-    </div>
+    <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
+    <!---->
   </div>
 </section>
 `;
@@ -30,11 +28,10 @@ exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 
       <div class="nova-select-labels"><span><span class="nova-select-label"><span>beijing</span><span class="nova-select-label-delete"></span></span><span class="nova-select-label"><span>shanghai</span><span class="nova-select-label-delete"></span></span></span></div>
     </div>
   </div>
-  <div class="nova-dropdown nova-select-dropdown nova-select-multiple-dropdown" style="display: none;">
-    <!---->
-    <!---->
-    <!---->
-  </div>
+  <div class="nova-dropdown nova-select-dropdown nova-select-multiple-dropdown" style="display: none;"></div>
+  <!---->
+  <!---->
+  <!---->
 </div>
 `;
 
@@ -43,19 +40,14 @@ exports[`renders ./docs/.vuepress/components/demo/select/opt-group.vue correctly
   <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
     <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
   </div>
-  <div class="nova-dropdown nova-select-dropdown" style="display: none;">
-    <div class="nova-select-option-group">
-      <div class="nova-select-option-group-content">
-        <!---->
-        <!---->
-      </div>
-    </div>
-    <div class="nova-select-option-group">
-      <div class="nova-select-option-group-content">
-        <!---->
-        <!---->
-      </div>
-    </div>
+  <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
+  <div>
+    <!---->
+    <!---->
+  </div>
+  <div>
+    <!---->
+    <!---->
   </div>
 </div>
 `;

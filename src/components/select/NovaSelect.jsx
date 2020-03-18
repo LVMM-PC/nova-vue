@@ -2,6 +2,7 @@ import locale from '@/mixin/locale';
 import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
+import OptionTree from '@/components/select/OptionTree';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',
@@ -109,12 +110,16 @@ export default {
       if (!children) {
         return;
       }
+
       for (let i = 0; i < children.length; i++) {
         let child = children[i];
         if (child.componentOptions?.Ctor?.options?.isSelectOption) {
           options.push(child);
         } else {
-          this.getOptionsFromChildren(child.componentOptions.children, options);
+          this.getOptionsFromChildren(
+            child.componentOptions?.children,
+            options
+          );
         }
       }
       return options;
@@ -122,6 +127,40 @@ export default {
     getOptions() {
       const children = this.$slots.default;
       return this.getOptionsFromChildren(children);
+    },
+    getOptionTreeFromChildren(children, tree = []) {
+      if (!children) {
+        return;
+      }
+
+      for (let i = 0; i < children.length; i++) {
+        let child = children[i];
+        if (child.componentOptions?.Ctor?.options?.isSelectOptGroup) {
+          tree.push({
+            isOptGroup: true,
+            children: this.getOptionTreeFromChildren(
+              child.componentOptions?.children
+            ),
+            VNode: child
+          });
+        } else if (child.componentOptions?.Ctor?.options?.isSelectOption) {
+          tree.push({
+            isOption: true,
+            VNode: child
+          });
+        } else {
+          this.getOptionTreeFromChildren(
+            child.componentOptions?.children,
+            tree
+          );
+        }
+      }
+
+      return tree;
+    },
+    getOptionTree() {
+      const children = this.$slots.default;
+      return this.getOptionTreeFromChildren(children);
     },
     getOptionOfIndex(index) {
       const options = this.getOptions();
@@ -223,8 +262,10 @@ export default {
       this.setSelected(activeOption?.componentOptions?.propsData?.value);
       closeSingle();
     },
-    refreshScrollImplement: function(position) {
-      const $option = this.getActiveOption()?.elm;
+    refreshScrollImplement: function(index, position) {
+      const $optionTree = this.$refs['optionTree'];
+      const $option = $optionTree.getOptionDomOfIndex(index);
+
       if (!$option) {
         return;
       }
@@ -251,7 +292,7 @@ export default {
     },
     refreshScroll(index, position) {
       setTimeout(() => {
-        this.refreshScrollImplement(position);
+        this.refreshScrollImplement(index, position);
       }, 0);
     },
     displayedLabel() {
@@ -570,6 +611,11 @@ export default {
       multipleNode = [placeholderNode, textNode];
     }
 
+    let optionTreeNode;
+    if (dropdownLoaded) {
+      optionTreeNode = <OptionTree ref="optionTree"></OptionTree>;
+    }
+
     return (
       <div {...selectProps}>
         <div
@@ -585,7 +631,8 @@ export default {
             {multipleNode}
           </ClientOnly>
         </div>
-        <NovaDropdown {...dropdownProps}>{children}</NovaDropdown>
+        <NovaDropdown {...dropdownProps}>{optionTreeNode}</NovaDropdown>
+        {children}
       </div>
     );
   }

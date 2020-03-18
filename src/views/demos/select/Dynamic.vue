@@ -1,7 +1,7 @@
 <template>
   <div>
     <NovaSelect ref="select" v-model="value" :append-to-body="true">
-      <NovaOptGroup v-for="i in 3" :key="i" :label="i.toString()">
+      <NovaOptGroup v-for="i in 5" :key="i" :label="i.toString()">
         <NovaOption
           v-for="(option, optionIndex) in options"
           :key="optionIndex"
@@ -12,7 +12,7 @@
       </NovaOptGroup>
     </NovaSelect>
     <NovaSelect v-model="list" :append-to-body="true" multiple>
-      <NovaOptGroup v-for="i in 3" :key="i" :label="i.toString()">
+      <NovaOptGroup v-for="i in 5" :key="i" :label="i.toString()">
         <NovaOption
           v-for="option in options"
           :key="option.value"
@@ -82,10 +82,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.nova-select /deep/ .nova-select-dropdown {
-  /*position: static;*/
-  display: block !important;
-}
-</style>

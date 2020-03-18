@@ -5,13 +5,6 @@ export default {
   inject: ['NovaSelect'],
   isSelectOption: true,
   props: {
-    isSelectOption: {
-      type: Boolean,
-      default: true,
-      validator(value) {
-        return value === true;
-      }
-    },
     prefixedClass: {
       type: String,
       default: `${Storage.prefix}-select`
@@ -118,34 +111,6 @@ export default {
     }
   },
   render() {
-    const {
-      $attrs,
-      $listeners,
-      $slots,
-      classList,
-      handleClick,
-      handleMouseenter,
-      label,
-      NovaSelect,
-      value
-    } = this;
-
-    const children = $slots.default || label || value?.toString();
-
-    const optionProps = {
-      ref: 'option',
-      class: classList,
-      attrs: {
-        ...$attrs
-      },
-      on: {
-        ...$listeners,
-        click: handleClick,
-        mouseenter: handleMouseenter
-      }
-    };
-
-    const optionNode = <div {...optionProps}>{children}</div>;
-    return NovaSelect.dropdownLoaded ? optionNode : null;
+    return null;
   }
 };
