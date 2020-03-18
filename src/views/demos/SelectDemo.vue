@@ -24,6 +24,7 @@
           :key="option.value"
           :label="option.label"
           :value="option.value"
+          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
       <NovaLocale :block="false" :locale="en">
@@ -39,6 +40,7 @@
             :key="option.value"
             :label="option.label"
             :value="option.value"
+            :disabled="option.disabled"
           ></NovaOption>
         </NovaSelect>
       </NovaLocale>
@@ -55,6 +57,7 @@
           :key="option.value"
           :label="option.label"
           :value="option.value"
+          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
     </div>
@@ -72,6 +75,7 @@
           :key="option.value"
           :label="option.label"
           :value="option.value"
+          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
       <NovaLocale :block="false" :locale="en">
@@ -88,6 +92,7 @@
             :key="option.value"
             :label="option.label"
             :value="option.value"
+            :disabled="option.disabled"
           ></NovaOption>
         </NovaSelect>
       </NovaLocale>
@@ -104,6 +109,7 @@
           :key="option.value"
           :label="option.label"
           :value="option.value"
+          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
     </div>
@@ -226,7 +232,8 @@ export default {
         },
         {
           label: '香蕉',
-          value: 'banana'
+          value: 'banana',
+          disabled: true
         },
         {
           label: '桃子',

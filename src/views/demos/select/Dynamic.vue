@@ -7,6 +7,7 @@
           :key="optionIndex"
           :value="`${i}-${option.value}`"
           :label="`${i}-${option.label}`"
+          :disabled="option.disabled"
         >
         </NovaOption>
       </NovaOptGroup>
@@ -18,6 +19,7 @@
           :key="option.value"
           :value="`${i}-${option.value}`"
           :label="`${i}-${option.label}`"
+          :disabled="option.disabled"
         >
         </NovaOption>
       </NovaOptGroup>
@@ -49,9 +51,9 @@ export default {
       value: '',
       list: [],
       options: [
-        { value: 'apple', label: 'Apple' },
-        { value: 'banana', label: 'Banana' },
-        { value: 'cherry', label: 'Cherry' }
+        { value: 'apple', label: 'Apple', disabled: false },
+        { value: 'banana', label: 'Banana', disabled: false },
+        { value: 'cherry', label: 'Cherry', disabled: false }
       ]
     };
   },
@@ -60,14 +62,16 @@ export default {
       const endInt = getRandomInt(1, 1000);
       this.options.push({
         value: `peach ${endInt}`,
-        label: `Peach ${endInt}`
+        label: `Peach ${endInt}`,
+        disabled: false
       });
 
       this.$nextTick(() => {
         const startInt = getRandomInt(1, 1000);
         this.options.unshift({
           value: `peach ${startInt}`,
-          label: `Peach ${startInt}`
+          label: `Peach ${startInt}`,
+          disabled: false
         });
       });
     },

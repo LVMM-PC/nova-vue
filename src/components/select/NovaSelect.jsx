@@ -190,10 +190,15 @@ export default {
         if (!this.getOptionOfIndex(newActiveIndex)) {
           break;
         }
-        if (this.getOptionOfIndex(newActiveIndex).disabled) {
+
+        if (
+          this.getOptionOfIndex(newActiveIndex)?.componentOptions?.propsData
+            ?.disabled
+        ) {
           newActiveIndex++;
           continue;
         }
+
         break;
       }
 
@@ -218,10 +223,15 @@ export default {
         if (newActiveIndex < -1) {
           newActiveIndex = size - 1;
         }
+
         if (!this.getOptionOfIndex(newActiveIndex)) {
           break;
         }
-        if (this.getOptionOfIndex(newActiveIndex).disabled) {
+
+        if (
+          this.getOptionOfIndex(newActiveIndex)?.componentOptions?.propsData
+            ?.disabled
+        ) {
           newActiveIndex--;
           continue;
         }
