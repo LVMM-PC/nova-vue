@@ -1,6 +1,6 @@
 import Storage from '@/utils/storage';
 import Props from '@/utils/props';
-import NovaAlert from '@/components/alert/NovaAlert';
+import NovaAlert from '@/components/alert/NovaAlert.jsx';
 
 export default {
   name: 'OptionTree',
