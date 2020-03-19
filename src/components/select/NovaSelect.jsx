@@ -80,10 +80,11 @@ export default {
     reload() {
       if (this.dropdownLoaded) {
         this.dropdownLoaded = false;
+
+        this.$nextTick(() => {
+          this.dropdownLoaded = true;
+        });
       }
-      this.$nextTick(() => {
-        this.dropdownLoaded = true;
-      });
     },
     hasValue() {
       const value = this.value;
