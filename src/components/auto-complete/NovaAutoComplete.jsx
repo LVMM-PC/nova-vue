@@ -42,8 +42,12 @@ export default {
       type: Boolean,
       default: true
     },
-    popoverClass: {
+    dropdownClass: {
       type: String,
+      default: null
+    },
+    dropdownMatchSelectWidth: {
+      type: Number,
       default: null
     },
     fetchSuggestions: {
@@ -413,7 +417,7 @@ export default {
       const $listDropdown = this.$refs['list-dropdown'];
 
       const $autoComplete = this.$refs['auto-complete'];
-      this.list.width = $autoComplete.offsetWidth;
+      this.list.width = this.dropdownMatchSelectWidth || $autoComplete.offsetWidth;
 
       $listDropdown.setPosition($toggle);
     },
@@ -516,7 +520,7 @@ export default {
       list,
       novaLocale,
       placeholder,
-      popoverClass,
+      dropdownClass,
       prefixedClass,
       queryString,
       start,
@@ -556,7 +560,7 @@ export default {
         props: {
           appendToBody,
           opened: start.opened,
-          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
+          dropdownClass: [`${prefixedClass}-dropdown`, dropdownClass]
         }
       };
 
@@ -575,7 +579,7 @@ export default {
           appendToBody,
           opened: list.opened,
           width: list.width,
-          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
+          dropdownClass: [`${prefixedClass}-dropdown`, dropdownClass]
         }
       };
 

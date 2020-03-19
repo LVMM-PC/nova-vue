@@ -7,7 +7,7 @@
         :fetch-suggestions="querySearch"
         auto-select
         placeholder="请选择城市"
-        popover-class="my-auto-complete-dropdown"
+        dropdown-class="my-auto-complete-dropdown"
         @click="handleClick"
         @select="handleSelect"
       >

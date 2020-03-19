@@ -14,7 +14,7 @@
     <div class="box">
       <NovaSelect
         v-model="selectValue1"
-        popover-class="test"
+        dropdown-class="test"
         @change="handleChange"
         @click="handleClick"
         @close="handleClose"

@@ -62,11 +62,28 @@ export default {
 import 'nova-vue/dist/nova.css';
 ```
 
+### 按需加载
+
+> Nova Vue 默认支持基于 ES module 的 tree shaking，无需插件也会有按需加载的效果。
+
+使用 Vue CLI 创建一个项目，或使用 Webpack 构建项目。然后引入需要使用的组件。
+
+```js
+import { NovaAlert } from 'nova-vue';
+```
+
+引入单个组件的样式
+
+```js
+import 'nova-vue/dist/css/alert.css';
+```
+
 ## 链接
 
 - [首页](http://nova-vue.em2046.com/)
 - [GitHub](https://github.com/LVMM-PC/nova-vue)
+- [NPM Package](https://www.npmjs.com/package/nova-vue)
 
 ## 谁在使用
 
-- [驴妈妈](http://www.lvmama.com/)
+- [驴妈妈旅游](http://www.lvmama.com/)

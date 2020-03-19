@@ -10,7 +10,7 @@ Nova Vue 致力于提供给程序员**愉悦**的开发体验。
 
 这是一个最简单的 Nova Vue 组件的演示，[在新窗口中打开](http://nova-vue-preview.em2046.com/)。
 
-此演示使用 vue-cli 工具构建，相关代码见 [nova-vue-preview](https://github.com/em2046/nova-vue-preview)。
+此演示使用 Vue CLI 工具构建，相关代码见 [nova-vue-preview](https://github.com/em2046/nova-vue-preview)。
 
 <demo-getting-started-first/>
 

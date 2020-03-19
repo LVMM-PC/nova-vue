@@ -60,7 +60,7 @@
 | class        | 选择器 className                                           | string  | -            |
 | format       | 设置日期格式。配置参考 [Day.js](https://day.js.org/zh-CN/) | string  | `YYYY-MM-DD` |
 | locale       | 国际化配置                                                 | object  |              |
-| popoverClass | 额外的弹出日历 className                                   | string  | -            |
+| dropdownClass | 额外的弹出日历 className                                   | string  | -            |
 | type         | 选择器的类型，可选 `date` `range`                          | string  | `date`       |
 
 ### type:`date` props

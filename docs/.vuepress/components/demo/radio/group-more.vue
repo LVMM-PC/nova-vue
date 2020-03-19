@@ -4,7 +4,7 @@
     <NovaRadio value="peach">Peach</NovaRadio>
     <NovaRadio value="orange">Orange</NovaRadio>
     <NovaRadio value="more"
-      >More... <input v-if="value === 'more'" class="more-input" type="text"
+      >More... <input v-show="value === 'more'" class="more-input" type="text"
     /></NovaRadio>
   </NovaRadioGroup>
 </template>

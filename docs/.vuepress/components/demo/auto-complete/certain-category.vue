@@ -4,7 +4,8 @@
     :fetch-suggestions="querySearch"
     focus-search
     placeholder="Input here"
-    popover-class="certain-category-search-dropdown"
+    dropdown-class="certain-category-search-dropdown"
+    :dropdown-match-select-width="400"
     @select="onSelect"
   >
     <template v-slot:groupLabel="{ group }">
@@ -67,10 +68,6 @@ export default {
 </script>
 
 <style>
-.certain-category-search-dropdown .nova-auto-complete-groups {
-  width: 400px;
-}
-
 .certain-category-search-dropdown .nova-auto-complete-label {
   opacity: 1;
 }

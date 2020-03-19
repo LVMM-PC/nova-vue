@@ -20,3 +20,9 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.nova-select {
+  width: 120px;
+}
+</style>

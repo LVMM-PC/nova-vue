@@ -84,7 +84,7 @@ export default {
         return false;
       }
     },
-    popoverClass: {
+    dropdownClass: {
       type: String,
       default: null
     }
@@ -655,7 +655,7 @@ export default {
       novaHoliday,
       novaLocale,
       opened,
-      popoverClass,
+      dropdownClass,
       prefixedClass,
       showIcon,
       showMonthSize,
@@ -792,7 +792,7 @@ export default {
         props: {
           appendToBody,
           opened,
-          popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
+          dropdownClass: [`${prefixedClass}-dropdown`, dropdownClass]
         }
       };
 

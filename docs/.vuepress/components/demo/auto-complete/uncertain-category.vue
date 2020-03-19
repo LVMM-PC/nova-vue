@@ -4,7 +4,7 @@
     :fetch-suggestions="querySearch"
     focus-search
     placeholder="Input here"
-    popover-class="uncertain-category-search-dropdown"
+    :dropdown-match-select-width="300"
     @select="onSelect"
   >
     <template v-slot="{ item }">
@@ -55,12 +55,6 @@ export default {
   }
 };
 </script>
-
-<style>
-.uncertain-category-search-dropdown .nova-auto-complete-groups {
-  width: 300px;
-}
-</style>
 
 <style scoped>
 .item {

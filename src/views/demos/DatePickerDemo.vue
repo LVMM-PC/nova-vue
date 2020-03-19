@@ -7,7 +7,7 @@
           v-model="emptyDate"
           :disabled-date="disabledDateBefore"
           placeholder="请选择日期"
-          popover-class="test"
+          dropdown-class="test"
           @blur="handleInputBlur"
           @change="handleChange"
           @click="handleClick"

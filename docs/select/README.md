@@ -51,7 +51,7 @@
 | disabled        | 是否禁用                  | boolean                                                           | false  |
 | multiple        | 设置 Select 的模式为多选  | boolean                                                           | false  |
 | placeholder     | 选择框默认文字            | string                                                            | -      |
-| popoverClass    | 下拉菜单的 className 属性 | string                                                            | -      |
+| dropdownClass    | 下拉菜单的 className 属性 | string                                                            | -      |
 | value / v-model | 指定当前选中的条目        | string \| number \| boolean \|<br>(string \| number \| boolean)[] | -      |
 
 ### Select Slots

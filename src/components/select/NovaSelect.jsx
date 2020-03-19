@@ -47,7 +47,7 @@ export default {
       type: [String, Number, Boolean, Array],
       default: null
     },
-    popoverClass: {
+    dropdownClass: {
       type: String,
       default: null
     }
@@ -538,7 +538,7 @@ export default {
       multiple,
       novaLocale,
       opened,
-      popoverClass,
+      dropdownClass,
       prefixedClass,
       value,
       valueToLabel,
@@ -563,10 +563,10 @@ export default {
         width,
         opened,
         appendToBody: appendToBody && dropdownLoaded,
-        popoverClass: [
+        dropdownClass: [
           `${prefixedClass}-dropdown`,
           { [`${prefixedClass}-multiple-dropdown`]: multiple },
-          popoverClass
+          dropdownClass
         ]
       },
       ref: 'dropdown'

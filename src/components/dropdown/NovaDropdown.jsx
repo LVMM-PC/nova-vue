@@ -14,7 +14,7 @@ export default {
     opened: {
       type: Boolean
     },
-    popoverClass: {
+    dropdownClass: {
       type: [String, Array, Object],
       default: null
     },
@@ -64,11 +64,11 @@ export default {
       appendToBody,
       dropdownStyle,
       opened,
-      popoverClass,
+      dropdownClass,
       prefixedClass
     } = this;
 
-    const classList = [prefixedClass, popoverClass];
+    const classList = [prefixedClass, dropdownClass];
 
     const children = $slots.default;
 
