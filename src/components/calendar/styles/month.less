@@ -45,6 +45,11 @@
   width: 75px;
   height: 95px;
   position: relative;
+  box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
 
   &:before {
     content: '';
@@ -58,9 +63,19 @@
     background-image: url(../../../assets/icons/calendar-next.svg);
   }
 
-  &:hover:not(.is-disabled) {
-    cursor: pointer;
-    background-color: #f5f5f5;
+  &:focus {
+    &:not(.is-disabled) {
+      border: 1px solid #ffd280;
+      box-shadow: 0 0 0 1px #ffd280;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    &:not(.is-disabled) {
+      cursor: pointer;
+      background-color: rgb(255, 250, 238);
+    }
   }
 }
 
@@ -137,6 +152,7 @@
   font-size: 16px;
   display: inline-block;
   vertical-align: middle;
+  word-break: break-all;
   white-space: pre-line;
   width: 100%;
 }

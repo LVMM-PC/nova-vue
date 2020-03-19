@@ -146,10 +146,10 @@ exports[`NovaCalendar Calendar should support locale 1`] = `
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div title="上個月" class="nova-calendar-prev">上個月</div>
+        <div tabindex="0" title="上個月" class="nova-calendar-prev">上個月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div title="下個月" class="nova-calendar-next">下個月</div>
+        <div tabindex="0" title="下個月" class="nova-calendar-next">下個月</div>
       </div>
     </div>
   </div>

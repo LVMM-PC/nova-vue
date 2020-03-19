@@ -146,10 +146,10 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/basic.vue correctly 1
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div title="上个月" class="nova-calendar-prev">上个月</div>
+        <div tabindex="0" title="上个月" class="nova-calendar-prev">上个月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div title="下个月" class="nova-calendar-next">下个月</div>
+        <div tabindex="0" title="下个月" class="nova-calendar-next">下个月</div>
       </div>
     </div>
   </div>
@@ -486,10 +486,10 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div title="上个月" class="nova-calendar-prev">上个月</div>
+        <div tabindex="0" title="上个月" class="nova-calendar-prev">上个月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div title="下个月" class="nova-calendar-next">下个月</div>
+        <div tabindex="0" title="下个月" class="nova-calendar-next">下个月</div>
       </div>
     </div>
   </div>

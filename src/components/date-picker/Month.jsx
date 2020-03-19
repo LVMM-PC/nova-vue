@@ -139,8 +139,10 @@ export default {
       let { prefixedClass } = this;
 
       function run() {
-        const $ref = this.$refs['datesRef'];
-        const $endDate = $ref.querySelectorAll(`.${prefixedClass}-date`)[index];
+        const $dates = this.$refs['dates'];
+        const $endDate = $dates.querySelectorAll(`.${prefixedClass}-date`)[
+          index
+        ];
 
         this.NovaDatePicker.defaultEndTooltip = $endDate;
         if ($endDate) {
@@ -430,7 +432,7 @@ export default {
       );
     });
     const datesNode = (
-      <div class={`${prefixedClass}-dates`} ref="datesRef">
+      <div class={`${prefixedClass}-dates`} ref="dates">
         {dateList}
       </div>
     );

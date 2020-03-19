@@ -17,6 +17,10 @@ export default {
     popoverClass: {
       type: [String, Array, Object],
       default: null
+    },
+    width: {
+      type: Number,
+      default: null
     }
   },
   data() {
@@ -32,20 +36,24 @@ export default {
       if (!this.appendToBody) {
         return {};
       }
-      return this.offset;
+      const width = this.width;
+      return Object.assign(
+        {
+          width: `${width}px`
+        },
+        this.offset
+      );
     }
   },
   methods: {
-    setPosition(select) {
-      let selectHeight = select.offsetHeight;
-
-      let offset = Utils.getElementOffset(select);
-
+    setPosition(targetDom) {
+      let targetHeight = targetDom.offsetHeight;
+      let offset = Utils.getElementOffset(targetDom);
       this.offset.left = `${offset.left}px`;
-      this.offset.top = `${offset.top + selectHeight}px`;
+      this.offset.top = `${offset.top + targetHeight}px`;
     },
-    getDom() {
-      return this.$refs['dropdownDom'];
+    getDropdownInternalRef() {
+      return this.$refs['dropdown'];
     }
   },
   render() {
@@ -73,7 +81,7 @@ export default {
       on: {
         ...$listeners
       },
-      ref: 'dropdownDom'
+      ref: 'dropdown'
     };
 
     const dropdownContent = (

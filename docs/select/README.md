@@ -33,6 +33,14 @@
 
 <<< @/docs/.vuepress/components/demo/select/opt-group.vue
 
+### 联动
+
+省市联动是典型的例子。
+
+<demo-select-coordinate/>
+
+<<< @/docs/.vuepress/components/demo/select/coordinate.vue
+
 ## API
 
 ### Select props

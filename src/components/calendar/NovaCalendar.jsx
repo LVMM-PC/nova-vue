@@ -82,11 +82,11 @@ export default {
       this.$emit('panelChange', this.panelMoment.toDate());
     },
     refreshDateList() {
-      const monthRef = this.$refs['monthRef'];
-      if (!monthRef) {
+      const $months = this.$refs['month'];
+      if (!$months) {
         return;
       }
-      monthRef.forEach($month => {
+      $months.forEach($month => {
         $month.refreshDateList();
       });
     }
@@ -129,7 +129,7 @@ export default {
             novaLocale,
             offset: index
           },
-          ref: 'monthRef',
+          ref: 'month',
           refInFor: true,
           scopedSlots: monthScopedSlots
         };

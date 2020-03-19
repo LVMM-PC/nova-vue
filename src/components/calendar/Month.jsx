@@ -75,7 +75,7 @@ export default {
         dateMoment.toDate()
       );
     },
-    prevMonthClick() {
+    switchToPrevMonth: function() {
       if (this.isDisabledMonthPrev()) {
         return;
       }
@@ -83,13 +83,45 @@ export default {
       const panelMoment = this.NovaCalendar.panelMoment.add(-1, 'month');
       this.NovaCalendar.updateShowDate(panelMoment.toDate());
     },
-    nextMonthClick() {
+    prevMonthClick() {
+      this.switchToPrevMonth();
+    },
+    switchToNextMonth: function() {
       if (this.isDisabledMonthNext()) {
         return;
       }
 
       const panelMoment = this.NovaCalendar.panelMoment.add(1, 'month');
       this.NovaCalendar.updateShowDate(panelMoment.toDate());
+    },
+    nextMonthClick() {
+      this.switchToNextMonth();
+    },
+    nextMonthKeydown(e) {
+      switch (e.key) {
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          e.preventDefault();
+          this.switchToNextMonth();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          this.switchToNextMonth();
+          break;
+      }
+    },
+    prevMonthKeydown(e) {
+      switch (e.key) {
+        case 'Spacebar': // IE/Edge
+        case ' ':
+          e.preventDefault();
+          this.switchToPrevMonth();
+          break;
+        case 'Enter':
+          e.preventDefault();
+          this.switchToPrevMonth();
+          break;
+      }
     },
     isDisabledMonthPrev() {
       return this.NovaCalendar.disabledMonthPrev.call(
@@ -133,10 +165,12 @@ export default {
       isDisabledMonthPrev,
       momentList,
       nextMonthClick,
+      nextMonthKeydown,
       novaLocale,
       offset,
       prefixedClass,
       prevMonthClick,
+      prevMonthKeydown,
       weeks
     } = this;
 
@@ -172,13 +206,16 @@ export default {
     });
 
     const prevMonthTitle = novaLocale.datePicker.prevMonth;
+    const prevDisabled = isDisabledMonthPrev();
     const prevProps = {
       class: [`${prefixedClass}-prev`, getMonthPrevClass()],
       attrs: {
-        title: !isDisabledMonthPrev() ? prevMonthTitle : ''
+        tabindex: !prevDisabled ? 0 : -1,
+        title: !prevDisabled ? prevMonthTitle : ''
       },
       on: {
-        click: prevMonthClick
+        click: prevMonthClick,
+        keydown: prevMonthKeydown
       }
     };
     const prevNode = <div {...prevProps}>{prevMonthTitle}</div>;
@@ -191,13 +228,16 @@ export default {
     );
 
     const nextMonthTitle = novaLocale.datePicker.nextMonth;
+    const nextDisabled = isDisabledMonthNext();
     const nextProps = {
       class: [`${prefixedClass}-next`, getMonthNextClass()],
       attrs: {
-        title: !isDisabledMonthNext() ? nextMonthTitle : ''
+        tabindex: !nextDisabled ? 0 : -1,
+        title: !nextDisabled ? nextMonthTitle : ''
       },
       on: {
-        click: nextMonthClick
+        click: nextMonthClick,
+        keydown: nextMonthKeydown
       }
     };
     const nextNode = <div {...nextProps}>{nextMonthTitle}</div>;

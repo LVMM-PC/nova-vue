@@ -57,7 +57,8 @@ export default {
       dropdownLoaded: false,
       opened: false,
       allOptions: [],
-      activeIndex: -1
+      activeIndex: -1,
+      width: null
     };
   },
   computed: {
@@ -280,19 +281,19 @@ export default {
     },
     refreshScrollImplement: function(index, position) {
       const $optionTree = this.$refs['optionTree'];
-      const $option = $optionTree.getOptionDomOfIndex(index);
+      const optionDom = $optionTree.getOptionDomOfIndex(index);
 
-      if (!$option) {
+      if (!optionDom) {
         return;
       }
 
-      const $dropdown = this.getDropdownDom();
+      const $dropdown = this.getDropdownInternalRef();
 
       const scrollTop = $dropdown.scrollTop;
       const listHeight = $dropdown.clientHeight;
 
-      const offsetTop = $option.offsetTop;
-      const itemHeight = $option.clientHeight;
+      const offsetTop = optionDom.offsetTop;
+      const itemHeight = optionDom.clientHeight;
 
       const underTop = offsetTop >= scrollTop;
       const aboveBottom = offsetTop <= scrollTop + listHeight - itemHeight;
@@ -437,6 +438,7 @@ export default {
         this.activeIndex = -1;
       }
 
+      this.width = this.$refs['select'].offsetWidth;
       this.refreshDropdown();
     },
     refreshDropdown() {
@@ -461,7 +463,7 @@ export default {
       const stopToggle = Utils.isParentsOrSelf(e.target, $select);
       const stopDropdown = Utils.isParentsOrSelf(
         e.target,
-        this.getDropdownDom()
+        this.getDropdownInternalRef()
       );
 
       if (!(stopToggle || stopDropdown)) {
@@ -477,8 +479,8 @@ export default {
 
       this.setSelected(value);
     },
-    getDropdownDom() {
-      return this.$refs['dropdown'].getDom();
+    getDropdownInternalRef() {
+      return this.$refs['dropdown'].getDropdownInternalRef();
     },
     handleKeydown(e) {
       if (this.disabled) {
@@ -539,7 +541,8 @@ export default {
       popoverClass,
       prefixedClass,
       value,
-      valueToLabel
+      valueToLabel,
+      width
     } = this;
 
     const selectProps = {
@@ -557,6 +560,7 @@ export default {
 
     const dropdownProps = {
       props: {
+        width,
         opened,
         appendToBody: appendToBody && dropdownLoaded,
         popoverClass: [

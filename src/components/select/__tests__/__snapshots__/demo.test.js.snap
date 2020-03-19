@@ -17,6 +17,28 @@ exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`]
 </section>
 `;
 
+exports[`renders ./docs/.vuepress/components/demo/select/coordinate.vue correctly 1`] = `
+<section>
+  <div tabindex="0" class="nova-select">
+    <div class="nova-select-toggle"><span class="nova-select-arrow"></span><span class="nova-select-text">Anhui</span></div>
+    <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
+    <!---->
+    <!---->
+  </div>
+  <div tabindex="0" class="nova-select">
+    <div class="nova-select-toggle"><span class="nova-select-arrow"></span><span class="nova-select-text">Hefei</span></div>
+    <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</section>
+`;
+
+exports[`renders ./docs/.vuepress/components/demo/select/custom-dropdown-menu.vue correctly 1`] = `<div></div>`;
+
+exports[`renders ./docs/.vuepress/components/demo/select/label-in-value.vue correctly 1`] = `<div></div>`;
+
 exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 1`] = `
 <div tabindex="0" class="nova-select">
   <div class="nova-select-toggle"><span class="nova-select-arrow"></span>

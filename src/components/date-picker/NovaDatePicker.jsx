@@ -448,7 +448,10 @@ export default {
 
       const target = e.target;
       const stopToggle = Utils.isParentsOrSelf(target, $datePicker);
-      const stopDropdown = Utils.isParentsOrSelf(target, this.getDropdownDom());
+      const stopDropdown = Utils.isParentsOrSelf(
+        target,
+        this.getDropdownInternalRef()
+      );
 
       if (!(stopToggle || stopDropdown)) {
         this.opened = false;
@@ -475,11 +478,11 @@ export default {
     refreshDateList() {
       this.defaultEndTooltip = null;
       this.closeTooltip();
-      const monthRef = this.$refs['monthRef'];
-      if (!monthRef) {
+      const $months = this.$refs['month'];
+      if (!$months) {
         return;
       }
-      monthRef.forEach($month => {
+      $months.forEach($month => {
         $month.refreshDateList();
       });
     },
@@ -542,7 +545,10 @@ export default {
     },
     openTooltip(dom, text) {
       if (this.appendToBody) {
-        const offset = Utils.getElementOffset(dom, this.getDropdownDom());
+        const offset = Utils.getElementOffset(
+          dom,
+          this.getDropdownInternalRef()
+        );
         this.tooltip.offset.left = `${offset.left}px`;
         this.tooltip.offset.top = `${offset.top + dom.clientHeight}px`;
       }
@@ -554,11 +560,11 @@ export default {
       this.tooltip.visible = false;
     },
     openDefaultTooltip() {
-      const monthRef = this.$refs['monthRef'];
-      if (!monthRef) {
+      const $month = this.$refs['month'];
+      if (!$month) {
         return;
       }
-      monthRef.forEach($month => {
+      $month.forEach($month => {
         $month.openDefaultTooltip();
       });
     },
@@ -568,8 +574,8 @@ export default {
       }
       return this.tooltip.offset;
     },
-    getDropdownDom() {
-      return this.$refs['dropdown'].getDom();
+    getDropdownInternalRef() {
+      return this.$refs['dropdown'].getDropdownInternalRef();
     },
     handleDropdownMousedown() {
       setTimeout(() => {
@@ -803,7 +809,7 @@ export default {
         .map((empty, index) => {
           const monthProps = {
             key: index,
-            ref: 'monthRef',
+            ref: 'month',
             refInFor: true,
             props: {
               novaHoliday,

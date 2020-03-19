@@ -73,7 +73,8 @@ export default {
         opened: false,
         data: [],
         groups: [],
-        activeIndex: -1
+        activeIndex: -1,
+        width: null
       },
       autoSelectTimer: null
     };
@@ -244,15 +245,18 @@ export default {
     },
     getStartDropdownDom() {
       const $startDropdown = this.$refs['start-dropdown'];
-      if (typeof $startDropdown.getDom === 'function') {
-        return $startDropdown.getDom();
+      if (typeof $startDropdown.getDropdownInternalRef === 'function') {
+        return $startDropdown.getDropdownInternalRef();
       }
       return null;
     },
     getListDropdownDom() {
       const $listDropdown = this.$refs['list-dropdown'];
-      if ($listDropdown && typeof $listDropdown.getDom === 'function') {
-        return $listDropdown.getDom();
+      if (
+        $listDropdown &&
+        typeof $listDropdown.getDropdownInternalRef === 'function'
+      ) {
+        return $listDropdown.getDropdownInternalRef();
       }
       return null;
     },
@@ -407,6 +411,10 @@ export default {
 
       const $toggle = this.$refs['toggle'];
       const $listDropdown = this.$refs['list-dropdown'];
+
+      const $autoComplete = this.$refs['auto-complete'];
+      this.list.width = $autoComplete.offsetWidth;
+
       $listDropdown.setPosition($toggle);
     },
     listOtherClick(e) {
@@ -566,6 +574,7 @@ export default {
         props: {
           appendToBody,
           opened: list.opened,
+          width: list.width,
           popoverClass: [`${prefixedClass}-dropdown`, popoverClass]
         }
       };
