@@ -64,6 +64,9 @@ export default {
       return isSelected;
     }
   },
+  created() {
+    this.NovaSelect.reload();
+  },
   destroyed() {
     this.NovaSelect.removeInvalid();
   },
