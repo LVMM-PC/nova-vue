@@ -57,9 +57,7 @@ exports[`renders ./docs/.vuepress/components/demo/radio/group-more.vue correctly
   </div>
   <div class="nova-radio">
     <div tabindex="0" class="nova-radio-input"></div>
-    <div class="nova-radio-label">More...
-      <!---->
-    </div>
+    <div class="nova-radio-label">More... <input type="text" class="more-input" style="display: none;"></div>
   </div>
 </div>
 `;

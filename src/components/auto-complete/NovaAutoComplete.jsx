@@ -417,7 +417,8 @@ export default {
       const $listDropdown = this.$refs['list-dropdown'];
 
       const $autoComplete = this.$refs['auto-complete'];
-      this.list.width = this.dropdownMatchSelectWidth || $autoComplete.offsetWidth;
+      this.list.width =
+        this.dropdownMatchSelectWidth || $autoComplete.offsetWidth;
 
       $listDropdown.setPosition($toggle);
     },
