@@ -15,7 +15,6 @@ export default {
     }
   },
   created() {
-    console.log('GROUP');
     this.NovaSelect.reload();
   },
   render() {
