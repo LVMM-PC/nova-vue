@@ -647,7 +647,7 @@ export default {
         const defaultEmptyNode = (
           <div class={`${prefixedClass}-empty`}>
             <NovaAlert type="info">
-              <span>{novaLocale.autoComplete.noData}</span>
+              <span>{novaLocale.empty.description}</span>
             </NovaAlert>
           </div>
         );

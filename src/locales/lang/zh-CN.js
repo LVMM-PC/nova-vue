@@ -1,4 +1,7 @@
 const zhCN = {
+  empty: {
+    description: '暂无数据'
+  },
   select: {
     placeholder: '请选择'
   },
@@ -45,9 +48,6 @@ const zhCN = {
       '11月',
       '12月'
     ]
-  },
-  autoComplete: {
-    noData: '未找到匹配数据'
   }
 };
 

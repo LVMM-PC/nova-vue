@@ -1,4 +1,5 @@
 import Storage from '@/utils/storage';
+import Props from '@/utils/props';
 
 export default {
   name: 'NovaOption',
@@ -31,13 +32,12 @@ export default {
     classList() {
       const { isSelected, disabled, prefixedClass } = this;
 
-      const activeOption = this.NovaSelect.getActiveOption();
+      const activeOption = this.NovaSelect.getActiveOptionVNode();
 
       return [
         `${prefixedClass}-option`,
         {
-          'is-active':
-            activeOption?.componentOptions?.propsData?.value === this.value,
+          'is-active': Props.getVNodeProps(activeOption)?.value === this.value,
           'is-selected': isSelected,
           'is-disabled': disabled
         }
@@ -64,19 +64,8 @@ export default {
       return isSelected;
     }
   },
-  created() {
-    const { disabled, label, value } = this;
-
-    this.optionId = this.NovaSelect.addMultipleOption({
-      component: this,
-      disabled,
-      label,
-      value
-    });
-  },
   destroyed() {
-    const optionId = this.optionId;
-    this.NovaSelect.removeMultipleOption(optionId);
+    this.NovaSelect.removeInvalid();
   },
   methods: {
     handleClick(...args) {
@@ -97,7 +86,7 @@ export default {
       }
 
       this.NovaSelect.setActiveIndex(
-        this.NovaSelect.getIndexOfValue(this.value)
+        this.NovaSelect.getOptionVNodeIndexFromValue(this.value)
       );
     },
     getOptionData() {

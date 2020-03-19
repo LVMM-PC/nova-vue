@@ -1,4 +1,7 @@
 const en = {
+  empty: {
+    description: 'No data'
+  },
   select: {
     placeholder: 'Select'
   },
@@ -45,9 +48,6 @@ const en = {
       'November',
       'December'
     ]
-  },
-  autoComplete: {
-    noData: 'No matching data found'
   }
 };
 

@@ -14,6 +14,10 @@ export default {
       default: ''
     }
   },
+  created() {
+    console.log('GROUP');
+    this.NovaSelect.reload();
+  },
   render() {
     const { $slots } = this;
     const children = $slots.default;

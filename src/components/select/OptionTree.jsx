@@ -1,4 +1,6 @@
 import Storage from '@/utils/storage';
+import Props from '@/utils/props';
+import NovaAlert from '@/components/alert/NovaAlert';
 
 export default {
   name: 'OptionTree',
@@ -7,6 +9,10 @@ export default {
     prefixedClass: {
       type: String,
       default: `${Storage.prefix}-select`
+    },
+    novaLocale: {
+      type: Object,
+      default: null
     }
   },
   methods: {
@@ -92,22 +98,31 @@ export default {
         return;
       }
 
-      return tree.map(node => {
-        const instance = node.VNode.componentInstance;
+      return tree.map(treeNode => {
+        const instance = Props.getVNodeInstance(treeNode.vNode);
         if (!instance) {
           return;
         }
 
-        if (node.isOptGroup) {
-          return renderOptGroup(node, instance);
-        } else if (node.isOption) {
+        if (treeNode.isOptGroup) {
+          return renderOptGroup(treeNode, instance);
+        } else if (treeNode.isOption) {
           return renderOption(instance);
         }
       });
     };
 
-    const optionTree = this.NovaSelect.getOptionTree();
-    const treeNode = renderTree(optionTree);
+    let treeNode;
+    const optionTree = this.NovaSelect.getOptionVNodeTree();
+    if (optionTree?.length) {
+      treeNode = renderTree(optionTree);
+    } else {
+      treeNode = (
+        <div class={`${prefixedClass}-option-empty`}>
+          <NovaAlert type="info">{this.novaLocale.empty.description}</NovaAlert>
+        </div>
+      );
+    }
 
     return (
       <div ref="optionTree" class={`${prefixedClass}-option-tree`}>

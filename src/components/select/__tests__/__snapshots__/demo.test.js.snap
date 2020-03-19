@@ -3,18 +3,14 @@
 exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`] = `
 <section>
   <div tabindex="0" class="nova-select">
-    <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
-      <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
-    </div>
+    <div class="nova-select-toggle"><span class="nova-select-arrow"></span><span class="nova-select-text">Shanghai</span></div>
     <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
     <!---->
     <!---->
     <!---->
   </div>
   <div tabindex="-1" class="nova-select is-disabled">
-    <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
-      <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
-    </div>
+    <div class="nova-select-toggle"><span class="nova-select-arrow"></span><span class="nova-select-text">Shanghai</span></div>
     <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
     <!---->
   </div>
@@ -24,9 +20,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/basic.vue correctly 1`]
 exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 1`] = `
 <div tabindex="0" class="nova-select">
   <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
-    <div data-mock="client-only">
-      <div class="nova-select-labels"><span><span class="nova-select-label"><span>beijing</span><span class="nova-select-label-delete"></span></span><span class="nova-select-label"><span>shanghai</span><span class="nova-select-label-delete"></span></span></span></div>
-    </div>
+    <div class="nova-select-labels"><span><span class="nova-select-label"><span>Beijing</span><span class="nova-select-label-delete"></span></span><span class="nova-select-label"><span>Shanghai</span><span class="nova-select-label-delete"></span></span></span></div>
   </div>
   <div class="nova-dropdown nova-select-dropdown nova-select-multiple-dropdown" style="display: none;"></div>
   <!---->
@@ -37,9 +31,7 @@ exports[`renders ./docs/.vuepress/components/demo/select/multiple.vue correctly 
 
 exports[`renders ./docs/.vuepress/components/demo/select/opt-group.vue correctly 1`] = `
 <div tabindex="0" class="nova-select">
-  <div class="nova-select-toggle"><span class="nova-select-arrow"></span>
-    <div data-mock="client-only"><span class="nova-select-text">shanghai</span></div>
-  </div>
+  <div class="nova-select-toggle"><span class="nova-select-arrow"></span><span class="nova-select-text">Shanghai</span></div>
   <div class="nova-dropdown nova-select-dropdown" style="display: none;"></div>
   <div>
     <!---->

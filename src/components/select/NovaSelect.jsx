@@ -3,6 +3,7 @@ import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import OptionTree from '@/components/select/OptionTree.jsx';
+import Props from '@/utils/props';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',
@@ -55,8 +56,7 @@ export default {
     return {
       dropdownLoaded: false,
       opened: false,
-      multipleOptions: [],
-      optionSerial: 0,
+      allOptions: [],
       activeIndex: -1
     };
   },
@@ -71,19 +71,20 @@ export default {
           'is-disabled': disabled
         }
       ];
-    },
-    valueHash() {
-      const hash = {};
-      this.multipleOptions.forEach(option => {
-        hash[option.value] = option;
-      });
-      return hash;
     }
   },
   destroyed() {
     this.closeDropdown(true);
   },
   methods: {
+    reload() {
+      if (this.dropdownLoaded) {
+        this.dropdownLoaded = false;
+      }
+      this.$nextTick(() => {
+        this.dropdownLoaded = true;
+      });
+    },
     hasValue() {
       const value = this.value;
 
@@ -100,23 +101,23 @@ export default {
           return !!value;
       }
     },
-    getActiveOption() {
+    getActiveOptionVNode() {
       if (this.activeIndex === -1) {
         return null;
       }
-      return this.getOptionOfIndex(this.activeIndex);
+      return this.getOptionVNodeFromIndex(this.activeIndex);
     },
-    getOptionsFromChildren(children, options = []) {
+    getOptionVNodesFromChildren(children, options = []) {
       if (!children) {
         return;
       }
 
       for (let i = 0; i < children.length; i++) {
         let child = children[i];
-        if (child.componentOptions?.Ctor?.options?.isSelectOption) {
+        if (Props.getVNodeOptions(child)?.isSelectOption) {
           options.push(child);
         } else {
-          this.getOptionsFromChildren(
+          this.getOptionVNodesFromChildren(
             child.componentOptions?.children,
             options
           );
@@ -124,32 +125,32 @@ export default {
       }
       return options;
     },
-    getOptions() {
+    getOptionVNodes() {
       const children = this.$slots.default;
-      return this.getOptionsFromChildren(children);
+      return this.getOptionVNodesFromChildren(children);
     },
-    getOptionTreeFromChildren(children, tree = []) {
+    getOptionVNodeTreeFromChildren(children, tree = []) {
       if (!children) {
         return;
       }
 
       for (let i = 0; i < children.length; i++) {
         let child = children[i];
-        if (child.componentOptions?.Ctor?.options?.isSelectOptGroup) {
+        if (Props.getVNodeOptions(child)?.isSelectOptGroup) {
           tree.push({
             isOptGroup: true,
-            children: this.getOptionTreeFromChildren(
+            children: this.getOptionVNodeTreeFromChildren(
               child.componentOptions?.children
             ),
-            VNode: child
+            vNode: child
           });
-        } else if (child.componentOptions?.Ctor?.options?.isSelectOption) {
+        } else if (Props.getVNodeOptions(child)?.isSelectOption) {
           tree.push({
             isOption: true,
-            VNode: child
+            vNode: child
           });
         } else {
-          this.getOptionTreeFromChildren(
+          this.getOptionVNodeTreeFromChildren(
             child.componentOptions?.children,
             tree
           );
@@ -158,18 +159,21 @@ export default {
 
       return tree;
     },
-    getOptionTree() {
+    getOptionVNodeTree() {
       const children = this.$slots.default;
-      return this.getOptionTreeFromChildren(children);
+      return this.getOptionVNodeTreeFromChildren(children);
     },
-    getOptionOfIndex(index) {
-      const options = this.getOptions();
+    getOptionVNodeFromIndex(index) {
+      const options = this.getOptionVNodes();
       return options[index];
     },
-    getIndexOfValue(value) {
-      const options = this.getOptions();
+    getOptionVNodeIndexFromValue(value) {
+      const options = this.getOptionVNodes();
+      if (!options) {
+        return;
+      }
       return options.findIndex(option => {
-        return option?.componentOptions?.propsData?.value === value;
+        return Props.getVNodeProps(option)?.value === value;
       });
     },
     setActiveIndex(index) {
@@ -181,32 +185,33 @@ export default {
         return;
       }
 
-      let newActiveIndex = this.activeIndex;
-      const options = this.getOptions();
+      let nextIndex = this.activeIndex;
+      const options = this.getOptionVNodes();
       const size = options.length;
 
-      newActiveIndex++;
+      nextIndex++;
       for (let i = 0; i < size; i++) {
-        if (!this.getOptionOfIndex(newActiveIndex)) {
+        const option = options[nextIndex];
+
+        if (!option) {
           break;
         }
 
-        const propsData = this.getOptionOfIndex(newActiveIndex)
-          ?.componentOptions?.propsData;
+        const propsData = Props.getVNodeProps(option);
 
-        if (Utils.isDisabled(propsData?.disabled)) {
-          newActiveIndex++;
+        if (Props.isBooleanPropsTrue(propsData?.disabled)) {
+          nextIndex++;
           continue;
         }
 
         break;
       }
 
-      if (newActiveIndex >= size) {
-        newActiveIndex = -1;
+      if (nextIndex >= size) {
+        nextIndex = -1;
       }
-      this.activeIndex = newActiveIndex;
-      this.refreshScroll(newActiveIndex, POSITION.BOTTOM);
+      this.activeIndex = nextIndex;
+      this.refreshScroll(nextIndex, POSITION.BOTTOM);
     },
     moveUp() {
       if (!this.opened) {
@@ -214,32 +219,32 @@ export default {
         return;
       }
 
-      let newActiveIndex = this.activeIndex;
-      const options = this.getOptions();
+      let prevIndex = this.activeIndex;
+      const options = this.getOptionVNodes();
       const size = options.length;
 
-      newActiveIndex--;
+      prevIndex--;
       for (let i = 0; i < size; i++) {
-        if (newActiveIndex < -1) {
-          newActiveIndex = size - 1;
+        if (prevIndex < -1) {
+          prevIndex = size - 1;
         }
 
-        if (!this.getOptionOfIndex(newActiveIndex)) {
+        if (!this.getOptionVNodeFromIndex(prevIndex)) {
           break;
         }
 
-        const propsData = this.getOptionOfIndex(newActiveIndex)
-          ?.componentOptions?.propsData;
+        const option = options[prevIndex];
+        const propsData = Props.getVNodeProps(option);
 
-        if (Utils.isDisabled(propsData?.disabled)) {
-          newActiveIndex--;
+        if (Props.isBooleanPropsTrue(propsData?.disabled)) {
+          prevIndex--;
           continue;
         }
         break;
       }
 
-      this.activeIndex = newActiveIndex;
-      this.refreshScroll(newActiveIndex, POSITION.TOP);
+      this.activeIndex = prevIndex;
+      this.refreshScroll(prevIndex, POSITION.TOP);
     },
     handleInput() {
       if (this.opened) {
@@ -256,7 +261,7 @@ export default {
         return;
       }
 
-      const activeOption = this.getActiveOption();
+      const activeOption = this.getActiveOptionVNode();
 
       const closeSingle = () => {
         if (!this.multiple) {
@@ -269,7 +274,7 @@ export default {
         return;
       }
 
-      this.setSelected(activeOption?.componentOptions?.propsData?.value);
+      this.setSelected(Props.getVNodeProps(activeOption)?.value);
       closeSingle();
     },
     refreshScrollImplement: function(index, position) {
@@ -321,11 +326,15 @@ export default {
       }
     },
     valueToLabel(value) {
-      const found = this.valueHash[value];
-      if (found !== null && found !== undefined) {
-        return found.label;
+      const optionVNodes = this.getOptionVNodes();
+      if (!optionVNodes) {
+        return;
       }
-      return '';
+      const foundOptionVNode = optionVNodes.find(optionVNode => {
+        return Props.getVNodeProps(optionVNode)?.value === value;
+      });
+      const label = Props.getVNodeProps(foundOptionVNode)?.label;
+      return label;
     },
     setSelected(value) {
       if (this.multiple) {
@@ -350,8 +359,32 @@ export default {
 
       this.$refs['select'].focus();
     },
+    removeInvalid() {
+      const optionVNodes = this.getOptionVNodes() || [];
+
+      const valueList = optionVNodes.map(optionVNode => {
+        return Props.getVNodeProps(optionVNode)?.value;
+      });
+
+      let valueHash = {};
+      valueList.forEach(value => {
+        valueHash[value] = true;
+      });
+
+      if (this.multiple) {
+        const oldValue = this.value.slice();
+        const newValue = oldValue.filter(value => {
+          return valueHash[value];
+        });
+        this.$emit('update', newValue);
+      } else {
+        if (!valueHash[this.value]) {
+          this.$emit('update', null);
+        }
+      }
+    },
     getSingleSelectedIndex() {
-      return this.getIndexOfValue(this.value);
+      return this.getOptionVNodeIndexFromValue(this.value);
     },
     getValue() {
       return this.value;
@@ -436,21 +469,6 @@ export default {
         this.closeDropdown();
       }
     },
-    addMultipleOption(option) {
-      const optionSerial = this.optionSerial;
-
-      this.multipleOptions.push(
-        Object.assign({ optionId: optionSerial }, option)
-      );
-
-      this.optionSerial++;
-      return optionSerial;
-    },
-    removeMultipleOption(optionId) {
-      this.multipleOptions = this.multipleOptions.filter(option => {
-        return option.optionId !== optionId;
-      });
-    },
     handleDeleteClick(value) {
       if (this.disabled) {
         return;
@@ -515,6 +533,7 @@ export default {
       handleTransitionFinished,
       hasValue,
       multiple,
+      novaLocale,
       opened,
       popoverClass,
       prefixedClass,
@@ -623,7 +642,9 @@ export default {
 
     let optionTreeNode;
     if (dropdownLoaded) {
-      optionTreeNode = <OptionTree ref="optionTree"></OptionTree>;
+      optionTreeNode = (
+        <OptionTree novaLocale={novaLocale} ref="optionTree"></OptionTree>
+      );
     }
 
     return (
@@ -636,10 +657,8 @@ export default {
           ref="toggle"
         >
           <span class={`${prefixedClass}-arrow`}></span>
-          <ClientOnly>
-            {singleNode}
-            {multipleNode}
-          </ClientOnly>
+          {singleNode}
+          {multipleNode}
         </div>
         <NovaDropdown {...dropdownProps}>{optionTreeNode}</NovaDropdown>
         {children}

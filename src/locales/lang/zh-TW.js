@@ -1,4 +1,7 @@
 const zhTW = {
+  empty: {
+    description: '暫無數據'
+  },
   select: {
     placeholder: '請選擇'
   },
@@ -45,9 +48,6 @@ const zhTW = {
       '11月',
       '12月'
     ]
-  },
-  autoComplete: {
-    noData: '未找到匹配數據'
   }
 };
 

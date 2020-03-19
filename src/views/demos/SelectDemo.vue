@@ -3,9 +3,7 @@
     <div class="box">
       <Basic></Basic>
     </div>
-    <div class="box">
-      <Dynamic></Dynamic>
-    </div>
+    <Dynamic></Dynamic>
     <div class="box">
       <select>
         <option value="apple">Apple</option>
@@ -314,6 +312,11 @@ export default {
 
 <style lang="less" scoped>
 .nova-select {
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/deep/ .nova-select {
   margin-right: 20px;
   margin-bottom: 20px;
 }
