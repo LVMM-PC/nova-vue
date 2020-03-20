@@ -4,7 +4,7 @@ import less from 'gulp-less';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import LessAutoprefix from 'less-plugin-autoprefix';
-import {fromTheRoot} from './utils';
+import { fromTheRoot } from './utils';
 
 const autoprefix = new LessAutoprefix();
 
