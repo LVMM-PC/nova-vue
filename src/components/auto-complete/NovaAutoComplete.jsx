@@ -1,9 +1,9 @@
 import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
+import Storage from '@/utils/storage';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';
-import Storage from '@/utils/storage';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',

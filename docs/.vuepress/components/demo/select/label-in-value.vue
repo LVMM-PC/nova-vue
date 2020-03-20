@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template> </template>
 
 <script>
 export default {
-  name: 'label-in-value'
+  name: 'LabelInValue'
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

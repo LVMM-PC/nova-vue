@@ -1,13 +1,9 @@
-<template>
-
-</template>
+<template> </template>
 
 <script>
 export default {
-  name: 'custom-dropdown-menu'
+  name: 'CustomDropdownMenu'
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

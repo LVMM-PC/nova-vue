@@ -1,6 +1,6 @@
-import through2 from 'through2';
 import parseXml from '@rgrove/parse-xml';
 import prettier from 'prettier';
+import through2 from 'through2';
 
 function toAbstractNode(node) {
   const { name, attributes, children } = node;

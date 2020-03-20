@@ -6,8 +6,8 @@
         v-model="city"
         :fetch-suggestions="querySearch"
         auto-select
-        placeholder="请选择城市"
         dropdown-class="my-auto-complete-dropdown"
+        placeholder="请选择城市"
         @click="handleClick"
         @select="handleSelect"
       >

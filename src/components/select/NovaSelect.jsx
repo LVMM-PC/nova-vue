@@ -1,9 +1,9 @@
-import locale from '@/mixin/locale';
 import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
-import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
-import OptionTree from '@/components/select/OptionTree.jsx';
 import Props from '@/utils/props';
+import locale from '@/mixin/locale';
+import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
+import OptionTree from './OptionTree.jsx';
 
 const POSITION = {
   BOTTOM: 'BOTTOM',

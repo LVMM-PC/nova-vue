@@ -23,9 +23,9 @@
         <NovaOption
           v-for="option in selectOptions"
           :key="option.value"
+          :disabled="option.disabled"
           :label="option.label"
           :value="option.value"
-          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
       <NovaLocale :block="false" :locale="en">
@@ -39,9 +39,9 @@
           <NovaOption
             v-for="option in selectOptions"
             :key="option.value"
+            :disabled="option.disabled"
             :label="option.label"
             :value="option.value"
-            :disabled="option.disabled"
           ></NovaOption>
         </NovaSelect>
       </NovaLocale>
@@ -56,9 +56,9 @@
         <NovaOption
           v-for="option in selectOptions"
           :key="option.value"
+          :disabled="option.disabled"
           :label="option.label"
           :value="option.value"
-          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
     </div>
@@ -74,9 +74,9 @@
         <NovaOption
           v-for="option in selectOptions"
           :key="option.value"
+          :disabled="option.disabled"
           :label="option.label"
           :value="option.value"
-          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
       <NovaLocale :block="false" :locale="en">
@@ -91,9 +91,9 @@
           <NovaOption
             v-for="option in selectOptions"
             :key="option.value"
+            :disabled="option.disabled"
             :label="option.label"
             :value="option.value"
-            :disabled="option.disabled"
           ></NovaOption>
         </NovaSelect>
       </NovaLocale>
@@ -108,9 +108,9 @@
         <NovaOption
           v-for="option in selectOptions"
           :key="option.value"
+          :disabled="option.disabled"
           :label="option.label"
           :value="option.value"
-          :disabled="option.disabled"
         ></NovaOption>
       </NovaSelect>
     </div>

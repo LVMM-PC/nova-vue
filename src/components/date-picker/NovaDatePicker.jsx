@@ -1,10 +1,10 @@
 import dayjs from 'dayjs';
 import Utils from '@/utils/utils';
+import Storage from '@/utils/storage';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import Month from './Month.jsx';
-import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaDatePicker',

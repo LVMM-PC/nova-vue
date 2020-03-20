@@ -1,10 +1,10 @@
 <template>
   <NovaAutoComplete
     v-model="value"
+    :dropdown-match-select-width="300"
     :fetch-suggestions="querySearch"
     focus-search
     placeholder="Input here"
-    :dropdown-match-select-width="300"
     @select="onSelect"
   >
     <template v-slot="{ item }">

@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped>
-.nova-select{
+.nova-select {
   width: 120px;
 }
 </style>

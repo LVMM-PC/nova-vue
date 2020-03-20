@@ -1,6 +1,6 @@
+import Utils from '@/utils/utils';
 import zhCN from '@/locales/lang/zh-CN';
 import holiday from '@/locales/holiday/china';
-import Utils from '@/utils/utils';
 
 export default {
   inject: {

@@ -6,9 +6,9 @@
           <NovaOption
             v-for="(option, optionIndex) in options"
             :key="optionIndex"
-            :value="`${i}-${option.value}`"
-            :label="`${i}-${option.label}`"
             :disabled="option.disabled"
+            :label="`${i}-${option.label}`"
+            :value="`${i}-${option.value}`"
           >
           </NovaOption>
         </NovaOptGroup>
@@ -18,9 +18,9 @@
           <NovaOption
             v-for="option in options"
             :key="option.value"
-            :value="`${i}-${option.value}`"
-            :label="`${i}-${option.label}`"
             :disabled="option.disabled"
+            :label="`${i}-${option.label}`"
+            :value="`${i}-${option.value}`"
           >
           </NovaOption>
         </NovaOptGroup>
@@ -31,9 +31,9 @@
         <NovaOption
           v-for="(option, optionIndex) in options"
           :key="optionIndex"
-          :value="`${option.value}`"
-          :label="`${option.label}`"
           :disabled="option.disabled"
+          :label="`${option.label}`"
+          :value="`${option.value}`"
         >
         </NovaOption>
       </NovaSelect>
@@ -41,9 +41,9 @@
         <NovaOption
           v-for="option in options"
           :key="option.value"
-          :value="`${option.value}`"
-          :label="`${option.label}`"
           :disabled="option.disabled"
+          :label="`${option.label}`"
+          :value="`${option.value}`"
         >
         </NovaOption>
       </NovaSelect>

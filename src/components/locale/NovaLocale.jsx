@@ -1,6 +1,6 @@
+import Storage from '@/utils/storage';
 import zhCN from '@/locales/lang/zh-CN';
 import holiday from '@/locales/holiday/china';
-import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaLocale',

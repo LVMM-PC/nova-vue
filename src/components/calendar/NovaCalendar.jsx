@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
+import Storage from '@/utils/storage';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import Month from './Month.jsx';
-import Storage from '@/utils/storage';
 
 export default {
   name: 'NovaCalendar',

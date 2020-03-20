@@ -13,6 +13,7 @@ const defaultConfig = {
     { removeTitle: true },
     { removeDesc: true },
     { removeUselessDefs: true },
+    { removeXMLNS: true },
     { removeEditorsNSData: true },
     { removeEmptyAttrs: true },
     { removeHiddenElems: true },
@@ -41,6 +42,12 @@ const defaultConfig = {
   ]
 };
 
-export const singleColorSVGOConfig = Object.assign({}, defaultConfig, {
-  plugins: [{ removeAttrs: { attrs: '(stroke|fill)' } }]
-});
+export const singleColorSVGOConfig = Object.assign(
+  { ...defaultConfig },
+  {
+    plugins: [
+      ...defaultConfig.plugins,
+      { removeAttrs: { attrs: '(stroke|fill)' } }
+    ]
+  }
+);

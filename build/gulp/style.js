@@ -1,9 +1,9 @@
 import path from 'path';
 import { dest, series, src } from 'gulp';
 import less from 'gulp-less';
+import LessAutoprefix from 'less-plugin-autoprefix';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
-import LessAutoprefix from 'less-plugin-autoprefix';
 import { fromTheRoot } from './utils';
 
 const autoprefix = new LessAutoprefix();

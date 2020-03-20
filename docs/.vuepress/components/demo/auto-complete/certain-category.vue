@@ -1,11 +1,11 @@
 <template>
   <NovaAutoComplete
     v-model="value"
+    :dropdown-match-select-width="400"
     :fetch-suggestions="querySearch"
+    dropdown-class="certain-category-search-dropdown"
     focus-search
     placeholder="Input here"
-    dropdown-class="certain-category-search-dropdown"
-    :dropdown-match-select-width="400"
     @select="onSelect"
   >
     <template v-slot:groupLabel="{ group }">

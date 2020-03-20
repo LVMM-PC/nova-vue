@@ -3,15 +3,15 @@
     <NovaLocale :holiday="hideHoliday" :locale="en">
       <NovaDatePicker
         v-model="date"
-        placeholder="Select date"
         format="ddd MMM DD YYYY"
+        placeholder="Select date"
       ></NovaDatePicker>
     </NovaLocale>
     <NovaLocale :holiday="china" :locale="zhCN">
       <NovaDatePicker
         v-model="date"
-        placeholder="选择日期"
         format="YYYY年 M月 D日"
+        placeholder="选择日期"
       ></NovaDatePicker>
     </NovaLocale>
   </section>
