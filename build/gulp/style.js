@@ -4,11 +4,7 @@ import less from 'gulp-less';
 import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import LessAutoprefix from 'less-plugin-autoprefix';
-
-function fromTheRoot(p) {
-  const projectRootDir = path.resolve(__dirname, '../..');
-  return path.join(projectRootDir, p);
-}
+import {fromTheRoot} from './utils';
 
 const autoprefix = new LessAutoprefix();
 
