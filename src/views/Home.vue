@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <div class="box link-box">
+      <router-link to="/icon">Icon</router-link>
       <router-link to="/select">Select</router-link>
       <router-link to="/radio">Radio</router-link>
       <router-link to="/checkbox">Checkbox</router-link>

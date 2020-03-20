@@ -3,6 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
+      <router-link to="/icon">Icon</router-link>
+      |
       <router-link to="/select">Select</router-link>
       |
       <router-link to="/radio">Radio</router-link>

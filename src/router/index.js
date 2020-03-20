@@ -11,6 +11,12 @@ const routes = [
     component: Home
   },
   {
+    path: '/icon',
+    name: 'Icon',
+    component: () =>
+      import(/* webpackChunkName: "icon" */ '../views/demos/IconDemo.vue')
+  },
+  {
     path: '/select',
     name: 'Select',
     component: () =>
