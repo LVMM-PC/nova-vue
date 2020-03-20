@@ -1,9 +1,10 @@
-const path = require('path');
-const { series, src, dest } = require('gulp');
-const less = require('gulp-less');
-const rename = require('gulp-rename');
-const replace = require('gulp-replace');
-const LessAutoprefix = require('less-plugin-autoprefix');
+import path from 'path';
+import { dest, series, src } from 'gulp';
+import less from 'gulp-less';
+import rename from 'gulp-rename';
+import replace from 'gulp-replace';
+import LessAutoprefix from 'less-plugin-autoprefix';
+
 const autoprefix = new LessAutoprefix();
 
 const lessOptions = {
@@ -11,11 +12,11 @@ const lessOptions = {
   plugins: [autoprefix]
 };
 
-function moveImages() {
+function styleMoveImages() {
   return src('../src/assets/**/**.**').pipe(dest('../dist/img/'));
 }
 
-function buildModule() {
+function styleBuildModule() {
   return src('../src/components/**/index.less')
     .pipe(less(lessOptions))
     .pipe(replace('url(../../../assets/', 'url(../img/'))
@@ -31,7 +32,7 @@ function buildModule() {
     .pipe(dest('../dist/css'));
 }
 
-function build() {
+function StyleBuildAll() {
   return src('../src/styles/index.less')
     .pipe(less(lessOptions))
     .pipe(replace('url(../../../assets/', 'url(./img/'))
@@ -47,7 +48,4 @@ function build() {
     .pipe(dest('../dist/'));
 }
 
-exports.moveImages = moveImages;
-exports.buildModule = buildModule;
-exports.build = build;
-exports.default = series(moveImages, buildModule, build);
+export default series(styleMoveImages, styleBuildModule, StyleBuildAll);
