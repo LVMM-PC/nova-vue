@@ -5,6 +5,11 @@ import rename from 'gulp-rename';
 import replace from 'gulp-replace';
 import LessAutoprefix from 'less-plugin-autoprefix';
 
+function fromTheRoot(p) {
+  const projectRootDir = path.resolve(__dirname, '../..');
+  return path.join(projectRootDir, p);
+}
+
 const autoprefix = new LessAutoprefix();
 
 const lessOptions = {
@@ -13,11 +18,13 @@ const lessOptions = {
 };
 
 function styleMoveImages() {
-  return src('../src/assets/**/**.**').pipe(dest('../dist/img/'));
+  return src(fromTheRoot('src/assets/**/**.**')).pipe(
+    dest(fromTheRoot('dist/img/'))
+  );
 }
 
 function styleBuildModule() {
-  return src('../src/components/**/index.less')
+  return src(fromTheRoot('src/components/**/index.less'))
     .pipe(less(lessOptions))
     .pipe(replace('url(../../../assets/', 'url(../img/'))
     .pipe(
@@ -29,11 +36,11 @@ function styleBuildModule() {
         };
       })
     )
-    .pipe(dest('../dist/css'));
+    .pipe(dest(fromTheRoot('dist/css')));
 }
 
 function StyleBuildAll() {
-  return src('../src/styles/index.less')
+  return src(fromTheRoot('src/styles/index.less'))
     .pipe(less(lessOptions))
     .pipe(replace('url(../../../assets/', 'url(./img/'))
     .pipe(
@@ -45,7 +52,7 @@ function StyleBuildAll() {
         };
       })
     )
-    .pipe(dest('../dist/'));
+    .pipe(dest(fromTheRoot('dist/')));
 }
 
 export default series(styleMoveImages, styleBuildModule, StyleBuildAll);

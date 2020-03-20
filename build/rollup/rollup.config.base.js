@@ -4,14 +4,17 @@ import vue from 'rollup-plugin-vue';
 import json from '@rollup/plugin-json';
 import alias from '@rollup/plugin-alias';
 
-const projectRootDir = path.resolve(__dirname, '..');
+function fromTheRoot(p) {
+  const projectRootDir = path.resolve(__dirname, '../..');
+  return path.join(projectRootDir, p);
+}
 
 export default {
   input: 'src/index.js',
   plugins: [
     json(),
     alias({
-      entries: [{ find: '@', replacement: path.resolve(projectRootDir, 'src') }]
+      entries: [{ find: '@', replacement: fromTheRoot('src') }]
     }),
     vue({
       css: false
