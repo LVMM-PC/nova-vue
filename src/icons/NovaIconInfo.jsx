@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconInfo from '../../icons/entities/icon-info.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconInfo',

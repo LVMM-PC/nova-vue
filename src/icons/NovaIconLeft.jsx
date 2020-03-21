@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconLeft from '../../icons/entities/icon-left.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconLeft',

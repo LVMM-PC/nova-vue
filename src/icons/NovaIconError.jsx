@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconError from '../../icons/entities/icon-error.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconError',

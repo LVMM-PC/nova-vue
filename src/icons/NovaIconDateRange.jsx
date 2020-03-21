@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconDateRange from '../../icons/entities/icon-date-range.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconDateRange',

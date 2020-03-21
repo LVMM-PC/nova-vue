@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconClose from '../../icons/entities/icon-close.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconClose',

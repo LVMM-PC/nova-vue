@@ -7,7 +7,7 @@ export default function iconVue(iconName, componentName, iconClassName) {
 // DO NOT EDIT IT MANUALLY
  
 import ${iconName} from '../../icons/entities/${iconNameCamelCase}.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
 name: '${componentName}',

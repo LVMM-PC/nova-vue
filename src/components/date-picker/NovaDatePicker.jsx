@@ -5,7 +5,7 @@ import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import Month from './Month.jsx';
-import NovaIconDateRange from '@/icons/NovaIconDateRange';
+import NovaIconDateRange from '@/icons/NovaIconDateRange.jsx';
 
 export default {
   name: 'NovaDatePicker',

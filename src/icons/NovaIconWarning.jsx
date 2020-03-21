@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconWarning from '../../icons/entities/icon-warning.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconWarning',

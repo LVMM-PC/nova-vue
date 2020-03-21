@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconAdd from '../../icons/entities/icon-add.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconAdd',

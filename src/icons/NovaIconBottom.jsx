@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconBottom from '../../icons/entities/icon-bottom.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconBottom',

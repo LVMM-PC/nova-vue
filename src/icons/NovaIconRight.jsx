@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconRight from '../../icons/entities/icon-right.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconRight',

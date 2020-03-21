@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconRemove from '../../icons/entities/icon-remove.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconRemove',

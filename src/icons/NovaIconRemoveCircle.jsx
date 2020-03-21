@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconRemoveCircle from '../../icons/entities/icon-remove-circle.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconRemoveCircle',

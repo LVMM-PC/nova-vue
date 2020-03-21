@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconCheck from '../../icons/entities/icon-check.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconCheck',

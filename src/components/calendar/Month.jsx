@@ -1,6 +1,6 @@
 import Storage from '@/utils/storage';
-import NovaIconTop from '@/icons/NovaIconTop';
-import NovaIconBottom from '@/icons/NovaIconBottom';
+import NovaIconTop from '@/icons/NovaIconTop.jsx';
+import NovaIconBottom from '@/icons/NovaIconBottom.jsx';
 
 export default {
   name: 'Month',

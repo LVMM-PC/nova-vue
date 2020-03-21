@@ -1,9 +1,9 @@
 import Storage from '@/utils/storage';
-import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle';
-import NovaIconError from '@/icons/NovaIconError';
-import NovaIconInfo from '@/icons/NovaIconInfo';
-import NovaIconHelp from '@/icons/NovaIconHelp';
-import NovaIconCancel from '@/icons/NovaIconCancel';
+import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle.jsx';
+import NovaIconError from '@/icons/NovaIconError.jsx';
+import NovaIconInfo from '@/icons/NovaIconInfo.jsx';
+import NovaIconHelp from '@/icons/NovaIconHelp.jsx';
+import NovaIconCancel from '@/icons/NovaIconCancel.jsx';
 
 export default {
   name: 'Icon',

@@ -2,7 +2,7 @@
 // DO NOT EDIT IT MANUALLY
 
 import iconCancel from '../../icons/entities/icon-cancel.js';
-import NovaIcon from '@/components/icon/NovaIcon';
+import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconCancel',

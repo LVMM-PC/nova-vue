@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import Storage from '@/utils/storage';
 import Calendar from '@/utils/calendar';
-import NovaIconLeft from '@/icons/NovaIconLeft';
-import NovaIconRight from '@/icons/NovaIconRight';
+import NovaIconLeft from '@/icons/NovaIconLeft.jsx';
+import NovaIconRight from '@/icons/NovaIconRight.jsx';
 
 export default {
   name: 'Month',
