@@ -1,4 +1,4 @@
-import style from './build/gulp/style';
-import icons from './build/gulp/icons';
+import extractStyle from './build/gulp/extract-style';
+import generateIconEntity from './build/gulp/generate-icon-entity';
 
-export { style, icons };
+export { extractStyle, generateIconEntity };

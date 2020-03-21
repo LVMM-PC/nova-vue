@@ -21,4 +21,4 @@ yarn-error.log*
 *.sw?
 
 /docs/\.vuepress/dist/
-/icons/json/
+/icons/entities/

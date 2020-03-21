@@ -23,7 +23,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "npm run build-webpack && npm run build-rollup && npm run build-style",
-    "build-style": "gulp -f gulpfile.esm.js style",
+    "build-style": "gulp -f gulpfile.esm.js extractStyle",
     "build-rollup": "rollup --config build/rollup/rollup.config.es.js",
     "build-webpack": "vue-cli-service build --target lib --name nova src/index.js",
     "build-demo": "vue-cli-service build",

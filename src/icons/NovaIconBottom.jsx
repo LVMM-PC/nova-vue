@@ -1,4 +1,4 @@
-import bottom from '../../icons/json/bottom.json';
+import bottom from '../../icons/entities/bottom.json';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

@@ -7,11 +7,11 @@ import iconDefinition from './plugins/icon-definition';
 import svgo from './plugins/svgo';
 import { singleColorSVGOConfig } from './config/svgo-option';
 
-function iconCleanUp() {
-  return del(['icons/json']);
+function iconEntityCleanUp() {
+  return del(['icons/entities']);
 }
 
-function iconSvgToJson() {
+function generateIconEntity() {
   return src(fromTheRoot('icons/svg/**/*.svg'))
     .pipe(cleanPaths())
     .pipe(svgo(singleColorSVGOConfig))
@@ -25,7 +25,7 @@ function iconSvgToJson() {
         };
       })
     )
-    .pipe(dest(fromTheRoot('icons/json')));
+    .pipe(dest(fromTheRoot('icons/entities')));
 }
 
-export default series(iconCleanUp, iconSvgToJson);
+export default series(iconEntityCleanUp, generateIconEntity);
