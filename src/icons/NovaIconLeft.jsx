@@ -1,8 +1,8 @@
-import iconBottom from '../../icons/entities/icon-bottom.json';
+import iconLeft from '../../icons/entities/icon-left.json';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {
-  name: 'NovaIconBottom',
+  name: 'NovaIconLeft',
   functional: true,
   render(h, context) {
     const { data, props } = context;
@@ -11,7 +11,7 @@ export default {
       props: {
         ...data.props,
         ...props,
-        src: iconBottom
+        src: iconLeft
       }
     };
     return <NovaIcon {...iconProps} />;

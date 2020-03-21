@@ -1,0 +1,7 @@
+{
+  "tag": "svg",
+  "attrs": { "viewBox": "0 0 24 24" },
+  "children": [
+    { "tag": "path", "attrs": { "d": "M22 16L12 6 2 16l2 2 8-8 8 8z" } }
+  ]
+}
