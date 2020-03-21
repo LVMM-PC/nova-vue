@@ -300,10 +300,16 @@ export default {
 
       if (!(underTop && aboveBottom)) {
         if (position === POSITION.BOTTOM) {
-          $dropdown.scrollTo(0, offsetTop - listHeight + itemHeight);
+          Utils.scrollTo($dropdown, {
+            x: 0,
+            y: offsetTop - listHeight + itemHeight
+          });
         }
         if (position === POSITION.TOP) {
-          $dropdown.scrollTo(0, offsetTop);
+          Utils.scrollTo($dropdown, {
+            x: 0,
+            y: offsetTop
+          });
         }
       }
     },

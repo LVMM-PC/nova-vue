@@ -54,6 +54,16 @@ export default class Utils {
     return to;
   }
 
+  static scrollTo(ele, offset) {
+    const { x = 0, y = 0 } = offset;
+    if (ele.scrollTo) {
+      ele.scrollTo(x, y);
+    } else {
+      ele.scrollTop = y;
+      ele.scrollLeft = x;
+    }
+  }
+
   /**
    * @param ele DOM
    * @param className

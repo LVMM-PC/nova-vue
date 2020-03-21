@@ -326,10 +326,16 @@ export default {
           const aboveBottom = offsetTop <= scrollTop + listHeight - itemHeight;
           if (!(underTop && aboveBottom)) {
             if (position === POSITION.BOTTOM) {
-              $groups.scrollTo(0, offsetTop - listHeight + itemHeight);
+              Utils.scrollTo($groups, {
+                x: 0,
+                y: offsetTop - listHeight + itemHeight
+              });
             }
             if (position === POSITION.TOP) {
-              $groups.scrollTo(0, offsetTop);
+              Utils.scrollTo($groups, {
+                x: 0,
+                y: offsetTop
+              });
             }
           }
         }
