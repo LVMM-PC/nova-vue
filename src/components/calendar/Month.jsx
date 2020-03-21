@@ -1,4 +1,6 @@
 import Storage from '@/utils/storage';
+import NovaIconTop from '@/icons/NovaIconTop';
+import NovaIconBottom from '@/icons/NovaIconBottom';
 
 export default {
   name: 'Month',
@@ -218,7 +220,12 @@ export default {
         keydown: prevMonthKeydown
       }
     };
-    const prevNode = <div {...prevProps}>{prevMonthTitle}</div>;
+    const prevNode = (
+      <div {...prevProps}>
+        <NovaIconTop />
+        {prevMonthTitle}
+      </div>
+    );
 
     const titleNode = (
       <div class={`${prefixedClass}-title`}>
@@ -240,7 +247,12 @@ export default {
         keydown: nextMonthKeydown
       }
     };
-    const nextNode = <div {...nextProps}>{nextMonthTitle}</div>;
+    const nextNode = (
+      <div {...nextProps}>
+        <NovaIconBottom />
+        {nextMonthTitle}
+      </div>
+    );
 
     return (
       <div class={`${prefixedClass}-month`}>

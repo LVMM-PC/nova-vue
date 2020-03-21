@@ -8,6 +8,7 @@ export default {
     const { data, props } = context;
     const iconProps = {
       ...data,
+      class: ['nova-icon-help', data.class],
       props: {
         ...data.props,
         ...props,

@@ -1,4 +1,9 @@
 import Storage from '@/utils/storage';
+import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle';
+import NovaIconError from '@/icons/NovaIconError';
+import NovaIconInfo from '@/icons/NovaIconInfo';
+import NovaIconHelp from '@/icons/NovaIconHelp';
+import NovaIconCancel from '@/icons/NovaIconCancel';
 
 export default {
   name: 'Icon',
@@ -30,6 +35,25 @@ export default {
       }
     };
 
-    return <div {...iconProps}></div>;
+    let innerIconNode;
+    switch (type) {
+      case 'success':
+        innerIconNode = <NovaIconCheckCircle />;
+        break;
+      case 'warning':
+        innerIconNode = <NovaIconError />;
+        break;
+      case 'info':
+        innerIconNode = <NovaIconInfo />;
+        break;
+      case 'error':
+        innerIconNode = <NovaIconCancel />;
+        break;
+      case 'help':
+        innerIconNode = <NovaIconHelp />;
+        break;
+    }
+
+    return <span {...iconProps}>{innerIconNode}</span>;
   }
 };

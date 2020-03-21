@@ -1,6 +1,6 @@
 import { camelCaseToParamCase } from '../../utils';
 
-export default function iconVue(iconName, componentName) {
+export default function iconVue(iconName, componentName, iconClassName) {
   const iconNameCamelCase = camelCaseToParamCase(iconName);
 
   return `import ${iconName} from '../../icons/entities/${iconNameCamelCase}.json';
@@ -13,6 +13,7 @@ export default {
     const { data, props } = context;
     const iconProps = {
       ...data,
+      class: ['${iconClassName}', data.class],
       props: {
         ...data.props,
         ...props,

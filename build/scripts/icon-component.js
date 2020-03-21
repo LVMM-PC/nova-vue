@@ -2,7 +2,12 @@ import iconVue from './template/icon-vue';
 import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
-import { camelCaseToPascalCase, paramCaseToCamelCase } from '../utils';
+import {
+  camelCaseToParamCase,
+  camelCaseToPascalCase,
+  paramCaseToCamelCase,
+  sleep
+} from '../utils';
 import Storage from '../../src/utils/storage';
 import * as iconIndex from '../../icons/index.js';
 import del from 'del';
@@ -17,6 +22,9 @@ async function main() {
   await del(['src/icons']);
 
   const iconPath = path.resolve(__dirname, `../../src/icons`);
+
+  await sleep(1000);
+
   if (!fs.existsSync(iconPath)) {
     await fsPromises.mkdir(iconPath, { recursive: true });
   }
@@ -31,10 +39,11 @@ async function main() {
 }
 
 async function generateIconComponents(iconPath, iconName) {
+  const iconClassName = `${Storage.prefix}-${camelCaseToParamCase(iconName)}`;
   const componentName = `${camelCaseToPascalCase(
-    paramCaseToCamelCase(`${Storage.prefix}-${iconName}`)
+    paramCaseToCamelCase(iconClassName)
   )}`;
-  let text = iconVue(iconName, componentName);
+  let text = iconVue(iconName, componentName, iconClassName);
   const defaultOptionBuffer = await fsPromises.readFile(
     path.resolve(__dirname, prettierConfigPath)
   );

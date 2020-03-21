@@ -32,6 +32,7 @@
         <a class="calendar-more" href="">
           <template>{{ dayjs(calendarDate).format('YYYY-MM') }}</template>
           <template>{{ '更多' }}</template>
+          <NovaIconRight></NovaIconRight>
         </a>
       </div>
     </div>
@@ -50,10 +51,11 @@ import holiday from '@/locales/holiday/china';
 import NovaCalendar from '@/components/calendar/NovaCalendar';
 import NovaLocale from '@/components/locale/NovaLocale';
 import en from '@/locales/lang/en';
+import NovaIconRight from '@/icons/NovaIconRight';
 
 export default {
   name: 'CalendarDemo',
-  components: { NovaLocale, NovaCalendar },
+  components: { NovaIconRight, NovaLocale, NovaCalendar },
   data() {
     return {
       en,
@@ -127,16 +129,9 @@ export default {
 }
 
 .calendar-more {
-  &:before {
-    content: '';
-    background-image: url(../../assets/icons/calendar-more.svg);
-    width: 10px;
-    height: 10px;
-    float: right;
-    vertical-align: top;
-    display: inline-block;
-    margin-top: 5px;
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .calendar-num {

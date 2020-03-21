@@ -51,16 +51,27 @@
     outline: none;
   }
 
-  &:before {
+  .nova-icon {
     content: '';
     display: block;
     position: absolute;
-    width: 32px;
-    height: 18px;
     top: 50%;
     left: 50%;
+    font-size: 36px;
+    color: #ffaa00;
     transform: translate(-50%, -50%);
-    background-image: url(../../../assets/icons/calendar-next.svg);
+  }
+
+  &:hover {
+    .nova-icon {
+      color: #ff6600;
+    }
+  }
+
+  &.is-disabled {
+    .nova-icon {
+      color: #cccccc;
+    }
   }
 
   &:focus {
@@ -79,42 +90,8 @@
   }
 }
 
-.@{calendar}-prev {
-  &:before {
-    background-image: url(../../../assets/icons/calendar-prev.svg);
-  }
-
-  &:hover {
-    &:before {
-      background-image: url(../../../assets/icons/calendar-prev-hover.svg);
-    }
-  }
-
-  &.is-disabled {
-    &:before {
-      background-image: url(../../../assets/icons/calendar-prev-disabled.svg);
-    }
-  }
-}
-
 .@{calendar}-next {
   bottom: 0;
-
-  &:before {
-    background-image: url(../../../assets/icons/calendar-next.svg);
-  }
-
-  &:hover {
-    &:before {
-      background-image: url(../../../assets/icons/calendar-next-hover.svg);
-    }
-  }
-
-  &.is-disabled {
-    &:before {
-      background-image: url(../../../assets/icons/calendar-next-disabled.svg);
-    }
-  }
 }
 
 .@{calendar}-month:first-child {

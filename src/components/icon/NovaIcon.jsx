@@ -35,7 +35,7 @@ export default {
     };
     const iconProps = {
       ...restData,
-      class: `nova-icon`,
+      class: [`nova-icon`, restData.class],
       attrs: restProps,
       on: listeners
     };

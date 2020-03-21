@@ -5,6 +5,7 @@ import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import Month from './Month.jsx';
+import NovaIconDateRange from '@/icons/NovaIconDateRange';
 
 export default {
   name: 'NovaDatePicker',
@@ -677,7 +678,9 @@ export default {
     };
 
     const dateIcon = showIcon ? (
-      <span class={`${prefixedClass}-icon`}></span>
+      <span class={`${prefixedClass}-suffix`}>
+        <NovaIconDateRange />
+      </span>
     ) : null;
 
     let dateNode;

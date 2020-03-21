@@ -114,11 +114,8 @@
   cursor: pointer;
   font-size: 0;
 
-  &:before {
-    content: '';
-    display: block;
-    width: 24px;
-    height: 24px;
+  .nova-icon {
+    font-size: 24px;
     margin: 2px;
   }
 
@@ -137,18 +134,10 @@
 
 .@{date-picket}-prev {
   float: left;
-
-  &:before {
-    background-image: url(../../../assets/icons/date-picker-prev.svg);
-  }
 }
 
 .@{date-picket}-next {
   float: right;
-
-  &:before {
-    background-image: url(../../../assets/icons/date-picker-next.svg);
-  }
 }
 
 .@{date-picket}-title {

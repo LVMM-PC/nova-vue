@@ -27,3 +27,11 @@ export function camelCaseToParamCase(camelCaseStr) {
     return `-${p1.toLowerCase()}`;
   });
 }
+
+export function sleep(timeout = 0) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve();
+    }, timeout);
+  });
+}

@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import Storage from '@/utils/storage';
 import Calendar from '@/utils/calendar';
+import NovaIconLeft from '@/icons/NovaIconLeft';
+import NovaIconRight from '@/icons/NovaIconRight';
 
 export default {
   name: 'Month',
@@ -370,7 +372,12 @@ export default {
         click: prevMonthClick
       }
     };
-    const prevNode = <div {...prevProps}>{prevMonthText}</div>;
+    const prevNode = (
+      <div {...prevProps}>
+        <NovaIconLeft />
+        {prevMonthText}
+      </div>
+    );
     const showMoment = getShowMoment();
     const titleNode = (
       <div class={`${prefixedClass}-title`}>
@@ -391,7 +398,12 @@ export default {
         click: nextMonthClick
       }
     };
-    const nextNode = <div {...nextProps}>{nextMonthText}</div>;
+    const nextNode = (
+      <div {...nextProps}>
+        <NovaIconRight />
+        {nextMonthText}
+      </div>
+    );
     const headerNode = (
       <div class={`${prefixedClass}-header`}>
         {prevNode}
