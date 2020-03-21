@@ -1,8 +1,8 @@
-import iconSuccess from '../../icons/entities/icon-success.json';
+import iconDateRange from '../../icons/entities/icon-date-range.json';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {
-  name: 'NovaIconSuccess',
+  name: 'NovaIconDateRange',
   functional: true,
   render(h, context) {
     const { data, props } = context;
@@ -11,7 +11,7 @@ export default {
       props: {
         ...data.props,
         ...props,
-        src: iconSuccess
+        src: iconDateRange
       }
     };
     return <NovaIcon {...iconProps} />;

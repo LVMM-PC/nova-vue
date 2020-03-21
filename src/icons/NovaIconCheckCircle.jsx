@@ -1,8 +1,8 @@
-import iconCalendar from '../../icons/entities/icon-calendar.json';
+import iconCheckCircle from '../../icons/entities/icon-check-circle.json';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {
-  name: 'NovaIconCalendar',
+  name: 'NovaIconCheckCircle',
   functional: true,
   render(h, context) {
     const { data, props } = context;
@@ -11,7 +11,7 @@ export default {
       props: {
         ...data.props,
         ...props,
-        src: iconCalendar
+        src: iconCheckCircle
       }
     };
     return <NovaIcon {...iconProps} />;

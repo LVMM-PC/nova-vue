@@ -14,7 +14,7 @@ function iconEntityCleanUp() {
   return del(['icons/entities']);
 }
 
-function generateIconEntity() {
+function iconEntity() {
   return src(fromTheRoot('icons/svg/**/*.svg'))
     .pipe(cleanPaths())
     .pipe(svgo(singleColorSVGOConfig))
@@ -41,4 +41,4 @@ function generateIconIndex() {
     .pipe(dest(fromTheRoot('icons/')));
 }
 
-export default series(iconEntityCleanUp, generateIconEntity, generateIconIndex);
+export default series(iconEntityCleanUp, iconEntity, generateIconIndex);

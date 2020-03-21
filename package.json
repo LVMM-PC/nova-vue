@@ -22,10 +22,10 @@
   "module": "dist/nova.esm.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "icon-generate": "npm run icon-entity && npm run icon-component",
-    "icon-entity": "gulp -f gulpfile.esm.js generateIconEntity",
+    "icon-entity": "gulp -f gulpfile.esm.js iconEntity",
     "icon-component": "node -r esm build/scripts/icon-component.js",
     "build": "npm run build-webpack && npm run build-rollup && npm run build-style",
+    "build-icon": "npm run icon-entity && npm run icon-component",
     "build-style": "gulp -f gulpfile.esm.js extractStyle",
     "build-rollup": "rollup --config build/rollup/rollup.config.es.js",
     "build-webpack": "vue-cli-service build --target lib --name nova src/index.js",
