@@ -1,4 +1,7 @@
-import iconRemove from '../../icons/entities/icon-remove.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconRemove from '../../icons/entities/icon-remove.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

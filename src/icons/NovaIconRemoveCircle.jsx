@@ -1,4 +1,7 @@
-import iconRemoveCircle from '../../icons/entities/icon-remove-circle.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconRemoveCircle from '../../icons/entities/icon-remove-circle.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

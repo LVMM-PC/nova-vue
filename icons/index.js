@@ -1,3 +1,5 @@
+// This file is generated automatically.
+
 export { default as iconAddCircle } from './entities/icon-add-circle';
 export { default as iconAdd } from './entities/icon-add';
 export { default as iconBottom } from './entities/icon-bottom';

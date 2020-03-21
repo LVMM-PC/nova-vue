@@ -1,4 +1,7 @@
-import iconRight from '../../icons/entities/icon-right.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconRight from '../../icons/entities/icon-right.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

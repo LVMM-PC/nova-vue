@@ -1,4 +1,7 @@
-import iconError from '../../icons/entities/icon-error.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconError from '../../icons/entities/icon-error.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

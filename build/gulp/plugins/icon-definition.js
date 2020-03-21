@@ -1,5 +1,4 @@
 import parseXml from '@rgrove/parse-xml';
-import prettier from 'prettier';
 import through2 from 'through2';
 
 function toAbstractNode(node) {
@@ -32,8 +31,7 @@ export default function iconDefinition() {
 
       const abstractRootNode = toAbstractNode(xmlRootNode);
       const content = JSON.stringify(abstractRootNode);
-      const formattedContent = prettier.format(content, { parser: 'json' });
-      chunk.contents = Buffer.from(formattedContent);
+      chunk.contents = Buffer.from(content);
       cb(null, chunk);
     } else {
       cb(null, chunk);

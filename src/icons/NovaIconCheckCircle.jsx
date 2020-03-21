@@ -1,4 +1,7 @@
-import iconCheckCircle from '../../icons/entities/icon-check-circle.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconCheckCircle from '../../icons/entities/icon-check-circle.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

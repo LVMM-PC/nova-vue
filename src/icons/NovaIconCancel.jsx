@@ -1,4 +1,7 @@
-import iconCancel from '../../icons/entities/icon-cancel.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconCancel from '../../icons/entities/icon-cancel.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

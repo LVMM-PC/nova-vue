@@ -1,4 +1,7 @@
-import iconDateRange from '../../icons/entities/icon-date-range.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconDateRange from '../../icons/entities/icon-date-range.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

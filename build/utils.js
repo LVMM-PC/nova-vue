@@ -1,5 +1,9 @@
 import path from 'path';
 
+export const BANNER = `// This file is generated automatically.
+
+`;
+
 export function fromTheRoot(p) {
   const projectRootDir = path.resolve(__dirname, '..');
   return path.join(projectRootDir, p);

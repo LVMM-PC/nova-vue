@@ -1,4 +1,7 @@
-import iconCheck from '../../icons/entities/icon-check.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconCheck from '../../icons/entities/icon-check.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

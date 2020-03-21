@@ -1,4 +1,7 @@
-import iconClose from '../../icons/entities/icon-close.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconClose from '../../icons/entities/icon-close.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

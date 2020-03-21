@@ -1,4 +1,7 @@
-import iconAdd from '../../icons/entities/icon-add.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconAdd from '../../icons/entities/icon-add.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

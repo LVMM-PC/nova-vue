@@ -1,4 +1,7 @@
-import iconWarning from '../../icons/entities/icon-warning.json';
+// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+
+import iconWarning from '../../icons/entities/icon-warning.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {

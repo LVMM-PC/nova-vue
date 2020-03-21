@@ -3,25 +3,28 @@ import { camelCaseToParamCase } from '../../utils';
 export default function iconVue(iconName, componentName, iconClassName) {
   const iconNameCamelCase = camelCaseToParamCase(iconName);
 
-  return `import ${iconName} from '../../icons/entities/${iconNameCamelCase}.json';
+  return `// GENERATE BY yarn build-icon
+// DO NOT EDIT IT MANUALLY
+ 
+import ${iconName} from '../../icons/entities/${iconNameCamelCase}.js';
 import NovaIcon from '@/components/icon/NovaIcon';
 
 export default {
-  name: '${componentName}',
-  functional: true,
-  render(h, context) {
-    const { data, props } = context;
-    const iconProps = {
-      ...data,
-      class: ['${iconClassName}', data.class],
-      props: {
-        ...data.props,
-        ...props,
-        src: ${iconName}
-      }
-    };
-    return <NovaIcon {...iconProps} />;
-  }
+name: '${componentName}',
+functional: true,
+render(h, context) {
+  const { data, props } = context;
+  const iconProps = {
+    ...data,
+    class: ['${iconClassName}', data.class],
+    props: {
+      ...data.props,
+      ...props,
+      src: ${iconName}
+    }
+  };
+  return <NovaIcon {...iconProps} />;
+}
 };
 `;
 }
