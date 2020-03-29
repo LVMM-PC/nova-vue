@@ -7,7 +7,7 @@
         placeholder="Select date"
       ></NovaDatePicker>
     </NovaLocale>
-    <NovaLocale :holiday="china" :locale="zhCN">
+    <NovaLocale :holiday="holidayZhCN" :locale="zhCN">
       <NovaDatePicker
         v-model="date"
         format="YYYY年 M月 D日"
@@ -18,9 +18,7 @@
 </template>
 
 <script>
-const en = nova.locale.en;
-const zhCN = nova.locale.zhCN;
-const china = nova.holiday.china;
+import { en, zhCN, holidayZhCN } from 'nova-vue'
 
 export default {
   data() {
@@ -28,7 +26,7 @@ export default {
       date: null,
       en,
       zhCN,
-      china,
+      holidayZhCN,
       hideHoliday: {}
     };
   }

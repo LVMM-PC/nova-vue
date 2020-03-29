@@ -1,3 +1,5 @@
+const path = require('path')
+
 module.exports = {
   title: 'Nova Vue',
   description: '前端组件库 Vue 实现',
@@ -38,5 +40,8 @@ module.exports = {
         children: ['/alert/']
       }
     ]
+  },
+  chainWebpack: config => {
+    config.resolve.alias.set('nova-vue', path.resolve(__dirname, '../..'),);
   }
 };

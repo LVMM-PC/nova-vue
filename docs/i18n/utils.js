@@ -1,9 +1,7 @@
-import nova from 'nova-vue';
+import { en, zhCN, zhTW, holidayZhCN } from 'nova-vue';
 
-nova.locale; // 语言包
-nova.locale.zhCN; // 简体中文
-nova.locale.zhCN; // 繁體中文
-nova.locale.en; // English
+en; // English
+zhCN; // 简体中文
+zhTW; // 繁體中文
 
-nova.holiday; // 节假日数据
-nova.holiday.china; // 中国节假日
+holidayZhCN; // 简体中文节假日

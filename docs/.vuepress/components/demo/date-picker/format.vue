@@ -3,6 +3,7 @@
     <NovaDatePicker
       v-model="date"
       :locale="en"
+      :holiday="hideHoliday"
       format="ddd MMM DD YYYY"
     ></NovaDatePicker>
     <NovaDatePicker
@@ -14,6 +15,7 @@
 </template>
 
 <script>
+import { en } from 'nova-vue';
 import dayjs from 'dayjs';
 
 export default {
@@ -24,7 +26,8 @@ export default {
       .add(1, 'month')
       .toDate();
     return {
-      en: nova.locale.en,
+      en,
+      hideHoliday: {},
       date: now,
       dates: [start, end]
     };

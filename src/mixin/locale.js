@@ -1,6 +1,6 @@
 import Utils from '@/utils/utils';
-import zhCN from '@/locales/lang/zh-CN';
-import holiday from '@/locales/holiday/china';
+import zhCN from '@/locales/zh-CN';
+import holiday from '@/locales/holiday/zh-CN';
 
 export default {
   inject: {
@@ -38,11 +38,11 @@ export default {
     },
     getNovaHoliday() {
       const novaHoliday = Utils.mergeOptions({}, holiday);
-      if (this.NovaLocale) {
-        return this.NovaLocale.holiday;
-      }
       if (this.holiday) {
         return this.holiday;
+      }
+      if (this.NovaLocale) {
+        return this.NovaLocale.holiday;
       }
 
       return novaHoliday;

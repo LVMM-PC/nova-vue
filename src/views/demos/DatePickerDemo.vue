@@ -131,8 +131,8 @@
 <script>
 import NovaDatePicker from '../../components/date-picker/NovaDatePicker';
 import NovaLocale from '@/components/locale/NovaLocale';
-import zhCN from '@/locales/lang/zh-CN';
-import en from '@/locales/lang/en';
+import zhCN from '@/locales/zh-CN';
+import en from '@/locales/en';
 import dayjs from 'dayjs';
 
 export default {

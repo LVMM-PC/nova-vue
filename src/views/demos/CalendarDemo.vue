@@ -47,10 +47,10 @@
 
 <script>
 import dayjs from 'dayjs';
-import holiday from '@/locales/holiday/china';
+import holiday from '@/locales/holiday/zh-CN';
 import NovaCalendar from '@/components/calendar/NovaCalendar';
 import NovaLocale from '@/components/locale/NovaLocale';
-import en from '@/locales/lang/en';
+import en from '@/locales/en';
 import NovaIconRight from '@/icons/NovaIconRight';
 
 export default {

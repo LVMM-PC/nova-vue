@@ -2,7 +2,7 @@ import NovaDatePicker from '@/components/date-picker/NovaDatePicker';
 import { mount } from '@vue/test-utils';
 import dayjs from 'dayjs';
 import flushPromises from 'flush-promises';
-import zhTW from '@/locales/lang/zh-TW';
+import zhTW from '@/locales/zh-TW';
 
 describe('NovaDatePicker', () => {
   it('prop locale should works', async () => {
