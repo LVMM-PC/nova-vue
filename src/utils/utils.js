@@ -86,4 +86,14 @@ export default class Utils {
   static twoDecimalPlaces(number) {
     return number.toFixed(2).replace(/(\.)?0+$/, '');
   }
+
+  static numberLimit(number, low = -Infinity, high = Infinity) {
+    if (number < low) {
+      return low;
+    }
+    if (number > high) {
+      return high;
+    }
+    return number;
+  }
 }

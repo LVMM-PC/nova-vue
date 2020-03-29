@@ -66,3 +66,19 @@
 }
 
 //endregion
+
+//region progress-active
+@nova-progress-active: ~'@{prefix}-progress-active';
+@keyframes @nova-progress-active {
+  from {
+    opacity: 0.5;
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+//endregion

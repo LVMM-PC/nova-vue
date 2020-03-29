@@ -12,20 +12,40 @@ export default {
       type: String,
       default: 'line'
     },
+    percent: {
+      type: Number,
+      default: 0
+    },
+    showInfo: {
+      type: Boolean,
+      default: true
+    },
+    status: {
+      type: String,
+      default: 'normal'
+    },
     width: {
       type: Number,
       default: 100
     },
-    percent: {
+    strokeWidth: {
       type: Number,
-      default: 0
+      default: 5
+    },
+    strokeLinecap: {
+      type: String,
+      default: 'butt'
     }
   },
-  setup: props => {
+  setup: (props, context) => {
+    const progressProps = {
+      props,
+      ...context
+    };
     if (props.type === 'line') {
-      return () => <Line percent={props.percent} />;
+      return () => <Line {...progressProps} />;
     } else if (props.type === 'circle') {
-      return () => <Circle percent={props.percent} />;
+      return () => <Circle {...progressProps} />;
     }
   }
 };

@@ -1,8 +1,8 @@
 @import '../../../styles/var';
+@import '../../../styles/common';
 
 .nova-progress-line {
   font-size: 0;
-  line-height: 20px;
 
   .nova-progress-outer,
   .nova-progress-text {
@@ -12,8 +12,14 @@
   }
 
   .nova-progress-outer {
-    width: calc(100% - 50px);
+    width: 100%;
     height: 20px;
+  }
+
+  &.nova-progress-show-info {
+    .nova-progress-outer {
+      width: calc(100% - 50px);
+    }
   }
 
   .nova-progress-inner {
@@ -27,6 +33,21 @@
     width: 0;
     background-color: @primary-color;
     transition: width @normal-motion;
+  }
+
+  &.nova-progress-status-active {
+    .nova-progress-bg {
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: @component-background;
+        opacity: 0;
+        transform-origin: 0 0;
+        animation: @nova-progress-active 2s @ease-out-quintic infinite;
+      }
+    }
   }
 
   .nova-progress-text {

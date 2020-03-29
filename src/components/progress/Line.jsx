@@ -15,9 +15,17 @@ export default {
     percent: {
       type: Number,
       default: 0
+    },
+    showInfo: {
+      type: Boolean,
+      default: true
+    },
+    status: {
+      type: String,
+      default: 'normal'
     }
   },
-  setup: props => {
+  setup: (props, context) => {
     const percent = ref(props.percent);
 
     const percentFormatted = computed(() => {
@@ -32,23 +40,36 @@ export default {
       return `${Utils.twoDecimalPlaces(number)}%`;
     });
 
+    const lineClassList = computed(() => [
+      `nova-progress`,
+      `nova-progress-line`,
+      {
+        [`nova-progress-show-info`]: props.showInfo,
+        [`nova-progress-status-${props.status}`]: true
+      }
+    ]);
+
+    let textNode = computed(() => {
+      if (props.showInfo) {
+        return <div class={`nova-progress-text`}>{percentFormatted.value}</div>;
+      }
+    });
+
     watchEffect(() => {
       percent.value = props.percent;
     });
 
     return () => (
-      <div
-        class={`nova-progress nova-progress-line nova-progress-status-active`}
-      >
+      <div class={lineClassList.value} {...context}>
         <div class={`nova-progress-outer`}>
           <div class={`nova-progress-inner`}>
             <div
               class={`nova-progress-bg`}
               style={{ width: percentFormatted.value }}
-            ></div>
+            />
           </div>
         </div>
-        <div class={`nova-progress-text`}>{percentFormatted.value}</div>
+        {textNode.value}
       </div>
     );
   }

@@ -4,10 +4,15 @@
   position: relative;
   display: inline-block;
   vertical-align: top;
-  width: 100px;
-  height: 100px;
+
+  .nova-progress-trail{
+    stroke: @section-background;
+    fill: none;
+  }
 
   .nova-progress-bg {
+    stroke: @primary-color;
+    fill: none;
     transition: stroke-dasharray @normal-motion;
   }
 

@@ -24,17 +24,45 @@ export default {
     percent: {
       type: Number,
       default: 0
+    },
+    showInfo: {
+      type: Boolean,
+      default: true
+    },
+    strokeLinecap: {
+      type: String,
+      default: 'butt'
     }
   },
-  setup: props => {
-    const percent = ref(props.percent);
-    const width = props.width;
-    const strokeWidth = props.strokeWidth;
+  setup: (props, context) => {
+    const percent = ref(Utils.numberLimit(props.percent, 0, 1));
+
+    const width = ref(Utils.numberLimit(props.width, 0));
+    const halfWidth = computed(() => {
+      return width.value / 2;
+    });
+
+    const strokeWidth = ref(
+      Utils.numberLimit(props.strokeWidth, 0, width.value / 2)
+    );
+
+    const radius = computed(() => {
+      return (width.value - strokeWidth.value) / 2;
+    });
+
+    const circumference = computed(() => {
+      return Math.PI * (width.value - strokeWidth.value);
+    });
+
+    const innerStyle = reactive({
+      width: `${width.value}px`,
+      height: `${width.value}px`
+    });
 
     const bgStyle = reactive({
-      ['stroke-dasharray']: `149.23 298.45`,
+      ['stroke-dasharray']: calcDashArray(percent.value),
       ['stroke-dashoffset']: `0`,
-      ['stroke-width']: percent.value === 0 ? `0` : `5`
+      ['stroke-width']: percent.value === 0 ? `0` : strokeWidth.value
     });
 
     const percentFormatted = computed(() => {
@@ -49,65 +77,95 @@ export default {
       return `${Utils.twoDecimalPlaces(number)}%`;
     });
 
+    const circleClassList = computed(() => [
+      `nova-progress`,
+      `nova-progress-circle`,
+      {
+        [`nova-progress-show-info`]: props.showInfo
+      }
+    ]);
+
+    function calcDashArray(percentValue) {
+      const bgSize = circumference.value * percentValue;
+      const bgSizeText = Utils.twoDecimalPlaces(bgSize);
+      const circumferenceText = Utils.twoDecimalPlaces(circumference.value);
+
+      return `${bgSizeText} ${circumferenceText}`;
+    }
+
     let timer;
 
     function calcBgSize() {
       clearTimeout(timer);
 
-      const circumference = Math.PI * (width - strokeWidth);
-
-      const bgSize = circumference * percent.value;
-      const bgSizeText = Utils.twoDecimalPlaces(bgSize);
-      const circumferenceText = Utils.twoDecimalPlaces(circumference);
-
-      bgStyle['stroke-dasharray'] = `${bgSizeText} ${circumferenceText}`;
+      bgStyle['stroke-dasharray'] = calcDashArray(percent.value);
 
       if (percent.value === 0) {
         timer = setTimeout(() => {
           bgStyle['stroke-width'] = `0`;
         }, 200);
       } else {
-        bgStyle['stroke-width'] = `5`;
+        bgStyle['stroke-width'] = strokeWidth.value;
       }
     }
 
+    function updateInnerStyle() {
+      const widthPixels = `${width.value}px`;
+      innerStyle['width'] = widthPixels;
+      innerStyle['height'] = widthPixels;
+    }
+
+    let textNode = computed(() => {
+      if (props.showInfo) {
+        return <div class={`nova-progress-text`}>{percentFormatted.value}</div>;
+      }
+    });
+
     watchEffect(() => {
-      percent.value = props.percent;
+      const newPercent = Utils.numberLimit(props.percent, 0, 1);
+      percent.value = newPercent;
+
+      const newWidth = Utils.numberLimit(props.width, 0);
+      width.value = newWidth;
+
+      const newStrokeWidth = Utils.numberLimit(
+        props.strokeWidth,
+        0,
+        newWidth / 2
+      );
+      strokeWidth.value = newStrokeWidth;
+
       calcBgSize();
+      updateInnerStyle();
     });
 
     return () => (
-      <div
-        class={`nova-progress nova-progress-circle nova-progress-status-active`}
-      >
-        <div class={`nova-progress-inner`}>
+      <div class={circleClassList.value} {...context}>
+        <div class={`nova-progress-inner`} style={innerStyle}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="100"
-            viewBox="0 0 100 100"
+            width={width.value}
+            height={width.value}
+            viewBox={`0 0 ${width.value} ${width.value}`}
           >
             <circle
-              stroke-linecap="round"
-              stroke={`#f5f5f5`}
-              stroke-width={`5px`}
-              fill="none"
-              cx="50"
-              cy="50"
-              r="47.5"
+              stroke-linecap={props.strokeLinecap}
+              stroke-width={strokeWidth.value}
+              class={`nova-progress-trail`}
+              cx={halfWidth.value}
+              cy={halfWidth.value}
+              r={radius.value}
             />
             <circle
-              stroke-linecap="round"
-              stroke={`#e38`}
+              stroke-linecap={props.strokeLinecap}
               style={bgStyle}
               class={`nova-progress-bg`}
-              fill="none"
-              cx="50"
-              cy="50"
-              r="47.5"
+              cx={halfWidth.value}
+              cy={halfWidth.value}
+              r={radius.value}
             />
           </svg>
-          <div class={`nova-progress-text`}>{percentFormatted.value}</div>
+          {textNode.value}
         </div>
       </div>
     );
