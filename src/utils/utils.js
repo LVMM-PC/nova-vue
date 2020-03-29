@@ -82,4 +82,8 @@ export default class Utils {
       .split(' ')
       .some(singleClassName => singleClassName === className);
   }
+
+  static twoDecimalPlaces(number) {
+    return number.toFixed(2).replace(/(\.)?0+$/, '');
+  }
 }

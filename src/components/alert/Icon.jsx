@@ -6,7 +6,7 @@ import NovaIconHelp from '@/icons/NovaIconHelp.jsx';
 import NovaIconCancel from '@/icons/NovaIconCancel.jsx';
 
 export default {
-  name: 'Icon',
+  name: 'AlertIcon',
   props: {
     prefixedClass: {
       type: String,

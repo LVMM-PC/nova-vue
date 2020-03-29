@@ -61,6 +61,14 @@ const routes = [
       )
   },
   {
+    path: '/progress',
+    name: 'Progress',
+    component: () =>
+      import(
+        /* webpackChunkName: "progress" */ '../views/demos/ProgressDemo.vue'
+      )
+  },
+  {
     path: '/alert',
     name: 'Alert',
     component: () =>

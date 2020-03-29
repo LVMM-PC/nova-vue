@@ -26,3 +26,6 @@ export NovaOption from './components/select/NovaOption.jsx';
 export NovaRadio from './components/radio/NovaRadio.jsx';
 export NovaRadioGroup from './components/radio/NovaRadioGroup.jsx';
 export NovaSelect from './components/select/NovaSelect.jsx';
+export NovaProgress from './components/progress/NovaProgress.jsx';
+
+export * from './icons/index';

@@ -1,0 +1,21 @@
+@import '../../../styles/var';
+
+.nova-progress-circle {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: 100px;
+
+  .nova-progress-bg {
+    transition: stroke-dasharray @normal-motion;
+  }
+
+  .nova-progress-text {
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

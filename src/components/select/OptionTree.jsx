@@ -3,7 +3,7 @@ import Props from '@/utils/props';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';
 
 export default {
-  name: 'OptionTree',
+  name: 'SelectOptionTree',
   inject: ['NovaSelect'],
   props: {
     prefixedClass: {

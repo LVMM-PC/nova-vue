@@ -5,7 +5,7 @@ import NovaIconLeft from '@/icons/NovaIconLeft.jsx';
 import NovaIconRight from '@/icons/NovaIconRight.jsx';
 
 export default {
-  name: 'Month',
+  name: 'DatePickerMonth',
   inject: ['NovaDatePicker'],
   props: {
     prefixedClass: {

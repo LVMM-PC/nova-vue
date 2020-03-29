@@ -18,6 +18,8 @@
       <router-link to="/alert">Alert</router-link>
       |
       <router-link to="/auto-complete">AutoComplete</router-link>
+      |
+      <router-link to="/progress">Progress</router-link>
     </div>
     <router-view />
   </div>
