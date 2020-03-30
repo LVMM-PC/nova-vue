@@ -3,9 +3,9 @@
 `nova-vue` 是基于 Nova 设计体系的 Vue UI 组件库，主要用于研发企业级前台产品。
 
 <div class="pic-plus">
-  <img width="125" src="./assets/nova-logo.svg"/>
-  <span class="pic-plus-icon"></span>
-  <img width="150" src="./assets/vue-logo.png"/>
+  <img width="125" :src="$withBase('/nova-logo.svg')" alt="Nova 标志图片。丛蓝色六边形背景上中心处有一个白色的三角形，六边形与三角形边角处均有一些圆角，显得比较平滑。六边形其中一个角指向上方，三角形其中一个角指向右方。六边形与三角形边长差不多相等。" />
+  <span class="pic-plus-icon">+</span>
+  <img width="125" :src="$withBase('/vue-logo.png')" alt="Vue 标志图片。薄荷色的V字形状与木炭色的V字形状重叠。或者可以说是薄荷色的颠倒三角形，上方中央覆盖一个木炭色的颠倒三角形，最上方中央覆盖白色颠倒三角形，三个三角形顶部边在同一条直线上。三个三角形边长之比约为1比3比5。" />
 </div>
 
 ---
