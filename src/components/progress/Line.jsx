@@ -1,10 +1,11 @@
 import {
-  ref,
+  computed,
   createElement,
-  watchEffect,
-  computed
+  reactive,
+  watchEffect
 } from '@vue/composition-api';
 import Utils from '@/utils/utils';
+import Storage from '@/utils/storage';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -12,6 +13,10 @@ const h = createElement;
 export default {
   name: 'ProgressLine',
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-progress`
+    },
     percent: {
       type: Number,
       default: 0
@@ -26,46 +31,50 @@ export default {
     }
   },
   setup: (props, context) => {
-    const percent = ref(props.percent);
+    const state = reactive({
+      prefixedClass: props.prefixedClass,
+      status: props.status,
+      showInfo: props.showInfo,
 
-    const percentFormatted = computed(() => {
-      let number = percent.value * 100;
-      if (number < 0) {
-        number = 0;
-      }
-      if (number > 100) {
-        number = 100;
-      }
-
-      return `${Utils.twoDecimalPlaces(number)}%`;
+      percent: Utils.numberLimit(props.percent, 0, 1),
+      percentFormatted: computed(() => {
+        return `${Utils.twoDecimalPlaces(state.percent * 100)}%`;
+      })
     });
 
     const lineClassList = computed(() => [
-      `nova-progress`,
-      `nova-progress-line`,
+      state.prefixedClass,
+      `${state.prefixedClass}-line`,
       {
-        [`nova-progress-show-info`]: props.showInfo,
-        [`nova-progress-status-${props.status}`]: true
+        [`${state.prefixedClass}-show-info`]: state.showInfo,
+        [`${state.prefixedClass}-status-${state.status}`]: true
       }
     ]);
 
     let textNode = computed(() => {
-      if (props.showInfo) {
-        return <div class={`nova-progress-text`}>{percentFormatted.value}</div>;
+      if (state.showInfo) {
+        return (
+          <div class={`${state.prefixedClass}-text`}>
+            {state.percentFormatted}
+          </div>
+        );
       }
     });
 
     watchEffect(() => {
-      percent.value = props.percent;
+      state.prefixedClass = props.prefixedClass;
+      state.status = props.status;
+      state.showInfo = props.showInfo;
+      state.percent = Utils.numberLimit(props.percent, 0, 1);
     });
 
     return () => (
       <div class={lineClassList.value} {...context}>
-        <div class={`nova-progress-outer`}>
-          <div class={`nova-progress-inner`}>
+        <div class={`${state.prefixedClass}-outer`}>
+          <div class={`${state.prefixedClass}-inner`}>
             <div
-              class={`nova-progress-bg`}
-              style={{ width: percentFormatted.value }}
+              class={`${state.prefixedClass}-bg`}
+              style={{ width: state.percentFormatted }}
             />
           </div>
         </div>

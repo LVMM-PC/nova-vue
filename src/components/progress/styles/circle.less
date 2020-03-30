@@ -1,22 +1,28 @@
 @import '../../../styles/var';
 
-.nova-progress-circle {
+@progress: ~'@{prefix}-progress';
+
+.@{progress}-circle {
   position: relative;
   display: inline-block;
   vertical-align: top;
 
-  .nova-progress-trail{
+  .@{progress}-svg {
+    transform: rotate(-90deg);
+  }
+
+  .@{progress}-trail {
     stroke: @section-background;
     fill: none;
   }
 
-  .nova-progress-bg {
+  .@{progress}-bg {
     stroke: @primary-color;
     fill: none;
     transition: stroke-dasharray @normal-motion;
   }
 
-  .nova-progress-text {
+  .@{progress}-text {
     font-size: 20px;
     position: absolute;
     top: 50%;

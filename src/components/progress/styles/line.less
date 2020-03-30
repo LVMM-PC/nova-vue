@@ -1,42 +1,44 @@
 @import '../../../styles/var';
 @import '../../../styles/common';
 
-.nova-progress-line {
+@progress: ~'@{prefix}-progress';
+
+.@{progress}-line {
   font-size: 0;
 
-  .nova-progress-outer,
-  .nova-progress-text {
+  .@{progress}-outer,
+  .@{progress}-text {
     display: inline-block;
     vertical-align: top;
     height: 20px;
   }
 
-  .nova-progress-outer {
+  .@{progress}-outer {
     width: 100%;
     height: 20px;
   }
 
-  &.nova-progress-show-info {
-    .nova-progress-outer {
+  &.@{progress}-show-info {
+    .@{progress}-outer {
       width: calc(100% - 50px);
     }
   }
 
-  .nova-progress-inner {
+  .@{progress}-inner {
     background-color: #f5f5f5;
     height: 10px;
     margin: 5px 0;
   }
 
-  .nova-progress-bg {
+  .@{progress}-bg {
     height: 10px;
     width: 0;
     background-color: @primary-color;
     transition: width @normal-motion;
   }
 
-  &.nova-progress-status-active {
-    .nova-progress-bg {
+  &.@{progress}-status-active {
+    .@{progress}-bg {
       &:before {
         content: '';
         display: block;
@@ -45,12 +47,12 @@
         background-color: @component-background;
         opacity: 0;
         transform-origin: 0 0;
-        animation: @nova-progress-active 2s @ease-out-quintic infinite;
+        animation: @progress-active 3s @ease-out-quintic infinite;
       }
     }
   }
 
-  .nova-progress-text {
+  .@{progress}-text {
     font-size: 14px;
     width: 50px;
     box-sizing: border-box;

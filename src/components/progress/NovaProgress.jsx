@@ -1,6 +1,7 @@
 import { createElement } from '@vue/composition-api';
 import Line from '@/components/progress/Line.jsx';
 import Circle from '@/components/progress/Circle.jsx';
+import Storage from '@/utils/storage';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -8,6 +9,10 @@ const h = createElement;
 export default {
   name: 'NovaProgress',
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-progress`
+    },
     type: {
       type: String,
       default: 'line'
@@ -42,6 +47,7 @@ export default {
       props,
       ...context
     };
+
     if (props.type === 'line') {
       return () => <Line {...progressProps} />;
     } else if (props.type === 'circle') {
