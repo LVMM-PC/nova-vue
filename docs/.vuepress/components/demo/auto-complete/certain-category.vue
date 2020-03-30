@@ -15,8 +15,9 @@
           class="more"
           href="https://www.npmjs.com/search?q=nova-vue"
           target="_blank"
-          >More</a
         >
+          More
+        </a>
       </div>
     </template>
     <template v-slot="{ item }">

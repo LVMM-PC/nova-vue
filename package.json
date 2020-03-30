@@ -1,7 +1,7 @@
 {
   "name": "nova-vue",
   "description": "An enterprise-class UI design language and Vue components implementation",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": {
     "name": "em2046",
     "email": "em2046@qq.com"
@@ -18,6 +18,9 @@
     "ui"
   ],
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "main": "dist/nova.umd.js",
   "module": "dist/nova.esm.js",
   "scripts": {

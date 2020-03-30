@@ -8,6 +8,7 @@
         auto-select
         dropdown-class="my-auto-complete-dropdown"
         placeholder="请选择城市"
+        :focus-search="true"
         @click="handleClick"
         @select="handleSelect"
       >
@@ -15,17 +16,16 @@
           <div class="city-area">
             <div class="city-hot">
               <div class="city-hot-title">
-                {{ cityAreaHot.name }}
+                Hot
               </div>
               <div class="city-list">
                 <div
-                  v-for="(cityHot, cityHotIndex) in cityAreaHot.children"
+                  v-for="(cityHot, cityHotIndex) in cityAreaHot"
                   :key="'CITY_' + cityHotIndex"
-                  :class="{ hidden: !cityHot.title }"
                   class="city-item"
                   @click="handleCitySelect(cityHot)"
                 >
-                  <template v-if="cityHot.title">{{ cityHot.title }}</template>
+                  <template>{{ cityHot.name }}</template>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
                 class="city-tab"
                 @click="handleCityIndexSwitch(listIndex)"
               >
-                <div class="city-tab-text">{{ list.name }}</div>
+                <div class="city-tab-text">{{ listIndex }}</div>
               </div>
             </div>
 
@@ -52,21 +52,20 @@
               class="city-panel"
             >
               <div
-                v-for="(sub, subIndex) in list.children"
+                v-for="(sub, subIndex) in list"
                 :key="'LETTER_' + subIndex"
-                :class="{ hidden: !list.children }"
                 class="city-line"
               >
-                <div v-if="sub.name" class="city-sub-title">{{ sub.name }}</div>
-                <div v-if="sub.children" class="city-list">
+                <div class="city-sub-title">{{ subIndex }}</div>
+                <div class="city-list">
                   <div
-                    v-for="(cityItem, cityItemIndex) in sub.children"
+                    v-for="(cityItem, cityItemIndex) in sub"
                     :key="'CITY_' + cityItemIndex"
                     class="city-item"
                     @click="handleCitySelect(cityItem)"
                   >
-                    <template v-if="cityItem.title">
-                      {{ cityItem.title }}
+                    <template>
+                      {{ cityItem.name }}
                     </template>
                   </div>
                 </div>
@@ -93,8 +92,9 @@
 
 <script>
 import NovaAutoComplete from '@/components/auto-complete/NovaAutoComplete';
-import cityList from '@/views/data/city-list';
-import cityArea from '@/views/data/city-area';
+
+import cityList from '@/views/data/city-list.json';
+import cityArea from '@/views/data/city-area.json';
 
 export default {
   name: 'Normal',
@@ -105,7 +105,7 @@ export default {
       cityList: [],
       cityAreaList: [],
       cityAreaHot: [],
-      cityStartActiveIndex: 0
+      cityStartActiveIndex: 'ABCD'
     };
   },
   created() {
@@ -119,8 +119,8 @@ export default {
         };
         return Object.assign(item, city);
       });
-      this.cityAreaHot = cityArea[0];
-      this.cityAreaList = cityArea.slice(1);
+      this.cityAreaList = cityArea['list'];
+      this.cityAreaHot = cityArea['hot'];
     },
     querySearch(queryString, cb) {
       let cityList = this.cityList;
@@ -136,7 +136,8 @@ export default {
         let matchPinyin =
           item.pinyin.toLowerCase().indexOf(queryString.toLowerCase()) !== -1;
         let matchShortPinyin =
-          item.jianpin.toLowerCase().indexOf(queryString.toLowerCase()) !== -1;
+          item.firstLetter.toLowerCase().indexOf(queryString.toLowerCase()) !==
+          -1;
         return matchName || matchPinyin || matchShortPinyin;
       };
     },
@@ -150,7 +151,7 @@ export default {
       this.cityStartActiveIndex = index;
     },
     handleCitySelect(city) {
-      this.city = city.title;
+      this.city = city.name;
       this.$refs['my-auto-complete'].closeDropdown();
     },
     triggerFocus() {

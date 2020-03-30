@@ -1,16 +1,26 @@
 <template>
   <div class="box">
     <NovaAutoComplete
-      v-model="keyword"
+      v-model="value"
+      :dropdown-match-select-width="400"
       :fetch-suggestions="querySearch"
+      dropdown-class="certain-category-search-dropdown"
       focus-search
+      placeholder="Input element tag"
+      @select="onSelect"
     >
-      <template v-slot:default="slotProps">
-        {{ slotProps.item.trueDistrictAlias }}
+      <template v-slot:groupLabel="{ group }">
+        <div class="label">
+          {{ group.type }}
+          <a class="more" :href="getHref(group.type)" target="_blank">
+            More
+          </a>
+        </div>
       </template>
-      <template v-slot:groupLabel="slotProps">
-        <div>
-          {{ slotProps.group.type }}
+      <template v-slot="{ item }">
+        <div class="item">
+          <span class="element">{{ item.element }}</span>
+          <span class="description">{{ item.description }}</span>
         </div>
       </template>
     </NovaAutoComplete>
@@ -18,45 +28,84 @@
 </template>
 
 <script>
-import groupBy from 'lodash/groupBy';
 import NovaAutoComplete from '@/components/auto-complete/NovaAutoComplete';
-import globalHotelList from '@/views/data/global-hotel-list';
+import htmlData from '@/views/data/html.json';
 
 export default {
-  name: 'Group',
-  components: { NovaAutoComplete },
+  components: {
+    NovaAutoComplete
+  },
   data() {
     return {
-      keyword: ''
+      value: ''
     };
   },
   methods: {
-    querySearch(queryString, cb) {
-      let matchList = globalHotelList.matchList.map(matchItem => {
-        let ret = {
-          value: matchItem.name
-        };
-        return Object.assign(ret, matchItem);
-      });
-
-      let listGroups = groupBy(matchList, item => {
-        return item.type;
-      });
-
-      let matchGroups = [];
-      for (let type in listGroups) {
-        if (!Object.prototype.hasOwnProperty.call(listGroups, type)) {
-          continue;
-        }
-        let group = listGroups[type];
-        matchGroups.push({
-          type,
-          children: group
-        });
-      }
-
-      cb(matchGroups);
+    querySearch(searchText, setResult) {
+      setResult(
+        htmlData
+          .map(group => {
+            return {
+              type: group.type,
+              children: group.children
+                .filter(item => {
+                  return item.element.indexOf(searchText.toLowerCase()) !== -1;
+                })
+                .map(item => {
+                  return {
+                    value: item.element,
+                    ...item
+                  };
+                })
+            };
+          })
+          .filter(group => {
+            return group.children.length;
+          })
+      );
+    },
+    onSelect(value, item) {
+      console.log(value, item);
+    },
+    getHref(type) {
+      const hash = type.replace(/ /g, '_');
+      return `https://developer.mozilla.org/en-US/docs/Web/HTML/Element#${hash}`;
     }
   }
 };
 </script>
+
+<style lang="less">
+.certain-category-search-dropdown .nova-auto-complete-label {
+  opacity: 1;
+}
+</style>
+
+<style scoped lang="less">
+@import '../../../styles/var';
+
+.label {
+  color: #999;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.label a {
+  color: #f90;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.element {
+  width: 100px;
+}
+
+.description {
+  width: 250px;
+  font-size: 12px;
+}
+</style>
