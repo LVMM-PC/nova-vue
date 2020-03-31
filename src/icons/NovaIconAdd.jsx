@@ -6,6 +6,7 @@ import NovaIcon from '@/components/icon/NovaIcon.jsx';
 
 export default {
   name: 'NovaIconAdd',
+  isIcon: true,
   functional: true,
   render(h, context) {
     const { data, props } = context;

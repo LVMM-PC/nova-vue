@@ -1,10 +1,6 @@
-import {
-  computed,
-  createElement,
-  reactive,
-  watchEffect
-} from '@vue/composition-api';
+import { computed, createElement } from '@vue/composition-api';
 import Storage from '@/utils/storage';
+import NovaIconLoading from '@/icons/NovaIconLoading';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -28,48 +24,88 @@ export default {
       type: Boolean,
       default: false
     },
+    danger: {
+      type: Boolean,
+      default: false
+    },
     htmlType: {
       type: String,
       default: 'button'
     }
   },
   setup: (props, context) => {
-    const state = reactive({
-      prefixedClass: props.prefixedClass,
-      type: props.type,
-      disabled: props.disabled,
-      loading: props.loading,
-      htmlType: props.htmlType
-    });
-
-    const children = context.slots.default;
+    const { attrs, listeners, emit, slots } = context;
 
     const buttonClassList = computed(() => {
       return [
-        state.prefixedClass,
+        props.prefixedClass,
         {
-          [`${state.prefixedClass}-${state.type}`]: true,
-          [`${state.prefixedClass}-loading`]: state.loading
+          [`${props.prefixedClass}-${props.type}`]: true,
+          [`${props.prefixedClass}-icon-only`]: slots.icon && !slots.default,
+          [`${props.prefixedClass}-loading`]: props.loading,
+          [`${props.prefixedClass}-danger`]: props.danger
         }
       ];
     });
 
-    watchEffect(() => {
-      state.prefixedClass = props.prefixedClass;
-      state.type = props.type;
-      state.disabled = props.disabled;
-      state.loading = props.loading;
-      state.htmlType = props.htmlType;
+    function handleClick(...args) {
+      if (props.loading || props.disabled) {
+        return;
+      }
+
+      emit('click', ...args);
+    }
+
+    const iconLoadingNode = computed(() => {
+      if (props.loading) {
+        return <NovaIconLoading spin />;
+      }
     });
 
-    return () => (
-      <button
-        class={buttonClassList.value}
-        type={state.htmlType}
-        disabled={state.disabled}
-      >
-        {children()}
-      </button>
-    );
+    function trimSpace(textNode) {
+      if (typeof textNode.text === 'string') {
+        const text = textNode.text.trim();
+        return <span>{text}</span>;
+      } else {
+        return textNode;
+      }
+    }
+
+    const buttonProps = {
+      attrs,
+      on: {
+        click: handleClick,
+        ...listeners
+      }
+    };
+
+    return () => {
+      let icon;
+      if (slots && slots.icon) {
+        icon = slots.icon();
+      }
+
+      let children;
+      if (slots && slots.default) {
+        const slotDefault = slots.default();
+        if (slotDefault.length === 1) {
+          children = trimSpace(slotDefault[0]);
+        } else {
+          children = slotDefault;
+        }
+      }
+
+      return (
+        <button
+          class={buttonClassList.value}
+          disabled={props.disabled}
+          type={props.htmlType}
+          {...buttonProps}
+        >
+          {iconLoadingNode.value || icon}
+          {children}
+        </button>
+      );
+    };
   }
 };

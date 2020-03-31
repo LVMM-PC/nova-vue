@@ -1,0 +1,164 @@
+@import '../../../styles/var';
+
+@button: ~'@{prefix}-button';
+@icon: ~'@{prefix}-icon';
+
+.@{button} {
+  vertical-align: top;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 20px;
+  padding: 4px 14px;
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid @border-color;
+  background-color: @component-background;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:not([disabled]):not(.@{button}-loading) {
+    &:hover,
+    &:focus {
+      color: @secondary-color;
+      border-color: @secondary-color;
+    }
+
+    &:focus {
+      box-shadow: @focus-shadow-secondary;
+    }
+  }
+
+  &.@{button}-danger {
+    color: @error-color;
+    border-color: @error-color;
+
+    &:not([disabled]):not(.@{button}-loading) {
+      &:hover,
+      &:focus {
+        color: @error-hover-color;
+        border-color: @error-hover-color;
+      }
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.@{button}-loading {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .@{icon} {
+    font-size: 18px;
+    margin-top: 1px;
+
+    & + span {
+      margin-left: 5px;
+    }
+  }
+
+  &.@{button}-icon-only {
+    padding: 5px 6px;
+  }
+}
+
+.@{button}-primary,
+.@{button}-secondary,
+.@{button}-link {
+  color: @component-background;
+  border: none;
+  padding: 5px 15px;
+
+  &:not([disabled]):not(.@{button}-loading) {
+    &:hover,
+    &:focus {
+      color: @component-background;
+    }
+  }
+}
+
+.@{button}-primary {
+  background-color: @primary-color;
+
+  &:not([disabled]):not(.@{button}-loading) {
+    &:hover,
+    &:focus {
+      background-color: @primary-hover-color;
+      color: @component-background;
+    }
+
+    &:focus {
+      box-shadow: @focus-shadow-primary;
+    }
+  }
+}
+
+.@{button}-secondary {
+  background-color: @secondary-color;
+
+  &:not([disabled]):not(.@{button}-loading) {
+    &:hover,
+    &:focus {
+      background-color: @secondary-hover-color;
+      color: @component-background;
+    }
+  }
+}
+
+.@{button}-primary,
+.@{button}-secondary {
+  &.@{button}-danger {
+    color: @component-background;
+    background-color: @error-color;
+
+    &:not([disabled]):not(.@{button}-loading) {
+      &:hover,
+      &:focus {
+        color: @component-background;
+        background-color: @error-hover-color;
+      }
+    }
+  }
+}
+
+.@{button}-link {
+  color: @font-color;
+  background: none;
+
+  &:not([disabled]):not(.@{button}-loading) {
+    &:hover,
+    &:focus {
+      color: @primary-color;
+      background: none;
+    }
+
+    &:focus {
+      box-shadow: @focus-shadow-primary;
+    }
+  }
+
+  &.@{button}-danger {
+    color: @error-color;
+
+    &:not([disabled]):not(.@{button}-loading) {
+      &:hover,
+      &:focus {
+        color: @error-hover-color;
+      }
+    }
+  }
+}
+
+.@{button}-danger {
+  &:not([disabled]):not(.@{button}-loading) {
+    &:focus {
+      box-shadow: @focus-shadow-danger;
+    }
+  }
+}

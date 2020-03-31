@@ -60,7 +60,7 @@ export default {
       on: listeners
     };
     return (
-      <div {...iconProps}>
+      <span {...iconProps}>
         {generate(h, src, {
           attrs: {
             fill: 'currentColor',
@@ -69,7 +69,7 @@ export default {
             ...restProps
           }
         })}
-      </div>
+      </span>
     );
   }
 };

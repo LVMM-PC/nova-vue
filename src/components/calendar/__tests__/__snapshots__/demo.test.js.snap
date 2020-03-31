@@ -146,18 +146,10 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/basic.vue correctly 1
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div tabindex="0" title="上个月" class="nova-calendar-prev">
-          <div class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path>
-            </svg></div>上个月
-        </div>
+        <div tabindex="0" title="上个月" class="nova-calendar-prev"><span class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path></svg></span>上个月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div tabindex="0" title="下个月" class="nova-calendar-next">
-          <div class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path>
-            </svg></div>下个月
-        </div>
+        <div tabindex="0" title="下个月" class="nova-calendar-next"><span class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path></svg></span>下个月</div>
       </div>
     </div>
   </div>
@@ -264,10 +256,10 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <div class="date-num">8</div>
               <ul class="events">
                 <li>
-                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><div class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></div></span>This is warning event.</div>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><span class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></span></span>This is warning event.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><div class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></div></span>This is success event.</div>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><span class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></span></span>This is success event.</div>
                 </li>
               </ul>
             </div>
@@ -283,13 +275,13 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <div class="date-num">10</div>
               <ul class="events">
                 <li>
-                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><div class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></div></span>This is warning event.</div>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><span class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></span></span>This is warning event.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><div class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></div></span>This is success event.</div>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><span class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></span></span>This is success event.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><div class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></div></span>This is error event.</div>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><span class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></span></span>This is error event.</div>
                 </li>
               </ul>
             </div>
@@ -323,22 +315,22 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
               <div class="date-num">15</div>
               <ul class="events">
                 <li>
-                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><div class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></div></span>This is warning event.</div>
+                  <div class="nova-alert nova-alert-warning nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-warning"><span class="nova-icon nova-icon-error"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zm-1-7v2h2v-2zm0-8v6h2V7z"></path></svg></span></span>This is warning event.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><div class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></div></span>This is very long usual event.</div>
+                  <div class="nova-alert nova-alert-success nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-success"><span class="nova-icon nova-icon-check-circle"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 22A10.011 10.011 0 012 12 10.011 10.011 0 0112 2a10.011 10.011 0 0110 10 10.011 10.011 0 01-10 10zM6.254 10.839L4.84 12.253l4.243 4.243 1.414 1.414 8.485-8.485-1.414-1.415-7.068 7.072-4.243-4.243z"></path></svg></span></span>This is very long usual event.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><div class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></div></span>This is error event 1.</div>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><span class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></span></span>This is error event 1.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><div class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></div></span>This is error event 2.</div>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><span class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></span></span>This is error event 2.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><div class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></div></span>This is error event 3.</div>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><span class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></span></span>This is error event 3.</div>
                 </li>
                 <li>
-                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><div class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></div></span>This is error event 4.</div>
+                  <div class="nova-alert nova-alert-error nova-alert-placement-bottom"><span class="nova-alert-icon nova-alert-icon-error"><span class="nova-icon nova-icon-cancel"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M4.93 19.07a10.012 10.012 0 010-14.141 10.011 10.011 0 0114.141 0 10.011 10.011 0 010 14.142 10.012 10.012 0 01-14.142 0zM8.464 7.05L7.05 8.464 10.586 12l-3.535 3.535 1.414 1.414L12 13.414l3.536 3.535 1.414-1.414L13.415 12l3.535-3.536-1.414-1.414L12 10.586z"></path></svg></span></span>This is error event 4.</div>
                 </li>
               </ul>
             </div>
@@ -472,18 +464,10 @@ exports[`renders ./docs/.vuepress/components/demo/calendar/notice.vue correctly 
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div tabindex="0" title="上个月" class="nova-calendar-prev">
-          <div class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path>
-            </svg></div>上个月
-        </div>
+        <div tabindex="0" title="上个月" class="nova-calendar-prev"><span class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path></svg></span>上个月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div tabindex="0" title="下个月" class="nova-calendar-next">
-          <div class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path>
-            </svg></div>下个月
-        </div>
+        <div tabindex="0" title="下个月" class="nova-calendar-next"><span class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path></svg></span>下个月</div>
       </div>
     </div>
   </div>

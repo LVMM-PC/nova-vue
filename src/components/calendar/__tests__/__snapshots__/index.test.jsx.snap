@@ -146,18 +146,10 @@ exports[`NovaCalendar Calendar should support locale 1`] = `
         </div>
       </div>
       <div class="nova-calendar-sidebar">
-        <div tabindex="0" title="上個月" class="nova-calendar-prev">
-          <div class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path>
-            </svg></div>上個月
-        </div>
+        <div tabindex="0" title="上個月" class="nova-calendar-prev"><span class="nova-icon nova-icon-top"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M12 8.415l-7.071 7.071-1.414-1.415L12 5.586l8.486 8.485-1.415 1.415z"></path></svg></span>上個月</div>
         <div class="nova-calendar-title"><span class="nova-calendar-title-support"></span><span class="nova-calendar-title-text">2000年
 1月</span></div>
-        <div tabindex="0" title="下個月" class="nova-calendar-next">
-          <div class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em">
-              <path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path>
-            </svg></div>下個月
-        </div>
+        <div tabindex="0" title="下個月" class="nova-calendar-next"><span class="nova-icon nova-icon-bottom"><svg viewBox="0 0 24 24" fill="currentColor" width="1em" height="1em"><path d="M10.586 17l-7.07-7.07 1.413-1.415L12 15.586l7.072-7.071 1.414 1.415-8.485 8.485z"></path></svg></span>下個月</div>
       </div>
     </div>
   </div>

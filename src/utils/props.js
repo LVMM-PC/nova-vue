@@ -9,6 +9,9 @@ export default class Props {
   }
 
   static getVNodeOptions(vNode) {
+    if (vNode.fnOptions) {
+      return vNode.fnOptions;
+    }
     return vNode?.componentOptions?.Ctor?.options;
   }
 
