@@ -1,3 +1,5 @@
+import Storage from '@/utils/storage';
+
 function generate(h, node, data = {}) {
   return h(
     node.tag,
@@ -18,9 +20,17 @@ export default {
   name: 'NovaIcon',
   functional: true,
   props: {
+    prefixedClass: {
+      type: String,
+      default: `${Storage.prefix}-icon`
+    },
     src: {
       type: Object,
       default: null
+    },
+    spin: {
+      type: Boolean,
+      default: false
     }
   },
   render(h, context) {
@@ -29,13 +39,23 @@ export default {
       props = {},
       listeners
     } = context;
-    const { src, ...restProps } = {
+
+    const { src, spin, prefixedClass, ...restProps } = {
       ...attrs,
       ...props
     };
+
+    const iconClassList = [
+      prefixedClass,
+      restData.class,
+      {
+        [`${prefixedClass}-spin`]: spin
+      }
+    ];
+
     const iconProps = {
       ...restData,
-      class: [`nova-icon`, restData.class],
+      class: iconClassList,
       attrs: restProps,
       on: listeners
     };

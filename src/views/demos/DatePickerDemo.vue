@@ -8,12 +8,15 @@
           :disabled-date="disabledDateBefore"
           dropdown-class="test"
           placeholder="请选择日期"
+          data-id="42"
           @blur="handleInputBlur"
           @change="handleChange"
           @click="handleClick"
           @close="handleClose"
           @focus="handleInputFocus"
           @open="handleOpen"
+          @mouseenter="handleMouseenter"
+          @mouseleave="handleMouseleave"
         ></NovaDatePicker>
       </NovaLocale>
       <NovaLocale :block="false" :holiday="hideHoliday" :locale="en">
@@ -175,6 +178,12 @@ export default {
   methods: {
     handleClick(e) {
       console.log('Click', e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
+      console.log(e);
     },
     handleInputFocus(e) {
       console.log('Input Focus', e);

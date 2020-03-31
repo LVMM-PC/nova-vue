@@ -1,7 +1,12 @@
 <template>
   <section class="icon-box">
     <div class="box">
-      <NovaIconTop></NovaIconTop>
+      <NovaIconTop
+        data-id="42"
+        @click="handleClick"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
+      ></NovaIconTop>
       <NovaIconRight></NovaIconRight>
       <NovaIconBottom></NovaIconBottom>
       <NovaIconLeft></NovaIconLeft>
@@ -15,6 +20,7 @@
     </div>
     <div class="box">
       <NovaIconDateRange></NovaIconDateRange>
+      <NovaIconLoading spin></NovaIconLoading>
     </div>
   </section>
 </template>
@@ -30,10 +36,12 @@ import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle';
 import NovaIconError from '@/icons/NovaIconError';
 import NovaIconCancel from '@/icons/NovaIconCancel';
 import NovaIconDateRange from '@/icons/NovaIconDateRange';
+import NovaIconLoading from '@/icons/NovaIconLoading';
 
 export default {
   name: 'IconDemo',
   components: {
+    NovaIconLoading,
     NovaIconDateRange,
     NovaIconCancel,
     NovaIconError,
@@ -46,7 +54,13 @@ export default {
     NovaIconBottom
   },
   methods: {
-    onClick(e) {
+    handleClick(e) {
+      console.log(e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     }
   }

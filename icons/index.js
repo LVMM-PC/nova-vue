@@ -12,6 +12,7 @@ export { default as iconError } from './entities/icon-error';
 export { default as iconHelp } from './entities/icon-help';
 export { default as iconInfo } from './entities/icon-info';
 export { default as iconLeft } from './entities/icon-left';
+export { default as iconLoading } from './entities/icon-loading';
 export { default as iconRemoveCircle } from './entities/icon-remove-circle';
 export { default as iconRemove } from './entities/icon-remove';
 export { default as iconRight } from './entities/icon-right';

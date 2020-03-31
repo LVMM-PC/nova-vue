@@ -1,7 +1,13 @@
 <template>
   <section>
     <div class="box">
-      <NovaProgress :percent="0"></NovaProgress>
+      <NovaProgress
+        :percent="0"
+        :data-id="dataId"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
+        @click="handleClick"
+      ></NovaProgress>
       <NovaProgress :percent="0.25"></NovaProgress>
       <NovaProgress :percent="0.5" :status="status"></NovaProgress>
       <div class="inline-block">
@@ -23,7 +29,15 @@
       <button @click="handleDecreasing">-</button>
     </div>
     <div class="box">
-      <NovaProgress type="circle" :percent="0" :width="width"></NovaProgress>
+      <NovaProgress
+        type="circle"
+        :percent="0"
+        :width="width"
+        :data-id="dataId"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
+        @click="handleClick"
+      ></NovaProgress>
       <button @click="widthIncreasing">+</button>
       <button @click="widthDecreasing">-</button>
       <NovaProgress
@@ -79,10 +93,21 @@ export default {
       showInfo: false,
       linecap: 'round',
       width: 100,
-      strokeWidth: 10
+      strokeWidth: 10,
+      dataId: 42
     };
   },
   methods: {
+    handleClick(e) {
+      console.log('Click', e);
+      this.dataId = Utils.getRandomInt(0, 42);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
+      console.log(e);
+    },
     handleIncreasing() {
       this.value = Utils.numberLimit(this.value + 1 / 8, 0, 1);
     },

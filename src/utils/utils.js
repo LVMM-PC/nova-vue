@@ -96,4 +96,8 @@ export default class Utils {
     }
     return number;
   }
+
+  static getRandomInt(low, high) {
+    return Math.floor(low + Math.random() * (high - low));
+  }
 }

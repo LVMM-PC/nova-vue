@@ -39,11 +39,9 @@ export default {
     }
   },
   setup: (props, context) => {
-    const state = reactive({
-      prefixedClass: props.prefixedClass,
-      showInfo: props.showInfo,
-      strokeLinecap: props.strokeLinecap,
+    const { attrs, listeners } = context;
 
+    const state = reactive({
       width: Utils.numberLimit(props.width, 0),
       strokeWidth: Utils.numberLimit(props.strokeWidth, 0, props.width / 2),
       halfWidth: computed(() => {
@@ -62,6 +60,17 @@ export default {
       })
     });
 
+    watchEffect(() => {
+      state.percent = Utils.numberLimit(props.percent, 0, 1);
+
+      const width = props.width;
+      state.width = Utils.numberLimit(width, 0);
+      state.strokeWidth = Utils.numberLimit(props.strokeWidth, 0, width / 2);
+
+      updateBgStyle();
+      updateInnerStyle();
+    });
+
     const innerStyle = reactive({
       width: `${state.width}px`,
       height: `${state.width}px`
@@ -73,10 +82,10 @@ export default {
     });
 
     const circleClassList = computed(() => [
-      state.prefixedClass,
-      `${state.prefixedClass}-circle`,
+      props.prefixedClass,
+      `${props.prefixedClass}-circle`,
       {
-        [`${state.prefixedClass}-show-info`]: state.showInfo
+        [`${props.prefixedClass}-show-info`]: props.showInfo
       }
     ]);
 
@@ -112,50 +121,41 @@ export default {
     }
 
     let textNode = computed(() => {
-      if (state.showInfo) {
+      if (props.showInfo) {
         return (
-          <div class={`${state.prefixedClass}-text`}>
+          <div class={`${props.prefixedClass}-text`}>
             {state.percentFormatted}
           </div>
         );
       }
     });
 
-    watchEffect(() => {
-      state.prefixedClass = props.prefixedClass;
-      state.showInfo = props.showInfo;
-      state.strokeLinecap = props.strokeLinecap;
-      state.percent = Utils.numberLimit(props.percent, 0, 1);
-
-      const width = props.width;
-      state.width = Utils.numberLimit(width, 0);
-      state.strokeWidth = Utils.numberLimit(props.strokeWidth, 0, width / 2);
-
-      updateBgStyle();
-      updateInnerStyle();
-    });
+    const lineProps = {
+      attrs,
+      on: listeners
+    };
 
     return () => (
-      <div class={circleClassList.value} {...context}>
-        <div class={`${state.prefixedClass}-inner`} style={innerStyle}>
+      <div class={circleClassList.value} {...lineProps}>
+        <div class={`${props.prefixedClass}-inner`} style={innerStyle}>
           <svg
-            class={`${state.prefixedClass}-svg`}
+            class={`${props.prefixedClass}-svg`}
             width={state.width}
             height={state.width}
             viewBox={`0 0 ${state.width} ${state.width}`}
           >
             <circle
-              class={`${state.prefixedClass}-trail`}
-              stroke-linecap={state.strokeLinecap}
+              class={`${props.prefixedClass}-trail`}
+              stroke-linecap={props.strokeLinecap}
               stroke-width={state.strokeWidth}
               cx={state.halfWidth}
               cy={state.halfWidth}
               r={state.radius}
             />
             <circle
-              class={`${state.prefixedClass}-bg`}
+              class={`${props.prefixedClass}-bg`}
               stroke-dashoffset="0"
-              stroke-linecap={state.strokeLinecap}
+              stroke-linecap={props.strokeLinecap}
               style={bgStyle}
               cx={state.halfWidth}
               cy={state.halfWidth}

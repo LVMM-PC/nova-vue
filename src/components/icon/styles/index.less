@@ -1,4 +1,5 @@
 @import '../../../styles/var';
+@import '../../../styles/common';
 
 @icon: ~'@{prefix}-icon';
 
@@ -12,5 +13,11 @@
   svg {
     pointer-events: none;
     vertical-align: top;
+  }
+
+  &.@{icon}-spin {
+    svg {
+      animation: @spin 1s linear infinite;
+    }
   }
 }

@@ -10,6 +10,7 @@
       <router-link to="/alert">Alert</router-link>
       <router-link to="/auto-complete">AutoComplete</router-link>
       <router-link to="/progress">Progress</router-link>
+      <router-link to="/button">Button</router-link>
     </div>
   </div>
 </template>

@@ -8,7 +8,11 @@
         :disabled-month-next="disabledMonthNext"
         :disabled-month-prev="disabledMonthPrev"
         :month-size="2"
+        data-id="42"
         @panelChange="handlePanelChange"
+        @click="handleClick"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
       >
         <template v-slot:dateCellRender="slotProps">
           <div class="date-cell">
@@ -93,6 +97,16 @@ export default {
     },
     handlePanelChange(date) {
       console.log(dayjs(date).format('YYYY-MM-DD'));
+    },
+
+    handleClick(e) {
+      console.log('Click', e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
+      console.log(e);
     }
   }
 };

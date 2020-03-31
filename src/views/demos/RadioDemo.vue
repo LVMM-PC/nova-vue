@@ -6,8 +6,11 @@
         <NovaRadio
           v-model="isRead1"
           value="READ"
+          data-id="42"
           @change="handleReadChange"
           @click="handleClick"
+          @mouseenter="handleMouseenter"
+          @mouseleave="handleMouseleave"
           >我已阅读
         </NovaRadio>
       </dd>
@@ -174,6 +177,12 @@ export default {
   },
   methods: {
     handleClick(e) {
+      console.log(e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     },
     handleReadChange(value) {

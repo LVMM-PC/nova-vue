@@ -5,8 +5,11 @@
       <dd>
         <NovaCheckbox
           v-model="isRead1"
+          data-id="42"
           @change="handleReadChange"
           @click="handleClick"
+          @mouseenter="handleMouseenter"
+          @mouseleave="handleMouseleave"
           >我已阅读
         </NovaCheckbox>
         <NovaCheckbox v-model="isRead1" disabled>我已阅读</NovaCheckbox>
@@ -144,6 +147,12 @@ export default {
   },
   methods: {
     handleClick(e) {
+      console.log(e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     },
     handleReadChange(value) {

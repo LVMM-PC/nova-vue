@@ -20,6 +20,8 @@
       <router-link to="/auto-complete">AutoComplete</router-link>
       |
       <router-link to="/progress">Progress</router-link>
+      |
+      <router-link to="/button">Button</router-link>
     </div>
     <router-view />
   </div>

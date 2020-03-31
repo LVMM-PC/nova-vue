@@ -9,7 +9,10 @@
         dropdown-class="my-auto-complete-dropdown"
         placeholder="请选择城市"
         :focus-search="true"
+        data-id="42"
         @click="handleClick"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
         @select="handleSelect"
       >
         <template slot="start">
@@ -145,6 +148,12 @@ export default {
       console.log(item);
     },
     handleClick(e) {
+      console.log(e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     },
     handleCityIndexSwitch(index) {

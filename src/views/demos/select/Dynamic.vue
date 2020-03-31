@@ -60,10 +60,7 @@
 import NovaSelect from '@/components/select/NovaSelect';
 import NovaOptGroup from '@/components/select/NovaOptGroup';
 import NovaOption from '@/components/select/NovaOption';
-
-function getRandomInt(low, high) {
-  return Math.floor(low + Math.random() * (high - low));
-}
+import Utils from '@/utils/utils';
 
 export default {
   name: 'Dynamic',
@@ -88,7 +85,7 @@ export default {
   },
   methods: {
     handleAddOption() {
-      const endInt = getRandomInt(1, 1000);
+      const endInt = Utils.getRandomInt(1, 1000);
       this.options.push({
         value: `peach ${endInt}`,
         label: `Peach ${endInt}`,
@@ -96,7 +93,7 @@ export default {
       });
 
       this.$nextTick(() => {
-        const startInt = getRandomInt(1, 1000);
+        const startInt = Utils.getRandomInt(1, 1000);
         this.options.unshift({
           value: `peach ${startInt}`,
           label: `Peach ${startInt}`,
@@ -109,7 +106,7 @@ export default {
       this.options.shift();
     },
     handleTest() {
-      this.n = getRandomInt(2, 10);
+      this.n = Utils.getRandomInt(2, 10);
     }
   }
 };

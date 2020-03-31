@@ -15,10 +15,13 @@
       <NovaSelect
         v-model="selectValue1"
         dropdown-class="test"
+        data-id="42"
         @change="handleChange"
         @click="handleClick"
         @close="handleClose"
         @open="handleOpen"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
       >
         <NovaOption
           v-for="option in selectOptions"
@@ -295,6 +298,12 @@ export default {
   },
   methods: {
     handleClick(e) {
+      console.log(e);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     },
     handleChange(value) {

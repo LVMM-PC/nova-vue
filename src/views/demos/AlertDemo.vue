@@ -12,7 +12,14 @@
       <Matrix type="error"></Matrix>
     </div>
     <div class="box">
-      <NovaAlert block border type="success" @click="handleClick"
+      <NovaAlert
+        block
+        border
+        type="success"
+        :data-id="dataId"
+        @click="handleClick"
+        @mouseenter="handleMouseenter"
+        @mouseleave="handleMouseleave"
         >成功提示的文案
       </NovaAlert>
       <NovaAlert block border type="info">消息提示的文案</NovaAlert>
@@ -113,12 +120,25 @@
 <script>
 import NovaAlert from '@/components/alert/NovaAlert';
 import Matrix from '@/views/demos/alert/Matrix';
+import Utils from '@/utils/utils';
 
 export default {
   name: 'AlertDemo',
   components: { Matrix, NovaAlert },
+  data() {
+    return {
+      dataId: 42
+    };
+  },
   methods: {
     handleClick(e) {
+      console.log(e);
+      this.dataId = Utils.getRandomInt(0, 42);
+    },
+    handleMouseenter(e) {
+      console.log(e);
+    },
+    handleMouseleave(e) {
       console.log(e);
     },
     handleClose() {

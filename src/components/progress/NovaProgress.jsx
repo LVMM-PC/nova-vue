@@ -43,9 +43,12 @@ export default {
     }
   },
   setup: (props, context) => {
+    const { listeners, attrs } = context;
+
     const progressProps = {
       props,
-      ...context
+      attrs,
+      on: listeners
     };
 
     if (props.type === 'line') {

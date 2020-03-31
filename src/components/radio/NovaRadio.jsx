@@ -93,10 +93,12 @@ export default {
     inGroupClick() {
       this.NovaRadioGroup.setChecked(this.value, true);
     },
-    handleRadioClick(e) {
+    handleRadioClick(e, ...restArgs) {
       if (this.isDisabled) {
         return;
       }
+
+      this.$emit('click', e, ...restArgs);
 
       const target = e.target;
 

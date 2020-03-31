@@ -61,6 +61,12 @@ const routes = [
       )
   },
   {
+    path: '/alert',
+    name: 'Alert',
+    component: () =>
+      import(/* webpackChunkName: "alert" */ '../views/demos/AlertDemo.vue')
+  },
+  {
     path: '/progress',
     name: 'Progress',
     component: () =>
@@ -69,10 +75,10 @@ const routes = [
       )
   },
   {
-    path: '/alert',
-    name: 'Alert',
+    path: '/button',
+    name: 'Button',
     component: () =>
-      import(/* webpackChunkName: "alert" */ '../views/demos/AlertDemo.vue')
+      import(/* webpackChunkName: "button" */ '../views/demos/ButtonDemo.vue')
   }
 ];
 

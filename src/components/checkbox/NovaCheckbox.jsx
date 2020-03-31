@@ -92,10 +92,12 @@ export default {
     inGroupClick() {
       this.NovaCheckboxGroup.setChecked(this.value, !this.isChecked, true);
     },
-    handleCheckboxClick(e) {
+    handleCheckboxClick(e, ...restArgs) {
       if (this.isDisabled) {
         return;
       }
+
+      this.$emit('click', e, ...restArgs);
 
       const target = e.target;
 

@@ -12,6 +12,7 @@ export NovaIconError from './NovaIconError.jsx';
 export NovaIconHelp from './NovaIconHelp.jsx';
 export NovaIconInfo from './NovaIconInfo.jsx';
 export NovaIconLeft from './NovaIconLeft.jsx';
+export NovaIconLoading from './NovaIconLoading.jsx';
 export NovaIconRemove from './NovaIconRemove.jsx';
 export NovaIconRemoveCircle from './NovaIconRemoveCircle.jsx';
 export NovaIconRight from './NovaIconRight.jsx';

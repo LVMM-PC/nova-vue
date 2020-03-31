@@ -31,49 +31,49 @@ export default {
     }
   },
   setup: (props, context) => {
-    const state = reactive({
-      prefixedClass: props.prefixedClass,
-      status: props.status,
-      showInfo: props.showInfo,
+    const { attrs, listeners } = context;
 
+    const state = reactive({
       percent: Utils.numberLimit(props.percent, 0, 1),
       percentFormatted: computed(() => {
         return `${Utils.twoDecimalPlaces(state.percent * 100)}%`;
       })
     });
 
+    watchEffect(() => {
+      state.percent = Utils.numberLimit(props.percent, 0, 1);
+    });
+
     const lineClassList = computed(() => [
-      state.prefixedClass,
-      `${state.prefixedClass}-line`,
+      props.prefixedClass,
+      `${props.prefixedClass}-line`,
       {
-        [`${state.prefixedClass}-show-info`]: state.showInfo,
-        [`${state.prefixedClass}-status-${state.status}`]: true
+        [`${props.prefixedClass}-show-info`]: props.showInfo,
+        [`${props.prefixedClass}-status-${props.status}`]: true
       }
     ]);
 
     let textNode = computed(() => {
-      if (state.showInfo) {
+      if (props.showInfo) {
         return (
-          <div class={`${state.prefixedClass}-text`}>
+          <div class={`${props.prefixedClass}-text`}>
             {state.percentFormatted}
           </div>
         );
       }
     });
 
-    watchEffect(() => {
-      state.prefixedClass = props.prefixedClass;
-      state.status = props.status;
-      state.showInfo = props.showInfo;
-      state.percent = Utils.numberLimit(props.percent, 0, 1);
-    });
+    const lineProps = {
+      attrs,
+      on: listeners
+    };
 
     return () => (
-      <div class={lineClassList.value} {...context}>
-        <div class={`${state.prefixedClass}-outer`}>
-          <div class={`${state.prefixedClass}-inner`}>
+      <div class={lineClassList.value} {...lineProps}>
+        <div class={`${props.prefixedClass}-outer`}>
+          <div class={`${props.prefixedClass}-inner`}>
             <div
-              class={`${state.prefixedClass}-bg`}
+              class={`${props.prefixedClass}-bg`}
               style={{ width: state.percentFormatted }}
             />
           </div>

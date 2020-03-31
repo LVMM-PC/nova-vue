@@ -511,7 +511,7 @@ export default {
   render() {
     const {
       $attrs,
-      $listenrs,
+      $listeners,
       $scopedSlots,
       $slots,
       appendToBody,
@@ -689,7 +689,7 @@ export default {
         ...$attrs
       },
       on: {
-        ...$listenrs
+        ...$listeners
       }
     };
     return (
