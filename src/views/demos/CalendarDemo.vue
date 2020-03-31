@@ -115,7 +115,7 @@ export default {
 <style lang="less" scoped>
 .calendar-box {
   margin-top: 45px;
-  border: 2px solid #f90;
+  border: 2px solid #ff9900;
 }
 
 .calendar-title {
@@ -137,7 +137,7 @@ export default {
   font-size: 12px;
 
   a {
-    color: #29e;
+    color: #2299ee;
     text-decoration: none;
   }
 }
@@ -171,8 +171,8 @@ export default {
     display: inline-block;
     vertical-align: top;
     text-indent: 0;
-    color: #fff;
-    background-color: #333;
+    color: #ffffff;
+    background-color: #333333;
     text-align: center;
     padding: 0 1px;
     height: 16px;
@@ -182,7 +182,7 @@ export default {
   }
 
   .calendar-rest {
-    background: #fa0;
+    background: #ffaa00;
   }
 }
 

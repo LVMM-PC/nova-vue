@@ -60,6 +60,6 @@ export default {
 }
 
 .username {
-  color: #e38;
+  color: #ee3388;
 }
 </style>

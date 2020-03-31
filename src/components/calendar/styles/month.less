@@ -4,7 +4,7 @@
 
 .@{calendar}-month {
   position: relative;
-  border: 1px solid #eee;
+  border: 1px solid @border-lighter-color;
 }
 
 .@{calendar}-month + .@{calendar}-month {
@@ -17,7 +17,7 @@
     display: block;
     position: absolute;
     height: 1px;
-    border-top: 1px solid #f90;
+    border-top: 1px solid @secondary-color;
     margin-left: -1px;
     margin-top: -1px;
   }
@@ -58,26 +58,26 @@
     top: 50%;
     left: 50%;
     font-size: 36px;
-    color: #ffaa00;
+    color: @secondary-lighter-color;
     transform: translate(-50%, -50%);
   }
 
   &:hover {
     .nova-icon {
-      color: #ff6600;
+      color: @secondary-highlight-color;
     }
   }
 
   &.is-disabled {
     .nova-icon {
-      color: #cccccc;
+      color: @font-light-color;
     }
   }
 
   &:focus {
     &:not(.is-disabled) {
-      border: 1px solid #ffd280;
-      box-shadow: 0 0 0 1px #ffd280;
+      border: 1px solid @secondary-medium-color;
+      box-shadow: 0 0 0 1px @secondary-medium-color;
     }
   }
 
@@ -85,7 +85,7 @@
   &:hover {
     &:not(.is-disabled) {
       cursor: pointer;
-      background-color: rgb(255, 250, 238);
+      background-color: @secondary-background;
     }
   }
 }
@@ -112,7 +112,7 @@
   font-size: 0;
   width: 75px;
   height: calc(100% - 95px * 2);
-  color: #666;
+  color: @font-lighter-color;
   padding: 5px 5px 5px 5px;
   box-sizing: border-box;
 }
@@ -135,7 +135,7 @@
 }
 
 .@{calendar}-header {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid @border-lighter-color;
   padding-right: 75px;
 }
 
@@ -144,7 +144,7 @@
 }
 
 .@{calendar}-week {
-  color: #666;
+  color: @font-lighter-color;
   box-sizing: border-box;
   width: calc(100% / 7);
   display: inline-block;
@@ -157,7 +157,7 @@
 
   &.@{calendar}-sun,
   &.@{calendar}-sat {
-    color: #f60;
+    color: @secondary-color;
   }
 }
 
@@ -177,18 +177,18 @@
   vertical-align: top;
   width: calc((100% - 1px) / 7 + 1px);
   height: 96px;
-  border: 1px solid #eee;
+  border: 1px solid @border-lighter-color;
   box-sizing: border-box;
   margin-left: -1px;
   margin-top: -1px;
 
   &.is-prev,
   &.is-next {
-    color: #bababa;
+    color: @font-light-color;
   }
 
   &.is-disabled {
-    color: #bababa;
+    color: @font-light-color;
   }
 }
 

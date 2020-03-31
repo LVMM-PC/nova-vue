@@ -85,14 +85,14 @@ export default {
 @import '../../../styles/var';
 
 .label {
-  color: #999;
+  color: #999999;
   font-size: 12px;
   display: flex;
   justify-content: space-between;
 }
 
 .label a {
-  color: #f90;
+  color: #ff9900;
 }
 
 .item {

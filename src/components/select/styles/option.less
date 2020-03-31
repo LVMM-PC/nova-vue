@@ -9,11 +9,11 @@
 
   &:hover:not(.is-disabled) {
     color: @primary-color;
-    background-color: #fef2f9;
+    background-color: @primary-background;
   }
 
   &.is-active {
-    background-color: #fef2f9;
+    background-color: @primary-background;
   }
 
   &.is-selected {
@@ -43,8 +43,8 @@
       position: absolute;
       opacity: 0;
       box-sizing: border-box;
-      width: @checkWidth;
-      height: @checkHeight;
+      width: @check-width;
+      height: @check-height;
       content: '';
       display: block;
       border: 2px solid @primary-color;

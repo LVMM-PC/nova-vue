@@ -8,7 +8,7 @@
   display: inline-block;
   font-size: 12px;
   text-align: center;
-  border-right: 2px solid #f5f5f5;
+  border-right: 2px solid @section-background;
 
   &:last-child {
     border-right: none;
@@ -27,7 +27,7 @@
 
     .@{date-picket}-date.is-range-start:not(.is-range-start-single) {
       &:before {
-        background-color: #fcdaed;
+        background-color: @primary-background;
         width: 2px;
         right: 0;
       }
@@ -35,7 +35,7 @@
 
     .@{date-picket}-date.is-range-end {
       &:before {
-        background-color: #fcdaed;
+        background-color: @primary-background;
       }
 
       &:not(.is-range-hover) {
@@ -48,7 +48,7 @@
     .@{date-picket}-date.is-range-hover-end:not(.is-in-range) {
       &:before {
         width: 2px;
-        background-color: #fcdaed;
+        background-color: @primary-background;
       }
     }
 
@@ -56,7 +56,7 @@
       &:before {
         right: 0;
         width: 2px;
-        background-color: #fcdaed;
+        background-color: @primary-background;
       }
     }
 
@@ -81,13 +81,13 @@
 
     .@{date-picket}-date.is-in-range:not(.is-disabled):not(.is-selected) {
       &:before {
-        background-color: #fcdaed;
+        background-color: @primary-background;
       }
     }
 
     .@{date-picket}-date.is-range-hover:not(.is-disabled):not(.is-selected):not(.is-in-range) {
       &:before {
-        background-color: #fcdaed;
+        background-color: @primary-background;
       }
     }
   }
@@ -101,7 +101,7 @@
   text-align: center;
   height: 28px;
   margin: -1px -1px 0 -1px;
-  color: #fff;
+  color: @component-background;
   background-color: @primary-color;
 }
 
@@ -128,7 +128,7 @@
   }
 
   &:hover {
-    background-color: #a81c54;
+    background-color: @primary-darker-color;
   }
 }
 
@@ -165,7 +165,7 @@
 .@{date-picket}-week {
   height: 28px;
   margin-bottom: 2px;
-  background-color: #eee;
+  background-color: @component-background-darker;
   padding: 4px 0;
 
   &.@{date-picket}-sun,
@@ -196,15 +196,15 @@
 
   &:hover:not(.is-disabled):not(.is-selected) {
     .@{date-picket}-date-inner {
-      background-color: #fef2f9;
+      background-color: @primary-background;
       color: @primary-color;
     }
   }
 
   &.is-selected {
     .@{date-picket}-date-inner {
-      background-color: #ff77bb;
-      color: #fff;
+      background-color: @primary-lighter-color;
+      color: @component-background;
     }
   }
 
@@ -218,8 +218,8 @@
 
   &.is-range-hover-end {
     .@{date-picket}-date-inner {
-      background-color: #ff77bb;
-      color: #fff;
+      background-color: @primary-lighter-color;
+      color: @component-background;
     }
   }
 

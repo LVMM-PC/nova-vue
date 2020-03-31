@@ -46,7 +46,7 @@
   outline: none;
 
   &[disabled] {
-    background-color: #eeeeee;
+    background-color: @component-background-darker;
   }
 }
 
@@ -71,11 +71,11 @@
 
   &:hover:not(.is-disabled) {
     color: @primary-color;
-    background-color: #fef2f9;
+    background-color: @primary-background;
   }
 
   &.is-selected {
-    background-color: #fef2f9;
+    background-color: @primary-background;
   }
 
   &.is-disabled {

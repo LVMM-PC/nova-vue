@@ -63,7 +63,7 @@ export default {
 }
 
 .item a {
-  color: #f90;
+  color: #ff9900;
 }
 
 .item .result {

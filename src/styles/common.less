@@ -1,7 +1,7 @@
 @import './var';
 
 ::placeholder {
-  color: @placeholder-color;
+  color: @font-light-color;
   opacity: 1;
 }
 
@@ -68,7 +68,6 @@
 //endregion
 
 //region progress-active
-@progress-active: ~'@{prefix}-progress-active';
 @keyframes @progress-active {
   from {
     opacity: 0.5;
@@ -84,7 +83,6 @@
 //endregion
 
 //region spin
-@spin: ~'@{prefix}-spin';
 @keyframes @spin {
   from {
     transform: rotate(0deg);

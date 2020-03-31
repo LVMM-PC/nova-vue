@@ -55,7 +55,7 @@
   color: @font-color;
 
   &[disabled] {
-    background-color: #eeeeee;
+    background-color: @component-background-darker;
   }
 }
 
@@ -68,7 +68,7 @@
   height: 24px;
   margin: 2px;
   font-size: 24px;
-  color: #ccc;
+  color: @font-light-color;
   pointer-events: none;
 }
 
@@ -79,14 +79,14 @@
 
 .@{date-picket}-tooltip {
   position: absolute;
-  color: #666666;
+  color: @font-lighter-color;
   border: 1px solid @border-color;
   padding: 5px 10px;
   pointer-events: none;
-  background-color: #fff;
+  background-color: @component-background;
   line-height: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: @dropdown-shadow;
   white-space: nowrap;
   margin-top: 10px;
   margin-left: 15px;
@@ -107,12 +107,12 @@
   &:before {
     top: -7px;
     border-width: 0 7px 7px 7px;
-    border-color: transparent transparent #cccccc transparent;
+    border-color: transparent transparent @border-color transparent;
   }
 
   &:after {
     top: -5.5px;
     border-width: 0 6px 6px 6px;
-    border-color: transparent transparent #ffffff transparent;
+    border-color: transparent transparent @component-background transparent;
   }
 }

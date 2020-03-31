@@ -1,6 +1,7 @@
 @import 'option';
 @import 'option-group';
 @import '../../../styles/var';
+@import '../../../styles/mixin';
 
 @select: ~'@{prefix}-select';
 
@@ -35,14 +36,14 @@
 
   &.is-disabled {
     opacity: 0.5;
-    background-color: #eee;
+    background-color: @component-background-darker;
 
     .@{select}-toggle {
       cursor: default;
     }
 
     .@{select}-label {
-      background-color: #eee;
+      background-color: @component-background-darker;
     }
   }
 
@@ -50,7 +51,7 @@
     .@{select}-toggle {
       border: 1px solid @primary-color;
       box-shadow: @focus-shadow-primary;
-      background-color: #fff;
+      background-color: @component-background;
     }
 
     .@{select}-arrow {
@@ -101,7 +102,6 @@
   margin: 2px;
   line-height: 20px;
   padding: 0 18px 0 3px;
-
   .ellipsis();
 
   &:hover {

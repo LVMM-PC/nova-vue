@@ -70,6 +70,6 @@ export default {
 <style>
 .icon-box {
   font-size: 48px;
-  color: #666;
+  color: #666666;
 }
 </style>

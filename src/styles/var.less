@@ -3,27 +3,86 @@
 @font-family: 'Helvetica Neue', 'Arial', 'PingFang SC', 'Microsoft Yahei',
   'SimSun', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 
-@primary-color: #e38;
+//region primary
+@primary-color: #ee3388;
+@primary-lighter-color: #ff77bb;
+@primary-darker-color: #a81c54;
 @primary-background: #fef2f9;
+//endregion
 
-@font-color: #333;
-@placeholder-color: #ccc;
-@component-background: #fff;
+//region secondary
+@secondary-color: #ff9900;
+@secondary-lighter-color: #ffaa00;
+@secondary-medium-color: #ffd280;
+@secondary-highlight-color: #ff6600;
+@secondary-background: #fffaee;
+//endregion
 
+//region success
+@success-color: #66cc33;
+@success-lighter-color: #66cc33;
+@success-medium-color: #ade392;
+@success-background-color: #f8fff2;
+//endregion
+
+//region warning
+@warning-color: #ffaa00;
+@warning-lighter-color: #ffaa00;
+@warning-medium-color: #ffda8f;
+@warning-background-color: #fffaee;
+//endregion
+
+//region error
+@error-color: #ff3300;
+@error-lighter-color: #ff8888;
+@error-medium-color: #feac97;
+@error-background-color: #fff2f2;
+//endregion
+
+//region info
+@info-color: #0099ff;
+@info-lighter-color: #88bbee;
+@info-medium-color: #96cff5;
+@info-background-color: #f0f5fc;
+//endregion
+
+//region help
+@help-color: #88bbee;
+//endregion
+
+//region font
+@font-color: #333333;
+@font-lighter-color: #666666;
+@font-light-color: #cccccc;
+//endregion
+
+//region other-color
+@component-background: #ffffff;
+@component-background-darker: #eeeeee;
 @section-background: #f5f5f5;
-@border-color: #ccc;
-@symbol-color: #999;
+@border-color: #cccccc;
+@border-lighter-color: #eeeeee;
+@symbol-color: #999999;
+//endregion
 
+//region motion
 @fast-motion: 100ms;
 @normal-motion: 200ms;
 @slow-motion: 300ms;
+//endregion
 
-@checkWidth: 4.94974747px; // sqrt(7^2 / 2)
-@checkHeight: 8.4852814px; // sqrt(12^2 / 2)
-@checkTop: 1.41421356px; // sqrt(2^2 / 2)
+//region check
+@check-width: 4.94974747px; // sqrt(7^2 / 2)
+@check-height: 8.4852814px; // sqrt(12^2 / 2)
+@check-top: 1.41421356px; // sqrt(2^2 / 2)
+//endregion
 
+//region shadow
 @focus-shadow-primary: 0 0 0 2px rgba(238, 51, 136, 0.1);
+@dropdown-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+//endregion
 
+//region time-function
 @ease-in-quintic: cubic-bezier(0.76, 0.05, 0.86, 0.06);
 @ease-in-backward: cubic-bezier(0.6, -0.28, 0.74, 0.05);
 
@@ -31,9 +90,9 @@
 @ease-out-backward: cubic-bezier(0.18, 0.89, 0.32, 1.28);
 
 @ease-in-out-circular: cubic-bezier(0.79, 0.14, 0.15, 0.86);
+//endregion
 
-.ellipsis() {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+//region animation-name
+@progress-active: ~'@{prefix}-progress-active';
+@spin: ~'@{prefix}-spin';
+//endregion
