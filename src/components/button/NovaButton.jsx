@@ -28,6 +28,10 @@ export default {
       type: Boolean,
       default: false
     },
+    block: {
+      type: Boolean,
+      default: false
+    },
     htmlType: {
       type: String,
       default: 'button'
@@ -43,7 +47,8 @@ export default {
           [`${props.prefixedClass}-${props.type}`]: true,
           [`${props.prefixedClass}-icon-only`]: slots.icon && !slots.default,
           [`${props.prefixedClass}-loading`]: props.loading,
-          [`${props.prefixedClass}-danger`]: props.danger
+          [`${props.prefixedClass}-danger`]: props.danger,
+          [`${props.prefixedClass}-block`]: props.block
         }
       ];
     });
@@ -93,6 +98,19 @@ export default {
         } else {
           children = slotDefault;
         }
+      }
+
+      if (attrs.href) {
+        return (
+          <a
+            class={buttonClassList.value}
+            disabled={props.disabled}
+            {...buttonProps}
+          >
+            {iconLoadingNode.value || icon}
+            {children}
+          </a>
+        );
       }
 
       return (

@@ -7,10 +7,10 @@
         @mouseenter="handleMouseenter"
         @mouseleave="handleMouseleave"
       >
-        Primary
+        Button
       </NovaButton>
-      <NovaButton disabled>Primary</NovaButton>
-      <NovaButton loading>Primary</NovaButton>
+      <NovaButton disabled>Button</NovaButton>
+      <NovaButton loading>Button</NovaButton>
     </div>
     <div class="box">
       <NovaButton type="primary">
@@ -18,7 +18,13 @@
       </NovaButton>
       <NovaButton type="secondary">次要</NovaButton>
       <NovaButton>默认</NovaButton>
-      <NovaButton type="link">链接</NovaButton>
+      <NovaButton
+        type="link"
+        href="http://nova-vue.em2046.com/"
+        target="_blank"
+      >
+        链接
+      </NovaButton>
     </div>
     <div class="box">
       <NovaButton :loading="loading" type="primary">
@@ -93,16 +99,34 @@
       </NovaButton>
     </div>
     <div class="box">
-      <NovaButton type="primary">
+      <NovaButton type="primary" block>
+        <NovaIconAddCircle slot="icon"></NovaIconAddCircle>
+        主要
+      </NovaButton>
+      <NovaButton type="secondary" block>
+        <NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
+        次要
+      </NovaButton>
+      <NovaButton block>
+        <NovaIconInfo slot="icon"></NovaIconInfo>
+        默认
+      </NovaButton>
+      <NovaButton type="link" block>
+        <NovaIconInfo slot="icon"></NovaIconInfo>
+        链接
+      </NovaButton>
+    </div>
+    <div class="box">
+      <NovaButton type="primary" :loading="loading">
         <NovaIconAddCircle slot="icon"></NovaIconAddCircle>
       </NovaButton>
-      <NovaButton type="secondary">
+      <NovaButton type="secondary" :loading="loading">
         <NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
       </NovaButton>
-      <NovaButton>
+      <NovaButton :loading="loading">
         <NovaIconInfo slot="icon"></NovaIconInfo>
       </NovaButton>
-      <NovaButton type="link">
+      <NovaButton type="link" :loading="loading">
         <NovaIconInfo slot="icon"></NovaIconInfo>
       </NovaButton>
     </div>

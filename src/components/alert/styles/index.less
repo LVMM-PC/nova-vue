@@ -88,11 +88,11 @@
     }
   }
 
-  .arrow(success; @success-lighter-color; @success-background-color);
-  .arrow(error; @error-lighter-color; @error-background-color);
-  .arrow(warning; @warning-lighter-color; @warning-background-color);
-  .arrow(info; @info-lighter-color; @info-background-color);
-  .arrow(help; @info-lighter-color; @info-background-color);
+  .arrow(success; @success-lighter-color; @success-background);
+  .arrow(error; @error-lighter-color; @error-background);
+  .arrow(warning; @warning-lighter-color; @warning-background);
+  .arrow(info; @info-lighter-color; @info-background);
+  .arrow(help; @info-lighter-color; @info-background);
 
   .@{alert}-arrow {
     top: 0;
@@ -139,11 +139,11 @@
     }
   }
 
-  .arrow(success; @success-lighter-color; @success-background-color);
-  .arrow(error; @error-lighter-color; @error-background-color);
-  .arrow(warning; @warning-lighter-color; @warning-background-color);
-  .arrow(info; @info-lighter-color; @info-background-color);
-  .arrow(help; @info-lighter-color; @info-background-color);
+  .arrow(success; @success-lighter-color; @success-background);
+  .arrow(error; @error-lighter-color; @error-background);
+  .arrow(warning; @warning-lighter-color; @warning-background);
+  .arrow(info; @info-lighter-color; @info-background);
+  .arrow(help; @info-lighter-color; @info-background);
 
   .@{alert}-arrow {
     bottom: 0;
@@ -190,11 +190,11 @@
     }
   }
 
-  .arrow(success; @success-lighter-color; @success-background-color);
-  .arrow(error; @error-lighter-color; @error-background-color);
-  .arrow(warning; @warning-lighter-color; @warning-background-color);
-  .arrow(info; @info-lighter-color; @info-background-color);
-  .arrow(help; @info-lighter-color; @info-background-color);
+  .arrow(success; @success-lighter-color; @success-background);
+  .arrow(error; @error-lighter-color; @error-background);
+  .arrow(warning; @warning-lighter-color; @warning-background);
+  .arrow(info; @info-lighter-color; @info-background);
+  .arrow(help; @info-lighter-color; @info-background);
 
   .@{alert}-arrow {
     left: 0;
@@ -241,11 +241,11 @@
     }
   }
 
-  .arrow(success; @success-lighter-color; @success-background-color);
-  .arrow(error; @error-lighter-color; @error-background-color);
-  .arrow(warning; @warning-lighter-color; @warning-background-color);
-  .arrow(info; @info-lighter-color; @info-background-color);
-  .arrow(help; @info-lighter-color; @info-background-color);
+  .arrow(success; @success-lighter-color; @success-background);
+  .arrow(error; @error-lighter-color; @error-background);
+  .arrow(warning; @warning-lighter-color; @warning-background);
+  .arrow(info; @info-lighter-color; @info-background);
+  .arrow(help; @info-lighter-color; @info-background);
 
   .@{alert}-arrow {
     left: 100%;
@@ -360,20 +360,18 @@
 
   .border-and-close
     (
-      success; @success-background-color; @success-lighter-color;
-        @success-medium-color
+      success; @success-background; @success-lighter-color; @success-light-color
     );
   .border-and-close
-    (error; @error-background-color; @error-lighter-color; @error-medium-color);
+    (error; @error-background; @error-lighter-color; @error-light-color);
   .border-and-close
     (
-      warning; @warning-background-color; @warning-lighter-color;
-        @warning-medium-color
+      warning; @warning-background; @warning-lighter-color; @warning-light-color
     );
   .border-and-close
-    (info; @info-background-color; @info-lighter-color; @info-medium-color);
+    (info; @info-background; @info-lighter-color; @info-light-color);
   .border-and-close
-    (help; @info-background-color; @info-lighter-color; @info-medium-color);
+    (help; @info-background; @info-lighter-color; @info-light-color);
 }
 
 .@{alert}-close {

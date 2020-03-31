@@ -4,6 +4,7 @@
 @icon: ~'@{prefix}-icon';
 
 .@{button} {
+  color: @font-color;
   vertical-align: top;
   text-align: center;
   display: inline-block;
@@ -15,6 +16,8 @@
   border: 1px solid @border-color;
   background-color: @component-background;
 
+  transition: all @fast-motion;
+
   &:focus {
     outline: none;
   }
@@ -22,13 +25,24 @@
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      color: @secondary-color;
-      border-color: @secondary-color;
+      color: @secondary-lighter-color;
+      border-color: @secondary-lighter-color;
     }
 
     &:focus {
       box-shadow: @focus-shadow-secondary;
     }
+
+    &:active {
+      color: @secondary-darker-color;
+      border-color: @secondary-darker-color;
+    }
+  }
+
+  &[disabled] {
+    color: @font-color;
+    opacity: 0.5;
+    cursor: not-allowed;
   }
 
   &.@{button}-danger {
@@ -38,20 +52,32 @@
     &:not([disabled]):not(.@{button}-loading) {
       &:hover,
       &:focus {
-        color: @error-hover-color;
-        border-color: @error-hover-color;
+        color: @error-lighter-color;
+        border-color: @error-lighter-color;
+      }
+
+      &:active {
+        color: @error-darker-color;
+        border-color: @error-darker-color;
       }
     }
   }
 
-  &[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
+  &.@{button}-icon-only {
+    padding: 4px 5px;
+    &.@{button}-loading {
+
+      padding-left: 23px;
+    }
   }
 
   &.@{button}-loading {
     opacity: 0.5;
     cursor: default;
+    padding-left: 32px;
+    .@{icon}{
+      margin-left: -18px;
+    }
   }
 
   .@{icon} {
@@ -62,10 +88,10 @@
       margin-left: 5px;
     }
   }
+}
 
-  &.@{button}-icon-only {
-    padding: 5px 6px;
-  }
+a.@{button} {
+  text-decoration: none;
 }
 
 .@{button}-primary,
@@ -74,6 +100,22 @@
   color: @component-background;
   border: none;
   padding: 5px 15px;
+
+  &.@{button}-loading {
+    padding-left: 33px;
+    .@{icon}{
+      margin-left: -18px;
+    }
+
+  }
+
+  &.@{button}-icon-only {
+    padding: 5px 6px;
+    &.@{button}-loading {
+      padding-left: 24px;
+
+    }
+  }
 
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
@@ -89,12 +131,16 @@
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      background-color: @primary-hover-color;
+      background-color: @primary-lighter-color;
       color: @component-background;
     }
 
     &:focus {
       box-shadow: @focus-shadow-primary;
+    }
+
+    &:active {
+      background-color: @primary-darker-color;
     }
   }
 }
@@ -105,14 +151,22 @@
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      background-color: @secondary-hover-color;
+      background-color: @secondary-lighter-color;
       color: @component-background;
+    }
+
+    &:active {
+      background-color: @secondary-darker-color;
     }
   }
 }
 
 .@{button}-primary,
 .@{button}-secondary {
+  &[disabled] {
+    color: @component-background;
+  }
+
   &.@{button}-danger {
     color: @component-background;
     background-color: @error-color;
@@ -121,7 +175,12 @@
       &:hover,
       &:focus {
         color: @component-background;
-        background-color: @error-hover-color;
+        background-color: @error-lighter-color;
+      }
+
+      &:active {
+        color: @component-background;
+        background-color: @error-darker-color;
       }
     }
   }
@@ -134,12 +193,16 @@
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      color: @primary-color;
+      color: @primary-lighter-color;
       background: none;
     }
 
     &:focus {
       box-shadow: @focus-shadow-primary;
+    }
+
+    &:active {
+      color: @primary-darker-color;
     }
   }
 
@@ -149,7 +212,11 @@
     &:not([disabled]):not(.@{button}-loading) {
       &:hover,
       &:focus {
-        color: @error-hover-color;
+        color: @error-lighter-color;
+      }
+
+      &:active {
+        color: @error-darker-color;
       }
     }
   }
@@ -161,4 +228,9 @@
       box-shadow: @focus-shadow-danger;
     }
   }
+}
+
+.@{button}-block {
+  display: block;
+  width: 100%;
 }
