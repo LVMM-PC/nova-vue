@@ -33,16 +33,15 @@ export default {
   },
   computed: {
     dropdownStyle() {
-      if (!this.appendToBody) {
-        return {};
-      }
       const width = this.width;
-      return Object.assign(
-        {
-          width: `${width}px`
-        },
-        this.offset
-      );
+      const styleWidth = {
+        width: `${width}px`
+      };
+      if (!this.appendToBody) {
+        return styleWidth;
+      }
+
+      return Object.assign({}, styleWidth, this.offset);
     }
   },
   methods: {

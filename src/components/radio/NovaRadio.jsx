@@ -1,4 +1,5 @@
 import Storage from '@/utils/storage';
+import Utils from '@/utils/utils';
 
 export default {
   name: 'NovaRadio',
@@ -105,8 +106,15 @@ export default {
       const targetIsInput = target instanceof HTMLInputElement;
       const targetIsTextArea = target instanceof HTMLTextAreaElement;
 
-      if (!(targetIsInput || targetIsTextArea)) {
-        this.$refs['input']?.focus();
+      const $label = this.$refs['label'];
+      const familyLink = Utils.getFamilyLink(target, $label);
+      const targetInContentEditable = familyLink.find(element => {
+        return element.isContentEditable;
+      });
+
+      if (!(targetIsInput || targetIsTextArea || targetInContentEditable)) {
+        const $input = this.$refs['input'];
+        $input?.focus();
         this.setChecked();
       }
     },
@@ -184,7 +192,9 @@ export default {
     return (
       <div {...radioProps}>
         <div {...inputProps}></div>
-        <div class={`${prefixedClass}-label`}>{children}</div>
+        <div class={`${prefixedClass}-label`} ref="label">
+          {children}
+        </div>
       </div>
     );
   }

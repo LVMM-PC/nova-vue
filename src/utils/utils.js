@@ -1,18 +1,21 @@
+const defaultMaxLength = 1024;
+
 export default class Utils {
   /**
-   * @param el DOM
-   * @param stopEl Stop calc parent
+   * get element offset of stopElement
+   * @param element DOM
+   * @param stopElement Stop calc parent
    * @returns {{top: number, left: number}}
    */
-  static getElementOffset(el, stopEl = null) {
+  static getElementOffset(element, stopElement = null) {
     let left = 0;
     let top = 0;
 
-    while (el) {
-      left += el.offsetLeft;
-      top += el.offsetTop;
-      el = el.offsetParent;
-      if (el === stopEl) {
+    while (element) {
+      left += element.offsetLeft;
+      top += element.offsetTop;
+      element = element.offsetParent;
+      if (element === stopElement) {
         break;
       }
     }
@@ -23,18 +26,44 @@ export default class Utils {
     };
   }
 
-  static isParentsOrSelf(ele, parent) {
-    for (let i = 0; i < 1024; i++) {
-      if (ele === parent) {
+  static isParentsOrSelf(element, parentElement, maxLength = defaultMaxLength) {
+    for (let i = 0; i < maxLength; i++) {
+      if (element === parentElement) {
         return true;
       }
-      if (!ele) {
+      if (!element) {
         return false;
       }
-      ele = ele.parentElement;
+
+      element = element.parentElement;
     }
 
     return false;
+  }
+
+  /**
+   * return element and his parentsElement until stopElement
+   * @param element
+   * @param stopElement
+   * @param maxLength
+   * @returns {[]} Include element, Not include stopElement
+   */
+  static getFamilyLink(element, stopElement, maxLength = defaultMaxLength) {
+    let parents = [];
+    for (let i = 0; i < maxLength; i++) {
+      if (element === stopElement) {
+        return parents;
+      }
+
+      if (!element) {
+        return parents;
+      }
+
+      parents.push(element);
+      element = element.parentElement;
+    }
+
+    return parents;
   }
 
   static mergeOptions(to, from) {
@@ -54,26 +83,22 @@ export default class Utils {
     return to;
   }
 
-  static scrollTo(ele, offset) {
+  static scrollTo(element, offset) {
     const { x = 0, y = 0 } = offset;
-    if (ele.scrollTo) {
-      ele.scrollTo(x, y);
+    if (element.scrollTo) {
+      element.scrollTo(x, y);
     } else {
-      ele.scrollTop = y;
-      ele.scrollLeft = x;
+      element.scrollTop = y;
+      element.scrollLeft = x;
     }
   }
 
-  /**
-   * @param ele DOM
-   * @param className
-   */
-  static hasClassName(ele, className) {
-    if (!ele || !className) {
+  static hasClassName(element, className) {
+    if (!element || !className) {
       return false;
     }
 
-    const targetClassName = ele.getAttribute('class');
+    const targetClassName = element.getAttribute('class');
     if (!targetClassName) {
       return false;
     }

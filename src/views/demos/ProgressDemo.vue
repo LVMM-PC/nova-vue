@@ -154,14 +154,39 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 .nova-progress-circle {
   margin-bottom: 10px;
   margin-right: 10px;
 }
 
 .has-guide {
-  background-image: url(../../assets/guide.svg);
+  &:before,
+  &:after {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #29e;
+    content: '';
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+  }
+
+  &:before {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #29e;
+    top: 0;
+    left: 0;
+  }
+
+  &:after {
+    width: 50px;
+    height: 50px;
+    border: 1px solid #29e;
+    bottom: 0;
+    right: 0;
+  }
 }
 
 .inline-block {
