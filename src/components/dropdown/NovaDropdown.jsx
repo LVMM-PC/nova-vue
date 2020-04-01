@@ -47,7 +47,7 @@ export default {
   methods: {
     setPosition(targetDom) {
       let targetHeight = targetDom.offsetHeight;
-      let offset = Utils.getElementOffset(targetDom);
+      let offset = Utils.getElementPosition(targetDom);
       this.offset.left = `${offset.left}px`;
       this.offset.top = `${offset.top + targetHeight}px`;
     },

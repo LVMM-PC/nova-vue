@@ -4,6 +4,7 @@
 @icon: ~'@{prefix}-icon';
 
 .@{button} {
+  font-family: @font-family;
   color: @font-color;
   vertical-align: top;
   text-align: center;
@@ -15,8 +16,11 @@
   border-radius: 3px;
   border: 1px solid @border-color;
   background-color: @component-background;
-
   transition: all @fast-motion;
+
+  &::-moz-focus-inner {
+    border: none;
+  }
 
   &:focus {
     outline: none;
@@ -65,8 +69,8 @@
 
   &.@{button}-icon-only {
     padding: 4px 5px;
-    &.@{button}-loading {
 
+    &.@{button}-loading {
       padding-left: 23px;
     }
   }
@@ -75,7 +79,8 @@
     opacity: 0.5;
     cursor: default;
     padding-left: 32px;
-    .@{icon}{
+
+    .@{icon} {
       margin-left: -18px;
     }
   }
@@ -103,17 +108,17 @@ a.@{button} {
 
   &.@{button}-loading {
     padding-left: 33px;
-    .@{icon}{
+
+    .@{icon} {
       margin-left: -18px;
     }
-
   }
 
   &.@{button}-icon-only {
     padding: 5px 6px;
+
     &.@{button}-loading {
       padding-left: 24px;
-
     }
   }
 

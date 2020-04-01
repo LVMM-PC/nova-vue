@@ -2,6 +2,19 @@ const defaultMaxLength = 1024;
 
 export default class Utils {
   /**
+   * Retrieve the position (X,Y) of an HTML element relative to the browser window
+   * @param element
+   */
+  static getElementPosition(element) {
+    const clientRect = element.getBoundingClientRect();
+
+    return {
+      left: window.pageXOffset + clientRect.left,
+      top: window.pageYOffset + clientRect.top
+    };
+  }
+
+  /**
    * get element offset of stopElement
    * @param element DOM
    * @param stopElement Stop calc parent

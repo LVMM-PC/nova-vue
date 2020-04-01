@@ -187,7 +187,9 @@ export default {
     return (
       <div {...checkboxProps}>
         <div {...inputProps}></div>
-        <div class={`${prefixedClass}-label`} ref="label">{children}</div>
+        <div class={`${prefixedClass}-label`} ref="label">
+          {children}
+        </div>
       </div>
     );
   }
