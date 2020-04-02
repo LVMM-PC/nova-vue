@@ -42,6 +42,46 @@ export default {
     wrapClass: {
       type: String,
       default: null
+    },
+    closable: {
+      type: Boolean,
+      default: true
+    },
+    mask: {
+      type: Boolean,
+      default: true
+    },
+    maskClosable: {
+      type: Boolean,
+      default: true
+    },
+    confirmLoading: {
+      type: Boolean,
+      default: false
+    },
+    okText: {
+      type: String,
+      default: 'Ok'
+    },
+    okType: {
+      type: String,
+      default: 'secondary'
+    },
+    okButtonProps: {
+      type: Object,
+      default: null
+    },
+    cancelText: {
+      type: String,
+      default: 'Cancel'
+    },
+    cancelType: {
+      type: String,
+      default: null
+    },
+    cancelButtonProps: {
+      type: Object,
+      default: null
     }
   },
   setup: (props, context) => {
@@ -66,11 +106,11 @@ export default {
     }
 
     function handleCancel() {
-      close();
+      emit('cancel');
     }
 
     function handleOk() {
-      close();
+      emit('ok');
     }
 
     const modalClassList = computed(() => {
@@ -82,6 +122,10 @@ export default {
     });
 
     function handleWrapClick(e) {
+      if (!props.maskClosable) {
+        return;
+      }
+
       const target = e.target;
 
       const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
@@ -101,32 +145,75 @@ export default {
         attrs
       };
 
-      let children;
-      if (slots && slots.default) {
-        const slotDefault = slots.default();
-        children = slotDefault;
+      let footer;
+      if (slots.footer) {
+        footer = slots.footer();
       }
+
+      let children;
+      if (slots.default) {
+        children = slots.default();
+      }
+
+      let closeNode;
+      if (props.closable) {
+        closeNode = (
+          <div
+            class={`${props.prefixedClass}-close`}
+            tabIndex="0"
+            onClick={handleClose}
+          >
+            <NovaIconClose />
+          </div>
+        );
+      }
+
+      let titleNode;
+      if (props.title) {
+        titleNode = (
+          <div class={`${props.prefixedClass}-title`}>{props.title}</div>
+        );
+      }
+
+      const headerNode = (
+        <div class={`${props.prefixedClass}-header`}>{titleNode}</div>
+      );
+
+      const bodyNode = (
+        <div class={`${props.prefixedClass}-body`}>{children}</div>
+      );
+
+      const defaultFooter = [
+        <NovaButton
+          onClick={handleCancel}
+          type={props.cancelType}
+          {...props.cancelButtonProps}
+        >
+          {props.cancelText}
+        </NovaButton>,
+        <NovaButton
+          onClick={handleOk}
+          type={props.okType}
+          loading={props.confirmLoading}
+          {...props.okButtonProps}
+        >
+          {props.okText}
+        </NovaButton>
+      ];
+
+      const footerNode = (
+        <div class={`${props.prefixedClass}-footer`}>
+          {footer || defaultFooter}
+        </div>
+      );
 
       const modalNode = (
         <div class={modalClassList.value} style={modalStyle} {...modalProps}>
           <div class={`${props.prefixedClass}-content`}>
-            <div
-              class={`${props.prefixedClass}-close`}
-              tabIndex="0"
-              onClick={handleClose}
-            >
-              <NovaIconClose />
-            </div>
-            <div class={`${props.prefixedClass}-header`}>
-              <div class={`${props.prefixedClass}-title`}>{props.title}</div>
-            </div>
-            <div class={`${props.prefixedClass}-body`}>{children}</div>
-            <div class={`${props.prefixedClass}-footer`}>
-              <NovaButton onClick={handleCancel}>Cancel</NovaButton>
-              <NovaButton onClick={handleOk} type="secondary">
-                Ok
-              </NovaButton>
-            </div>
+            {closeNode}
+            {headerNode}
+            {bodyNode}
+            {footerNode}
           </div>
         </div>
       );
@@ -144,9 +231,14 @@ export default {
         return [`${props.prefixedClass}-wrap`, props.wrapClass];
       });
 
+      let maskNode;
+      if (props.mask) {
+        maskNode = <div class={`${props.prefixedClass}-mask`}></div>;
+      }
+
       const rootNode = (
         <div class={rootClassList.value}>
-          <div class={`${props.prefixedClass}-mask`}></div>
+          {maskNode}
           <div class={wrapClassList.value} onClick={handleWrapClick}>
             {modalNode}
           </div>

@@ -86,12 +86,12 @@ export default {
 
     return () => {
       let icon;
-      if (slots && slots.icon) {
+      if (slots.icon) {
         icon = slots.icon();
       }
 
       let children;
-      if (slots && slots.default) {
+      if (slots.default) {
         const slotDefault = slots.default();
         if (slotDefault.length === 1) {
           children = trimSpace(slotDefault[0]);
