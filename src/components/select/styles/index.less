@@ -29,28 +29,28 @@
 
     &:not(.is-disabled) {
       .@{select}-toggle {
-        box-shadow: @focus-shadow-primary;
+        box-shadow: @focus-shadow-primary-light;
       }
     }
   }
 
   &.is-disabled {
     opacity: 0.5;
-    background-color: @component-background-darker;
+    background-color: @component-darker-background;
 
     .@{select}-toggle {
       cursor: default;
     }
 
     .@{select}-label {
-      background-color: @component-background-darker;
+      background-color: @component-darker-background;
     }
   }
 
   &.is-open {
     .@{select}-toggle {
       border: 1px solid @primary-color;
-      box-shadow: @focus-shadow-primary;
+      box-shadow: @focus-shadow-primary-light;
       background-color: @component-background;
     }
 

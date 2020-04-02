@@ -49,9 +49,9 @@
       </NovaSelect>
     </div>
     <div class="box">
-      <button @click="handleAddOption">Add option</button>
-      <button @click="handleDeleteOption">Delete option</button>
-      <button @click="handleTest">TEST</button>
+      <NovaButton @click="handleAddOption">Add option</NovaButton>
+      <NovaButton @click="handleDeleteOption">Delete option</NovaButton>
+      <NovaButton @click="handleTest">TEST</NovaButton>
     </div>
   </div>
 </template>
@@ -61,10 +61,12 @@ import NovaSelect from '@/components/select/NovaSelect';
 import NovaOptGroup from '@/components/select/NovaOptGroup';
 import NovaOption from '@/components/select/NovaOption';
 import Utils from '@/utils/utils';
+import NovaButton from '@/components/button/NovaButton';
 
 export default {
   name: 'Dynamic',
   components: {
+    NovaButton,
     NovaSelect,
     NovaOptGroup,
     NovaOption
@@ -111,3 +113,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.nova-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+</style>

@@ -33,7 +33,11 @@
       </NovaCalendar>
 
       <div class="calendar-footer">
-        <a class="calendar-more" href="">
+        <a
+          class="calendar-more"
+          href="http://nova-vue.em2046.com/"
+          target="_blank"
+        >
           <template>{{ dayjs(calendarDate).format('YYYY-MM') }}</template>
           <template>{{ '更多' }}</template>
           <NovaIconRight></NovaIconRight>
@@ -143,9 +147,15 @@ export default {
 }
 
 .calendar-more {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-end;
   align-items: center;
+  padding-left: 2px;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(34, 153, 238, 0.5);
+  }
 }
 
 .calendar-num {

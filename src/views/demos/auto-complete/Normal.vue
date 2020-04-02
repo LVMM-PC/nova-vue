@@ -82,13 +82,13 @@
       </NovaAutoComplete>
     </div>
     <div class="box">
-      <button @click="triggerFocus">Focus</button>
-      <button @click="triggerBlur">Blur</button>
-      <button @click="triggerOpenStart">openStart</button>
-      <button @click="triggerOpenList">openList</button>
-      <button @click="triggerCloseStart">closeStart</button>
-      <button @click="triggerCloseList">closeList</button>
-      <button @click="triggerClose">close</button>
+      <NovaButton @click="triggerFocus">Focus</NovaButton>
+      <NovaButton @click="triggerBlur">Blur</NovaButton>
+      <NovaButton @click="triggerOpenStart">openStart</NovaButton>
+      <NovaButton @click="triggerOpenList">openList</NovaButton>
+      <NovaButton @click="triggerCloseStart">closeStart</NovaButton>
+      <NovaButton @click="triggerCloseList">closeList</NovaButton>
+      <NovaButton @click="triggerClose">close</NovaButton>
     </div>
   </div>
 </template>
@@ -98,10 +98,11 @@ import NovaAutoComplete from '@/components/auto-complete/NovaAutoComplete';
 
 import cityList from '@/views/data/city-list.json';
 import cityArea from '@/views/data/city-area.json';
+import NovaButton from '@/components/button/NovaButton';
 
 export default {
   name: 'Normal',
-  components: { NovaAutoComplete },
+  components: { NovaButton, NovaAutoComplete },
   data() {
     return {
       city: '',
@@ -311,6 +312,11 @@ export default {
     display: inline-block;
     vertical-align: top;
   }
+}
+
+.nova-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>
 

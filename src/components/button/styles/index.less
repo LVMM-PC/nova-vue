@@ -34,7 +34,7 @@
     }
 
     &:focus {
-      box-shadow: @focus-shadow-secondary;
+      box-shadow: @focus-shadow-secondary-light;
     }
 
     &:active {
@@ -136,15 +136,16 @@ a.@{button} {
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      background-color: @primary-lighter-color;
       color: @component-background;
+      background-color: @primary-lighter-color;
     }
 
     &:focus {
-      box-shadow: @focus-shadow-primary;
+      box-shadow: @focus-shadow-primary-light;
     }
 
     &:active {
+      color: @component-background;
       background-color: @primary-darker-color;
     }
   }
@@ -156,11 +157,12 @@ a.@{button} {
   &:not([disabled]):not(.@{button}-loading) {
     &:hover,
     &:focus {
-      background-color: @secondary-lighter-color;
       color: @component-background;
+      background-color: @secondary-lighter-color;
     }
 
     &:active {
+      color: @component-background;
       background-color: @secondary-darker-color;
     }
   }
@@ -203,7 +205,7 @@ a.@{button} {
     }
 
     &:focus {
-      box-shadow: @focus-shadow-primary;
+      box-shadow: @focus-shadow-primary-light;
     }
 
     &:active {
@@ -230,7 +232,7 @@ a.@{button} {
 .@{button}-danger {
   &:not([disabled]):not(.@{button}-loading) {
     &:focus {
-      box-shadow: @focus-shadow-danger;
+      box-shadow: @focus-shadow-danger-light;
     }
   }
 }

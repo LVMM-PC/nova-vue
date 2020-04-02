@@ -1,6 +1,8 @@
 @import '../../../styles/var';
 
 @modal: ~'@{prefix}-modal';
+@button: ~'@{prefix}-button';
+@icon: ~'@{prefix}-icon';
 
 .@{modal}-root {
   &.@{modal}-root-hidden {
@@ -17,14 +19,69 @@
   height: 100%;
 }
 
+.@{modal}-wrap {
+  overflow: auto;
+}
+
 .@{modal}-mask {
   background-color: @mask-background;
-  opacity: 0.25;
 }
 
 .@{modal} {
+  line-height: 20px;
   position: relative;
   top: 100px;
-  background-color: @component-background;
   margin: 0 auto;
+  font-family: @font-family;
+  color: @font-color;
+  font-size: 14px;
+}
+
+.@{modal}-content {
+  background-color: @component-background;
+  box-shadow: @modal-shadow-lighter;
+}
+
+.@{modal}-close {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-size: 20px;
+  color: @symbol-color;
+
+  &:focus {
+    outline: none;
+    color: @secondary-color;
+
+    .@{icon} {
+      box-shadow: @focus-shadow-secondary;
+    }
+  }
+
+  &:hover {
+    color: @secondary-color;
+  }
+
+  &:active {
+    color: @secondary-darker-color;
+  }
+}
+
+.@{modal}-header {
+  padding: 10px;
+}
+
+.@{modal}-body {
+  padding: 10px;
+}
+
+.@{modal}-footer {
+  padding: 10px;
+  text-align: right;
+
+  .@{button} + .@{button} {
+    margin-left: 10px;
+  }
 }

@@ -7,6 +7,7 @@ import {
 import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaButton from '@/components/button/NovaButton';
+import NovaIconClose from '@/icons/NovaIconClose';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -37,6 +38,10 @@ export default {
     width: {
       type: [Number, String],
       default: 400
+    },
+    wrapClass: {
+      type: String,
+      default: null
     }
   },
   setup: (props, context) => {
@@ -52,6 +57,22 @@ export default {
       }
     });
 
+    function close() {
+      emit('update', false);
+    }
+
+    function handleClose() {
+      close();
+    }
+
+    function handleCancel() {
+      close();
+    }
+
+    function handleOk() {
+      close();
+    }
+
     const modalClassList = computed(() => {
       return [props.prefixedClass];
     });
@@ -65,7 +86,7 @@ export default {
 
       const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
       if (!isClickInModal) {
-        emit('update', false);
+        close();
       }
     }
 
@@ -88,14 +109,24 @@ export default {
 
       const modalNode = (
         <div class={modalClassList.value} style={modalStyle} {...modalProps}>
-          <div class={`${props.prefixedClass}-content`}></div>
-          <div class={`${props.prefixedClass}-header`}>
-            <div className={`${props.prefixedClass}-title`}>{props.title}</div>
-          </div>
-          <div class={`${props.prefixedClass}-body`}>{children}</div>
-          <div class={`${props.prefixedClass}-footer`}>
-            <NovaButton>Cancel</NovaButton>
-            <NovaButton type="secondary">Ok</NovaButton>
+          <div class={`${props.prefixedClass}-content`}>
+            <div
+              class={`${props.prefixedClass}-close`}
+              tabIndex="0"
+              onClick={handleClose}
+            >
+              <NovaIconClose />
+            </div>
+            <div class={`${props.prefixedClass}-header`}>
+              <div class={`${props.prefixedClass}-title`}>{props.title}</div>
+            </div>
+            <div class={`${props.prefixedClass}-body`}>{children}</div>
+            <div class={`${props.prefixedClass}-footer`}>
+              <NovaButton onClick={handleCancel}>Cancel</NovaButton>
+              <NovaButton onClick={handleOk} type="secondary">
+                Ok
+              </NovaButton>
+            </div>
           </div>
         </div>
       );
@@ -109,10 +140,14 @@ export default {
         ];
       });
 
+      const wrapClassList = computed(() => {
+        return [`${props.prefixedClass}-wrap`, props.wrapClass];
+      });
+
       const rootNode = (
         <div class={rootClassList.value}>
           <div class={`${props.prefixedClass}-mask`}></div>
-          <div class={`${props.prefixedClass}-wrap`} onClick={handleWrapClick}>
+          <div class={wrapClassList.value} onClick={handleWrapClick}>
             {modalNode}
           </div>
         </div>

@@ -46,15 +46,15 @@
     </div>
     <div class="block"></div>
     <div class="box">
-      <button @click="triggerFocus">Focus</button>
-      <button @click="triggerBlur">Blur</button>
-      <button @click="triggerOpen">Open</button>
-      <button @click="triggerClose">Close</button>
+      <NovaButton @click="triggerFocus">Focus</NovaButton>
+      <NovaButton @click="triggerBlur">Blur</NovaButton>
+      <NovaButton @click="triggerOpen">Open</NovaButton>
+      <NovaButton @click="triggerClose">Close</NovaButton>
     </div>
     <div class="box">
       <NovaDatePicker v-model="someDate"></NovaDatePicker>
       <NovaDatePicker v-model="someDate" :disabled="true"></NovaDatePicker>
-      <button @click="handleSelectToday">今天</button>
+      <NovaButton @click="handleSelectToday">今天</NovaButton>
     </div>
     <div class="box">
       <NovaLocale :holiday="hideHoliday" :locale="en">
@@ -120,13 +120,13 @@
       ></NovaDatePicker>
     </div>
     <div class="box">
-      <button @click="triggerFocusStart">Focus Start</button>
-      <button @click="triggerBlurStart">Blur Start</button>
-      <button @click="triggerFocusEnd">Focus End</button>
-      <button @click="triggerBlurEnd">Blur End</button>
-      <button @click="triggerOpenStart">Open Start</button>
-      <button @click="triggerOpenEnd">Open End</button>
-      <button @click="triggerRangeClose">Close</button>
+      <NovaButton @click="triggerFocusStart">Focus Start</NovaButton>
+      <NovaButton @click="triggerBlurStart">Blur Start</NovaButton>
+      <NovaButton @click="triggerFocusEnd">Focus End</NovaButton>
+      <NovaButton @click="triggerBlurEnd">Blur End</NovaButton>
+      <NovaButton @click="triggerOpenStart">Open Start</NovaButton>
+      <NovaButton @click="triggerOpenEnd">Open End</NovaButton>
+      <NovaButton @click="triggerRangeClose">Close</NovaButton>
     </div>
   </div>
 </template>
@@ -137,10 +137,11 @@ import NovaLocale from '@/components/locale/NovaLocale';
 import zhCN from '@/locales/zh-CN';
 import en from '@/locales/en';
 import dayjs from 'dayjs';
+import NovaButton from '@/components/button/NovaButton';
 
 export default {
   name: 'DatePickerDemo',
-  components: { NovaLocale, NovaDatePicker },
+  components: { NovaButton, NovaLocale, NovaDatePicker },
   data() {
     let someDate = dayjs()
       .startOf('day')
@@ -394,5 +395,10 @@ export default {
       margin-bottom: 10px;
     }
   }
+}
+
+.nova-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>

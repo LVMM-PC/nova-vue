@@ -12,21 +12,25 @@
       <NovaProgress :percent="0.5" :status="status"></NovaProgress>
       <div class="inline-block">
         <div>{{ status }}</div>
-        <button @click="toggleActive">
+        <NovaButton @click="toggleActive">
           {{ status === 'active' ? 'Set Normal' : 'Set Active' }}
-        </button>
+        </NovaButton>
       </div>
       <NovaProgress :percent="0.75" :show-info="showInfo"></NovaProgress>
       <div class="inline-block">
         <div>{{ showInfo }}</div>
-        <button @click="toggleShowInfo">Toggle ShowInfo</button>
+        <NovaButton @click="toggleShowInfo">Toggle ShowInfo</NovaButton>
       </div>
       <NovaProgress :percent="1"></NovaProgress>
     </div>
     <div class="box">
       <NovaProgress :percent="value"></NovaProgress>
-      <button @click="handleIncreasing">+</button>
-      <button @click="handleDecreasing">-</button>
+      <NovaButton :disabled="value >= 1" @click="handleIncreasing"
+        ><NovaIconAddCircle slot="icon"></NovaIconAddCircle>
+      </NovaButton>
+      <NovaButton :disabled="value <= 0" @click="handleDecreasing"
+        ><NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
+      </NovaButton>
     </div>
     <div class="box">
       <NovaProgress
@@ -38,8 +42,12 @@
         @mouseleave="handleMouseleave"
         @click="handleClick"
       ></NovaProgress>
-      <button @click="widthIncreasing">+</button>
-      <button @click="widthDecreasing">-</button>
+      <NovaButton :disabled="width >= 200" @click="widthIncreasing"
+        ><NovaIconAddCircle slot="icon"></NovaIconAddCircle>
+      </NovaButton>
+      <NovaButton :disabled="width <= 0" @click="widthDecreasing">
+        <NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
+      </NovaButton>
       <NovaProgress
         class="has-guide"
         type="circle"
@@ -48,7 +56,7 @@
       ></NovaProgress>
       <div class="inline-block">
         <div>{{ linecap }}</div>
-        <button @click="toggleLinecap">Toggle Linecap</button>
+        <NovaButton @click="toggleLinecap">Toggle Linecap</NovaButton>
       </div>
       <NovaProgress type="circle" :percent="0.5"></NovaProgress>
       <NovaProgress
@@ -58,7 +66,7 @@
       ></NovaProgress>
       <div class="inline-block">
         <div>{{ showInfo }}</div>
-        <button @click="toggleShowInfo">Toggle ShowInfo</button>
+        <NovaButton @click="toggleShowInfo">Toggle ShowInfo</NovaButton>
       </div>
       <NovaProgress
         type="circle"
@@ -66,13 +74,21 @@
         :width="120"
         :stroke-width="strokeWidth"
       ></NovaProgress>
-      <button @click="strokeWidthIncreasing">+</button>
-      <button @click="strokeWidthDecreasing">-</button>
+      <NovaButton :disabled="strokeWidth >= 60" @click="strokeWidthIncreasing">
+        <NovaIconAddCircle slot="icon"></NovaIconAddCircle>
+      </NovaButton>
+      <NovaButton :disabled="strokeWidth <= 0" @click="strokeWidthDecreasing">
+        <NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
+      </NovaButton>
     </div>
     <div class="box">
       <NovaProgress type="circle" :percent="value"></NovaProgress>
-      <button @click="handleIncreasing">+</button>
-      <button @click="handleDecreasing">-</button>
+      <NovaButton :disabled="value >= 1" @click="handleIncreasing">
+        <NovaIconAddCircle slot="icon"></NovaIconAddCircle>
+      </NovaButton>
+      <NovaButton :disabled="value <= 0" @click="handleDecreasing">
+        <NovaIconRemoveCircle slot="icon"></NovaIconRemoveCircle>
+      </NovaButton>
     </div>
   </section>
 </template>
@@ -80,10 +96,16 @@
 <script>
 import NovaProgress from '@/components/progress/NovaProgress';
 import Utils from '@/utils/utils';
+import NovaButton from '@/components/button/NovaButton';
+import NovaIconAddCircle from '@/icons/NovaIconAddCircle';
+import NovaIconRemoveCircle from '@/icons/NovaIconRemoveCircle';
 
 export default {
   name: 'ProgressDemo',
   components: {
+    NovaIconRemoveCircle,
+    NovaIconAddCircle,
+    NovaButton,
     NovaProgress
   },
   data() {
@@ -191,5 +213,10 @@ export default {
 
 .inline-block {
   display: inline-block;
+}
+
+.nova-button {
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 </style>
