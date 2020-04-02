@@ -368,7 +368,7 @@ export default {
       setTimeout(() => {
         this.queryString = this.valueModel;
         this.searchDebounce.call();
-      }, 0);
+      });
     },
     searchImplement() {
       if (this.queryString === '') {

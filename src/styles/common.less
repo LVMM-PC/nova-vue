@@ -7,12 +7,12 @@
 
 //region slide-up
 .@{prefix}-slide-up-enter-active {
-  transition: opacity @normal-motion, transform @normal-motion @ease-out-quintic;
+  transition: opacity @normal-motion linear, transform @normal-motion @ease-out-quintic;
   transform-origin: 0 0;
 }
 
 .@{prefix}-slide-up-leave-active {
-  transition: opacity @normal-motion, transform @normal-motion @ease-in-quintic;
+  transition: opacity @normal-motion linear, transform @normal-motion @ease-in-quintic;
   transform-origin: 0 0;
 }
 
@@ -27,14 +27,14 @@
 
 //region alert-slide-up
 .@{prefix}-alert-slide-up-enter-active {
-  transition: opacity @normal-motion,
+  transition: opacity @normal-motion linear,
     height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
 }
 
 .@{prefix}-alert-slide-up-leave-active {
-  transition: opacity @normal-motion,
+  transition: opacity @normal-motion linear,
     height @normal-motion @ease-in-out-circular,
     transform @normal-motion @ease-in-out-circular;
   transform-origin: 0 0;
@@ -49,19 +49,54 @@
 
 //endregion
 
-//region zoom
-.@{prefix}-zoom-enter-active {
-  transition: opacity @normal-motion,
+//region modal-zoom
+.@{prefix}-modal-zoom-enter-active {
+  overflow: hidden !important;
+  transition: opacity @normal-motion linear, transform @normal-motion linear;
+}
+
+.@{prefix}-modal-zoom-leave-active {
+  overflow: hidden !important;
+  transition: opacity @normal-motion linear, transform @normal-motion linear;
+}
+
+.@{prefix}-modal-zoom-enter,
+.@{prefix}-modal-zoom-leave-to {
+  transform: scale(0);
+  opacity: 0;
+}
+
+//endregion
+
+//region check-zoom
+.@{prefix}-check-zoom-enter-active {
+  transition: opacity @normal-motion linear,
     transform @normal-motion @ease-out-backward;
 }
 
-.@{prefix}-zoom-leave-active {
-  transition: opacity @normal-motion, transform @normal-motion @ease-in-backward;
+.@{prefix}-check-zoom-leave-active {
+  transition: opacity @normal-motion linear, transform @normal-motion @ease-in-backward;
 }
 
-.@{prefix}-zoom-enter,
-.@{prefix}-zoom-leave-to {
+.@{prefix}-check-zoom-enter,
+.@{prefix}-check-zoom-leave-to {
   transform: scale(0);
+  opacity: 0;
+}
+
+//endregion
+
+//region fade
+.@{prefix}-fade-enter-active {
+  transition: opacity @normal-motion linear;
+}
+
+.@{prefix}-fade-leave-active {
+  transition: opacity @normal-motion linear;
+}
+
+.@{prefix}-fade-enter,
+.@{prefix}-fade-leave-to {
   opacity: 0;
 }
 

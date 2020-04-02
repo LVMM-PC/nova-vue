@@ -5,9 +5,6 @@
 @icon: ~'@{prefix}-icon';
 
 .@{modal}-root {
-  &.@{modal}-root-hidden {
-    display: none;
-  }
 }
 
 .@{modal}-mask,
@@ -25,6 +22,9 @@
 
 .@{modal}-mask {
   background-color: @mask-background;
+  &.@{modal}-mask-hidden {
+    display: none;
+  }
 }
 
 .@{modal} {

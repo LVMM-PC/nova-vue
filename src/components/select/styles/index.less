@@ -69,7 +69,7 @@
   border: 1px solid @border-color;
   min-height: 28px;
   padding-right: 23px;
-  transition: border @normal-motion, box-shadow @normal-motion;
+  transition: border @normal-motion linear, box-shadow @normal-motion linear;
 }
 
 .@{select}-text {
@@ -120,7 +120,7 @@
   vertical-align: top;
   margin: 2px;
   padding: 2px;
-  transition: background @fast-motion;
+  transition: background @fast-motion linear;
 
   &:hover:not(.is-disabled) {
     //background-color: @primary-color;
@@ -181,7 +181,7 @@
 @supports (transform-style: preserve-3d) {
   .@{select}-arrow {
     &:before {
-      transition: transform @normal-motion;
+      transition: transform @normal-motion linear;
     }
   }
 

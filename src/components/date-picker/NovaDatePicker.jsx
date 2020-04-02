@@ -583,7 +583,7 @@ export default {
         clearTimeout(this.blurTimer);
         clearTimeout(this.startBlurTimer);
         clearTimeout(this.endBlurTimer);
-      }, 1);
+      });
     },
     focus(rangeName) {
       if (!this.isRange) {

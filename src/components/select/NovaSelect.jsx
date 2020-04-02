@@ -316,7 +316,7 @@ export default {
     refreshScroll(index, position) {
       setTimeout(() => {
         this.refreshScrollImplement(index, position);
-      }, 0);
+      });
     },
     displayedLabel() {
       const value = this.value;
@@ -639,7 +639,7 @@ export default {
       textNode = (
         <div class={`${prefixedClass}-labels`}>
           <transition-group
-            name={`${Storage.prefix}-zoom`}
+            name={`${Storage.prefix}-check-zoom`}
             onAfterLeave={handleTransitionFinished}
             onEnter={handleTransitionFinished}
           >

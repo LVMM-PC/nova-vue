@@ -88,12 +88,16 @@ export default {
     const { attrs, listeners, slots, emit, refs } = context;
 
     const state = reactive({
-      loaded: false
+      loaded: false,
+      animationReady: false
     });
 
     watchEffect(() => {
       if (props.visible) {
         state.loaded = true;
+        setTimeout(() => {
+          state.animationReady = true;
+        });
       }
     });
 
@@ -218,13 +222,8 @@ export default {
         </div>
       );
 
-      const rootClassList = computed(() => {
-        return [
-          `${props.prefixedClass}-root`,
-          {
-            [`${props.prefixedClass}-root-hidden`]: !props.visible
-          }
-        ];
+      const maskClassList = computed(() => {
+        return [`${props.prefixedClass}-mask`];
       });
 
       const wrapClassList = computed(() => {
@@ -233,15 +232,32 @@ export default {
 
       let maskNode;
       if (props.mask) {
-        maskNode = <div class={`${props.prefixedClass}-mask`}></div>;
+        maskNode = (
+          <transition name={`${Storage.prefix}-fade`}>
+            <div
+              class={maskClassList.value}
+              vShow={state.animationReady && props.visible}
+            ></div>
+          </transition>
+        );
       }
 
-      const rootNode = (
-        <div class={rootClassList.value}>
-          {maskNode}
-          <div class={wrapClassList.value} onClick={handleWrapClick}>
+      const wrapNode = (
+        <transition name={`${Storage.prefix}-modal-zoom`}>
+          <div
+            class={wrapClassList.value}
+            onClick={handleWrapClick}
+            vShow={state.animationReady && props.visible}
+          >
             {modalNode}
           </div>
+        </transition>
+      );
+
+      const rootNode = (
+        <div class={`${props.prefixedClass}-root`}>
+          {maskNode}
+          {wrapNode}
         </div>
       );
 
