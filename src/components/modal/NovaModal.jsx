@@ -1,7 +1,10 @@
 import {
   computed,
   createElement,
+  onBeforeUnmount,
+  onMounted,
   reactive,
+  watch,
   watchEffect
 } from '@vue/composition-api';
 import Storage from '@/utils/storage';
@@ -95,10 +98,48 @@ export default {
     watchEffect(() => {
       if (props.visible) {
         state.loaded = true;
+      }
+    });
+
+    let storeOffset;
+    let timer;
+
+    function saveClickPosition(e) {
+      storeOffset = {
+        x: e.pageX - window.pageXOffset,
+        y: e.pageY - window.pageYOffset
+      };
+
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        storeOffset = null;
+      }, 100);
+    }
+
+    watch(
+      () => props.visible,
+      (visible, prevVisible) => {
         setTimeout(() => {
-          state.animationReady = true;
+          if (!prevVisible && visible) {
+            state.animationReady = true;
+            if (storeOffset) {
+              wrapStyle[
+                'transform-origin'
+              ] = `${storeOffset.x}px ${storeOffset.y}px`;
+            } else {
+              wrapStyle['transform-origin'] = '';
+            }
+          }
         });
       }
+    );
+
+    onMounted(() => {
+      document.addEventListener('click', saveClickPosition);
+    });
+
+    onBeforeUnmount(() => {
+      document.removeEventListener('click', saveClickPosition);
     });
 
     function close() {
@@ -116,6 +157,10 @@ export default {
     function handleOk() {
       emit('ok');
     }
+
+    const wrapStyle = reactive({
+      ['transform-origin']: `center`
+    });
 
     const modalClassList = computed(() => {
       return [props.prefixedClass];
@@ -246,6 +291,7 @@ export default {
         <transition name={`${Storage.prefix}-modal-zoom`}>
           <div
             class={wrapClassList.value}
+            style={wrapStyle}
             onClick={handleWrapClick}
             vShow={state.animationReady && props.visible}
           >

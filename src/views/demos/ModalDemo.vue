@@ -2,7 +2,6 @@
   <section>
     <div class="box">
       <NovaButton @click="handleOpen">Open</NovaButton>
-
       <NovaModal
         v-model="visible"
         title="标题文本"
@@ -24,6 +23,7 @@
         </div>
       </NovaModal>
     </div>
+    <div class="blank"></div>
     <div class="box">
       <dl>
         <dt>Closable:</dt>
@@ -49,6 +49,7 @@
         </dd>
       </dl>
     </div>
+    <div class="blank"></div>
     <div class="box">
       <NovaButton @click="handleFooterOpen">Footer</NovaButton>
       <NovaModal v-model="footerVisible">
@@ -56,6 +57,7 @@
         提示文本
       </NovaModal>
     </div>
+    <div class="blank"></div>
     <div class="box">
       <NovaButton @click="handleOpenBigHeight">Open big height</NovaButton>
       <NovaModal
@@ -71,6 +73,7 @@
         </div>
       </NovaModal>
     </div>
+    <div class="blank"></div>
     <div class="box">
       <NovaButton @click="handleOpenBigWidth">Open big width</NovaButton>
       <NovaModal v-model="bigWidthVisible" title="标题文本" :width="1000">
@@ -164,6 +167,10 @@ export default {
 .box > .nova-button {
   margin-right: 10px;
   margin-bottom: 10px;
+}
+
+.blank {
+  height: 200px;
 }
 
 .box > dl {
