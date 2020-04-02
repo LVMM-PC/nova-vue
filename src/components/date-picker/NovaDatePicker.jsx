@@ -246,7 +246,7 @@ export default {
   created() {
     this.init();
   },
-  destroyed() {
+  beforeDestroy() {
     this.closeDropdown(true);
   },
   methods: {
@@ -437,10 +437,10 @@ export default {
       this.opened = false;
       this.closeDropdown();
     },
-    closeDropdown(notEmit) {
+    closeDropdown(skipEmit = false) {
       document.removeEventListener('click', this.handleOtherClick);
 
-      if (!notEmit) {
+      if (!skipEmit) {
         this.$emit('close', this.rangeName);
       }
     },

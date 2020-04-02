@@ -74,7 +74,7 @@ export default {
       ];
     }
   },
-  destroyed() {
+  beforeDestroy() {
     this.closeDropdown(true);
   },
   methods: {
@@ -457,10 +457,10 @@ export default {
     handleTransitionFinished() {
       this.refreshDropdown();
     },
-    closeDropdown(notEmit) {
+    closeDropdown(skipEmit = false) {
       document.removeEventListener('click', this.handleOtherClick);
 
-      if (!notEmit) {
+      if (!skipEmit) {
         this.$emit('close');
       }
     },

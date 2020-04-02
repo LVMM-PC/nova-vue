@@ -121,7 +121,7 @@ export default {
       return null;
     }
   },
-  destroyed() {
+  beforeDestroy() {
     this.closeDropdown(true);
   },
   methods: {
@@ -225,11 +225,11 @@ export default {
         this.list.activeIndex = -1;
       });
     },
-    closeStartDropdown(notEmit) {
+    closeStartDropdown(skipEmit = false) {
       this.start.opened = false;
       document.removeEventListener('click', this.startOtherClick);
 
-      if (!notEmit) {
+      if (!skipEmit) {
         this.$emit('close', 'start');
       }
     },
@@ -357,9 +357,9 @@ export default {
       this.refreshItemScrollTop(newIndex, POSITION.TOP);
     },
     select() {},
-    closeDropdown(notEmit) {
-      this.closeStartDropdown(notEmit);
-      this.closeListDropdown(notEmit);
+    closeDropdown(skipEmit = false) {
+      this.closeStartDropdown(skipEmit);
+      this.closeListDropdown(skipEmit);
     },
     cancelSearch() {
       this.closeDropdown();
@@ -442,11 +442,11 @@ export default {
         this.closeListDropdown();
       }
     },
-    closeListDropdown(notEmit) {
+    closeListDropdown(skipEmit = false) {
       this.list.opened = false;
       document.removeEventListener('click', this.listOtherClick);
 
-      if (!notEmit) {
+      if (!skipEmit) {
         this.$emit('close', 'list');
       }
     },
