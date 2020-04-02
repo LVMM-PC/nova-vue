@@ -130,13 +130,13 @@ export default {
       }
     });
 
-    const lineProps = {
+    const circleProps = {
       attrs,
       on: listeners
     };
 
     return () => (
-      <div class={circleClassList.value} {...lineProps}>
+      <div class={circleClassList.value} {...circleProps}>
         <div class={`${props.prefixedClass}-inner`} style={innerStyle}>
           <svg
             class={`${props.prefixedClass}-svg`}

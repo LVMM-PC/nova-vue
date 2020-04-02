@@ -22,6 +22,8 @@
       <router-link to="/progress">Progress</router-link>
       |
       <router-link to="/button">Button</router-link>
+      |
+      <router-link to="/modal">Modal</router-link>
     </div>
     <router-view />
   </div>

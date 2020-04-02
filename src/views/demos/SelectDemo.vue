@@ -120,11 +120,11 @@
     <div class="block"></div>
     <div class="box">
       <NovaSelect v-model="selectValue3">
-        <NovaOptGroup label="直辖市">
+        <NovaOptGroup label="省">
           <NovaOption
-            v-for="(m, mIndex) in administrativeDivision.municipality"
-            :key="mIndex"
-            :value="m"
+            v-for="(p, pIndex) in administrativeDivision.province"
+            :key="pIndex"
+            :value="p"
           ></NovaOption>
         </NovaOptGroup>
         <NovaOptGroup label="自治区">
@@ -133,20 +133,33 @@
             :key="aIndex"
             :value="a"
           ></NovaOption>
+          <NovaOptGroup label="直辖市">
+            <NovaOption
+              v-for="(m,
+              mIndex) in administrativeDivision.municipalityDirectlyUnderTheCentralGovernment"
+              :key="mIndex"
+              :value="m"
+            ></NovaOption>
+          </NovaOptGroup>
         </NovaOptGroup>
-        <NovaOption
-          v-for="(p, pIndex) in administrativeDivision.province"
-          :key="pIndex"
-          :value="p"
-        ></NovaOption>
+        <NovaOptGroup label="特别行政区">
+          <NovaOption
+            v-for="(s,
+            sIndex) in administrativeDivision.specialAdministrativeRegion"
+            :key="sIndex"
+            :value="s"
+          ></NovaOption>
+        </NovaOptGroup>
       </NovaSelect>
       <NovaSelect
         v-model="selectValue4"
-        placeholder="元素表示一个控件，提供一个选项菜单"
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
       >
-        <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
+        <NovaOptGroup
+          label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
+        >
           <NovaOption
-            label="元素表示一个控件，提供一个选项菜单"
+            label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
             value="apple"
           ></NovaOption>
         </NovaOptGroup>
@@ -154,15 +167,17 @@
       <NovaSelect
         v-model="selectValue5"
         multiple
-        placeholder="元素表示一个控件，提供一个选项菜单"
+        placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
       >
-        <NovaOptGroup label="元素表示一个控件，提供一个选项菜单">
+        <NovaOptGroup
+          label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
+        >
           <NovaOption
-            label="元素表示一个控件，提供一个选项菜单"
+            label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
             value="apple"
           ></NovaOption>
           <NovaOption
-            label="元素表示一个控件，提供一个选项菜单"
+            label="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla, tenetur!"
             value="banana"
           ></NovaOption>
         </NovaOptGroup>
@@ -258,14 +273,6 @@ export default {
       selectValue4: '',
       selectValue5: [],
       administrativeDivision: {
-        municipality: ['北京市', '上海市', '天津市', '重庆市'],
-        autonomousRegion: [
-          '内蒙古自治区',
-          '新疆维吾尔自治区',
-          '广西壮族自治区',
-          '宁夏回族自治区',
-          '西藏自治区'
-        ],
         province: [
           '河北省',
           '山西省',
@@ -276,7 +283,6 @@ export default {
           '浙江省',
           '安徽省',
           '福建省',
-          '台湾省',
           '江西省',
           '山东省',
           '河南省',
@@ -289,8 +295,23 @@ export default {
           '云南省',
           '陕西省',
           '甘肃省',
-          '青海省'
-        ]
+          '青海省',
+          '台湾省'
+        ],
+        municipalityDirectlyUnderTheCentralGovernment: [
+          '北京市',
+          '天津市',
+          '上海市',
+          '重庆市'
+        ],
+        autonomousRegion: [
+          '内蒙古自治区',
+          '广西壮族自治区',
+          '西藏自治区',
+          '宁夏回族自治区',
+          '新疆维吾尔自治区'
+        ],
+        specialAdministrativeRegion: ['香港特别行政区', '澳门特别行政区']
       },
       numberOfSelect: 0,
       boolValue: false

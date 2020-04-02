@@ -48,6 +48,10 @@ const en = {
       'November',
       'December'
     ]
+  },
+  model: {
+    ok: 'Ok',
+    cancel: 'Cancel'
   }
 };
 

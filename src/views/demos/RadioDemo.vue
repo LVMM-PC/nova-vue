@@ -48,26 +48,27 @@
       </dd>
     </dl>
     <dl>
-      <dt>协议：</dt>
+      <dt>Lorem：</dt>
       <dd>
         <NovaRadioGroup v-model="isReadGroup">
           <NovaRadio v-model="isRead3" value="LISTENING"
-            >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam,
+            laboriosam!
             <input type="text" />
           </NovaRadio>
           <NovaRadio v-model="isRead4" value="SPEAKING"
-            >input 的 radio
-            类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
-            <textarea cols="30" rows="10"></textarea>
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Blanditiis, rerum!
+            <textarea cols="30" rows="2"></textarea>
           </NovaRadio>
           <NovaRadio v-model="isRead5" value="READING"
-            >input 的 radio 类型元素默认渲染为小型圆圈图表，填充即为激活
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque,
+            tempore?
             <div contenteditable="true">Content editable</div>
           </NovaRadio>
           <NovaRadio v-model="isRead6" value="WRITING"
-            >input 的 radio
-            类型元素默认渲染为小型圆圈图表，填充即为激活，类似于之前描述额复选框（checkbox）类型。单选按钮允许你选择单一的值来提交表单。
-            <input type="text" />
+            >Lorem ipsum dolor sit amet, consectetur adipisicing elit. A,
+            corporis.
           </NovaRadio>
         </NovaRadioGroup>
       </dd>
@@ -115,7 +116,7 @@
       </dd>
     </dl>
     <dl>
-      <dt>test：</dt>
+      <dt>Native：</dt>
       <dd>
         <label>
           <input
@@ -135,7 +136,7 @@
             @change="handleNativeChange(2)"
           />
           Pear
-          <textarea cols="30" rows="10"></textarea>
+          <textarea cols="30" rows="2"></textarea>
         </label>
         <label>
           <input

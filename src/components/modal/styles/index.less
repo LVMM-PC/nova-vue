@@ -1,0 +1,30 @@
+@import '../../../styles/var';
+
+@modal: ~'@{prefix}-modal';
+
+.@{modal}-root {
+  &.@{modal}-root-hidden {
+    display: none;
+  }
+}
+
+.@{modal}-mask,
+.@{modal}-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.@{modal}-mask {
+  background-color: @mask-background;
+  opacity: 0.25;
+}
+
+.@{modal} {
+  position: relative;
+  top: 100px;
+  background-color: @component-background;
+  margin: 0 auto;
+}

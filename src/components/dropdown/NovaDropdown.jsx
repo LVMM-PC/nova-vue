@@ -99,8 +99,8 @@ export default {
           </MountingPortal>
         </ClientOnly>
       );
-    } else {
-      return dropdownContent;
     }
+
+    return dropdownContent;
   }
 };
