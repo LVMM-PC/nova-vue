@@ -51,10 +51,13 @@ export default {
       on: listeners
     };
 
-    if (props.type === 'line') {
-      return () => <Line {...progressProps} />;
-    } else if (props.type === 'circle') {
-      return () => <Circle {...progressProps} />;
+    switch (props.type) {
+      case 'line':
+        return () => <Line {...progressProps} />;
+      case 'circle':
+        return () => <Circle {...progressProps} />;
     }
+
+    return null;
   }
 };

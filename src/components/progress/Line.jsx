@@ -53,33 +53,44 @@ export default {
       }
     ]);
 
-    let textNode = computed(() => {
-      if (props.showInfo) {
-        return (
-          <div class={`${props.prefixedClass}-text`}>
-            {state.percentFormatted}
-          </div>
-        );
-      }
-    });
-
     const lineProps = {
       attrs,
       on: listeners
     };
 
-    return () => (
-      <div class={lineClassList.value} {...lineProps}>
-        <div class={`${props.prefixedClass}-outer`}>
-          <div class={`${props.prefixedClass}-inner`}>
-            <div
-              class={`${props.prefixedClass}-bg`}
-              style={{ width: state.percentFormatted }}
-            />
+    return () => {
+      function createOuter() {
+        return (
+          <div class={`${props.prefixedClass}-outer`}>
+            <div class={`${props.prefixedClass}-inner`}>
+              <div
+                class={`${props.prefixedClass}-bg`}
+                style={{ width: state.percentFormatted }}
+              />
+            </div>
           </div>
+        );
+      }
+
+      function createText() {
+        if (props.showInfo) {
+          return (
+            <div class={`${props.prefixedClass}-text`}>
+              {state.percentFormatted}
+            </div>
+          );
+        }
+      }
+
+      const outerNode = createOuter();
+      const textNode = createText();
+
+      return (
+        <div class={lineClassList.value} {...lineProps}>
+          {outerNode}
+          {textNode}
         </div>
-        {textNode.value}
-      </div>
-    );
+      );
+    };
   }
 };

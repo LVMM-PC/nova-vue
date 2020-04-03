@@ -120,51 +120,77 @@ export default {
       innerStyle['height'] = widthPixels;
     }
 
-    let textNode = computed(() => {
-      if (props.showInfo) {
-        return (
-          <div class={`${props.prefixedClass}-text`}>
-            {state.percentFormatted}
-          </div>
-        );
-      }
-    });
-
     const circleProps = {
       attrs,
       on: listeners
     };
 
-    return () => (
-      <div class={circleClassList.value} {...circleProps}>
-        <div class={`${props.prefixedClass}-inner`} style={innerStyle}>
+    return () => {
+      function createBg() {
+        return (
+          <circle
+            class={`${props.prefixedClass}-bg`}
+            stroke-dashoffset="0"
+            stroke-linecap={props.strokeLinecap}
+            style={bgStyle}
+            cx={state.halfWidth}
+            cy={state.halfWidth}
+            r={state.radius}
+          />
+        );
+      }
+
+      function createTrail() {
+        return (
+          <circle
+            class={`${props.prefixedClass}-trail`}
+            stroke-linecap={props.strokeLinecap}
+            stroke-width={state.strokeWidth}
+            cx={state.halfWidth}
+            cy={state.halfWidth}
+            r={state.radius}
+          />
+        );
+      }
+
+      function createSvg() {
+        const trailNode = createTrail();
+        const bgNode = createBg();
+
+        return (
           <svg
             class={`${props.prefixedClass}-svg`}
             width={state.width}
             height={state.width}
             viewBox={`0 0 ${state.width} ${state.width}`}
           >
-            <circle
-              class={`${props.prefixedClass}-trail`}
-              stroke-linecap={props.strokeLinecap}
-              stroke-width={state.strokeWidth}
-              cx={state.halfWidth}
-              cy={state.halfWidth}
-              r={state.radius}
-            />
-            <circle
-              class={`${props.prefixedClass}-bg`}
-              stroke-dashoffset="0"
-              stroke-linecap={props.strokeLinecap}
-              style={bgStyle}
-              cx={state.halfWidth}
-              cy={state.halfWidth}
-              r={state.radius}
-            />
+            {trailNode}
+            {bgNode}
           </svg>
-          {textNode.value}
+        );
+      }
+
+      function createText() {
+        if (props.showInfo) {
+          return (
+            <div class={`${props.prefixedClass}-text`}>
+              {state.percentFormatted}
+            </div>
+          );
+        }
+      }
+
+      const svgNode = createSvg();
+      const textNode = createText();
+
+      return (
+        <div class={circleClassList.value} {...circleProps}>
+          <div class={`${props.prefixedClass}-inner`} style={innerStyle}>
+            {svgNode}
+            {textNode}
+          </div>
         </div>
-      </div>
-    );
+      );
+    };
   }
 };

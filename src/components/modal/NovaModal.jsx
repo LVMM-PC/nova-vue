@@ -44,6 +44,25 @@ function useWrapTransition(props) {
   };
 }
 
+function useWrap(props, transformOrigin) {
+  const wrapStyle = reactive({
+    ['transform-origin']: transformOrigin
+  });
+  const wrapClassList = computed(() => {
+    return [`${props.prefixedClass}-wrap`, props.wrapClass];
+  });
+
+  return { wrapStyle, wrapClassList };
+}
+
+function useModal(props) {
+  const modalStyle = reactive({
+    width: Props.styleLengthStandardize(props.width)
+  });
+
+  return { modalStyle };
+}
+
 export default {
   name: 'NovaModal',
   model: {
@@ -130,6 +149,8 @@ export default {
     });
 
     const { animationReady, transformOrigin } = useWrapTransition(props);
+    const { modalStyle } = useModal(props);
+    const { wrapStyle, wrapClassList } = useWrap(props, transformOrigin);
 
     function handleCancel(...args) {
       emit('cancel', ...args);
@@ -137,6 +158,19 @@ export default {
 
     function handleOk(...args) {
       emit('ok', ...args);
+    }
+
+    function handleWrapClick(e, ...restArgs) {
+      if (!props.maskClosable) {
+        return;
+      }
+
+      const target = e.target;
+      const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
+
+      if (!isClickInModal) {
+        handleCancel(e, ...restArgs);
+      }
     }
 
     return () => {
@@ -178,9 +212,8 @@ export default {
         return <div class={`${props.prefixedClass}-body`}>{children}</div>;
       }
 
-      function createFooter() {
-        const footer = slots.footer?.();
-        const defaultFooter = [
+      function createDefaultFooter() {
+        return [
           <NovaButton
             onClick={handleCancel}
             type={props.cancelType}
@@ -197,6 +230,11 @@ export default {
             {props.okText}
           </NovaButton>
         ];
+      }
+
+      function createFooter() {
+        const footer = slots.footer?.();
+        const defaultFooter = createDefaultFooter();
 
         return (
           <div class={`${props.prefixedClass}-footer`}>
@@ -206,10 +244,6 @@ export default {
       }
 
       function createModal() {
-        const modalStyle = reactive({
-          width: Props.styleLengthStandardize(props.width)
-        });
-
         const modalProps = {
           ref: 'modal',
           on: listeners,
@@ -247,25 +281,6 @@ export default {
       }
 
       function createWrap() {
-        function handleWrapClick(e, ...restArgs) {
-          if (!props.maskClosable) {
-            return;
-          }
-
-          const target = e.target;
-          const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
-
-          if (!isClickInModal) {
-            handleCancel(e, ...restArgs);
-          }
-        }
-
-        const wrapStyle = reactive({
-          ['transform-origin']: transformOrigin
-        });
-        const wrapClassList = computed(() => {
-          return [`${props.prefixedClass}-wrap`, props.wrapClass];
-        });
         const modalNode = createModal();
 
         return (

@@ -53,29 +53,6 @@ export default {
       ];
     });
 
-    function handleClick(...args) {
-      if (props.loading || props.disabled) {
-        return;
-      }
-
-      emit('click', ...args);
-    }
-
-    const iconLoadingNode = computed(() => {
-      if (props.loading) {
-        return <NovaIconLoading spin />;
-      }
-    });
-
-    function trimSpace(textNode) {
-      if (typeof textNode.text === 'string') {
-        const text = textNode.text.trim();
-        return <span>{text}</span>;
-      } else {
-        return textNode;
-      }
-    }
-
     const buttonProps = {
       attrs,
       on: {
@@ -84,43 +61,84 @@ export default {
       }
     };
 
-    return () => {
-      const icon = slots.icon?.();
+    function handleClick(...args) {
+      if (props.loading || props.disabled) {
+        return;
+      }
 
-      let children;
-      if (slots.default) {
-        const slotDefault = slots.default();
-        if (slotDefault.length === 1) {
-          children = trimSpace(slotDefault[0]);
-        } else {
-          children = slotDefault;
+      emit('click', ...args);
+    }
+
+    return () => {
+      function createLoading() {
+        if (props.loading) {
+          return <NovaIconLoading spin />;
         }
       }
 
-      if (attrs.href) {
+      function createIcon() {
+        const loadingNode = createLoading();
+        const icon = slots.icon?.();
+
+        return loadingNode || icon;
+      }
+
+      function trim(textNode) {
+        if (typeof textNode.text === 'string') {
+          const text = textNode.text.trim();
+          return <span>{text}</span>;
+        } else {
+          return textNode;
+        }
+      }
+
+      function createChildren() {
+        const slotDefault = slots.default?.();
+
+        if (slotDefault?.length === 1) {
+          return trim(slotDefault[0]);
+        } else {
+          return slotDefault;
+        }
+      }
+
+      const iconNode = createIcon();
+      const children = createChildren();
+
+      function createLink() {
         return (
           <a
             class={buttonClassList.value}
             disabled={props.disabled}
             {...buttonProps}
           >
-            {iconLoadingNode.value || icon}
+            {iconNode}
             {children}
           </a>
         );
       }
 
-      return (
-        <button
-          class={buttonClassList.value}
-          disabled={props.disabled}
-          type={props.htmlType}
-          {...buttonProps}
-        >
-          {iconLoadingNode.value || icon}
-          {children}
-        </button>
-      );
+      function createButton() {
+        return (
+          <button
+            class={buttonClassList.value}
+            disabled={props.disabled}
+            type={props.htmlType}
+            {...buttonProps}
+          >
+            {iconNode}
+            {children}
+          </button>
+        );
+      }
+
+      if (attrs.href) {
+        const linkNode = createLink();
+        return linkNode;
+      }
+
+      const buttonNode = createButton();
+      return buttonNode;
     };
   }
 };
