@@ -49,7 +49,7 @@ const zhCN = {
       '12月'
     ]
   },
-  model: {
+  modal: {
     ok: '确定',
     cancel: '取消'
   }

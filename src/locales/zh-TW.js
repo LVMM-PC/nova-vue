@@ -49,7 +49,7 @@ const zhTW = {
       '12月'
     ]
   },
-  model: {
+  modal: {
     ok: '確定',
     cancel: '取消'
   }

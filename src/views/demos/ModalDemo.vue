@@ -57,54 +57,66 @@
         提示文本
       </NovaModal>
     </div>
-    <div class="blank"></div>
-    <div class="box">
-      <NovaButton @click="handleBigHeightOpen">Open big height</NovaButton>
-      <NovaModal
-        v-model="bigHeightVisible"
-        title="标题文本"
-        wrap-class="big-height-modal"
-        @cancel="handleBigHeightCancel"
-      >
-        <div class="big-height-modal-container">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
-          ipsam nesciunt porro praesentium sed tenetur. Beatae deserunt,
-          laboriosam molestias nam nulla numquam qui? Ad, alias, beatae. Aut,
-          incidunt sunt!
+    <NovaLocale :locale="en">
+      <NovaLocale :locale="zhTW">
+        <div class="blank"></div>
+        <div class="box">
+          <NovaButton @click="handleBigHeightOpen">Open big height</NovaButton>
+          <NovaModal
+            v-model="bigHeightVisible"
+            title="标题文本"
+            wrap-class="big-height-modal"
+            :locale="zhCN"
+            @cancel="handleBigHeightCancel"
+          >
+            <div class="big-height-modal-container">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
+              ipsam nesciunt porro praesentium sed tenetur. Beatae deserunt,
+              laboriosam molestias nam nulla numquam qui? Ad, alias, beatae.
+              Aut, incidunt sunt!
+            </div>
+          </NovaModal>
         </div>
-      </NovaModal>
-    </div>
-    <div class="blank"></div>
-    <div class="box">
-      <NovaButton @click="handleBigWidthOpen">Open big width</NovaButton>
-      <NovaModal
-        v-model="bigWidthVisible"
-        title="标题文本"
-        :width="1000"
-        @cancel="handleBigWidthCancel"
-      >
-        <div class="big-width-modal-container">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
-          ipsam nesciunt porro praesentium sed tenetur. Beatae deserunt,
-          laboriosam molestias nam nulla numquam qui? Ad, alias, beatae. Aut,
-          incidunt sunt!
-        </div>
-      </NovaModal>
-    </div>
+      </NovaLocale>
+      <div class="blank"></div>
+      <div class="box">
+        <NovaButton @click="handleBigWidthOpen">Open big width</NovaButton>
+        <NovaModal
+          v-model="bigWidthVisible"
+          title="标题文本"
+          :width="1000"
+          @cancel="handleBigWidthCancel"
+        >
+          <div class="big-width-modal-container">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
+            ipsam nesciunt porro praesentium sed tenetur. Beatae deserunt,
+            laboriosam molestias nam nulla numquam qui? Ad, alias, beatae. Aut,
+            incidunt sunt!
+          </div>
+        </NovaModal>
+      </div>
+    </NovaLocale>
   </section>
 </template>
 
 <script>
 import NovaModal from '@/components/modal/NovaModal';
 import NovaButton from '@/components/button/NovaButton';
+import NovaLocale from '@/components/locale/NovaLocale';
+import en from '@/locales/en';
+import zhTW from '@/locales/zh-TW';
+import zhCN from '@/locales/zh-CN';
 
 const modalDefaultText = '模态框文本内容。';
 
 export default {
   name: 'ModalDemo',
-  components: { NovaButton, NovaModal },
+  components: { NovaButton, NovaModal, NovaLocale },
   data() {
     return {
+      en,
+      zhTW,
+      zhCN,
       modalText: modalDefaultText,
       closable: true,
       mask: true,

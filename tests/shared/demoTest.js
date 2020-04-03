@@ -20,7 +20,7 @@ import {
   NovaProgress,
   NovaButton,
   NovaModal,
-  NovaInput,
+  NovaInput
 } from '../../src/index';
 
 Vue.component('NovaLocale', NovaLocale);

@@ -1,4 +1,8 @@
+const localeDescription = 'nova-locale';
+
 export default class Storage {
+  static localeSymbol = Symbol?.(localeDescription) ?? localeDescription;
+
   static prefix = 'nova';
 
   static placement = [

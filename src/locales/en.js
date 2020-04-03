@@ -49,7 +49,7 @@ const en = {
       'December'
     ]
   },
-  model: {
+  modal: {
     ok: 'Ok',
     cancel: 'Cancel'
   }

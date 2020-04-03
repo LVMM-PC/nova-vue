@@ -8,10 +8,11 @@ import {
 } from '@vue/composition-api';
 import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
-import NovaButton from '@/components/button/NovaButton';
-import NovaIconClose from '@/icons/NovaIconClose';
+import NovaButton from '@/components/button/NovaButton.jsx';
+import NovaIconClose from '@/icons/NovaIconClose.jsx';
 import { useClickPosition } from '@/uses/mouse';
 import Props from '@/utils/props';
+import { useLocale, localeProps } from '@/uses/locale';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -70,6 +71,7 @@ export default {
     event: 'update'
   },
   props: {
+    ...localeProps,
     prefixedClass: {
       type: String,
       default: `${Storage.prefix}-modal`
@@ -112,7 +114,7 @@ export default {
     },
     okText: {
       type: String,
-      default: 'Ok'
+      default: null
     },
     okType: {
       type: String,
@@ -124,7 +126,7 @@ export default {
     },
     cancelText: {
       type: String,
-      default: 'Cancel'
+      default: null
     },
     cancelType: {
       type: String,
@@ -148,6 +150,7 @@ export default {
       }
     });
 
+    const { novaLocale } = useLocale(props);
     const { animationReady, transformOrigin } = useWrapTransition(props);
     const { modalStyle } = useModal(props);
     const { wrapStyle, wrapClassList } = useWrap(props, transformOrigin);
@@ -213,13 +216,16 @@ export default {
       }
 
       function renderDefaultFooter() {
+        const cancelText = props.cancelText ?? novaLocale.modal.cancel;
+        const okText = props.okText ?? novaLocale.modal.ok;
+
         return [
           <NovaButton
             onClick={handleCancel}
             type={props.cancelType}
             {...props.cancelButtonProps}
           >
-            {props.cancelText}
+            {cancelText}
           </NovaButton>,
           <NovaButton
             onClick={handleOk}
@@ -227,7 +233,7 @@ export default {
             loading={props.confirmLoading}
             {...props.okButtonProps}
           >
-            {props.okText}
+            {okText}
           </NovaButton>
         ];
       }
