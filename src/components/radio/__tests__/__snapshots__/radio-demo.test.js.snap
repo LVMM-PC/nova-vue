@@ -16,7 +16,7 @@ exports[`renders ./docs/.vuepress/components/demo/radio/disabled.vue correctly 1
   <div class="nova-radio is-checked is-disabled">
     <div tabindex="-1" class="nova-radio-input"></div>
     <div class="nova-radio-label">Disabled</div>
-  </div> <br> <button>Toggle Disabled</button>
+  </div> <br> <button type="button" class="nova-button nova-button-default"><span>Toggle Disabled</span></button>
 </section>
 `;
 
@@ -57,7 +57,9 @@ exports[`renders ./docs/.vuepress/components/demo/radio/group-more.vue correctly
   </div>
   <div class="nova-radio">
     <div tabindex="0" class="nova-radio-input"></div>
-    <div class="nova-radio-label">More... <input type="text" class="more-input" style="display: none;"></div>
+    <div class="nova-radio-label">
+      More...
+      <input type="text" class="more-input nova-input" style="display: none;"></div>
   </div>
 </div>
 `;

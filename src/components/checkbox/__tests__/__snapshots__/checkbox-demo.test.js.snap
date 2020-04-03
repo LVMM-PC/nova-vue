@@ -19,11 +19,7 @@ exports[`renders ./docs/.vuepress/components/demo/checkbox/controller.vue correc
       </div>
     </div>
   </p>
-  <p><button>
-      Uncheck
-    </button> <button>
-      Disable
-    </button></p>
+  <p><button type="button" class="nova-button nova-button-default"><span>Uncheck</span></button> <button type="button" class="nova-button nova-button-default"><span>Disable</span></button></p>
 </section>
 `;
 
@@ -31,12 +27,12 @@ exports[`renders ./docs/.vuepress/components/demo/checkbox/disabled.vue correctl
 <section>
   <div class="nova-checkbox is-disabled">
     <div tabindex="-1" class="nova-checkbox-input"></div>
-    <div class="nova-checkbox-label"></div>
+    <div class="nova-checkbox-label">Disabled</div>
   </div> <br>
   <div class="nova-checkbox is-checked is-disabled">
     <div tabindex="-1" class="nova-checkbox-input"></div>
-    <div class="nova-checkbox-label"></div>
-  </div> <br> <button>Toggle Disabled</button>
+    <div class="nova-checkbox-label">Disabled</div>
+  </div> <br> <button type="button" class="nova-button nova-button-default"><span>Toggle Disabled</span></button>
 </section>
 `;
 
