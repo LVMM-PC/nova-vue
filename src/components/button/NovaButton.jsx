@@ -85,10 +85,7 @@ export default {
     };
 
     return () => {
-      let icon;
-      if (slots.icon) {
-        icon = slots.icon();
-      }
+      const icon = slots.icon?.();
 
       let children;
       if (slots.default) {

@@ -1,11 +1,18 @@
 export default class Props {
-  static isBooleanPropsTrue(prop) {
-    switch (typeof prop) {
-      case 'string':
-        return true;
-      default:
-        return !!prop;
+  static styleLengthStandardize(length) {
+    if (typeof length === 'number') {
+      return `${length}px`;
     }
+
+    return length;
+  }
+
+  static booleanStandardize(prop) {
+    if (typeof prop === 'string') {
+      return true;
+    }
+
+    return !!prop;
   }
 
   static getVNodeOptions(vNode) {

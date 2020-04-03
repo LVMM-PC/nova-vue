@@ -201,7 +201,7 @@ export default {
 
         const propsData = Props.getVNodeProps(option);
 
-        if (Props.isBooleanPropsTrue(propsData?.disabled)) {
+        if (Props.booleanStandardize(propsData?.disabled)) {
           nextIndex++;
           continue;
         }
@@ -238,7 +238,7 @@ export default {
         const option = options[prevIndex];
         const propsData = Props.getVNodeProps(option);
 
-        if (Props.isBooleanPropsTrue(propsData?.disabled)) {
+        if (Props.booleanStandardize(propsData?.disabled)) {
           prevIndex--;
           continue;
         }

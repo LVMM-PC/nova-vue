@@ -52,18 +52,19 @@
     <div class="blank"></div>
     <div class="box">
       <NovaButton @click="handleFooterOpen">Footer</NovaButton>
-      <NovaModal v-model="footerVisible">
+      <NovaModal v-model="footerVisible" @cancel="handleFooterCancel">
         <template slot="footer">{{ null }}</template>
         提示文本
       </NovaModal>
     </div>
     <div class="blank"></div>
     <div class="box">
-      <NovaButton @click="handleOpenBigHeight">Open big height</NovaButton>
+      <NovaButton @click="handleBigHeightOpen">Open big height</NovaButton>
       <NovaModal
         v-model="bigHeightVisible"
         title="标题文本"
         wrap-class="big-height-modal"
+        @cancel="handleBigHeightCancel"
       >
         <div class="big-height-modal-container">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
@@ -75,8 +76,13 @@
     </div>
     <div class="blank"></div>
     <div class="box">
-      <NovaButton @click="handleOpenBigWidth">Open big width</NovaButton>
-      <NovaModal v-model="bigWidthVisible" title="标题文本" :width="1000">
+      <NovaButton @click="handleBigWidthOpen">Open big width</NovaButton>
+      <NovaModal
+        v-model="bigWidthVisible"
+        title="标题文本"
+        :width="1000"
+        @cancel="handleBigWidthCancel"
+      >
         <div class="big-width-modal-container">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et fuga
           ipsam nesciunt porro praesentium sed tenetur. Beatae deserunt,
@@ -138,7 +144,11 @@ export default {
     handleFooterOpen() {
       this.footerVisible = true;
     },
-    handleOk() {
+    handleFooterCancel() {
+      this.footerVisible = false;
+    },
+    handleOk(e) {
+      console.log(e);
       this.modalText = '模态框将在 2 秒后关闭。';
       this.confirmLoading = true;
       setTimeout(() => {
@@ -146,14 +156,21 @@ export default {
         this.confirmLoading = false;
       }, 2000);
     },
-    handleCancel() {
+    handleCancel(e) {
+      console.log(e);
       this.visible = false;
     },
-    handleOpenBigHeight() {
+    handleBigHeightOpen() {
       this.bigHeightVisible = true;
     },
-    handleOpenBigWidth() {
+    handleBigHeightCancel() {
+      this.bigHeightVisible = false;
+    },
+    handleBigWidthOpen() {
       this.bigWidthVisible = true;
+    },
+    handleBigWidthCancel() {
+      this.bigWidthVisible = false;
     }
   }
 };

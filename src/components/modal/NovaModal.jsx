@@ -1,9 +1,8 @@
 import {
   computed,
   createElement,
-  onBeforeUnmount,
-  onMounted,
   reactive,
+  ref,
   watch,
   watchEffect
 } from '@vue/composition-api';
@@ -11,9 +10,39 @@ import Storage from '@/utils/storage';
 import Utils from '@/utils/utils';
 import NovaButton from '@/components/button/NovaButton';
 import NovaIconClose from '@/icons/NovaIconClose';
+import { useClickPosition } from '@/uses/mouse';
+import Props from '@/utils/props';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
+
+function useWrapTransition(props) {
+  const animationReady = ref(false);
+  const transformOrigin = ref('');
+
+  const { x, y } = useClickPosition();
+
+  watch(
+    () => props.visible,
+    (visible, prevVisible) => {
+      setTimeout(() => {
+        if (!prevVisible && visible) {
+          animationReady.value = true;
+          if (x.value || y.value) {
+            transformOrigin.value = `${x.value}px ${y.value}px`;
+          } else {
+            transformOrigin.value = '';
+          }
+        }
+      });
+    }
+  );
+
+  return {
+    animationReady,
+    transformOrigin
+  };
+}
 
 export default {
   name: 'NovaModal',
@@ -91,8 +120,7 @@ export default {
     const { attrs, listeners, slots, emit, refs } = context;
 
     const state = reactive({
-      loaded: false,
-      animationReady: false
+      loaded: false
     });
 
     watchEffect(() => {
@@ -101,86 +129,14 @@ export default {
       }
     });
 
-    let storeOffset;
-    let timer;
+    const { animationReady, transformOrigin } = useWrapTransition(props);
 
-    function saveClickPosition(e) {
-      storeOffset = {
-        x: e.pageX - window.pageXOffset,
-        y: e.pageY - window.pageYOffset
-      };
-
-      clearTimeout(timer);
-      timer = setTimeout(() => {
-        storeOffset = null;
-      }, 100);
+    function handleCancel(...args) {
+      emit('cancel', ...args);
     }
 
-    watch(
-      () => props.visible,
-      (visible, prevVisible) => {
-        setTimeout(() => {
-          if (!prevVisible && visible) {
-            state.animationReady = true;
-            if (storeOffset) {
-              wrapStyle[
-                'transform-origin'
-              ] = `${storeOffset.x}px ${storeOffset.y}px`;
-            } else {
-              wrapStyle['transform-origin'] = '';
-            }
-          }
-        });
-      }
-    );
-
-    onMounted(() => {
-      document.addEventListener('click', saveClickPosition);
-    });
-
-    onBeforeUnmount(() => {
-      document.removeEventListener('click', saveClickPosition);
-    });
-
-    function close() {
-      emit('update', false);
-    }
-
-    function handleClose() {
-      close();
-    }
-
-    function handleCancel() {
-      emit('cancel');
-    }
-
-    function handleOk() {
-      emit('ok');
-    }
-
-    const wrapStyle = reactive({
-      ['transform-origin']: `center`
-    });
-
-    const modalClassList = computed(() => {
-      return [props.prefixedClass];
-    });
-
-    const modalStyle = reactive({
-      width: typeof props.width === 'string' ? props.width : `${props.width}px`
-    });
-
-    function handleWrapClick(e) {
-      if (!props.maskClosable) {
-        return;
-      }
-
-      const target = e.target;
-
-      const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
-      if (!isClickInModal) {
-        close();
-      }
+    function handleOk(...args) {
+      emit('ok', ...args);
     }
 
     return () => {
@@ -188,124 +144,157 @@ export default {
         return null;
       }
 
-      const modalProps = {
-        ref: 'modal',
-        on: listeners,
-        attrs
-      };
-
-      let footer;
-      if (slots.footer) {
-        footer = slots.footer();
-      }
-
-      let children;
-      if (slots.default) {
-        children = slots.default();
-      }
-
-      let closeNode;
-      if (props.closable) {
-        closeNode = (
-          <div
-            class={`${props.prefixedClass}-close`}
-            tabIndex="0"
-            onClick={handleClose}
-          >
-            <NovaIconClose />
-          </div>
-        );
-      }
-
-      let titleNode;
-      if (props.title) {
-        titleNode = (
-          <div class={`${props.prefixedClass}-title`}>{props.title}</div>
-        );
-      }
-
-      const headerNode = (
-        <div class={`${props.prefixedClass}-header`}>{titleNode}</div>
-      );
-
-      const bodyNode = (
-        <div class={`${props.prefixedClass}-body`}>{children}</div>
-      );
-
-      const defaultFooter = [
-        <NovaButton
-          onClick={handleCancel}
-          type={props.cancelType}
-          {...props.cancelButtonProps}
-        >
-          {props.cancelText}
-        </NovaButton>,
-        <NovaButton
-          onClick={handleOk}
-          type={props.okType}
-          loading={props.confirmLoading}
-          {...props.okButtonProps}
-        >
-          {props.okText}
-        </NovaButton>
-      ];
-
-      const footerNode = (
-        <div class={`${props.prefixedClass}-footer`}>
-          {footer || defaultFooter}
-        </div>
-      );
-
-      const modalNode = (
-        <div class={modalClassList.value} style={modalStyle} {...modalProps}>
-          <div class={`${props.prefixedClass}-content`}>
-            {closeNode}
-            {headerNode}
-            {bodyNode}
-            {footerNode}
-          </div>
-        </div>
-      );
-
-      const maskClassList = computed(() => {
-        return [`${props.prefixedClass}-mask`];
-      });
-
-      const wrapClassList = computed(() => {
-        return [`${props.prefixedClass}-wrap`, props.wrapClass];
-      });
-
-      let maskNode;
-      if (props.mask) {
-        maskNode = (
-          <transition name={`${Storage.prefix}-fade`}>
+      function createClose() {
+        if (props.closable) {
+          return (
             <div
-              class={maskClassList.value}
-              vShow={state.animationReady && props.visible}
-            ></div>
+              class={`${props.prefixedClass}-close`}
+              tabIndex="0"
+              onClick={handleCancel}
+            >
+              <NovaIconClose />
+            </div>
+          );
+        }
+      }
+
+      function createTitle() {
+        if (props.title) {
+          return (
+            <div class={`${props.prefixedClass}-title`}>{props.title}</div>
+          );
+        }
+      }
+
+      function createHeader() {
+        const titleNode = createTitle();
+
+        return <div class={`${props.prefixedClass}-header`}>{titleNode}</div>;
+      }
+
+      function createBody() {
+        const children = slots.default?.();
+
+        return <div class={`${props.prefixedClass}-body`}>{children}</div>;
+      }
+
+      function createFooter() {
+        const footer = slots.footer?.();
+        const defaultFooter = [
+          <NovaButton
+            onClick={handleCancel}
+            type={props.cancelType}
+            {...props.cancelButtonProps}
+          >
+            {props.cancelText}
+          </NovaButton>,
+          <NovaButton
+            onClick={handleOk}
+            type={props.okType}
+            loading={props.confirmLoading}
+            {...props.okButtonProps}
+          >
+            {props.okText}
+          </NovaButton>
+        ];
+
+        return (
+          <div class={`${props.prefixedClass}-footer`}>
+            {footer ?? defaultFooter}
+          </div>
+        );
+      }
+
+      function createModal() {
+        const modalStyle = reactive({
+          width: Props.styleLengthStandardize(props.width)
+        });
+
+        const modalProps = {
+          ref: 'modal',
+          on: listeners,
+          attrs
+        };
+
+        const closeNode = createClose();
+        const headerNode = createHeader();
+        const bodyNode = createBody();
+        const footerNode = createFooter();
+
+        return (
+          <div class={props.prefixedClass} style={modalStyle} {...modalProps}>
+            <div class={`${props.prefixedClass}-content`}>
+              {closeNode}
+              {headerNode}
+              {bodyNode}
+              {footerNode}
+            </div>
+          </div>
+        );
+      }
+
+      function createMask() {
+        if (props.mask) {
+          return (
+            <transition name={`${Storage.prefix}-fade`}>
+              <div
+                class={`${props.prefixedClass}-mask`}
+                vShow={animationReady.value && props.visible}
+              ></div>
+            </transition>
+          );
+        }
+      }
+
+      function createWrap() {
+        function handleWrapClick(e, ...restArgs) {
+          if (!props.maskClosable) {
+            return;
+          }
+
+          const target = e.target;
+          const isClickInModal = Utils.isParentsOrSelf(target, refs['modal']);
+
+          if (!isClickInModal) {
+            handleCancel(e, ...restArgs);
+          }
+        }
+
+        const wrapStyle = reactive({
+          ['transform-origin']: transformOrigin
+        });
+        const wrapClassList = computed(() => {
+          return [`${props.prefixedClass}-wrap`, props.wrapClass];
+        });
+        const modalNode = createModal();
+
+        return (
+          <transition name={`${Storage.prefix}-modal-zoom`}>
+            <div
+              class={wrapClassList.value}
+              style={wrapStyle}
+              onClick={handleWrapClick}
+              vShow={animationReady.value && props.visible}
+            >
+              {modalNode}
+            </div>
           </transition>
         );
       }
 
-      const wrapNode = (
-        <transition name={`${Storage.prefix}-modal-zoom`}>
-          <div
-            class={wrapClassList.value}
-            style={wrapStyle}
-            onClick={handleWrapClick}
-            vShow={state.animationReady && props.visible}
-          >
-            {modalNode}
-          </div>
-        </transition>
-      );
+      function createRoot() {
+        const maskNode = createMask();
+        const wrapNode = createWrap();
 
-      const rootNode = (
-        <div class={`${props.prefixedClass}-root`}>
-          {maskNode}
-          {wrapNode}
-        </div>
-      );
+        return (
+          <div class={`${props.prefixedClass}-root`}>
+            {maskNode}
+            {wrapNode}
+          </div>
+        );
+      }
+
+      const rootNode = createRoot();
 
       if (props.appendToBody) {
         return (
