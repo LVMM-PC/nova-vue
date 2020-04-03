@@ -1,0 +1,37 @@
+@import '../../../styles/var';
+
+@input: ~'@{prefix}-input';
+
+.@{input} {
+  font-size: 14px;
+  line-height: 20px;
+  color: @font-color;
+  font-family: @font-family;
+  box-sizing: border-box;
+  border: 1px solid @border-color;
+  height: 30px;
+  padding: 5px;
+  width: 200px;
+  vertical-align: top;
+
+  &[disabled] {
+    opacity: 0.5;
+    background-color: @component-darker-background;
+  }
+
+  &[readonly] {
+  }
+
+  &:hover,
+  &:focus {
+    &:not([disabled]):not([readonly]) {
+
+      border: 1px solid @primary-color;
+    }
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: @focus-shadow-primary-light;
+  }
+}

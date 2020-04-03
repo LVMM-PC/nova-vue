@@ -16,7 +16,11 @@ import {
   NovaOption,
   NovaRadio,
   NovaRadioGroup,
-  NovaSelect
+  NovaSelect,
+  NovaProgress,
+  NovaButton,
+  NovaModal,
+  NovaInput,
 } from '../../src/index';
 
 Vue.component('NovaLocale', NovaLocale);
@@ -32,6 +36,10 @@ Vue.component('NovaRadio', NovaRadio);
 Vue.component('NovaRadioGroup', NovaRadioGroup);
 Vue.component('NovaCheckbox', NovaCheckbox);
 Vue.component('NovaCheckboxGroup', NovaCheckboxGroup);
+Vue.component('NovaProgress', NovaProgress);
+Vue.component('NovaButton', NovaButton);
+Vue.component('NovaModal', NovaModal);
+Vue.component('NovaInput', NovaInput);
 
 export default function demoTest(component) {
   const files = glob.sync(

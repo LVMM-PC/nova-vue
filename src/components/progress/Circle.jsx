@@ -127,9 +127,8 @@ export default {
       state.strokeWidth = Utils.numberLimit(props.strokeWidth, 0, width / 2);
     });
 
-    const { innerStyle } = useInner(state);
-
     const { bgStyle } = useBg(state);
+    const { innerStyle } = useInner(state);
 
     const circleClassList = computed(() => [
       props.prefixedClass,

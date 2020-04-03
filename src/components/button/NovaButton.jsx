@@ -1,6 +1,6 @@
 import { computed, createElement } from '@vue/composition-api';
 import Storage from '@/utils/storage';
-import NovaIconLoading from '@/icons/NovaIconLoading';
+import NovaIconLoading from '@/icons/NovaIconLoading.jsx';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;

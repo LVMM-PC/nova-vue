@@ -51,7 +51,7 @@
   vertical-align: top;
   width: 14px;
   height: 14px;
-  margin-top: 8px;
+  margin: 8px 0;
   border: 1px solid @border-color;
   box-sizing: border-box;
   position: relative;
@@ -84,4 +84,8 @@
   display: inline-block;
   vertical-align: top;
   padding: 5px;
+
+  &:empty {
+    display: none;
+  }
 }

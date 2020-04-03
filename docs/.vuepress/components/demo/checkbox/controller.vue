@@ -8,12 +8,12 @@
       </NovaCheckbox>
     </p>
     <p>
-      <button @click="toggleChecked">
+      <NovaButton @click="toggleChecked">
         {{ checked ? 'Uncheck' : 'Check' }}
-      </button>
-      <button @click="toggleDisabled">
+      </NovaButton>
+      <NovaButton @click="toggleDisabled">
         {{ disabled ? 'Enable' : 'Disable' }}
-      </button>
+      </NovaButton>
     </p>
   </section>
 </template>

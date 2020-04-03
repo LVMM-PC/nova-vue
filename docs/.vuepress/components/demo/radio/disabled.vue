@@ -4,7 +4,7 @@
     <br />
     <NovaRadio v-model="anotherValue" :disabled="disabled">Disabled</NovaRadio>
     <br />
-    <button @click="toggleDisabled">Toggle Disabled</button>
+    <NovaButton @click="toggleDisabled">Toggle Disabled</NovaButton>
   </section>
 </template>
 

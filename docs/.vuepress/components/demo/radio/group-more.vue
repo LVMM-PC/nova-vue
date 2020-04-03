@@ -3,9 +3,10 @@
     <NovaRadio value="apple">Apple</NovaRadio>
     <NovaRadio value="peach">Peach</NovaRadio>
     <NovaRadio value="orange">Orange</NovaRadio>
-    <NovaRadio value="more"
-      >More... <input v-show="value === 'more'" class="more-input" type="text"
-    /></NovaRadio>
+    <NovaRadio value="more">
+      More...
+      <NovaInput v-show="value === 'more'" class="more-input" type="text" />
+    </NovaRadio>
   </NovaRadioGroup>
 </template>
 
@@ -26,6 +27,6 @@ export default {
 
 .more-input {
   width: 100px;
-  height: 20px;
+  margin: -5px 0 -5px 5px;
 }
 </style>

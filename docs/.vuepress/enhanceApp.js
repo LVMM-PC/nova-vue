@@ -1,3 +1,6 @@
+import Vue from 'vue';
+import VueCompositionApi from '@vue/composition-api';
+
 import {
   NovaAlert,
   NovaAutoComplete,
@@ -11,9 +14,15 @@ import {
   NovaOption,
   NovaRadio,
   NovaRadioGroup,
-  NovaSelect
+  NovaSelect,
+  NovaProgress,
+  NovaButton,
+  NovaModal,
+  NovaInput
 } from 'nova-vue';
 import '../../dist/nova.css';
+
+Vue.use(VueCompositionApi);
 
 export default ({ Vue }) => {
   Vue.component('NovaAlert', NovaAlert);
@@ -29,4 +38,8 @@ export default ({ Vue }) => {
   Vue.component('NovaRadio', NovaRadio);
   Vue.component('NovaRadioGroup', NovaRadioGroup);
   Vue.component('NovaSelect', NovaSelect);
+  Vue.component('NovaProgress', NovaProgress);
+  Vue.component('NovaButton', NovaButton);
+  Vue.component('NovaModal', NovaModal);
+  Vue.component('NovaInput', NovaInput);
 };
