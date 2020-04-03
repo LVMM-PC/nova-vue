@@ -10,6 +10,65 @@ import Storage from '@/utils/storage';
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
 
+function useInner(state) {
+  const innerStyle = reactive({
+    width: `${state.width}px`,
+    height: `${state.width}px`
+  });
+
+  function updateInnerStyle() {
+    const widthPixels = `${state.width}px`;
+    innerStyle['width'] = widthPixels;
+    innerStyle['height'] = widthPixels;
+  }
+
+  watchEffect(() => {
+    updateInnerStyle();
+  });
+
+  return { innerStyle };
+}
+
+function useBg(state) {
+  const bgStyle = reactive({
+    ['stroke-dasharray']: getDasharray(state.percent),
+    ['stroke-width']: state.percent === 0 ? `0` : state.strokeWidth
+  });
+
+  let timer;
+
+  function getDasharray(percent) {
+    const circumference = state.circumference;
+    const bgLength = circumference * percent;
+    const bgLengthText = Utils.twoDecimalPlaces(bgLength);
+    const circumferenceText = Utils.twoDecimalPlaces(circumference);
+
+    return `${bgLengthText} ${circumferenceText}`;
+  }
+
+  function updateBgStyle() {
+    clearTimeout(timer);
+
+    bgStyle['stroke-dasharray'] = getDasharray(state.percent);
+
+    if (state.percent === 0) {
+      timer = setTimeout(() => {
+        bgStyle['stroke-width'] = `0`;
+      }, 200);
+    } else {
+      bgStyle['stroke-width'] = state.strokeWidth;
+    }
+  }
+
+  watchEffect(() => {
+    updateBgStyle();
+  });
+
+  return {
+    bgStyle
+  };
+}
+
 export default {
   name: 'ProgressCircle',
   props: {
@@ -66,20 +125,11 @@ export default {
       const width = props.width;
       state.width = Utils.numberLimit(width, 0);
       state.strokeWidth = Utils.numberLimit(props.strokeWidth, 0, width / 2);
-
-      updateBgStyle();
-      updateInnerStyle();
     });
 
-    const innerStyle = reactive({
-      width: `${state.width}px`,
-      height: `${state.width}px`
-    });
+    const { innerStyle } = useInner(state);
 
-    const bgStyle = reactive({
-      ['stroke-dasharray']: getDasharray(state.percent),
-      ['stroke-width']: state.percent === 0 ? `0` : state.strokeWidth
-    });
+    const { bgStyle } = useBg(state);
 
     const circleClassList = computed(() => [
       props.prefixedClass,
@@ -89,44 +139,13 @@ export default {
       }
     ]);
 
-    function getDasharray(percent) {
-      const circumference = state.circumference;
-      const bgLength = circumference * percent;
-      const bgLengthText = Utils.twoDecimalPlaces(bgLength);
-      const circumferenceText = Utils.twoDecimalPlaces(circumference);
-
-      return `${bgLengthText} ${circumferenceText}`;
-    }
-
-    let timer;
-
-    function updateBgStyle() {
-      clearTimeout(timer);
-
-      bgStyle['stroke-dasharray'] = getDasharray(state.percent);
-
-      if (state.percent === 0) {
-        timer = setTimeout(() => {
-          bgStyle['stroke-width'] = `0`;
-        }, 200);
-      } else {
-        bgStyle['stroke-width'] = state.strokeWidth;
-      }
-    }
-
-    function updateInnerStyle() {
-      const widthPixels = `${state.width}px`;
-      innerStyle['width'] = widthPixels;
-      innerStyle['height'] = widthPixels;
-    }
-
     const circleProps = {
       attrs,
       on: listeners
     };
 
     return () => {
-      function createBg() {
+      function renderBg() {
         return (
           <circle
             class={`${props.prefixedClass}-bg`}
@@ -140,7 +159,7 @@ export default {
         );
       }
 
-      function createTrail() {
+      function renderTrail() {
         return (
           <circle
             class={`${props.prefixedClass}-trail`}
@@ -153,9 +172,9 @@ export default {
         );
       }
 
-      function createSvg() {
-        const trailNode = createTrail();
-        const bgNode = createBg();
+      function renderSvg() {
+        const trailNode = renderTrail();
+        const bgNode = renderBg();
 
         return (
           <svg
@@ -170,7 +189,7 @@ export default {
         );
       }
 
-      function createText() {
+      function renderText() {
         if (props.showInfo) {
           return (
             <div class={`${props.prefixedClass}-text`}>
@@ -180,15 +199,23 @@ export default {
         }
       }
 
-      const svgNode = createSvg();
-      const textNode = createText();
+      function renderInner() {
+        const svgNode = renderSvg();
+        const textNode = renderText();
 
-      return (
-        <div class={circleClassList.value} {...circleProps}>
+        return (
           <div class={`${props.prefixedClass}-inner`} style={innerStyle}>
             {svgNode}
             {textNode}
           </div>
+        );
+      }
+
+      const innerNode = renderInner();
+
+      return (
+        <div class={circleClassList.value} {...circleProps}>
+          {innerNode}
         </div>
       );
     };

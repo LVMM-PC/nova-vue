@@ -70,14 +70,14 @@ export default {
     }
 
     return () => {
-      function createLoading() {
+      function renderLoading() {
         if (props.loading) {
           return <NovaIconLoading spin />;
         }
       }
 
-      function createIcon() {
-        const loadingNode = createLoading();
+      function renderIcon() {
+        const loadingNode = renderLoading();
         const icon = slots.icon?.();
 
         return loadingNode || icon;
@@ -92,7 +92,7 @@ export default {
         }
       }
 
-      function createChildren() {
+      function renderChildren() {
         const slotDefault = slots.default?.();
 
         if (slotDefault?.length === 1) {
@@ -102,10 +102,10 @@ export default {
         }
       }
 
-      const iconNode = createIcon();
-      const children = createChildren();
+      const iconNode = renderIcon();
+      const children = renderChildren();
 
-      function createLink() {
+      function renderLink() {
         return (
           <a
             class={buttonClassList.value}
@@ -118,7 +118,7 @@ export default {
         );
       }
 
-      function createButton() {
+      function renderButton() {
         return (
           <button
             class={buttonClassList.value}
@@ -133,11 +133,11 @@ export default {
       }
 
       if (attrs.href) {
-        const linkNode = createLink();
+        const linkNode = renderLink();
         return linkNode;
       }
 
-      const buttonNode = createButton();
+      const buttonNode = renderButton();
       return buttonNode;
     };
   }

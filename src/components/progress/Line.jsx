@@ -59,7 +59,7 @@ export default {
     };
 
     return () => {
-      function createOuter() {
+      function renderOuter() {
         return (
           <div class={`${props.prefixedClass}-outer`}>
             <div class={`${props.prefixedClass}-inner`}>
@@ -72,7 +72,7 @@ export default {
         );
       }
 
-      function createText() {
+      function renderText() {
         if (props.showInfo) {
           return (
             <div class={`${props.prefixedClass}-text`}>
@@ -82,8 +82,8 @@ export default {
         }
       }
 
-      const outerNode = createOuter();
-      const textNode = createText();
+      const outerNode = renderOuter();
+      const textNode = renderText();
 
       return (
         <div class={lineClassList.value} {...lineProps}>

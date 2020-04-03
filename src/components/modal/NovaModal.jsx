@@ -178,7 +178,7 @@ export default {
         return null;
       }
 
-      function createClose() {
+      function renderClose() {
         if (props.closable) {
           return (
             <div
@@ -192,7 +192,7 @@ export default {
         }
       }
 
-      function createTitle() {
+      function renderTitle() {
         if (props.title) {
           return (
             <div class={`${props.prefixedClass}-title`}>{props.title}</div>
@@ -200,19 +200,19 @@ export default {
         }
       }
 
-      function createHeader() {
-        const titleNode = createTitle();
+      function renderHeader() {
+        const titleNode = renderTitle();
 
         return <div class={`${props.prefixedClass}-header`}>{titleNode}</div>;
       }
 
-      function createBody() {
+      function renderBody() {
         const children = slots.default?.();
 
         return <div class={`${props.prefixedClass}-body`}>{children}</div>;
       }
 
-      function createDefaultFooter() {
+      function renderDefaultFooter() {
         return [
           <NovaButton
             onClick={handleCancel}
@@ -232,9 +232,9 @@ export default {
         ];
       }
 
-      function createFooter() {
+      function renderFooter() {
         const footer = slots.footer?.();
-        const defaultFooter = createDefaultFooter();
+        const defaultFooter = renderDefaultFooter();
 
         return (
           <div class={`${props.prefixedClass}-footer`}>
@@ -243,17 +243,17 @@ export default {
         );
       }
 
-      function createModal() {
+      function renderModal() {
         const modalProps = {
           ref: 'modal',
           on: listeners,
           attrs
         };
 
-        const closeNode = createClose();
-        const headerNode = createHeader();
-        const bodyNode = createBody();
-        const footerNode = createFooter();
+        const closeNode = renderClose();
+        const headerNode = renderHeader();
+        const bodyNode = renderBody();
+        const footerNode = renderFooter();
 
         return (
           <div class={props.prefixedClass} style={modalStyle} {...modalProps}>
@@ -267,7 +267,7 @@ export default {
         );
       }
 
-      function createMask() {
+      function renderMask() {
         if (props.mask) {
           return (
             <transition name={`${Storage.prefix}-fade`}>
@@ -280,8 +280,8 @@ export default {
         }
       }
 
-      function createWrap() {
-        const modalNode = createModal();
+      function renderWrap() {
+        const modalNode = renderModal();
 
         return (
           <transition name={`${Storage.prefix}-modal-zoom`}>
@@ -297,9 +297,9 @@ export default {
         );
       }
 
-      function createRoot() {
-        const maskNode = createMask();
-        const wrapNode = createWrap();
+      function renderRoot() {
+        const maskNode = renderMask();
+        const wrapNode = renderWrap();
 
         return (
           <div class={`${props.prefixedClass}-root`}>
@@ -309,7 +309,7 @@ export default {
         );
       }
 
-      const rootNode = createRoot();
+      const rootNode = renderRoot();
 
       if (props.appendToBody) {
         return (
