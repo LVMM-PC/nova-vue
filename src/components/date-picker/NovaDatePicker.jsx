@@ -415,10 +415,16 @@ export default {
       }
       this.openEndImplement();
     },
-    handleInputKeydown(e) {
+    handleStartKeydown(e) {
+      this.inputKeydown(e, this.value?.[0]);
+    },
+    handleEndKeydown(e) {
+      this.inputKeydown(e, this.value?.[1]);
+    },
+    inputKeydown(e, value) {
       switch (e.key) {
         case 'Enter':
-          if (this.value) {
+          if (value) {
             this.close();
           }
           break;
@@ -428,12 +434,26 @@ export default {
           break;
       }
     },
-    handleInputInput() {
-      this.parseInput();
+    handleStartInput() {
+      const $startInput = this.$refs['startInput'];
+      const startInputValue = $startInput.value;
+      this.parseInput(startInputValue);
     },
-    parseInput() {
+    handleEndInput() {
+      const $endInput = this.$refs['endInput'];
+      const endInputValue = $endInput.value;
+      this.parseInput(endInputValue);
+    },
+    handleInputKeydown(e) {
+      this.inputKeydown(e, this.value);
+    },
+    handleInputInput() {
       const $input = this.$refs['input'];
       const inputValue = $input.value;
+      this.parseInput(inputValue);
+    },
+    parseInput(inputValue) {
+      const rangeName = this.rangeName;
 
       let dateMoment;
 
@@ -447,16 +467,15 @@ export default {
       }
 
       if (dateMoment) {
-        const isDisabled = this.disabledDate.call(
-          undefined,
-          dateMoment.toDate()
-        );
-        if (isDisabled) {
-          return;
+        if (rangeName === null) {
+          this.changeDate(dateMoment, () => {
+            this.updateShowDate(dateMoment);
+          });
+        } else {
+          this.changeRange(dateMoment, () => {
+            this.updateShowDate(dateMoment);
+          });
         }
-
-        this.$emit('update', dateMoment.toDate());
-        this.updateShowDate(dateMoment);
       }
     },
     handleInputBlur(e) {
@@ -550,15 +569,26 @@ export default {
         $month.refreshDateList();
       });
     },
-    handleMomentSelect(dateMoment) {
+    changeDate: function(dateMoment, finishCallback = () => {}) {
+      const isDisabled = this.disabledDate.call(undefined, dateMoment.toDate());
+      if (isDisabled) {
+        return;
+      }
+
       this.$emit('update', dateMoment.toDate());
       this.$emit('change', dateMoment.toDate());
+
+      finishCallback.call(this);
+    },
+    handleMomentSelect(dateMoment) {
+      this.changeDate(dateMoment);
       setTimeout(() => {
         this.close();
       }, 50);
     },
-    handleRangeSelect(dateMoment) {
+    changeRange: function(dateMoment, finishCallback = () => {}) {
       const rangeIndex = this.rangeIndex;
+      const rangeName = this.rangeName;
 
       const oldStartDate = this.value[0];
       const oldEndDate = this.value[1];
@@ -567,18 +597,39 @@ export default {
       dateRange[rangeIndex] = dateMoment.toDate();
 
       const newStartDate = dateRange[0];
+      let newEndDate = dateRange[1];
 
-      if (rangeIndex === 0 && oldEndDate) {
+      if (rangeName === 'start' && oldEndDate) {
         if (dayjs(oldEndDate).isBefore(dayjs(newStartDate))) {
-          dateRange[1] = new Date(newStartDate);
+          newEndDate = new Date(newStartDate);
+        }
+      }
+      if (rangeName === 'end' && oldStartDate) {
+        if (dayjs(newEndDate).isBefore(dayjs(oldStartDate))) {
+          newEndDate = new Date(newStartDate);
         }
       }
 
-      this.$emit('update', dateRange);
+      const isDisabled = this.disabledDate.call(
+        undefined,
+        rangeName === 'start' ? newStartDate : newEndDate,
+        rangeName
+      );
+      if (isDisabled) {
+        return;
+      }
+
+      this.$emit('update', [newStartDate, newEndDate]);
       const rangeStart = newStartDate ? new Date(newStartDate) : null;
-      const rangeEnd = dateRange[1] ? new Date(dateRange[1]) : null;
+      const rangeEnd = newEndDate ? new Date(newEndDate) : null;
 
       this.$emit('change', [rangeStart, rangeEnd], this.rangeName);
+
+      finishCallback.call(this);
+    },
+    handleRangeSelect(dateMoment) {
+      const rangeIndex = this.rangeIndex;
+      this.changeRange(dateMoment);
 
       setTimeout(() => {
         if (rangeIndex === 0) {
@@ -708,11 +759,15 @@ export default {
       handleEndBlur,
       handleEndFocus,
       handleEndClick,
+      handleEndKeydown,
+      handleEndInput,
       handleInputKeydown,
       handleInputInput,
       handleInputBlur,
       handleInputClick,
       handleInputFocus,
+      handleStartKeydown,
+      handleStartInput,
       handleStartBlur,
       handleStartFocus,
       handleStartClick,
@@ -803,6 +858,8 @@ export default {
         },
         class: `${prefixedClass}-input`,
         on: {
+          keydown: handleStartKeydown,
+          input: handleStartInput,
           blur: handleStartBlur,
           click: handleStartClick,
           focus: handleStartFocus
@@ -838,6 +895,8 @@ export default {
         },
         class: `${prefixedClass}-input`,
         on: {
+          keydown: handleEndKeydown,
+          input: handleEndInput,
           blur: handleEndBlur,
           click: handleEndClick,
           focus: handleEndFocus
