@@ -6,6 +6,7 @@
           ref="my-date-picker"
           v-model="emptyDate"
           :disabled-date="disabledDateBefore"
+          :format="dateFormat"
           dropdown-class="test"
           placeholder="请选择日期"
           data-id="42"
@@ -25,6 +26,7 @@
           :disabled-date="disabledDateAfter"
           :disabled-month-next="disabledMonthNext"
           :disabled-month-prev="disabledMonthPrev"
+          :format="dateFormat"
           :locale="customEnglish"
           :month-size="2"
           @change="handleChange"
@@ -36,6 +38,7 @@
         <NovaDatePicker
           v-model="emptyDate"
           :disabled-date="disabledDateAfter"
+          :format="dateFormat"
           :locale="customChinese"
           :month-size="2"
           @change="handleChange"
@@ -171,9 +174,11 @@ export default {
       },
       hideHoliday: null,
       emptyDate: null,
+
       someDate,
       emptyDateRange: [null, null],
-      someDateRange: [someDate, anotherDate]
+      someDateRange: [someDate, anotherDate],
+      dateFormat: ['YYYY-MM-DD', 'MM-DD-YYYY']
     };
   },
   methods: {

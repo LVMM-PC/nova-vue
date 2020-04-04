@@ -1,4 +1,5 @@
 import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import Utils from '@/utils/utils';
 import Storage from '@/utils/storage';
 import Calendar from '@/utils/calendar';
@@ -6,6 +7,8 @@ import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import Month from './Month.jsx';
 import NovaIconDateRange from '@/icons/NovaIconDateRange.jsx';
+
+dayjs.extend(customParseFormat);
 
 export default {
   name: 'NovaDatePicker',
@@ -36,7 +39,7 @@ export default {
       default: undefined
     },
     format: {
-      type: String,
+      type: [String, Array],
       default: Calendar.defaultFormat
     },
     disabled: {
@@ -241,6 +244,22 @@ export default {
         return placeholder[1];
       }
       return placeholder;
+    },
+    showFormat() {
+      const format = this.format;
+      if (Array.isArray(format)) {
+        return format[0];
+      }
+
+      return format;
+    },
+    parseFormatList() {
+      const format = this.format;
+      if (Array.isArray(format)) {
+        return format;
+      }
+
+      return [format];
     }
   },
   created() {
@@ -396,6 +415,50 @@ export default {
       }
       this.openEndImplement();
     },
+    handleInputKeydown(e) {
+      switch (e.key) {
+        case 'Enter':
+          if (this.value) {
+            this.close();
+          }
+          break;
+        case 'Esc': // IE/Edge
+        case 'Escape':
+          this.close();
+          break;
+      }
+    },
+    handleInputInput() {
+      this.parseInput();
+    },
+    parseInput() {
+      const $input = this.$refs['input'];
+      const inputValue = $input.value;
+
+      let dateMoment;
+
+      const parseFormatList = this.parseFormatList;
+      for (let i = 0; i < parseFormatList.length; i++) {
+        const parsedDate = dayjs(inputValue, parseFormatList[i]);
+        if (parsedDate.isValid()) {
+          dateMoment = parsedDate;
+          break;
+        }
+      }
+
+      if (dateMoment) {
+        const isDisabled = this.disabledDate.call(
+          undefined,
+          dateMoment.toDate()
+        );
+        if (isDisabled) {
+          return;
+        }
+
+        this.$emit('update', dateMoment.toDate());
+        this.updateShowDate(dateMoment);
+      }
+    },
     handleInputBlur(e) {
       clearTimeout(this.blurTimer);
 
@@ -468,7 +531,7 @@ export default {
       if (!date) {
         return '';
       }
-      return dayjs(date).format(this.format);
+      return dayjs(date).format(this.showFormat);
     },
     dateToMoment(date) {
       if (!dayjs(date).isValid()) {
@@ -645,6 +708,8 @@ export default {
       handleEndBlur,
       handleEndFocus,
       handleEndClick,
+      handleInputKeydown,
+      handleInputInput,
       handleInputBlur,
       handleInputClick,
       handleInputFocus,
@@ -691,7 +756,6 @@ export default {
           disabled,
           placeholder: datePlaceholder,
           autocomplete: 'off',
-          readonly: true,
           type: 'text'
         },
         domProps: {
@@ -699,6 +763,8 @@ export default {
         },
         class: `${prefixedClass}-input`,
         on: {
+          keydown: handleInputKeydown,
+          input: handleInputInput,
           blur: handleInputBlur,
           click: handleInputClick,
           focus: handleInputFocus
@@ -730,7 +796,6 @@ export default {
           disabled: startDisabled,
           placeholder: startPlaceholder,
           autocomplete: 'off',
-          readonly: true,
           type: 'text'
         },
         domProps: {
@@ -766,7 +831,6 @@ export default {
           disabled: endDisabled,
           placeholder: endPlaceholder,
           autocomplete: 'off',
-          readonly: true,
           type: 'text'
         },
         domProps: {
