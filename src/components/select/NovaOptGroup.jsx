@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 export default {
   name: 'NovaOptGroup',
@@ -7,7 +7,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-select`
+      default: `${Inventory.prefix}-select`
     },
     label: {
       type: String,

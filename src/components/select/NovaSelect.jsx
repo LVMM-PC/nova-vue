@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Utils from '@/utils/utils';
 import Props from '@/utils/props';
 import locale from '@/mixin/locale';
@@ -25,7 +25,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-select`
+      default: `${Inventory.prefix}-select`
     },
     disabled: {
       type: Boolean,
@@ -639,7 +639,7 @@ export default {
       textNode = (
         <div class={`${prefixedClass}-labels`}>
           <transition-group
-            name={`${Storage.prefix}-check-zoom`}
+            name={`${Inventory.prefix}-check-zoom`}
             onAfterLeave={handleTransitionFinished}
             onEnter={handleTransitionFinished}
           >

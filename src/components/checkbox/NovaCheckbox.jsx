@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Utils from '@/utils/utils';
 
 export default {
@@ -15,7 +15,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-checkbox`
+      default: `${Inventory.prefix}-checkbox`
     },
     checked: {
       type: Boolean,

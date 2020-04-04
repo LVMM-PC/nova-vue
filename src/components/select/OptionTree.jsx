@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Props from '@/utils/props';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';
 
@@ -8,7 +8,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-select`
+      default: `${Inventory.prefix}-select`
     },
     novaLocale: {
       type: Object,

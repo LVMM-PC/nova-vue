@@ -6,13 +6,14 @@ import {
   watch,
   watchEffect
 } from '@vue/composition-api';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Utils from '@/utils/utils';
 import NovaButton from '@/components/button/NovaButton.jsx';
 import NovaIconClose from '@/icons/NovaIconClose.jsx';
 import { useClickPosition } from '@/uses/mouse';
 import Props from '@/utils/props';
-import { useLocale, localeProps } from '@/uses/locale';
+import { useLocale } from '@/uses/locale';
+import modalProps from './modal-props';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -71,69 +72,21 @@ export default {
     event: 'update'
   },
   props: {
-    ...localeProps,
-    prefixedClass: {
-      type: String,
-      default: `${Storage.prefix}-modal`
-    },
+    ...modalProps,
     visible: {
       type: Boolean,
       default: false
     },
-    appendToBody: {
-      type: Boolean,
-      default: true
-    },
-    title: {
-      type: String,
+    icon: {
+      type: [Object, Function],
       default: null
-    },
-    width: {
-      type: [Number, String],
-      default: 400
-    },
-    wrapClass: {
-      type: String,
-      default: null
-    },
-    closable: {
-      type: Boolean,
-      default: true
-    },
-    mask: {
-      type: Boolean,
-      default: true
     },
     maskClosable: {
       type: Boolean,
       default: true
     },
-    confirmLoading: {
-      type: Boolean,
-      default: false
-    },
-    okText: {
-      type: String,
-      default: null
-    },
-    okType: {
-      type: String,
-      default: 'secondary'
-    },
-    okButtonProps: {
-      type: Object,
-      default: null
-    },
-    cancelText: {
-      type: String,
-      default: null
-    },
-    cancelType: {
-      type: String,
-      default: null
-    },
-    cancelButtonProps: {
-      type: Object,
+    className: {
+      type: [String, Array, Object],
       default: null
     }
   },
@@ -203,6 +156,11 @@ export default {
         }
       }
 
+      function renderIcon() {
+        const icon = Props.vNodeStandardize(props.icon);
+        return <div class={`${props.prefixedClass}-icon`}>{icon}</div>;
+      }
+
       function renderHeader() {
         const titleNode = renderTitle();
 
@@ -215,27 +173,44 @@ export default {
         return <div class={`${props.prefixedClass}-body`}>{children}</div>;
       }
 
-      function renderDefaultFooter() {
+      function renderCancel() {
         const cancelText = props.cancelText ?? novaLocale.modal.cancel;
+
+        if (props.visibleCancel) {
+          return (
+            <NovaButton
+              onClick={handleCancel}
+              type={props.cancelType}
+              {...props.cancelButtonProps}
+            >
+              {cancelText}
+            </NovaButton>
+          );
+        }
+      }
+
+      function renderOk() {
         const okText = props.okText ?? novaLocale.modal.ok;
 
-        return [
-          <NovaButton
-            onClick={handleCancel}
-            type={props.cancelType}
-            {...props.cancelButtonProps}
-          >
-            {cancelText}
-          </NovaButton>,
-          <NovaButton
-            onClick={handleOk}
-            type={props.okType}
-            loading={props.confirmLoading}
-            {...props.okButtonProps}
-          >
-            {okText}
-          </NovaButton>
-        ];
+        if (props.visibleOk) {
+          return (
+            <NovaButton
+              onClick={handleOk}
+              type={props.okType}
+              loading={props.confirmLoading}
+              {...props.okButtonProps}
+            >
+              {okText}
+            </NovaButton>
+          );
+        }
+      }
+
+      function renderDefaultFooter() {
+        const okNode = renderOk();
+        const cancelNode = renderCancel();
+
+        return [cancelNode, okNode];
       }
 
       function renderFooter() {
@@ -251,20 +226,23 @@ export default {
 
       function renderModal() {
         const modalProps = {
+          class: [props.prefixedClass, props.className],
           ref: 'modal',
           on: listeners,
           attrs
         };
 
         const closeNode = renderClose();
+        const iconNode = renderIcon();
         const headerNode = renderHeader();
         const bodyNode = renderBody();
         const footerNode = renderFooter();
 
         return (
-          <div class={props.prefixedClass} style={modalStyle} {...modalProps}>
+          <div style={modalStyle} {...modalProps}>
             <div class={`${props.prefixedClass}-content`}>
               {closeNode}
+              {iconNode}
               {headerNode}
               {bodyNode}
               {footerNode}
@@ -276,7 +254,7 @@ export default {
       function renderMask() {
         if (props.mask) {
           return (
-            <transition name={`${Storage.prefix}-fade`}>
+            <transition name={`${Inventory.prefix}-fade`}>
               <div
                 class={`${props.prefixedClass}-mask`}
                 vShow={animationReady.value && props.visible}
@@ -290,7 +268,7 @@ export default {
         const modalNode = renderModal();
 
         return (
-          <transition name={`${Storage.prefix}-modal-zoom`}>
+          <transition name={`${Inventory.prefix}-modal-zoom`}>
             <div
               class={wrapClassList.value}
               style={wrapStyle}

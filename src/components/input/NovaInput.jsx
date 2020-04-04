@@ -1,5 +1,5 @@
 import { createElement } from '@vue/composition-api';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -9,7 +9,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-input`
+      default: `${Inventory.prefix}-input`
     }
   },
   setup: (props, context) => {

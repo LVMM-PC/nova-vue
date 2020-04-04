@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 import Utils from '@/utils/utils';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
@@ -28,7 +28,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-date-picker`
+      default: `${Inventory.prefix}-date-picker`
     },
     value: {
       type: [Date, Array],

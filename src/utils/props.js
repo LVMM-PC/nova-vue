@@ -1,3 +1,5 @@
+import Utils from '@/utils/utils';
+
 export default class Props {
   static styleLengthStandardize(length) {
     if (typeof length === 'number') {
@@ -13,6 +15,14 @@ export default class Props {
     }
 
     return !!prop;
+  }
+
+  static vNodeStandardize(node) {
+    if (Utils.isFunction(node)) {
+      return node.call(undefined);
+    }
+
+    return node;
   }
 
   static getVNodeOptions(vNode) {

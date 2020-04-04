@@ -1,5 +1,5 @@
 import { inject } from '@vue/composition-api';
-import Storage from '@/utils/storage';
+import Inventory from '../utils/inventory';
 import Utils from '@/utils/utils';
 import zhCN from '@/locales/zh-CN';
 import holiday from '@/locales/holiday/zh-CN';
@@ -14,7 +14,7 @@ export const localeProps = {
 };
 
 export function useLocale(props) {
-  const provideLocale = inject(Storage.localeSymbol, null);
+  const provideLocale = inject(Inventory.localeSymbol, null);
 
   function getNovaLocale() {
     const novaLocale = Utils.mergeOptions({}, zhCN);

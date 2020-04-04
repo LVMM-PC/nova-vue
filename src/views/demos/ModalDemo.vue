@@ -23,7 +23,7 @@
         </div>
       </NovaModal>
     </div>
-    <div class="blank"></div>
+
     <div class="box">
       <dl>
         <dt>Closable:</dt>
@@ -49,7 +49,7 @@
         </dd>
       </dl>
     </div>
-    <div class="blank"></div>
+
     <div class="box">
       <NovaButton @click="handleFooterOpen">Footer</NovaButton>
       <NovaModal v-model="footerVisible" @cancel="handleFooterCancel">
@@ -59,7 +59,6 @@
     </div>
     <NovaLocale :locale="en">
       <NovaLocale :locale="zhTW">
-        <div class="blank"></div>
         <div class="box">
           <NovaButton @click="handleBigHeightOpen">Open big height</NovaButton>
           <NovaModal
@@ -78,7 +77,7 @@
           </NovaModal>
         </div>
       </NovaLocale>
-      <div class="blank"></div>
+
       <div class="box">
         <NovaButton @click="handleBigWidthOpen">Open big width</NovaButton>
         <NovaModal
@@ -96,13 +95,22 @@
         </NovaModal>
       </div>
     </NovaLocale>
+
+    <div class="box">
+      <NovaButton @click="handleConfirm">Confirm</NovaButton>
+      <NovaButton @click="handleInfo">Info</NovaButton>
+      <NovaButton @click="handleSuccess">Success</NovaButton>
+      <NovaButton @click="handleError">Error</NovaButton>
+      <NovaButton @click="handleWarning">Warning</NovaButton>
+    </div>
   </section>
 </template>
 
-<script>
+<script lang="jsx">
 import NovaModal from '@/components/modal/NovaModal';
 import NovaButton from '@/components/button/NovaButton';
 import NovaLocale from '@/components/locale/NovaLocale';
+import { confirm, info, warning, error, success } from '@/components/modal/confirm';
 import en from '@/locales/en';
 import zhTW from '@/locales/zh-TW';
 import zhCN from '@/locales/zh-CN';
@@ -183,6 +191,48 @@ export default {
     },
     handleBigWidthCancel() {
       this.bigWidthVisible = false;
+    },
+    handleConfirm() {
+      const props = {
+        title: '提醒',
+        content: () => <div><b>复杂</b>内容</div>,
+        onOk: () => {
+          return new Promise((resolve) => {
+            confirmInstance.update({
+              confirmLoading: true
+            });
+
+            setTimeout(() => {
+              confirmInstance.update({
+                confirmLoading: false
+              });
+              resolve();
+            }, 2000);
+          });
+        }
+      };
+
+      const confirmInstance = confirm(props);
+    },
+    handleInfo() {
+      info({
+        content: 'Some info content.'
+      });
+    },
+    handleSuccess() {
+      success({
+        content: 'Some success content.'
+      });
+    },
+    handleError() {
+      error({
+        content: 'Some error content.'
+      });
+    },
+    handleWarning() {
+      warning({
+        content: 'Some warning content.'
+      });
     }
   }
 };

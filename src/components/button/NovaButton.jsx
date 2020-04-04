@@ -1,5 +1,5 @@
 import { computed, createElement } from '@vue/composition-api';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import NovaIconLoading from '@/icons/NovaIconLoading.jsx';
 
 // eslint-disable-next-line no-unused-vars
@@ -10,7 +10,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-button`
+      default: `${Inventory.prefix}-button`
     },
     type: {
       type: String,
@@ -56,8 +56,8 @@ export default {
     const buttonProps = {
       attrs,
       on: {
-        click: handleClick,
-        ...listeners
+        ...listeners,
+        click: handleClick
       }
     };
 

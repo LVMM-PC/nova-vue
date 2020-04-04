@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 export default {
   name: 'NovaCheckboxGroup',
@@ -13,7 +13,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-checkbox`
+      default: `${Inventory.prefix}-checkbox`
     },
     value: {
       type: Array,

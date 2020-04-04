@@ -1,7 +1,7 @@
 import { createElement } from '@vue/composition-api';
 import Line from '@/components/progress/Line.jsx';
 import Circle from '@/components/progress/Circle.jsx';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -11,7 +11,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-progress`
+      default: `${Inventory.prefix}-progress`
     },
     type: {
       type: String,

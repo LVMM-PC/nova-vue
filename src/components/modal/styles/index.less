@@ -1,4 +1,5 @@
 @import '../../../styles/var';
+@import './confirm';
 
 @modal: ~'@{prefix}-modal';
 @button: ~'@{prefix}-button';
@@ -23,6 +24,7 @@
 
 .@{modal}-mask {
   background-color: @mask-background;
+
   &.@{modal}-mask-hidden {
     display: none;
   }

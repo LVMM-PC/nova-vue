@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Props from '@/utils/props';
 
 export default {
@@ -8,7 +8,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-select`
+      default: `${Inventory.prefix}-select`
     },
     disabled: {
       type: Boolean,

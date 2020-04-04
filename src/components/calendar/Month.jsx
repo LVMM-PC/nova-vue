@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import NovaIconTop from '@/icons/NovaIconTop.jsx';
 import NovaIconBottom from '@/icons/NovaIconBottom.jsx';
 
@@ -8,7 +8,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-calendar`
+      default: `${Inventory.prefix}-calendar`
     },
     offset: {
       type: Number,

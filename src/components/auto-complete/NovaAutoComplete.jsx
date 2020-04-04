@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';
@@ -20,7 +20,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-auto-complete`
+      default: `${Inventory.prefix}-auto-complete`
     },
     value: {
       type: String,

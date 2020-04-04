@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Calendar from '@/utils/calendar';
 import NovaIconLeft from '@/icons/NovaIconLeft.jsx';
 import NovaIconRight from '@/icons/NovaIconRight.jsx';
@@ -10,7 +10,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-date-picker`
+      default: `${Inventory.prefix}-date-picker`
     },
     offset: {
       type: Number,

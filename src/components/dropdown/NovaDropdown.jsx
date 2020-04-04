@@ -1,12 +1,12 @@
 import Utils from '@/utils/utils';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 export default {
   name: 'NovaDropdown',
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-dropdown`
+      default: `${Inventory.prefix}-dropdown`
     },
     appendToBody: {
       type: Boolean
@@ -84,7 +84,7 @@ export default {
     };
 
     const dropdownContent = (
-      <transition name={`${Storage.prefix}-slide-up`}>
+      <transition name={`${Inventory.prefix}-slide-up`}>
         <div v-show={opened} {...dropdownProps}>
           {children}
         </div>

@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 
 function generate(h, node, data = {}) {
   return h(
@@ -22,7 +22,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-icon`
+      default: `${Inventory.prefix}-icon`
     },
     src: {
       type: Object,

@@ -138,4 +138,8 @@ export default class Utils {
   static getRandomInt(low, high) {
     return Math.floor(low + Math.random() * (high - low));
   }
+
+  static isFunction(obj) {
+    return Object.prototype.toString.call(obj) === '[object Function]';
+  }
 }

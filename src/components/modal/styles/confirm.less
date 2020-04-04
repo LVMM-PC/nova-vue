@@ -1,0 +1,46 @@
+@import '../../../styles/var';
+
+@modal: ~'@{prefix}-modal';
+
+.@{modal}-confirm {
+  .@{modal}-content {
+    padding-top: 20px;
+  }
+
+  .@{modal}-icon {
+    position: absolute;
+    font-size: 36px;
+    padding: 2px;
+    margin-left: 20px;
+  }
+
+  .@{modal}-header,
+  .@{modal}-body {
+    margin-left: 60px;
+  }
+}
+
+.@{modal}-confirm-warning,
+.@{modal}-confirm-confirm {
+  .@{modal}-icon {
+    color: @warning-color;
+  }
+}
+
+.@{modal}-confirm-success {
+  .@{modal}-icon {
+    color: @success-color;
+  }
+}
+
+.@{modal}-confirm-error {
+  .@{modal}-icon {
+    color: @error-color;
+  }
+}
+
+.@{modal}-confirm-info {
+  .@{modal}-icon {
+    color: @info-color;
+  }
+}

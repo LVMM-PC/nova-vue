@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import Month from './Month.jsx';
@@ -21,7 +21,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-calendar`
+      default: `${Inventory.prefix}-calendar`
     },
     value: {
       type: Date,

@@ -1,4 +1,4 @@
-import Storage from '@/utils/storage';
+import Inventory from '../../utils/inventory';
 import Icon from './Icon.jsx';
 
 export default {
@@ -7,7 +7,7 @@ export default {
   props: {
     prefixedClass: {
       type: String,
-      default: `${Storage.prefix}-alert`
+      default: `${Inventory.prefix}-alert`
     },
     type: {
       type: String,
@@ -33,7 +33,7 @@ export default {
       type: String,
       default: 'bottom',
       validator(value) {
-        return Storage.placement.indexOf(value) !== -1;
+        return Inventory.placement.indexOf(value) !== -1;
       }
     }
   },
