@@ -9,7 +9,6 @@ import {
   paramCaseToCamelCase,
   sleep
 } from '../utils';
-import Inventory from '../../src/utils/inventory';
 import * as iconIndex from '../../icons/index.js';
 import del from 'del';
 
@@ -18,6 +17,7 @@ const fsPromises = fs.promises;
 const fileOption = {
   encoding: 'utf8'
 };
+const prefix = 'nova';
 
 async function prettierFormat(text) {
   const defaultOptionBuffer = await fsPromises.readFile(
@@ -53,7 +53,7 @@ async function main() {
 
 async function generateIconComponentIndex(iconPath, iconNameList) {
   let indexLineList = iconNameList.map(iconName => {
-    const iconClassName = `${Inventory.prefix}-${camelCaseToParamCase(iconName)}`;
+    const iconClassName = `${prefix}-${camelCaseToParamCase(iconName)}`;
     const componentName = `${camelCaseToPascalCase(
       paramCaseToCamelCase(iconClassName)
     )}`;
@@ -74,7 +74,8 @@ async function generateIconComponentIndex(iconPath, iconNameList) {
 }
 
 async function generateIconComponents(iconPath, iconName) {
-  const iconClassName = `${Inventory.prefix}-${camelCaseToParamCase(iconName)}`;
+
+  const iconClassName = `${prefix}-${camelCaseToParamCase(iconName)}`;
   const componentName = `${camelCaseToPascalCase(
     paramCaseToCamelCase(iconClassName)
   )}`;
