@@ -1,11 +1,11 @@
 import Vue from 'vue';
 import { createElement } from '@vue/composition-api';
 import Inventory from '@/utils/inventory';
-import ModalConfirm from '@/components/modal/ModalConfirm';
-import NovaIconInfo from '@/icons/NovaIconInfo';
-import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle';
-import NovaIconCancel from '@/icons/NovaIconCancel';
-import NovaIconError from '@/icons/NovaIconError';
+import ModalConfirm from '@/components/modal/ModalConfirm.jsx';
+import NovaIconInfo from '@/icons/NovaIconInfo.jsx';
+import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle.jsx';
+import NovaIconCancel from '@/icons/NovaIconCancel.jsx';
+import NovaIconError from '@/icons/NovaIconError.jsx';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;

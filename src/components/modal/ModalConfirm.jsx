@@ -1,8 +1,8 @@
 import { createElement, reactive } from '@vue/composition-api';
 import Props from '@/utils/props';
 import Inventory from '@/utils/inventory';
-import NovaModal from '@/components/modal/NovaModal';
-import NovaIconHelp from '@/icons/NovaIconHelp';
+import NovaModal from '@/components/modal/NovaModal.jsx';
+import NovaIconHelp from '@/icons/NovaIconHelp.jsx';
 import modalProps from './modal-props';
 
 // eslint-disable-next-line no-unused-vars
