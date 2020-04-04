@@ -1,5 +1,5 @@
+import Inventory from '@/utils/inventory';
 import { localeProps } from '@/uses/locale';
-import Inventory from '../../utils/inventory';
 
 export default {
   ...localeProps,

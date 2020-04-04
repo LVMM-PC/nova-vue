@@ -1,4 +1,4 @@
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle.jsx';
 import NovaIconError from '@/icons/NovaIconError.jsx';
 import NovaIconInfo from '@/icons/NovaIconInfo.jsx';

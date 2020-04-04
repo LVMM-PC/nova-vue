@@ -1,4 +1,4 @@
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import Utils from '@/utils/utils';
 import Props from '@/utils/props';
 import locale from '@/mixin/locale';

@@ -9,20 +9,20 @@ export default class Props {
     return length;
   }
 
-  static booleanStandardize(prop) {
-    if (typeof prop === 'string') {
+  static booleanStandardize(value) {
+    if (typeof value === 'string') {
       return true;
     }
 
-    return !!prop;
+    return !!value;
   }
 
-  static vNodeStandardize(node) {
-    if (Utils.isFunction(node)) {
-      return node.call(undefined);
+  static vNodeStandardize(vNode) {
+    if (Utils.isFunction(vNode)) {
+      return vNode.call(undefined);
     }
 
-    return node;
+    return vNode;
   }
 
   static getVNodeOptions(vNode) {

@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import Calendar from '@/utils/calendar';
 import locale from '@/mixin/locale';
 import Month from './Month.jsx';

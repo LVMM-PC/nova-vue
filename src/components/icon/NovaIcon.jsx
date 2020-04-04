@@ -1,4 +1,4 @@
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 
 function generate(h, node, data = {}) {
   return h(

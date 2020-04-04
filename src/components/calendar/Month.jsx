@@ -1,4 +1,4 @@
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import NovaIconTop from '@/icons/NovaIconTop.jsx';
 import NovaIconBottom from '@/icons/NovaIconBottom.jsx';
 

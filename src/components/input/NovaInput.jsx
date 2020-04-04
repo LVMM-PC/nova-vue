@@ -1,5 +1,5 @@
 import { createElement } from '@vue/composition-api';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;

@@ -1,9 +1,9 @@
-import NovaModal from '@/components/modal/NovaModal';
 import { createElement, reactive } from '@vue/composition-api';
-import modalProps from './modal-props';
 import Props from '@/utils/props';
-import NovaIconHelp from '@/icons/NovaIconHelp';
 import Inventory from '@/utils/inventory';
+import NovaModal from '@/components/modal/NovaModal';
+import NovaIconHelp from '@/icons/NovaIconHelp';
+import modalProps from './modal-props';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -44,28 +44,30 @@ export default {
     }
   },
   setup: (props, context) => {
+    const { attrs, listeners } = context;
+
     const state = reactive({
       visible: true
     });
-    const { attrs, listeners } = context;
 
     function close() {
       state.visible = false;
+
       setTimeout(() => {
         props.close.call(undefined);
       }, 200);
     }
 
-    function onOk() {
-      const returnValue = props.onOk.call(undefined);
+    function onOk(e) {
+      const returnValue = props.onOk.call(undefined, e);
 
       Promise.resolve(returnValue).then(() => {
         close();
       });
     }
 
-    function onCancel() {
-      const returnValue = props.onCancel.call(undefined);
+    function onCancel(e) {
+      const returnValue = props.onCancel.call(undefined, e);
 
       Promise.resolve(returnValue).then(() => {
         close();

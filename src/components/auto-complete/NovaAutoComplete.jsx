@@ -1,6 +1,6 @@
 import debounce from 'lodash/debounce';
 import Utils from '@/utils/utils';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import locale from '@/mixin/locale';
 import NovaDropdown from '@/components/dropdown/NovaDropdown.jsx';
 import NovaAlert from '@/components/alert/NovaAlert.jsx';

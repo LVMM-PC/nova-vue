@@ -1,4 +1,4 @@
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import zhCN from '@/locales/zh-CN';
 import holiday from '@/locales/holiday/zh-CN';
 import { provide, reactive } from '@vue/composition-api';

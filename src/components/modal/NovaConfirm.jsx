@@ -1,11 +1,11 @@
 import Vue from 'vue';
+import { createElement } from '@vue/composition-api';
+import Inventory from '@/utils/inventory';
 import ModalConfirm from '@/components/modal/ModalConfirm';
 import NovaIconInfo from '@/icons/NovaIconInfo';
 import NovaIconCheckCircle from '@/icons/NovaIconCheckCircle';
 import NovaIconCancel from '@/icons/NovaIconCancel';
 import NovaIconError from '@/icons/NovaIconError';
-import { createElement } from '@vue/composition-api';
-import Inventory from '@/utils/inventory';
 
 // eslint-disable-next-line no-unused-vars
 const h = createElement;
@@ -58,8 +58,8 @@ export function info(props) {
   confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-info`,
-    icon: () => <NovaIconInfo />,
-    visibleCancel: false
+    visibleCancel: false,
+    icon: () => <NovaIconInfo />
   });
 }
 
@@ -67,8 +67,8 @@ export function success(props) {
   confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-success`,
-    icon: () => <NovaIconCheckCircle />,
-    visibleCancel: false
+    visibleCancel: false,
+    icon: () => <NovaIconCheckCircle />
   });
 }
 
@@ -76,8 +76,8 @@ export function error(props) {
   confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-error`,
-    icon: () => <NovaIconCancel />,
-    visibleCancel: false
+    visibleCancel: false,
+    icon: () => <NovaIconCancel />
   });
 }
 
@@ -85,7 +85,19 @@ export function warning(props) {
   confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-warning`,
-    icon: () => <NovaIconError />,
-    visibleCancel: false
+    visibleCancel: false,
+    icon: () => <NovaIconError />
   });
+}
+
+export default class NovaConfirm {
+  constructor() {
+    throw new Error('Using static methods instead!');
+  }
+
+  static confirm = confirm;
+  static info = info;
+  static success = success;
+  static error = error;
+  static warning = warning;
 }

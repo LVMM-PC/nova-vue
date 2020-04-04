@@ -6,12 +6,12 @@ import {
   watch,
   watchEffect
 } from '@vue/composition-api';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import Utils from '@/utils/utils';
+import Props from '@/utils/props';
 import NovaButton from '@/components/button/NovaButton.jsx';
 import NovaIconClose from '@/icons/NovaIconClose.jsx';
 import { useClickPosition } from '@/uses/mouse';
-import Props from '@/utils/props';
 import { useLocale } from '@/uses/locale';
 import modalProps from './modal-props';
 

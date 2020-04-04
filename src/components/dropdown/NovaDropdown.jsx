@@ -1,5 +1,5 @@
 import Utils from '@/utils/utils';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 
 export default {
   name: 'NovaDropdown',

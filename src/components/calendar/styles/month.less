@@ -1,6 +1,7 @@
 @import '../../../styles/var';
 
 @calendar: ~'@{prefix}-calendar';
+@icon: ~'@{prefix}-icon';
 
 .@{calendar}-month {
   position: relative;
@@ -51,7 +52,7 @@
     outline: none;
   }
 
-  .nova-icon {
+  .@{icon} {
     content: '';
     display: block;
     position: absolute;
@@ -63,13 +64,13 @@
   }
 
   &:hover {
-    .nova-icon {
+    .@{icon} {
       color: @secondary-darker-color;
     }
   }
 
   &.is-disabled {
-    .nova-icon {
+    .@{icon} {
       color: @font-light-color;
     }
   }

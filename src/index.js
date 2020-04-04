@@ -29,6 +29,7 @@ export NovaSelect from './components/select/NovaSelect.jsx';
 export NovaProgress from './components/progress/NovaProgress.jsx';
 export NovaButton from './components/button/NovaButton.jsx';
 export NovaModal from './components/modal/NovaModal.jsx';
+export NovaConfirm from './components/modal/NovaConfirm.jsx';
 export NovaInput from './components/input/NovaInput.jsx';
 
 export * from './icons/index';

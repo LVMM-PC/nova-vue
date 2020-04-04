@@ -1,5 +1,5 @@
 import { computed, createElement } from '@vue/composition-api';
-import Inventory from '../../utils/inventory';
+import Inventory from '@/utils/inventory';
 import NovaIconLoading from '@/icons/NovaIconLoading.jsx';
 
 // eslint-disable-next-line no-unused-vars

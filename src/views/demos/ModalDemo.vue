@@ -110,7 +110,7 @@
 import NovaModal from '@/components/modal/NovaModal';
 import NovaButton from '@/components/button/NovaButton';
 import NovaLocale from '@/components/locale/NovaLocale';
-import { confirm, info, warning, error, success } from '@/components/modal/confirm';
+import NovaConfirm from '@/components/modal/NovaConfirm';
 import en from '@/locales/en';
 import zhTW from '@/locales/zh-TW';
 import zhCN from '@/locales/zh-CN';
@@ -212,25 +212,25 @@ export default {
         }
       };
 
-      const confirmInstance = confirm(props);
+      const confirmInstance = NovaConfirm.confirm(props);
     },
     handleInfo() {
-      info({
+      NovaConfirm.info({
         content: 'Some info content.'
       });
     },
     handleSuccess() {
-      success({
+      NovaConfirm.success({
         content: 'Some success content.'
       });
     },
     handleError() {
-      error({
+      NovaConfirm.error({
         content: 'Some error content.'
       });
     },
     handleWarning() {
-      warning({
+      NovaConfirm.warning({
         content: 'Some warning content.'
       });
     }
