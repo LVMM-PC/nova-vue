@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { en, zhCN, holidayZhCN } from 'nova-vue'
+import { en, zhCN, holidayZhCN } from 'nova-vue';
 
 export default {
   data() {

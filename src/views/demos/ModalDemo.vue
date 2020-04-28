@@ -111,9 +111,11 @@ import NovaModal from '@/components/modal/NovaModal';
 import NovaButton from '@/components/button/NovaButton';
 import NovaLocale from '@/components/locale/NovaLocale';
 import NovaConfirm from '@/components/modal/NovaConfirm';
+import NovaIconHelp from '@/icons/NovaIconHelp'
 import en from '@/locales/en';
 import zhTW from '@/locales/zh-TW';
 import zhCN from '@/locales/zh-CN';
+import { createElement } from '@vue/composition-api';
 
 const modalDefaultText = '模态框文本内容。';
 
@@ -195,6 +197,7 @@ export default {
     handleConfirm() {
       const props = {
         title: '提醒',
+        icon: () => createElement(NovaIconHelp),
         content: () => <div><b>复杂</b>内容</div>,
         onOk: () => {
           return new Promise((resolve) => {

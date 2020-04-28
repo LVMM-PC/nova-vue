@@ -1,8 +1,12 @@
 <template>
   <section>
-    <NovaCheckbox v-model="someValue" :disabled="disabled">Disabled</NovaCheckbox>
+    <NovaCheckbox v-model="someValue" :disabled="disabled"
+      >Disabled</NovaCheckbox
+    >
     <br />
-    <NovaCheckbox v-model="anotherValue" :disabled="disabled">Disabled</NovaCheckbox>
+    <NovaCheckbox v-model="anotherValue" :disabled="disabled"
+      >Disabled</NovaCheckbox
+    >
     <br />
     <NovaButton @click="toggleDisabled">Toggle Disabled</NovaButton>
   </section>

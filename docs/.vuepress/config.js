@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   title: 'Nova Vue',
@@ -37,11 +37,11 @@ module.exports = {
       {
         title: '反馈',
         collapsable: false,
-        children: ['/alert/']
+        children: ['/alert/', '/modal/']
       }
     ]
   },
   chainWebpack: config => {
-    config.resolve.alias.set('nova-vue', path.resolve(__dirname, '../..'),);
+    config.resolve.alias.set('nova-vue', path.resolve(__dirname, '../..'));
   }
 };

@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import 'nova-vue/dist/nova.css';
 import { NovaDatePicker, NovaAlert } from 'nova-vue';
 

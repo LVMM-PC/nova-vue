@@ -23,5 +23,3 @@ export default {
   components: { NovaInput }
 };
 </script>
-
-<style scoped></style>

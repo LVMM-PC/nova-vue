@@ -26,9 +26,9 @@ export function confirm(props) {
   let confirmInstance = render();
 
   function close() {
-    confirmInstance.$destroy();
+    confirmInstance?.$destroy();
     confirmInstance = null;
-    divElement.parentNode.removeChild(divElement);
+    divElement.parentNode?.removeChild(divElement);
   }
 
   function render() {
@@ -55,7 +55,7 @@ export function confirm(props) {
 }
 
 export function info(props) {
-  confirm({
+  return confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-info`,
     visibleCancel: false,
@@ -64,7 +64,7 @@ export function info(props) {
 }
 
 export function success(props) {
-  confirm({
+  return confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-success`,
     visibleCancel: false,
@@ -73,7 +73,7 @@ export function success(props) {
 }
 
 export function error(props) {
-  confirm({
+  return confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-error`,
     visibleCancel: false,
@@ -82,7 +82,7 @@ export function error(props) {
 }
 
 export function warning(props) {
-  confirm({
+  return confirm({
     ...props,
     className: `${Inventory.prefix}-modal-confirm-warning`,
     visibleCancel: false,
