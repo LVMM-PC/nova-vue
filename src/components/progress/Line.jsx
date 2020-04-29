@@ -17,6 +17,10 @@ export default {
       type: String,
       default: `${Inventory.prefix}-progress`
     },
+    strokeWidth: {
+      type: Number,
+      default: 10
+    },
     percent: {
       type: Number,
       default: 0
@@ -35,6 +39,9 @@ export default {
 
     const state = reactive({
       percent: Utils.numberLimit(props.percent, 0, 1),
+      strokeWidth: computed(() => {
+        return `${Utils.numberLimit(props.strokeWidth, 0)}px`;
+      }),
       percentFormatted: computed(() => {
         return `${Utils.twoDecimalPlaces(state.percent * 100)}%`;
       })
@@ -65,7 +72,10 @@ export default {
             <div class={`${props.prefixedClass}-inner`}>
               <div
                 class={`${props.prefixedClass}-bg`}
-                style={{ width: state.percentFormatted }}
+                style={{
+                  width: state.percentFormatted,
+                  height: state.strokeWidth
+                }}
               />
             </div>
           </div>

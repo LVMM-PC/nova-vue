@@ -37,7 +37,7 @@ module.exports = {
       {
         title: '反馈',
         collapsable: false,
-        children: ['/alert/', '/modal/']
+        children: ['/alert/', '/modal/', '/progress/']
       }
     ]
   },

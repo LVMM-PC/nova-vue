@@ -82,7 +82,7 @@ export default {
     },
     strokeWidth: {
       type: Number,
-      default: 5
+      default: 10
     },
     percent: {
       type: Number,

@@ -8,7 +8,7 @@
         @mouseleave="handleMouseleave"
         @click="handleClick"
       ></NovaProgress>
-      <NovaProgress :percent="0.25"></NovaProgress>
+      <NovaProgress :percent="0.25" :stroke-width="strokeWidth"></NovaProgress>
       <NovaProgress :percent="0.5" :status="status"></NovaProgress>
       <div class="inline-block">
         <div>{{ status }}</div>
