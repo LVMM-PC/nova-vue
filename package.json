@@ -81,6 +81,7 @@
     "glob": "^7.1.6",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
+    "gulp-footer": "^2.0.2",
     "gulp-header": "^2.0.9",
     "gulp-less": "^4.0.1",
     "gulp-rename": "^2.0.0",

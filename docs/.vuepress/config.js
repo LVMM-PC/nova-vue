@@ -21,7 +21,7 @@ module.exports = {
       {
         title: '通用',
         collapsable: false,
-        children: ['/button/']
+        children: ['/button/', '/icon/']
       },
       {
         title: '数据录入',

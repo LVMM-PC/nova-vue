@@ -8,19 +8,13 @@ Nova Vue 致力于提供给程序员**愉悦**的开发体验。
 
 ## 第一个例子
 
-这是一个最简单的 Nova Vue 组件的 CodeSandbox 演示。
+这是一个最简单的 Nova Vue 组件的演示，[在新窗口中打开](http://nova-vue-preview.em2046.com/)，[在 CodeSandbox 中查看](https://codesandbox.io/embed/nova-vue-preview-u40nr?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark)。
 
 此演示使用 Vue CLI 工具构建，相关代码见 [nova-vue-preview](https://github.com/em2046/nova-vue-preview)。
 
-<iframe
-  src="https://codesandbox.io/embed/nova-vue-preview-u40nr?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.vue&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-  title="Nova Vue preview"
-  allow="geolocation; microphone; camera; midi; vr; accelerometer; gyroscope; payment; ambient-light-sensor; encrypted-media; usb"
-  sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
-/>
+<demo-getting-started-first/>
 
-[在新窗口中打开](http://nova-vue-preview.em2046.com/)
+<<< @/docs/.vuepress/components/demo/getting-started/first.vue
 
 ## 使用组件
 

@@ -12,11 +12,11 @@
       <NovaIconLeft></NovaIconLeft>
     </div>
     <div class="box">
-      <NovaIconCheckCircle :style="{ color: '#66CC33' }"></NovaIconCheckCircle>
-      <NovaIconError :style="{ color: '#FFAA00' }"></NovaIconError>
-      <NovaIconInfo :style="{ color: '#0099FF' }"></NovaIconInfo>
-      <NovaIconHelp :style="{ color: '#88BBEE' }"></NovaIconHelp>
-      <NovaIconCancel :style="{ color: '#FF3300' }"></NovaIconCancel>
+      <NovaIconCheckCircle :style="{ color: '#66cc33' }"></NovaIconCheckCircle>
+      <NovaIconError :style="{ color: '#ffaa00' }"></NovaIconError>
+      <NovaIconInfo :style="{ color: '#0099ff' }"></NovaIconInfo>
+      <NovaIconHelp :style="{ color: '#88bbee' }"></NovaIconHelp>
+      <NovaIconCancel :style="{ color: '#ff3300' }"></NovaIconCancel>
     </div>
     <div class="box">
       <NovaIconDateRange></NovaIconDateRange>
