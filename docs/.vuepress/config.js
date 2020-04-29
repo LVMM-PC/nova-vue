@@ -19,6 +19,11 @@ module.exports = {
       '/getting-started/',
       '/i18n/',
       {
+        title: '通用',
+        collapsable: false,
+        children: ['/button/']
+      },
+      {
         title: '数据录入',
         collapsable: false,
         children: [

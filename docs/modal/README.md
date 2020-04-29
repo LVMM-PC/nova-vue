@@ -96,10 +96,10 @@
 | className         | 对话框的类名         | string\|object\|array | -           |
 | confirmLoading    | 确定按钮 loading     | boolean               | false       |
 | mask              | 是否展示遮罩         | Boolean               | true        |
-| title             | 标题                 | string                | -           |
 | okButtonProps     | 确认按钮 props       | object                | -           |
 | okText            | 确认按钮文字         | string                | `确定`      |
 | okType            | 确认按钮类型         | string                | `secondary` |
+| title             | 标题                 | string                | -           |
 | width             | 宽度                 | string\|number        | 400         |
 | wrapClass         | 对话框外层容器的类名 | string\|object\|array | -           |
 
@@ -142,9 +142,9 @@
 
 | 参数         | 说明                                             | 类型          | 默认值             |
 | ------------ | ------------------------------------------------ | ------------- | ------------------ |
+| content      | 内容                                             | string\|vNode | -                  |
 | icon         | 自定义图标                                       | vNode         | `<NovaIconHelp />` |
 | maskClosable | 点击蒙层是否允许关闭                             | boolean       | false              |
-| content      | 内容                                             | string\|vNode | -                  |
 | onCancel     | 取消回调，返回 promise 时 resolve 后自动关闭     | function      | -                  |
 | onOk         | 点击确定回调，返回 promise 时 resolve 后自动关闭 | function      | -                  |
 

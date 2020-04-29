@@ -73,10 +73,10 @@
 
 | 属性        | 说明                       | 类型    | 默认值 |
 | ----------- | -------------------------- | ------- | ------ |
-| type        | 类型，可选 `line` `circle` | string  | `line` |
 | percent     | 百分比，区间为 (0-1)       | number  | 0      |
 | showInfo    | 是否显示进度数值           | boolean | true   |
 | strokeWidth | 进度条线的宽度，单位 px    | number  | 10     |
+| type        | 类型，可选 `line` `circle` | string  | `line` |
 
 ### `type="line"`
 
