@@ -86,4 +86,77 @@
 
 ## API
 
-//TODO
+### Common props
+
+| 参数              | 说明                 | 类型                  | 默认值      |
+| ----------------- | -------------------- | --------------------- | ----------- |
+| cancelButtonProps | 取消按钮 props       | object                | -           |
+| cancelText        | 取消按钮文字         | string                | `取消`      |
+| cancelType        | 取消按钮类型         | string                | -           |
+| className         | 对话框的类名         | string\|object\|array | -           |
+| confirmLoading    | 确定按钮 loading     | boolean               | false       |
+| mask              | 是否展示遮罩         | Boolean               | true        |
+| title             | 标题                 | string                | -           |
+| okButtonProps     | 确认按钮 props       | object                | -           |
+| okText            | 确认按钮文字         | string                | `确定`      |
+| okType            | 确认按钮类型         | string                | `secondary` |
+| width             | 宽度                 | string\|number        | 400         |
+| wrapClass         | 对话框外层容器的类名 | string\|object\|array | -           |
+
+### Modal props
+
+| 参数              | 说明                     | 类型    | 默认值 |
+| ----------------- | ------------------------ | ------- | ------ |
+| closable          | 是否显示右上角的关闭按钮 | boolean | true   |
+| maskClosable      | 点击蒙层是否允许关闭     | boolean | true   |
+| visible / v-model | 对话框是否可见           | boolean | false  |
+
+### Modal Slots
+
+| 参数   | 说明                                            | 默认值       |
+| ------ | ----------------------------------------------- | ------------ |
+| -      | 内容                                            | -            |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 null | 确定取消按钮 |
+
+### Modal Events
+
+| 事件名称 | 说明                                      | 类型             |
+| -------- | ----------------------------------------- | ---------------- |
+| cancel   | 点击遮罩层或右上角叉或取消按钮的回调      | function\(e)     |
+| ok       | 点击确定回调                              | function\(e)     |
+| update   | 不使用 v-model 时，调用此函数更新 visible | function\(value) |
+
+### NovaConfirm.method()
+
+包括
+
+- `NovaConfirm.confirm`
+- `NovaConfirm.info`
+- `NovaConfirm.success`
+- `NovaConfirm.error`
+- `NovaConfirm.warning`
+
+以上均为一个函数，参数为 object，除公共参数外其它参数如下：
+
+### NovaConfirm props
+
+| 参数         | 说明                                             | 类型          | 默认值             |
+| ------------ | ------------------------------------------------ | ------------- | ------------------ |
+| icon         | 自定义图标                                       | vNode         | `<NovaIconHelp />` |
+| maskClosable | 点击蒙层是否允许关闭                             | boolean       | false              |
+| content      | 内容                                             | string\|vNode | -                  |
+| onCancel     | 取消回调，返回 promise 时 resolve 后自动关闭     | function      | -                  |
+| onOk         | 点击确定回调，返回 promise 时 resolve 后自动关闭 | function      | -                  |
+
+以上函数调用后，会返回一个引用，可以通过该引用更新和关闭弹窗。
+
+```javascript
+const confirmInstance = NovaConfirm.info();
+
+confirmInstance.update({
+  title: '修改的标题',
+  content: '修改的内容'
+});
+
+confirmInstance.destroy();
+```
