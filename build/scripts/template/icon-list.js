@@ -5,7 +5,11 @@ export default function iconList(componentNameList) {
         componentName === 'NovaIconLoading'
           ? `<${componentName} spin />`
           : `<${componentName} />`;
-      return `<li>${icon} <div class="icon-name">${componentName}</div></li>`;
+      const iconNameWordBreak = componentName
+        .split(/(?=[A-Z])/)
+        .join('<wbr />');
+
+      return `<li>${icon} <div class="icon-name">${iconNameWordBreak}</div></li>`;
     })
     .join('\n');
 
@@ -60,10 +64,12 @@ export default {
 }
 
 .icon-list .icon-name {
+  display: flex;
+  align-items: center;
   font-size: 12px;
-  word-break: break-all;
   text-align: center;
   line-height: 14px;
+  min-height: 28px;
 }
 </style>
 `;
