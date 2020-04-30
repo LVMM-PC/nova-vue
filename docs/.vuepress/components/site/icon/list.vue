@@ -277,9 +277,10 @@ export default {
 
 .icon-list .icon-name {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
   font-size: 12px;
-  text-align: center;
   line-height: 14px;
   min-height: 28px;
 }
