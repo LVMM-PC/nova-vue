@@ -20,22 +20,22 @@
       :loading="state.secondaryLoading"
       @click="enterSecondary"
     >
-      <NovaIconCheckCircle slot="icon" />
+      <NovaIconPowerSettingsNew slot="icon" />
       Loading
     </NovaButton>
     <NovaButton :loading="state.iconLoading" @click="enterIcon">
-      <NovaIconCheckCircle slot="icon" />
+      <NovaIconPowerSettingsNew slot="icon" />
     </NovaButton>
   </section>
 </template>
 
 <script>
 import { reactive } from '@vue/composition-api';
-import { NovaIconCheckCircle } from 'nova-vue';
+import { NovaIconPowerSettingsNew } from 'nova-vue';
 
 export default {
   name: 'loading',
-  components: { NovaIconCheckCircle },
+  components: { NovaIconPowerSettingsNew },
   setup() {
     const state = reactive({
       primaryLoading: false,

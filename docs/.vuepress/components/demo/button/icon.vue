@@ -1,30 +1,30 @@
 <template>
   <section>
     <NovaButton type="secondary">
-      <NovaIconCheckCircle slot="icon" />
+      <NovaIconSearch slot="icon" />
     </NovaButton>
     <NovaButton type="secondary">
       <span slot="icon" class="font-icon">A</span>
     </NovaButton>
     <NovaButton type="secondary">
-      <NovaIconCheckCircle slot="icon" />
-      Finish
+      <NovaIconSearch slot="icon" />
+      Search
     </NovaButton>
     <NovaButton>
-      <NovaIconCheckCircle slot="icon" />
+      <NovaIconSearch slot="icon" />
     </NovaButton>
     <NovaButton>
-      <NovaIconCheckCircle slot="icon" />
-      Finish
+      <NovaIconSearch slot="icon" />
+      Search
     </NovaButton>
   </section>
 </template>
 
 <script>
-import { NovaIconCheckCircle } from 'nova-vue';
+import { NovaIconSearch } from 'nova-vue';
 
 export default {
-  components: { NovaIconCheckCircle }
+  components: { NovaIconSearch }
 };
 </script>
 
