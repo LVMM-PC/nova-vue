@@ -1,20 +1,34 @@
 // This file is generated automatically.
 
+export { default as iconAccountBox } from './entities/icon-account-box';
+export { default as iconAccountCircle } from './entities/icon-account-circle';
 export { default as iconAddCircle } from './entities/icon-add-circle';
 export { default as iconAdd } from './entities/icon-add';
 export { default as iconBottom } from './entities/icon-bottom';
+export { default as iconCached } from './entities/icon-cached';
 export { default as iconCancel } from './entities/icon-cancel';
 export { default as iconCheckCircle } from './entities/icon-check-circle';
 export { default as iconCheck } from './entities/icon-check';
 export { default as iconClose } from './entities/icon-close';
+export { default as iconCode } from './entities/icon-code';
 export { default as iconDateRange } from './entities/icon-date-range';
 export { default as iconError } from './entities/icon-error';
+export { default as iconExitToApp } from './entities/icon-exit-to-app';
+export { default as iconFavorite } from './entities/icon-favorite';
+export { default as iconGetApp } from './entities/icon-get-app';
+export { default as iconGrade } from './entities/icon-grade';
 export { default as iconHelp } from './entities/icon-help';
+export { default as iconHome } from './entities/icon-home';
 export { default as iconInfo } from './entities/icon-info';
+export { default as iconLanguage } from './entities/icon-language';
+export { default as iconLaunch } from './entities/icon-launch';
 export { default as iconLeft } from './entities/icon-left';
 export { default as iconLoading } from './entities/icon-loading';
+export { default as iconLock } from './entities/icon-lock';
 export { default as iconRemoveCircle } from './entities/icon-remove-circle';
 export { default as iconRemove } from './entities/icon-remove';
 export { default as iconRight } from './entities/icon-right';
+export { default as iconSchedule } from './entities/icon-schedule';
+export { default as iconSearch } from './entities/icon-search';
 export { default as iconTop } from './entities/icon-top';
 export { default as iconWarning } from './entities/icon-warning';

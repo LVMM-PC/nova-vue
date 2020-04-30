@@ -5,6 +5,14 @@ DO NOT EDIT IT MANUALLY -->
   <section class="icon-list">
     <ul>
       <li>
+        <NovaIconAccountBox />
+        <div class="icon-name">NovaIconAccountBox</div>
+      </li>
+      <li>
+        <NovaIconAccountCircle />
+        <div class="icon-name">NovaIconAccountCircle</div>
+      </li>
+      <li>
         <NovaIconAdd />
         <div class="icon-name">NovaIconAdd</div>
       </li>
@@ -15,6 +23,10 @@ DO NOT EDIT IT MANUALLY -->
       <li>
         <NovaIconBottom />
         <div class="icon-name">NovaIconBottom</div>
+      </li>
+      <li>
+        <NovaIconCached />
+        <div class="icon-name">NovaIconCached</div>
       </li>
       <li>
         <NovaIconCancel />
@@ -33,6 +45,10 @@ DO NOT EDIT IT MANUALLY -->
         <div class="icon-name">NovaIconClose</div>
       </li>
       <li>
+        <NovaIconCode />
+        <div class="icon-name">NovaIconCode</div>
+      </li>
+      <li>
         <NovaIconDateRange />
         <div class="icon-name">NovaIconDateRange</div>
       </li>
@@ -41,12 +57,40 @@ DO NOT EDIT IT MANUALLY -->
         <div class="icon-name">NovaIconError</div>
       </li>
       <li>
+        <NovaIconExitToApp />
+        <div class="icon-name">NovaIconExitToApp</div>
+      </li>
+      <li>
+        <NovaIconFavorite />
+        <div class="icon-name">NovaIconFavorite</div>
+      </li>
+      <li>
+        <NovaIconGetApp />
+        <div class="icon-name">NovaIconGetApp</div>
+      </li>
+      <li>
+        <NovaIconGrade />
+        <div class="icon-name">NovaIconGrade</div>
+      </li>
+      <li>
         <NovaIconHelp />
         <div class="icon-name">NovaIconHelp</div>
       </li>
       <li>
+        <NovaIconHome />
+        <div class="icon-name">NovaIconHome</div>
+      </li>
+      <li>
         <NovaIconInfo />
         <div class="icon-name">NovaIconInfo</div>
+      </li>
+      <li>
+        <NovaIconLanguage />
+        <div class="icon-name">NovaIconLanguage</div>
+      </li>
+      <li>
+        <NovaIconLaunch />
+        <div class="icon-name">NovaIconLaunch</div>
       </li>
       <li>
         <NovaIconLeft />
@@ -55,6 +99,10 @@ DO NOT EDIT IT MANUALLY -->
       <li>
         <NovaIconLoading spin />
         <div class="icon-name">NovaIconLoading</div>
+      </li>
+      <li>
+        <NovaIconLock />
+        <div class="icon-name">NovaIconLock</div>
       </li>
       <li>
         <NovaIconRemove />
@@ -67,6 +115,14 @@ DO NOT EDIT IT MANUALLY -->
       <li>
         <NovaIconRight />
         <div class="icon-name">NovaIconRight</div>
+      </li>
+      <li>
+        <NovaIconSchedule />
+        <div class="icon-name">NovaIconSchedule</div>
+      </li>
+      <li>
+        <NovaIconSearch />
+        <div class="icon-name">NovaIconSearch</div>
       </li>
       <li>
         <NovaIconTop />
@@ -82,44 +138,72 @@ DO NOT EDIT IT MANUALLY -->
 
 <script>
 import {
+  NovaIconAccountBox,
+  NovaIconAccountCircle,
   NovaIconAdd,
   NovaIconAddCircle,
   NovaIconBottom,
+  NovaIconCached,
   NovaIconCancel,
   NovaIconCheck,
   NovaIconCheckCircle,
   NovaIconClose,
+  NovaIconCode,
   NovaIconDateRange,
   NovaIconError,
+  NovaIconExitToApp,
+  NovaIconFavorite,
+  NovaIconGetApp,
+  NovaIconGrade,
   NovaIconHelp,
+  NovaIconHome,
   NovaIconInfo,
+  NovaIconLanguage,
+  NovaIconLaunch,
   NovaIconLeft,
   NovaIconLoading,
+  NovaIconLock,
   NovaIconRemove,
   NovaIconRemoveCircle,
   NovaIconRight,
+  NovaIconSchedule,
+  NovaIconSearch,
   NovaIconTop,
   NovaIconWarning
 } from 'nova-vue';
 
 export default {
   components: {
+    NovaIconAccountBox,
+    NovaIconAccountCircle,
     NovaIconAdd,
     NovaIconAddCircle,
     NovaIconBottom,
+    NovaIconCached,
     NovaIconCancel,
     NovaIconCheck,
     NovaIconCheckCircle,
     NovaIconClose,
+    NovaIconCode,
     NovaIconDateRange,
     NovaIconError,
+    NovaIconExitToApp,
+    NovaIconFavorite,
+    NovaIconGetApp,
+    NovaIconGrade,
     NovaIconHelp,
+    NovaIconHome,
     NovaIconInfo,
+    NovaIconLanguage,
+    NovaIconLaunch,
     NovaIconLeft,
     NovaIconLoading,
+    NovaIconLock,
     NovaIconRemove,
     NovaIconRemoveCircle,
     NovaIconRight,
+    NovaIconSchedule,
+    NovaIconSearch,
     NovaIconTop,
     NovaIconWarning
   }
